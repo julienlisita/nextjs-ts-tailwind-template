@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 /* Thème global light / dark avec variables CSS */
-:root {
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
-}
+} */
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ededed;
+    --foreground: #0a0a0a;
   }
 }
 
@@ -17,6 +17,11 @@
 * {
   box-sizing: border-box;
   margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 html,
