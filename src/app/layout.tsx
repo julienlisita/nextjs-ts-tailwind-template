@@ -2,6 +2,7 @@
 
 import type { Metadata } from "next";
 import "./globals.css";
+import Header from "@/components/layout/Header";
 
 export const metadata: Metadata = {
   title: "Mon site vitrine",
@@ -15,8 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr">
-      <body className="h-full w-full flex flex-col antialiased">
-        <main className="flex-1 mt-14 sm:mt-16 lg:mt-20">
+      <body className="min-h-screen flex flex-col antialiased">
+        <Header/>
+        <main className="flex-1 mt-14 sm:mt-16 lg:mt-20 pt-14 sm:pt-16 lg:pt-20">
           {children}
         </main>
       </body>
