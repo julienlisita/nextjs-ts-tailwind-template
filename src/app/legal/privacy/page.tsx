@@ -1,9 +1,11 @@
 // src/app/legal/privacy/page.tsx
 
+import PageTitle from "@/components/ui/PageTitle";
+
 export default function PrivacyPage() {
   return (
     <div className="container mx-auto px-4 py-10">
-      <h1 className="text-3xl font-bold mb-4">Politique de confidentialité</h1>
+      <PageTitle>Politique de confidentialité</PageTitle>
       <p className="text-gray-700">Utilisation des données personnelles.</p>
     </div>
   );
