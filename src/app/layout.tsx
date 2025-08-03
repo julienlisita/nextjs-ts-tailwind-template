@@ -1,15 +1,10 @@
 // src/app/layout.tsx
 
-import type { Metadata } from "next";
 import "./globals.css";
+import { metadata } from './metadata';
+export { metadata };
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-
-
-export const metadata: Metadata = {
-  title: "Mon site vitrine",
-  description: "Une landing page Next.js + Tailwind CSS",
-};
 
 export default function RootLayout({
   children,
