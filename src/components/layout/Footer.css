@@ -1,0 +1,45 @@
+.footer {
+  @apply bg-white border-t border-gray-300 
+         flex flex-col space-y-3 
+         sm:flex-row sm:space-y-0 
+         justify-between items-center 
+         px-4 py-3;
+}
+
+.footer-logo {
+  @apply relative h-10 w-10 sm:h-12 sm:w-12;
+}
+
+.footer-links {
+  @apply font-bold text-sm 
+         flex flex-col sm:flex-row items-center 
+         space-y-1 sm:space-y-0 sm:space-x-4 
+         text-center mb-2;
+}
+
+.footer-links a {
+  color: black;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-copy {
+  @apply font-bold text-xs sm:text-sm text-center;
+  color: black;
+}
+
+.footer-socials {
+  @apply flex items-center space-x-3;
+}
+
+.footer-icon {
+  @apply w-8 h-8 sm:w-10 sm:h-10 transition;
+  color: black;
+}
+
+.footer-icon:hover {
+  color: #6b7280; /* gray-500 */
+}
