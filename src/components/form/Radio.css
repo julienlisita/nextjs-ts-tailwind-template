@@ -1,0 +1,16 @@
+.radio-label {
+  @apply flex items-center space-x-2 cursor-pointer text-sm;
+  color: #3B2F2F;
+}
+
+.radio-input {
+  @apply h-4 w-4 border rounded-full;
+  background-color: white;
+  border-color: #ccc;
+  accent-color: #3c8dd8; /* couleur personnalisée de sélection */
+}
+
+.radio-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(60, 141, 216, 0.5);
+}

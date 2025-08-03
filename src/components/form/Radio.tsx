@@ -3,6 +3,7 @@
 'use client';
 
 import React from 'react';
+import './Radio.css';
 
 type RadioProps = {
   label: string;
@@ -23,14 +24,14 @@ export default function Radio({
   ...props
 }: RadioProps) {
   return (
-    <label className="flex items-center space-x-2 cursor-pointer text-sm text-gray-800">
+    <label className={`radio-label ${className}`}>
       <input
         type="radio"
         name={name}
         value={value}
         checked={checked}
         required={required}
-        className={`h-4 w-4 text-blue-600 bg-white border-gray-300 focus:ring-blue-500 ${className}`}
+        className="radio-input"
         {...props}
       />
       <span>{label}</span>
