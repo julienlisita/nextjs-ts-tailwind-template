@@ -3,6 +3,14 @@
 import PageTitle from "@/components/ui/PageTitle";
 import ServiceCard from "@/components/widgets/ServiceCard";
 
+export const metadata = {
+  title: "Services – Nom entreprise",
+  description: "Découvrez nos services sur mesure pour professionnels et particuliers : développement web, accompagnement digital, et plus encore.",
+  alternates: {
+    canonical: "https://www.exemple.com/services",
+  },
+};
+
 export default function ServicesPage() {
   return (
     <div className="container mx-auto px-4 py-10">
