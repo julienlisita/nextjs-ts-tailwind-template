@@ -3,6 +3,7 @@
 'use client';
 
 import React from 'react';
+import './Checkbox.css';
 
 type CheckboxProps = {
   label: string;
@@ -19,13 +20,13 @@ export default function Checkbox({
   ...props
 }: CheckboxProps) {
   return (
-    <label className="flex items-center space-x-2 cursor-pointer text-sm text-gray-800">
+    <label className={`checkbox-label ${className}`}>
       <input
         type="checkbox"
         name={name}
         id={name}
         required={required}
-        className={`h-4 w-4 text-blue-600 bg-white border-gray-300 rounded focus:ring-blue-500 ${className}`}
+        className="checkbox-input"
         {...props}
       />
       <span>{label}</span>
