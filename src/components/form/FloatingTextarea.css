@@ -1,0 +1,30 @@
+.floating-textarea {
+  @apply block w-full text-sm rounded-md appearance-none transition resize-none;
+
+  @apply px-3 pb-2.5 pt-4;
+
+  @apply border focus:outline-none focus:ring-0;
+
+  background-color: white;
+  color: black;
+  border-color: #3a3a3a;
+}
+
+.floating-textarea:focus {
+  border-color: #5AC8FA;
+}
+
+.floating-textarea-label {
+  @apply absolute text-sm duration-300 transform top-2 z-10 left-3 origin-[0];
+
+
+  color: #4B5563; /* gray-600 */
+}
+
+.floating-textarea:placeholder-shown + .floating-textarea-label {
+  transform: translateY(1rem) scale(1);
+}
+
+.floating-textarea:focus + .floating-textarea-label {
+  transform: translateY(-0.75rem) scale(0.75);
+}
