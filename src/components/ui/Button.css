@@ -1,0 +1,33 @@
+/* src/components/ui/Button.css */
+
+.btn {
+  @apply inline-block px-6 py-3 text-sm font-semibold rounded-[15px] transition-colors duration-200;
+}
+
+.btn.primary {
+  border: 2px solid transparent;
+  background-color: #3e8ce0;
+  color: white;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+.btn.primary:hover {
+  background-color: #FAF8F3;
+  color: #3c87d8;
+  border-color: #3e8ce0;
+}
+
+.btn.secondary {
+  background-color: white;
+  color: #3c87d8;
+  border: 2px solid #3c87d8;
+}
+.btn.secondary:hover {
+  background-color: #3c87d8;
+  color: white;
+  border: 2px solid #3c87d8;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
