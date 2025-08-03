@@ -5,6 +5,7 @@
 import Button from '../ui/Button';
 import FloatingInput from '../form/FloatingInput';
 import FloatingTextarea from '../form/FloatingTextarea';
+import './ContactForm.css';
 
 export default function ContactForm() {
   return (
@@ -14,7 +15,7 @@ export default function ContactForm() {
       data-netlify="true"
       netlify-honeypot="bot-field"
       action="/merci"
-      className="w-full bg-white text-gray-800 rounded-xl p-6 sm:p-8 space-y-6 shadow-md"
+      className="contact-form"
     >
       {/* Champs Netlify */}
       <input type="hidden" name="form-name" value="contact" />
