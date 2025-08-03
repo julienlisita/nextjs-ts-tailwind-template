@@ -1,0 +1,57 @@
+/* src/components/layout/Header.css */
+
+.site-header {
+  @apply fixed top-0 z-50 w-full h-14 sm:h-16 lg:h-20 px-4 flex items-center justify-between shadow-md;
+  background-color: white;
+}
+
+.logo-wrapper {
+  @apply relative h-10 w-10 sm:h-12 sm:w-12;
+}
+
+.main-nav {
+  @apply space-x-6 font-semibold;
+  color: #1f2937; /* text-gray-800 */
+}
+
+.nav-link {
+  @apply transition;
+}
+
+.nav-link:hover {
+  color: #2563eb; /* hover:text-blue-600 */
+}
+
+.menu-toggle {
+  @apply lg:hidden;
+}
+
+.icon {
+  @apply w-6 h-6 transition;
+  color: #1f2937; /* text-gray-800 */
+}
+
+.mobile-menu {
+  @apply absolute top-full left-0 w-full shadow-md flex flex-col items-center transition-all duration-300 overflow-hidden lg:hidden;
+  background-color: white;
+  color: #1f2937;
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.mobile-menu.open {
+  max-height: 24rem; /* max-h-96 */
+  opacity: 1;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.mobile-link {
+  @apply w-full text-center py-2;
+}
+
+.mobile-link:hover {
+  background-color: #f3f4f6; /* hover:bg-gray-100 */
+}
