@@ -1,7 +1,7 @@
 // src/app/services/page.tsx
 
 import PageTitle from "@/components/ui/PageTitle";
-import ServiceCard from "@/components/widgets/ServicesCard";
+import ServiceCard from "@/components/widgets/ServiceCard";
 
 export default function ServicesPage() {
   return (
@@ -12,12 +12,12 @@ export default function ServicesPage() {
         <ServiceCard
           title="Service 1"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae diam eget orci semper ullamcorper ullamcorper at eros. Sed pretium sed augue id pretium."
-          color={["#34D399", "#10B981"]}
+          color={["#60A5FA", "#3B82F6"]}
         />
         <ServiceCard
           title="Service 2"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae diam eget orci semper ullamcorper ullamcorper at eros. Sed pretium sed augue id pretium."
-          color={["#FBBF24", "#F59E0B"]}
+          color={["#60A5FA", "#3B82F6"]}
         />
         <ServiceCard
           title="Service 3"

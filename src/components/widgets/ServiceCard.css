@@ -1,0 +1,28 @@
+/* src/components/widgets/ServiceCard.css */
+
+.service-card {
+  @apply w-72 h-80 rounded-2xl shadow-lg overflow-hidden 
+         bg-white text-black 
+         transition-transform duration-300 
+         hover:scale-105;
+}
+
+.service-card-header {
+  @apply w-full h-24 
+         flex flex-col items-center justify-center 
+         space-y-1 text-white;
+}
+
+.service-card-icon {
+  @apply text-3xl;
+}
+
+.service-card-title {
+  @apply text-lg font-semibold text-center;
+}
+
+.service-card-body {
+  @apply p-6 pt-4 
+         flex flex-col items-center justify-start 
+         text-center text-sm text-gray-700;
+}
