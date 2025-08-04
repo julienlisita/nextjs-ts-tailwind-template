@@ -1,6 +1,6 @@
 // src/app/gallery/page.tsx
 
-import PageTitle from "@/components/ui/PageTitle";
+import Gallery from "@/components/pages/Gallery";
 
 export const metadata = {
   title: "Galerie – Photos et visuels",
@@ -12,9 +12,6 @@ export const metadata = {
 
 export default function GalleryPage() {
   return (
-    <div className="container mx-auto px-4 py-10">
-      <PageTitle>Portfolio</PageTitle>
-      <p className="text-gray-700 py-8">Contenu à venir…</p>
-    </div>
+    <Gallery/>
   );
 }

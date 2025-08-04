@@ -1,6 +1,6 @@
 // src/app/information/page.tsx
 
-import PageTitle from "@/components/ui/PageTitle";
+import Information from "@/components/pages/Information";
 
 export const metadata = {
   title: "Informations",
@@ -12,9 +12,6 @@ export const metadata = {
 
 export default function InformationPage() {
   return (
-    <div className="container mx-auto px-4 py-10">
-      <PageTitle>Informations</PageTitle>
-      <p className="text-gray-700 py-8">Contenu à venir…</p>
-    </div>
+    <Information/>
   );
 }
