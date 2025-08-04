@@ -36,8 +36,6 @@ export const metadata = {
     apple: { url: '/apple-touch-icon.png', sizes: '180x180' },
   },
   manifest: '/site.webmanifest',
-  themeColor: '#D8973C',
-  viewport: 'width=device-width, initial-scale=1.0',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
