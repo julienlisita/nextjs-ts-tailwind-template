@@ -1,7 +1,7 @@
 // src/components/pages/Contact.tsx
 
-import PageTitle from "@/components/ui/PageTitle"
-import ContactForm from "@/components/form/ContactForm";
+import PageTitle from '@/components/ui/PageTitle';
+import ContactForm from '@/components/form/ContactForm';
 
 export default function Contact() {
   return (

@@ -1,6 +1,6 @@
 // src/components/pages/Testimonials.tsx
 
-import PageTitle from "@/components/ui/PageTitle"
+import PageTitle from '@/components/ui/PageTitle';
 
 export default function Testimonials() {
   return (

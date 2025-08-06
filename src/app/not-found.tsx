@@ -1,4 +1,4 @@
-import PageTitle from "@/components/ui/PageTitle";
+import PageTitle from '@/components/ui/PageTitle';
 
 export default function NotFound() {
   return (
@@ -7,7 +7,9 @@ export default function NotFound() {
       <p className="text-gray-600 mb-6 mt-4">
         La page que vous cherchez n’existe pas ou a été déplacée.
       </p>
-      <a href="/" className="text-blue-600 hover:underline">Retour à l’accueil</a>
+      <a href="/" className="text-blue-600 hover:underline">
+        Retour à l’accueil
+      </a>
     </main>
   );
 }

@@ -1,6 +1,6 @@
 .checkbox-label {
   @apply flex items-center space-x-2 cursor-pointer text-sm;
-  color: #3B2F2F; /* Couleur texte terre */
+  color: #3b2f2f; /* Couleur texte terre */
 }
 
 .checkbox-input {

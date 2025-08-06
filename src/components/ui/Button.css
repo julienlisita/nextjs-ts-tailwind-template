@@ -8,10 +8,13 @@
   border: 2px solid transparent;
   background-color: #3e8ce0;
   color: white;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    border-color 0.3s;
 }
 .btn.primary:hover {
-  background-color: #FAF8F3;
+  background-color: #faf8f3;
   color: #3c87d8;
   border-color: #3e8ce0;
 }

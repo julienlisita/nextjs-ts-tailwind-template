@@ -3,21 +3,17 @@
 type PageTitleProps = {
   className?: string;
   children: React.ReactNode;
-  color?: string; 
+  color?: string;
 };
 
 const resolveColor = (color: string) => {
-  if (color.startsWith("#") || color.startsWith("rgb") || color.startsWith("hsl")) {
+  if (color.startsWith('#') || color.startsWith('rgb') || color.startsWith('hsl')) {
     return color;
   }
   return `var(--color-${color})`;
 };
 
-export default function PageTitle({
-  className = "",
-  children,
-  color = "terre",
-}: PageTitleProps) {
+export default function PageTitle({ className = '', children, color = 'terre' }: PageTitleProps) {
   return (
     <h1
       className={`${className}

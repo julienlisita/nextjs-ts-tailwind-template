@@ -25,10 +25,7 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
 
   return createPortal(
     <div className="modal-backdrop" onClick={onClose}>
-      <div
-        className="modal-container"
-        onClick={(e) => e.stopPropagation()}
-      >
+      <div className="modal-container" onClick={(e) => e.stopPropagation()}>
         <button className="modal-close" onClick={onClose} aria-label="Fermer la fenêtre">
           ×
         </button>

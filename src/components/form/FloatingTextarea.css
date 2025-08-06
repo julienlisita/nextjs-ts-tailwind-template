@@ -11,14 +11,13 @@
 }
 
 .floating-textarea:focus {
-  border-color: #5AC8FA;
+  border-color: #5ac8fa;
 }
 
 .floating-textarea-label {
   @apply absolute text-sm duration-300 transform top-2 z-10 left-3 origin-[0];
 
-
-  color: #4B5563; /* gray-600 */
+  color: #4b5563; /* gray-600 */
 }
 
 .floating-textarea:placeholder-shown + .floating-textarea-label {

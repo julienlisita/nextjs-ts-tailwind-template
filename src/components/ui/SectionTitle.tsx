@@ -2,8 +2,8 @@
 
 'use client';
 
-import React from "react";
-import { resolveColor } from "@/lib/resolveColor";
+import React from 'react';
+import { resolveColor } from '@/lib/resolveColor';
 
 type SectionTitleProps = {
   id?: string;
@@ -15,8 +15,8 @@ type SectionTitleProps = {
 export default function SectionTitle({
   id,
   children,
-  className = "",
-  color = "inherit",
+  className = '',
+  color = 'inherit',
 }: SectionTitleProps) {
   return (
     <h2

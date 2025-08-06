@@ -2,14 +2,13 @@
 
 'use client';
 
-import PageTitle from "@/components/ui/PageTitle"
-import { JobOfferCard } from "../widgets/JobOfferCard";
+import PageTitle from '@/components/ui/PageTitle';
+import { JobOfferCard } from '../widgets/JobOfferCard';
 import Modal from '../ui/Modal';
 import JobApplicationForm from '../form/JobApplicationForm';
-import { useState } from "react";
+import { useState } from 'react';
 
 export default function Recruitment() {
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedJobTitle, setSelectedJobTitle] = useState<string | null>(null);
 
@@ -40,15 +39,14 @@ export default function Recruitment() {
       <PageTitle>Recrutement</PageTitle>
       <div className="flex flex-wrap justify-center gap-6">
         {jobOffers.map((offer) => (
-           <JobOfferCard 
-                    key={offer.id}
-                    title={offer.title}
-                    location={offer.location}
-                    description={offer.description}
-                    onApply={() => handleApply(offer.title)}
-                  />
-         ))
-        }
+          <JobOfferCard
+            key={offer.id}
+            title={offer.title}
+            location={offer.location}
+            description={offer.description}
+            onApply={() => handleApply(offer.title)}
+          />
+        ))}
       </div>
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <JobApplicationForm jobTitle={selectedJobTitle ?? ''} />

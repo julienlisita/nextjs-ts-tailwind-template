@@ -1,6 +1,6 @@
 .radio-label {
   @apply flex items-center space-x-2 cursor-pointer text-sm;
-  color: #3B2F2F;
+  color: #3b2f2f;
 }
 
 .radio-input {

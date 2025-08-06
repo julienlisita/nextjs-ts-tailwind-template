@@ -2,15 +2,17 @@
 
 .service-card {
   @apply w-72 h-80 rounded-2xl shadow-lg overflow-hidden 
-         bg-white text-black 
          transition-transform duration-300 
          hover:scale-105;
+  color: black;
+  background-color: white;
 }
 
 .service-card-header {
   @apply w-full h-24 
          flex flex-col items-center justify-center 
-         space-y-1 text-white;
+         space-y-1;
+  color: white;
 }
 
 .service-card-icon {
@@ -24,5 +26,6 @@
 .service-card-body {
   @apply p-6 pt-4 
          flex flex-col items-center justify-start 
-         text-center text-sm text-gray-700;
+         text-center text-sm;
+  color: #6b7280;
 }

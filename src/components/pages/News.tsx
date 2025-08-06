@@ -1,6 +1,6 @@
 // src/components/pages/News.tsx
 
-import PageTitle from "@/components/ui/PageTitle"
+import PageTitle from '@/components/ui/PageTitle';
 
 export default function News() {
   return (

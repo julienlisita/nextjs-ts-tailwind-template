@@ -1,5 +1,5 @@
 .contact-form {
   @apply w-full rounded-xl p-6 sm:p-8 space-y-6 shadow-md;
   background-color: white;
-  color: #3B2F2F; /* texte de base */
+  color: #3b2f2f; /* texte de base */
 }

@@ -10,7 +10,7 @@ import './Header.css';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const toggleMenu = () => setIsOpen(prev => !prev);
+  const toggleMenu = () => setIsOpen((prev) => !prev);
 
   return (
     <header className="site-header">
@@ -28,13 +28,27 @@ export default function Header() {
 
       {/* Desktop nav */}
       <nav className="main-nav hidden lg:flex">
-        <Link className="nav-link" href="/">Accueil</Link>
-        <Link className="nav-link" href="/about">A propos</Link>
-        <Link className="nav-link" href="/services">Services</Link>
-        <Link className="nav-link" href="/information">Informations</Link>
-        <Link className="nav-link" href="/news">Actualités</Link>
-        <Link className="nav-link" href="/recruitment">Recrutement</Link>
-        <Link className="nav-link" href="/contact">Contact</Link>
+        <Link className="nav-link" href="/">
+          Accueil
+        </Link>
+        <Link className="nav-link" href="/about">
+          A propos
+        </Link>
+        <Link className="nav-link" href="/services">
+          Services
+        </Link>
+        <Link className="nav-link" href="/information">
+          Informations
+        </Link>
+        <Link className="nav-link" href="/news">
+          Actualités
+        </Link>
+        <Link className="nav-link" href="/recruitment">
+          Recrutement
+        </Link>
+        <Link className="nav-link" href="/contact">
+          Contact
+        </Link>
       </nav>
 
       {/* Burger button */}
@@ -44,13 +58,27 @@ export default function Header() {
 
       {/* Mobile menu */}
       <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
-        <Link href="/" onClick={toggleMenu} className="mobile-link">Accueil</Link>
-        <Link href="/about" onClick={toggleMenu} className="mobile-link">A propos</Link>
-        <Link href="/services" onClick={toggleMenu} className="mobile-link">Services</Link>
-        <Link href="/information" onClick={toggleMenu} className="mobile-link">Informations</Link>
-        <Link href="/news" onClick={toggleMenu} className="mobile-link">Actualités</Link>
-        <Link href="/recruitment" onClick={toggleMenu} className="mobile-link">Recrutement</Link>
-        <Link href="/contact" onClick={toggleMenu} className="mobile-link">Contact</Link>
+        <Link href="/" onClick={toggleMenu} className="mobile-link">
+          Accueil
+        </Link>
+        <Link href="/about" onClick={toggleMenu} className="mobile-link">
+          A propos
+        </Link>
+        <Link href="/services" onClick={toggleMenu} className="mobile-link">
+          Services
+        </Link>
+        <Link href="/information" onClick={toggleMenu} className="mobile-link">
+          Informations
+        </Link>
+        <Link href="/news" onClick={toggleMenu} className="mobile-link">
+          Actualités
+        </Link>
+        <Link href="/recruitment" onClick={toggleMenu} className="mobile-link">
+          Recrutement
+        </Link>
+        <Link href="/contact" onClick={toggleMenu} className="mobile-link">
+          Contact
+        </Link>
       </div>
     </header>
   );

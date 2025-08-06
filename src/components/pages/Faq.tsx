@@ -1,6 +1,6 @@
 // src/components/pages/Faq.tsx
 
-import PageTitle from "@/components/ui/PageTitle"
+import PageTitle from '@/components/ui/PageTitle';
 
 export default function Faq() {
   return (

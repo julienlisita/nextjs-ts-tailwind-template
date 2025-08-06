@@ -21,11 +21,11 @@
 .file-input {
   @apply block w-full text-sm bg-white rounded-md cursor-pointer focus:outline-none;
   color: #111827; /* text-gray-900 */
-  border: 1px solid #D1D5DB; /* border-gray-300 */
+  border: 1px solid #d1d5db; /* border-gray-300 */
   padding: 0.5rem;
 }
 
 .file-name {
   @apply text-sm;
-  color: #4B5563; /* text-gray-600 */
+  color: #4b5563; /* text-gray-600 */
 }

@@ -1,6 +1,6 @@
 // src/components/pages/About.tsx
 
-import PageTitle from "@/components/ui/PageTitle";
+import PageTitle from '@/components/ui/PageTitle';
 
 export default function About() {
   return (

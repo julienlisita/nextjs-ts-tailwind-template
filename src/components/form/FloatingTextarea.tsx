@@ -32,10 +32,7 @@ export default function FloatingTextarea({
         className={`floating-textarea ${className}`}
         {...props}
       />
-      <label
-        htmlFor={name}
-        className="floating-textarea-label"
-      >
+      <label htmlFor={name} className="floating-textarea-label">
         {label}
       </label>
     </div>

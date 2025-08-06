@@ -24,9 +24,7 @@ export default function ServiceCard({ icon, title, description, color }: Service
       </div>
 
       {/* Description */}
-      <div className="service-card-body">
-        {description}
-      </div>
+      <div className="service-card-body">{description}</div>
     </div>
   );
 }

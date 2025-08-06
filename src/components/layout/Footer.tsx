@@ -28,11 +28,8 @@ export default function Footer() {
           <Link href="/legal/privacy">Politique de confidentialité</Link>
           <Link href="/legal/term">Conditions d'utilisation</Link>
           <Link href="/faq">FAQ</Link>
-
         </nav>
-        <p className="footer-copy">
-          © 2025 Nom d'entreprise – Activité
-        </p>
+        <p className="footer-copy">© 2025 Nom d'entreprise – Activité</p>
       </div>
 
       {/* Réseaux sociaux */}

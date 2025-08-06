@@ -1,6 +1,6 @@
 // src/components/pages/Gallery.tsx
 
-import PageTitle from "@/components/ui/PageTitle"
+import PageTitle from '@/components/ui/PageTitle';
 
 export default function Gallery() {
   return (

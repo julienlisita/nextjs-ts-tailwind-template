@@ -26,11 +26,7 @@ export default function Button({
   disabled,
   ...props
 }: ButtonProps) {
-  const combinedClassName = clsx(
-    'btn',
-    variant,
-    className
-  );
+  const combinedClassName = clsx('btn', variant, className);
 
   if (href) {
     return (

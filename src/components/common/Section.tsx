@@ -9,11 +9,7 @@ type SectionProps = {
 };
 
 const resolveColor = (color: string): string => {
-  if (
-    color.startsWith('#') ||
-    color.startsWith('rgb') ||
-    color.startsWith('hsl')
-  ) {
+  if (color.startsWith('#') || color.startsWith('rgb') || color.startsWith('hsl')) {
     return color;
   }
   return `var(--color-${color})`;
@@ -25,10 +21,7 @@ export default function Section({
   bgColor = 'transparent',
 }: SectionProps) {
   return (
-    <section
-      className={className}
-      style={{ backgroundColor: resolveColor(bgColor) }}
-    >
+    <section className={className} style={{ backgroundColor: resolveColor(bgColor) }}>
       {children}
     </section>
   );

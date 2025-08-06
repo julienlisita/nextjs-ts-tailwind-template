@@ -2,24 +2,24 @@
 
 .modal-backdrop {
   @apply fixed inset-0 flex items-center justify-center z-50;
-  background-color: rgba(0, 0, 0, 0.5); 
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-container {
   @apply rounded-lg shadow-lg p-6 max-w-lg w-full relative;
-  background-color: white; 
+  background-color: white;
 }
 
 .modal-close {
   @apply absolute top-2 right-3 text-xl;
   background: none;
   border: none;
-  color: #4B5563; 
+  color: #4b5563;
   cursor: pointer;
 }
 
 .modal-close:hover {
-  color: #000000; 
+  color: #000000;
 }
 
 .modal-content {

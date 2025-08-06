@@ -1,6 +1,6 @@
 // src/components/pages/legal/Imprint.tsx
 
-import PageTitle from "@/components/ui/PageTitle"
+import PageTitle from '@/components/ui/PageTitle';
 
 export default function Imprint() {
   return (
@@ -14,7 +14,8 @@ export default function Imprint() {
         Hébergeur : [Nom de l'hébergeur, adresse]
       </p>
       <p className="text-gray-700">
-        Pour toute question concernant ces mentions, vous pouvez nous contacter via le formulaire de contact.
+        Pour toute question concernant ces mentions, vous pouvez nous contacter via le formulaire de
+        contact.
       </p>
     </div>
   );

@@ -2,8 +2,8 @@
 
 'use client';
 
-import Button from "@/components/ui/Button";
-import PageTitle from "@/components/ui/PageTitle"
+import Button from '@/components/ui/Button';
+import PageTitle from '@/components/ui/PageTitle';
 
 export default function Hero() {
   return (
