@@ -1,0 +1,31 @@
+/* src/components/form/JobApplicationForm.css */
+
+.job-form {
+  @apply flex flex-col space-y-4;
+}
+
+.job-form-title {
+  @apply text-xl font-semibold mb-2;
+  color: black;
+}
+
+.file-upload {
+  @apply flex flex-col space-y-2;
+}
+
+.file-label {
+  @apply text-sm font-medium;
+  color: #374151; /* text-gray-700 */
+}
+
+.file-input {
+  @apply block w-full text-sm bg-white rounded-md cursor-pointer focus:outline-none;
+  color: #111827; /* text-gray-900 */
+  border: 1px solid #D1D5DB; /* border-gray-300 */
+  padding: 0.5rem;
+}
+
+.file-name {
+  @apply text-sm;
+  color: #4B5563; /* text-gray-600 */
+}
