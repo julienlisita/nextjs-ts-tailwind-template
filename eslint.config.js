@@ -1,7 +1,9 @@
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
-import { FlatCompat } from '@eslint/eslintrc';
-import prettierPlugin from 'eslint-plugin-prettier';
+// eslint.config.js
+
+const { dirname } = require('path');
+const { fileURLToPath } = require('url');
+const { FlatCompat } = require('@eslint/eslintrc');
+const prettierPlugin = require('eslint-plugin-prettier');
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -10,9 +12,8 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-const eslintConfig = [
+module.exports = [
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
-
   {
     plugins: {
       prettier: prettierPlugin,
@@ -23,5 +24,3 @@ const eslintConfig = [
     },
   },
 ];
-
-export default eslintConfig;
