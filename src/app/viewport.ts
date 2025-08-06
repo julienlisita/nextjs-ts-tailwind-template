@@ -1,5 +1,5 @@
 export const viewport = {
-  themeColor: '#D8973C',
+  themeColor: '#000000',
   width: 'device-width',
   initialScale: 1,
 };
