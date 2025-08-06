@@ -11,8 +11,8 @@ export default function Privacy() {
         uniquement pour répondre à vos demandes.
       </p>
       <p className="text-gray-700">
-        Conformément à la loi, vous disposez d’un droit d’accès, de rectification et de suppression
-        de vos données personnelles.
+        Conformément à la loi, vous disposez d&apos;un droit d&apos;accès, de rectification et de
+        suppression de vos données personnelles.
       </p>
       <p className="text-gray-700">
         Pour toute question relative à vos données, contactez-nous à [adresse e-mail].
