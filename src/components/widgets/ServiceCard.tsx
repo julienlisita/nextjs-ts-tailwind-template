@@ -1,5 +1,7 @@
 // src/components/widgets/ServiceCard.tsx
 
+'use client';
+
 import React from 'react';
 import './ServiceCard.css';
 

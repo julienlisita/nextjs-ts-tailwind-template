@@ -1,0 +1,31 @@
+/* src/components/widgets/NewsCard.css */
+
+.news-card {
+  @apply block w-full max-w-xl p-5 rounded-lg shadow transition hover:shadow-md;
+  background-color: white;
+  text-decoration: none;
+}
+
+.news-card-header {
+  @apply flex justify-between items-center mb-2;
+}
+
+.news-card-title {
+  @apply text-lg font-semibold;
+  color: black;
+}
+
+.news-card-source {
+  @apply text-sm;
+  color: #6B7280;
+}
+
+.news-card-description {
+  @apply text-sm mb-2;
+  color: #4B5563;
+}
+
+.news-card-date {
+  @apply text-xs;
+  color: #9CA3AF;
+}
