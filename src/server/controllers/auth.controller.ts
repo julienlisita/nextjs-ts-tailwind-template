@@ -35,13 +35,21 @@ export async function loginHandler(req: NextRequest) {
 }
 
 export async function checkAuthHandler(req: Request) {
-  const token = await getTokenFromCookies();
-  const decoded = verifyToken(token);
+  try{
+    const token = await getTokenFromCookies();
+    const decoded = verifyToken(token);
 
-  return NextResponse.json({
-    message: 'Connecté',
-    user: decoded, 
-  });
+    return NextResponse.json({
+      message: 'Connecté',
+      user: decoded, 
+    });
+  }
+  catch (error) {
+    return NextResponse.json(
+      { message: 'Non authentifié' },
+      { status: 401 }
+    );
+  }
 }
 
 export async function logoutHandler() {
