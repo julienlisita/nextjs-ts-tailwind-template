@@ -14,15 +14,14 @@ export async function loginHandler(req: NextRequest) {
   }
 
   const user = await prisma.user.findUnique({ where: { email } });
-  console.log(user?.password)
-  console.log(user?.email)
+  console.log(user?.password);
+  console.log(user?.email);
 
   if (!user || !user.password || !(await bcrypt.compare(password, user.password))) {
     return NextResponse.json({ message: 'Identifiants invalides' }, { status: 401 });
   }
 
   const token = signToken({ userId: user.id, role: user.role });
-
 
   const response = NextResponse.json({ message: 'Connexion réussie' });
   response.cookies.set('token', token, {
@@ -35,20 +34,16 @@ export async function loginHandler(req: NextRequest) {
 }
 
 export async function checkAuthHandler(req: Request) {
-  try{
+  try {
     const token = await getTokenFromCookies();
     const decoded = verifyToken(token);
 
     return NextResponse.json({
       message: 'Connecté',
-      user: decoded, 
+      user: decoded,
     });
-  }
-  catch (error) {
-    return NextResponse.json(
-      { message: 'Non authentifié' },
-      { status: 401 }
-    );
+  } catch (error) {
+    return NextResponse.json({ message: 'Non authentifié' }, { status: 401 });
   }
 }
 

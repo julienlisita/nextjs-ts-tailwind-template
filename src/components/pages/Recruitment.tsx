@@ -4,7 +4,7 @@ import { getPublicJobOffers } from '@/services/jobOffers';
 import RecruitmentClient, { JobOffer } from '@/components/pages/RecruitmentClient';
 
 export default async function Recruitment() {
-  const offers = await getPublicJobOffers() as JobOffer[];
+  const offers = (await getPublicJobOffers()) as JobOffer[];
 
   // const offers = [
   //   {

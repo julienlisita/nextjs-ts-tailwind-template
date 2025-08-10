@@ -9,7 +9,6 @@ export type JobOffer = {
 };
 
 export async function getPublicJobOffers(): Promise<JobOffer[]> {
-
   const base = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
   const res = await fetch(`${base}/api/job-offers`, { next: { revalidate: 60 } });
 

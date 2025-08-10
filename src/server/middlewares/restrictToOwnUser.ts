@@ -5,26 +5,17 @@ import type { AuthedRequest } from '@/types/next';
 export function restrictToOwnUser(getUserIdParam: (req: AuthedRequest) => string | null) {
   return async function (req: AuthedRequest) {
     if (!req.user) {
-      return NextResponse.json(
-        { message: 'Utilisateur non authentifié' },
-        { status: 401 }
-      );
+      return NextResponse.json({ message: 'Utilisateur non authentifié' }, { status: 401 });
     }
 
     const param = getUserIdParam(req);
     if (!param) {
-      return NextResponse.json(
-        { message: 'Paramètre utilisateur manquant' },
-        { status: 400 }
-      );
+      return NextResponse.json({ message: 'Paramètre utilisateur manquant' }, { status: 400 });
     }
 
     const paramAsNumber = Number(param);
     if (Number.isNaN(paramAsNumber)) {
-      return NextResponse.json(
-        { message: 'ID invalide' },
-        { status: 400 }
-      );
+      return NextResponse.json({ message: 'ID invalide' }, { status: 400 });
     }
 
     if (req.user.userId !== paramAsNumber) {

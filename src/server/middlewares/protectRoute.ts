@@ -2,7 +2,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { getTokenFromCookies } from '@/lib/auth';
-import { verifyToken} from '@/lib/jwt';
+import { verifyToken } from '@/lib/jwt';
 import type { AuthedRequest } from '@/types/next';
 
 export async function protectRoute(req: NextRequest): Promise<NextResponse | null> {

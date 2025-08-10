@@ -21,7 +21,7 @@ export default function Section({
   bgColor = 'transparent',
 }: SectionProps) {
   return (
-    <section 
+    <section
       className={`pt-8 sm:pt-10 md:pt-12 lg:pt-16 ${className}`}
       style={{ backgroundColor: resolveColor(bgColor) }}
     >
