@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
 const JWT_SECRET = process.env.JWT_SECRET || 'changeme';
 
 export type JwtPayload = {
-  userId: string;
+  userId: number;
   role: string;
 };
 
