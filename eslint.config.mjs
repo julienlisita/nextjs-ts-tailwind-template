@@ -1,18 +1,18 @@
-// eslint.config.js
+// eslint.config.mjs
 
-const { dirname } = require('path');
-const { fileURLToPath } = require('url');
-const { FlatCompat } = require('@eslint/eslintrc');
-const prettierPlugin = require('eslint-plugin-prettier');
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { FlatCompat } from '@eslint/eslintrc';
+import prettierPlugin from 'eslint-plugin-prettier';
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __dirname = path.dirname(__filename);
 
 const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-module.exports = [
+export default [
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
   {
     plugins: {
