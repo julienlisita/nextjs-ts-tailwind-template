@@ -1,7 +1,7 @@
 /* src/components/widgets/JobOfferCard.css */
 
 .job-card {
-  @apply w-full max-w-md min-h-[300px] rounded-xl shadow-md p-6 flex flex-col transition hover:shadow-lg;
+  @apply w-full rounded-xl shadow-md p-6 flex flex-col transition hover:shadow-lg;
   background-color: white;
 }
 
@@ -25,7 +25,7 @@
 }
 
 .job-card-button {
-  @apply mt-auto px-6 py-2 rounded-md font-semibold transition mx-auto w-fit;
+  @apply mt-3 px-6 py-2 rounded-md font-semibold transition mx-auto w-fit;
   background-color: #d8973c;
   color: white;
 }

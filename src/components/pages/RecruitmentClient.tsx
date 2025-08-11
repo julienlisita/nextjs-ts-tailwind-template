@@ -33,7 +33,7 @@ export default function RecruitmentClient({ offers }: { offers: JobOffer[] }) {
       <Section>
         <SectionWrapper>
           <SectionTitle>Nos offres actuelles</SectionTitle>
-          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-10 justify-center">
             {offers.map((offer) => (
               <JobOfferCard
                 key={offer.id}
