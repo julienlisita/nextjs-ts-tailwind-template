@@ -1,12 +1,15 @@
 // src/components/pages/Recruitment.tsx
 
 import { getPublicJobOffers } from '@/services/jobOffers';
+import { unstable_noStore as noStore } from 'next/cache';
 import RecruitmentClient, { JobOffer } from '@/components/pages/RecruitmentClient';
 
 export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
 export default async function Recruitment() {
+  noStore();
   const offers = (await getPublicJobOffers()) as JobOffer[];
 
   // const offers = [
