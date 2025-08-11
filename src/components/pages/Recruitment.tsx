@@ -3,6 +3,9 @@
 import { getPublicJobOffers } from '@/services/jobOffers';
 import RecruitmentClient, { JobOffer } from '@/components/pages/RecruitmentClient';
 
+export const runtime = 'nodejs';
+export const revalidate = 60;
+
 export default async function Recruitment() {
   const offers = (await getPublicJobOffers()) as JobOffer[];
 

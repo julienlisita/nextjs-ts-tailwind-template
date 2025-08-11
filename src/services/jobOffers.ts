@@ -1,5 +1,7 @@
 // src/services/jobOffers.ts
 
+import { prisma } from '@/lib/prisma';
+
 export type JobOffer = {
   id: number;
   title: string;
@@ -9,10 +11,8 @@ export type JobOffer = {
 };
 
 export async function getPublicJobOffers(): Promise<JobOffer[]> {
-  const base = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
-  const res = await fetch(`${base}/api/job-offers`, { next: { revalidate: 60 } });
-
-  if (!res.ok) throw new Error('Failed to fetch job offers');
-  const data = await res.json();
-  return data.jobOffers;
+  const rows = await prisma.jobOffer.findMany({
+    orderBy: { publishedAt: 'desc' },
+  });
+  return rows as unknown as JobOffer[];
 }
