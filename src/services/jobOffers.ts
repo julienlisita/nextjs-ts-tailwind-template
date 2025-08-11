@@ -1,5 +1,6 @@
 // src/services/jobOffers.ts
 
+import 'server-only';
 import { prisma } from '@/lib/prisma';
 
 export type JobOffer = {
