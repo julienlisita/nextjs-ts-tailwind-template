@@ -7,7 +7,7 @@ import {
 import { NextRequest } from 'next/server';
 import { ensureAdmin } from '@/server/middlewares/withAuth';
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   return getAllJobOffersHandler();
 }
 

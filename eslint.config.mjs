@@ -13,7 +13,6 @@ const compat = new FlatCompat({
 });
 
 export default [
-
   { ignores: ['src/generated/**'] },
 
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
@@ -26,7 +25,7 @@ export default [
       'react/no-unescaped-entities': 'off',
     },
   },
-     {
+  {
     files: ['src/generated/**/*.*'],
     rules: {
       'prettier/prettier': 'off',

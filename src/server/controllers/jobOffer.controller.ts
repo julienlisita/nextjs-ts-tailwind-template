@@ -26,7 +26,7 @@ export async function createJobOfferHandler(req: NextRequest) {
       },
     });
     return NextResponse.json({ message: 'Offre créée', offer: newOffer }, { status: 201 });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ message: 'Erreur serveur' }, { status: 500 });
   }
 }
@@ -55,10 +55,12 @@ export async function updateJobOfferHandler(req: NextRequest, idParam: string) {
     });
 
     return NextResponse.json({ message: 'Offre mise à jour', offer });
-  } catch (error: any) {
+  } catch (error: unknown) {
     // Si l'ID n’existe pas
-    if (error?.code === 'P2025') {
-      return NextResponse.json({ message: 'Offre introuvable' }, { status: 404 });
+    if (typeof error === 'object' && error !== null && 'code' in error) {
+      const prismaError = error as { code?: string };
+      if (prismaError.code === 'P2025')
+        return NextResponse.json({ message: 'Offre introuvable' }, { status: 404 });
     }
     return NextResponse.json({ message: 'Erreur serveur' }, { status: 500 });
   }
@@ -73,9 +75,12 @@ export async function deleteJobOfferHandler(req: NextRequest, idParam: string) {
 
     await prisma.jobOffer.delete({ where: { id } });
     return NextResponse.json({ message: 'Offre supprimée' }, { status: 200 });
-  } catch (error: any) {
-    if (error?.code === 'P2025') {
-      return NextResponse.json({ message: 'Offre introuvable' }, { status: 404 });
+  } catch (error: unknown) {
+    // Si l'ID n’existe pas
+    if (typeof error === 'object' && error !== null && 'code' in error) {
+      const prismaError = error as { code?: string };
+      if (prismaError.code === 'P2025')
+        return NextResponse.json({ message: 'Offre introuvable' }, { status: 404 });
     }
     return NextResponse.json({ message: 'Erreur serveur' }, { status: 500 });
   }

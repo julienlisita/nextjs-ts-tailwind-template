@@ -33,7 +33,7 @@ export async function loginHandler(req: NextRequest) {
   return response;
 }
 
-export async function checkAuthHandler(req: Request) {
+export async function checkAuthHandler() {
   try {
     const token = await getTokenFromCookies();
     const decoded = verifyToken(token);
@@ -42,7 +42,7 @@ export async function checkAuthHandler(req: Request) {
       message: 'Connecté',
       user: decoded,
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ message: 'Non authentifié' }, { status: 401 });
   }
 }
