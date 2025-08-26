@@ -1,7 +1,8 @@
 /* src/components/layout/Header.css */
 
+/* Layout & structure via @apply */
 .site-header {
-  @apply fixed top-0 z-50 w-full h-14 sm:h-16 lg:h-20 px-4 flex items-center justify-between shadow-md;
+  @apply fixed top-0 z-50 w-full h-14 sm:h-16 lg:h-20 px-4 sm:px-6 lg:px-8 flex items-center justify-between shadow-md;
   background-color: white;
 }
 
@@ -10,48 +11,90 @@
 }
 
 .main-nav {
-  @apply space-x-6 font-semibold;
-  color: #1f2937; /* text-gray-800 */
+  @apply font-semibold;
+}
+
+.nav-list {
+  @apply flex gap-6;
 }
 
 .nav-link {
-  @apply transition;
+  @apply transition outline-none;
+}
+
+.menu-toggle {
+  @apply inline-flex items-center justify-center w-10 h-10 rounded lg:hidden outline-none;
+}
+
+.icon {
+  @apply w-6 h-6 transition;
+}
+
+.mobile-menu {
+  @apply absolute top-full left-0 w-full shadow-md transition-all duration-300 overflow-hidden lg:hidden;
+  @apply flex flex-col items-stretch;
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: white;
+}
+
+.mobile-menu.open {
+  max-height: 24rem; /* max-h-96 */
+  opacity: 1;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.mobile-list {
+  @apply flex flex-col;
+}
+
+.mobile-link {
+  @apply block w-full text-center py-2 outline-none;
+}
+
+/* ----- Couleurs / États (CSS pur) ----- */
+.main-nav {
+  color: #1f2937; /* text-gray-800 */
 }
 
 .nav-link:hover {
   color: #2563eb; /* hover:text-blue-600 */
 }
 
-.menu-toggle {
-  @apply lg:hidden;
+.nav-link[aria-current='page'] {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid #2563eb; /* blue-600 */
+  outline-offset: 2px;
+  border-radius: 0.25rem;
 }
 
 .icon {
-  @apply w-6 h-6 transition;
   color: #1f2937; /* text-gray-800 */
 }
 
-.mobile-menu {
-  @apply absolute top-full left-0 w-full shadow-md flex flex-col items-center transition-all duration-300 overflow-hidden lg:hidden;
-  background-color: white;
-  color: #1f2937;
-  max-height: 0;
-  opacity: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.mobile-menu.open {
-  max-height: 24rem; /* max-h-96 */
-  opacity: 1;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.mobile-link {
-  @apply w-full text-center py-2;
+.menu-toggle:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
 }
 
 .mobile-link:hover {
   background-color: #f3f4f6; /* hover:bg-gray-100 */
+}
+
+.mobile-link[aria-current='page'] {
+  background-color: #f9fafb; /* gray-50 */
+  font-weight: 600;
+}
+
+.mobile-link:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
 }
