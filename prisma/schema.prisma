@@ -32,3 +32,22 @@ model JobOffer {
   updatedAt   DateTime @updatedAt 
 }
 
+model Testimonial {
+  id           Int       @id @default(autoincrement())
+  name         String
+  role         String?   // ex: "Cliente", "CEO @ Acme"
+  company      String?
+  quote        String
+  rating       Decimal?  // 1..5, supporte 4.5
+  avatarUrl    String?
+  displayDate  String?   // ex: "Août 2025" (si tu veux afficher un libellé libre)
+  highlight    Boolean   @default(false)
+  variant      String?   // 'default' | 'compact' | 'horizontal'
+
+  isPublished  Boolean   @default(true)
+  publishedAt  DateTime? @default(now())
+
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
