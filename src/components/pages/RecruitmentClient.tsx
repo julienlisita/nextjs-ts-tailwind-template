@@ -10,15 +10,9 @@ import { useState } from 'react';
 import Section from '../common/Section';
 import SectionTitle from '../ui/SectionTitle';
 import SectionWrapper from '../common/SectionWrapper';
+import type { JobOffer } from '@/types/job';
 
-export type JobOffer = {
-  id: number;
-  title: string;
-  location: string;
-  description: string;
-};
-
-export default function RecruitmentClient({ offers }: { offers: JobOffer[] }) {
+export default function RecruitmentClient({ offers }: { offers: ReadonlyArray<JobOffer> }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedJobTitle, setSelectedJobTitle] = useState<string | null>(null);
 

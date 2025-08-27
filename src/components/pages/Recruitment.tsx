@@ -1,32 +1,14 @@
 // src/components/pages/Recruitment.tsx
 
-import { getPublicJobOffers } from '@/services/jobOffers';
-import { unstable_noStore as noStore } from 'next/cache';
-import RecruitmentClient, { JobOffer } from '@/components/pages/RecruitmentClient';
+import { getPublicJobOffersServer } from '@/services/jobOffers.server';
+import RecruitmentClient from '@/components/pages/RecruitmentClient';
+import { PAGE_DYNAMIC, PAGE_RUNTIME, PAGE_REVALIDATE } from '@/config/dataMode';
 
-export const runtime = 'nodejs';
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
+export const runtime = PAGE_RUNTIME;
+export const dynamic = PAGE_DYNAMIC;
+export const revalidate = PAGE_REVALIDATE;
 
 export default async function Recruitment() {
-  noStore();
-  const offers = (await getPublicJobOffers()) as JobOffer[];
-
-  // const offers = [
-  //   {
-  //     id: 1,
-  //     title: 'Assistant(e) de vie à domicile – Secteur Bordeaux',
-  //     location: 'Bordeaux (33)',
-  //     description:
-  //       'Accompagnement quotidien des personnes âgées ou en situation de handicap à leur domicile. Temps partiel ou temps plein selon disponibilités.',
-  //   },
-  //   {
-  //     id: 2,
-  //     title: 'Aide-ménager(ère) – Secteur Angoulême',
-  //     location: 'Angoulême (16)',
-  //     description:
-  //       'Entretien du domicile, aide au repas et courses. Permis B recommandé. Poste en CDI ou CDD selon profil.',
-  //   },
-  // ];
-  return <RecruitmentClient offers={offers} />;
+  const jobOffers = await getPublicJobOffersServer();
+  return <RecruitmentClient offers={jobOffers} />;
 }
