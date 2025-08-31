@@ -7,8 +7,7 @@ export const newsItems: ReadonlyArray<NewsItem> = [
     id: 1,
     slug: 'aide-a-domicile-nouveaux-dispositifs',
     title: "Aide à domicile : les nouveaux dispositifs d'accompagnement",
-    description:
-      'Un article sur les évolutions récentes concernant l’aide à domicile en France.',
+    description: 'Un article sur les évolutions récentes concernant l’aide à domicile en France.',
     source: 'Service-public.fr',
     url: 'https://www.service-public.fr/particuliers/actualites/A17123',
     date: '5 août 2025',
@@ -67,8 +66,7 @@ export const newsItems: ReadonlyArray<NewsItem> = [
     id: 6,
     slug: 'prevention-chutes-domicile',
     title: 'Prévention des chutes à domicile : 7 réflexes simples',
-    description:
-      'Aménagements et bonnes pratiques pour sécuriser le quotidien des seniors.',
+    description: 'Aménagements et bonnes pratiques pour sécuriser le quotidien des seniors.',
     source: 'Assurance Maladie',
     url: 'https://www.ameli.fr/assure/sante/themes/prevention-des-chutes',
     date: '1 juillet 2025',
@@ -79,8 +77,7 @@ export const newsItems: ReadonlyArray<NewsItem> = [
     id: 7,
     slug: 'aidants-proches-droits-repit',
     title: 'Aidants proches : vos droits au répit',
-    description:
-      'Solutions de répit et démarches pour les aidants familiaux : ce que dit la loi.',
+    description: 'Solutions de répit et démarches pour les aidants familiaux : ce que dit la loi.',
     source: 'Service-public.fr',
     url: 'https://www.service-public.fr/particuliers/vosdroits/F34332',
     date: '25 juin 2025',

@@ -20,8 +20,8 @@ export async function getPublicNews(): Promise<NewsItem[]> {
       description: r.description,
       source: r.source ?? undefined,
       url: r.url ?? undefined,
-      date: r.displayDate ?? undefined,                 // libellé affiché (ex: "5 août 2025")
-      publishedAt: r.publishedAt?.toISOString(),        // ISO pour le tri côté UI si besoin
+      date: r.displayDate ?? undefined, // libellé affiché (ex: "5 août 2025")
+      publishedAt: r.publishedAt?.toISOString(), // ISO pour le tri côté UI si besoin
       isPublished: r.isPublished ?? true,
       coverImage: r.coverImage ?? undefined,
     })

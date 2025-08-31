@@ -114,14 +114,13 @@ export async function main() {
     data: testimonialsData,
   });
 
-   await prisma.newsItem.deleteMany();
+  await prisma.newsItem.deleteMany();
 
   const newsItemsData = [
     {
       slug: 'aide-a-domicile-nouveaux-dispositifs',
       title: "Aide à domicile : les nouveaux dispositifs d'accompagnement",
-      description:
-        'Un article sur les évolutions récentes concernant l’aide à domicile en France.',
+      description: 'Un article sur les évolutions récentes concernant l’aide à domicile en France.',
       source: 'Service-public.fr',
       url: 'https://www.service-public.fr/particuliers/actualites/A17123',
       displayDate: '5 août 2025',
@@ -180,8 +179,7 @@ export async function main() {
     {
       slug: 'prevention-chutes-domicile',
       title: 'Prévention des chutes à domicile : 7 réflexes simples',
-      description:
-        'Aménagements et bonnes pratiques pour sécuriser le quotidien des seniors.',
+      description: 'Aménagements et bonnes pratiques pour sécuriser le quotidien des seniors.',
       source: 'Assurance Maladie',
       url: 'https://www.ameli.fr/assure/sante/themes/prevention-des-chutes',
       displayDate: '1 juillet 2025',
