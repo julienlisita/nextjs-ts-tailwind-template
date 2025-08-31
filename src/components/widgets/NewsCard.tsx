@@ -8,9 +8,9 @@ import './NewsCard.css';
 type NewsCardProps = {
   title: string;
   description: string;
-  date: string;
+  date?: string;
   source?: string;
-  url: string;
+  url?: string;
 };
 
 export default function NewsCard({ title, description, date, source, url }: NewsCardProps) {
