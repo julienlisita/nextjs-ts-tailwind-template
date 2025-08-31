@@ -51,3 +51,19 @@ model Testimonial {
   updatedAt    DateTime  @updatedAt
 }
 
+model NewsItem {
+  id           Int       @id @default(autoincrement())
+  slug         String    @unique
+  title        String
+  description  String
+  source       String?
+  url          String?   @unique
+  displayDate  String?
+  publishedAt  DateTime? @default(now())
+  isPublished  Boolean   @default(true)
+  coverImage   String?
+
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
