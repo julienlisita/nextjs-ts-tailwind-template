@@ -27,7 +27,7 @@ export default async function News() {
                 key={index}
                 title={item.title}
                 description={item.description}
-                date={item.date}
+                displayDate={item.displayDate}
                 source={item.source}
                 url={item.url}
               />

@@ -8,12 +8,12 @@ import './NewsCard.css';
 type NewsCardProps = {
   title: string;
   description: string;
-  date?: string;
+  displayDate?: string;
   source?: string;
   url?: string;
 };
 
-export default function NewsCard({ title, description, date, source, url }: NewsCardProps) {
+export default function NewsCard({ title, description, displayDate, source, url }: NewsCardProps) {
   return (
     <a href={url} target="_blank" rel="noopener noreferrer" className="news-card">
       <div className="news-card-header">
@@ -21,7 +21,7 @@ export default function NewsCard({ title, description, date, source, url }: News
         {source && <span className="news-card-source">{source}</span>}
       </div>
       <p className="news-card-description">{description}</p>
-      <p className="news-card-date">{date}</p>
+      <p className="news-card-date">{displayDate}</p>
     </a>
   );
 }
