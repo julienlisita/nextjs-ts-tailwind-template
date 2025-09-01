@@ -12,7 +12,7 @@ export const testimonials: ReadonlyArray<Testimonial> = [
       'Une équipe professionnelle et à l’écoute, qui a su répondre parfaitement à nos attentes.',
     rating: 5,
     avatarUrl: '/images/clients/lesly.jpg',
-    date: 'Août 2025',
+    displayDate: 'Août 2025',
     highlight: true,
   },
   {
@@ -22,7 +22,7 @@ export const testimonials: ReadonlyArray<Testimonial> = [
     company: 'Agence LM Nettoyage',
     quote: 'Le travail a été rapide et soigné. Je suis impressionné par la qualité du design.',
     rating: 4.5,
-    date: 'Juillet 2025',
+    displayDate: 'Juillet 2025',
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ export const testimonials: ReadonlyArray<Testimonial> = [
       'Une vraie collaboration constructive. Julien a pris le temps de comprendre nos besoins pour livrer un site moderne et efficace.',
     rating: 5,
     avatarUrl: '/images/clients/sophie.jpg',
-    date: 'Juin 2025',
+    displayDate: 'Juin 2025',
   },
   {
     id: 4,
@@ -43,7 +43,7 @@ export const testimonials: ReadonlyArray<Testimonial> = [
     quote:
       'Excellent sens du détail et une approche très professionnelle. La flexibilité et la réactivité ont été remarquables.',
     rating: 4,
-    date: 'Mai 2025',
+    displayDate: 'Mai 2025',
   },
   {
     id: 5,
@@ -53,7 +53,7 @@ export const testimonials: ReadonlyArray<Testimonial> = [
       'Mon site vitrine est clair, fluide et inspire confiance. Mes clients adorent la simplicité et l’esthétique.',
     rating: 5,
     avatarUrl: '/images/clients/claire.jpg',
-    date: 'Mars 2025',
+    displayDate: 'Mars 2025',
   },
   {
     id: 6,
@@ -63,7 +63,7 @@ export const testimonials: ReadonlyArray<Testimonial> = [
     quote:
       'Je recommande vivement : grande capacité d’écoute et une réalisation impeccable. Le résultat est au-dessus de mes attentes.',
     rating: 4.5,
-    date: 'Février 2025',
+    displayDate: 'Février 2025',
     highlight: false,
   },
 ] as const;
