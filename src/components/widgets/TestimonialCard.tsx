@@ -13,7 +13,7 @@ export type TestimonialCardProps = {
   quote: string;
   rating?: number; // 1..5 (peut être décimal: 4.5 -> arrondi à .5 visuel)
   avatarUrl?: string; // optionnel: /images/clients/lesly.jpg
-  date?: string; // ex: “Août 2025”
+  displayDate?: string; // ex: “Août 2025”
   highlight?: boolean; // met la carte en avant
   variant?: 'default' | 'compact' | 'horizontal';
   className?: string;
@@ -26,7 +26,7 @@ export function TestimonialCard({
   quote,
   rating = 5,
   avatarUrl,
-  date,
+  displayDate,
   highlight = false,
   variant = 'default',
   className = '',
@@ -67,7 +67,7 @@ export function TestimonialCard({
           {(role || company) && (
             <span className="t-meta">{[role, company].filter(Boolean).join(' · ')}</span>
           )}
-          {date && <span className="t-date">{date}</span>}
+          {displayDate && <span className="t-date">{displayDate}</span>}
         </figcaption>
       </div>
 

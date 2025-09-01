@@ -29,7 +29,7 @@ export default async function Testimonials() {
                 company={testimonial.company}
                 quote={testimonial.quote}
                 rating={testimonial.rating}
-                date={testimonial.date}
+                displayDate={testimonial.displayDate}
               />
             ))}
           </div>
