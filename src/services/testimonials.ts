@@ -33,7 +33,7 @@ export async function getPublicTestimonials(): Promise<Testimonial[]> {
       quote: r.quote,
       rating: toNumberOr(r.rating, 5), // <- conversion Decimal -> number
       avatarUrl: r.avatarUrl ?? undefined,
-      date: r.displayDate ?? undefined,
+      displayDate: r.displayDate ?? undefined,
       highlight: r.highlight ?? false,
       variant: isVariant(r.variant) ? r.variant : 'default',
       isPublished: r.isPublished ?? true,
