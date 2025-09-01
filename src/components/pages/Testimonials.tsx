@@ -6,7 +6,7 @@ import SectionWrapper from '../common/SectionWrapper';
 import SectionTitle from '../ui/SectionTitle';
 import { TestimonialCard } from '../widgets/TestimonialCard';
 import { PAGE_DYNAMIC, PAGE_RUNTIME, PAGE_REVALIDATE } from '@/config/dataMode';
-import { getPublicTestimonialsServer } from '@/services/testimonials.server';
+import { getPublicTestimonialsServer } from '@/server/services/testimonials.server';
 
 export const runtime = PAGE_RUNTIME;
 export const dynamic = PAGE_DYNAMIC;

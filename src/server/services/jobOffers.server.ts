@@ -9,6 +9,6 @@ export async function getPublicJobOffersServer(): Promise<ReadonlyArray<JobOffer
   if (!IS_DB) return jobOffers;
 
   // Import conditionnel (évite de bundler Prisma en mode static/edge)
-  const { getPublicJobOffers } = await import('@/services/jobOffers');
+  const { getPublicJobOffers } = await import('@/server/services/jobOffers');
   return getPublicJobOffers(); // déjà server-only + noStore()
 }

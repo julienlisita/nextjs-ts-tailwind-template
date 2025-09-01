@@ -9,6 +9,6 @@ export async function getPublicTestimonialsServer(): Promise<ReadonlyArray<Testi
   if (!IS_DB) return testimonials;
 
   // Import conditionnel pour éviter de bundler Prisma en mode static/edge
-  const { getPublicTestimonials } = await import('@/services/testimonials');
+  const { getPublicTestimonials } = await import('@/server/services/testimonials');
   return getPublicTestimonials(); // déjà server-only + noStore()
 }

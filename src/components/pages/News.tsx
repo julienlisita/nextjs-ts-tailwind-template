@@ -6,7 +6,7 @@ import Section from '@/components/common/Section';
 import NewsCard from '@/components/widgets/NewsCard';
 import SectionWrapper from '../common/SectionWrapper';
 import { PAGE_DYNAMIC, PAGE_RUNTIME, PAGE_REVALIDATE } from '@/config/dataMode';
-import { getPublicNewsServer } from '@/services/news.server';
+import { getPublicNewsServer } from '@/server/services/news.server';
 
 export const runtime = PAGE_RUNTIME;
 export const dynamic = PAGE_DYNAMIC;

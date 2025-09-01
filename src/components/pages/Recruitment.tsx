@@ -1,6 +1,6 @@
 // src/components/pages/Recruitment.tsx
 
-import { getPublicJobOffersServer } from '@/services/jobOffers.server';
+import { getPublicJobOffersServer } from '@/server/services/jobOffers.server';
 import RecruitmentClient from '@/components/pages/RecruitmentClient';
 import { PAGE_DYNAMIC, PAGE_RUNTIME, PAGE_REVALIDATE } from '@/config/dataMode';
 
