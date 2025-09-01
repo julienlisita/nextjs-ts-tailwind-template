@@ -6,7 +6,9 @@ import bcrypt from 'bcryptjs';
 const prisma = new PrismaClient();
 
 export async function main() {
-  // Liste des admins à créer
+
+  // Admins
+  
   const admins = [
     { email: 'admin1@example.com', name: 'Admin One', password: 'ChangeMe123!' },
     { email: 'admin2@example.com', name: 'Admin Two', password: 'ChangeMe123!' },
@@ -27,6 +29,9 @@ export async function main() {
       },
     });
   }
+
+  // Testimonials
+
   await prisma.testimonial.deleteMany();
 
   const testimonialsData = [
@@ -113,6 +118,8 @@ export async function main() {
   await prisma.testimonial.createMany({
     data: testimonialsData,
   });
+
+  // News
 
   await prisma.newsItem.deleteMany();
 
@@ -202,6 +209,57 @@ export async function main() {
   ];
 
   await prisma.newsItem.createMany({ data: newsItemsData });
+
+  // Job offers
+
+  await prisma.jobOffer.deleteMany();
+
+  const jobOffersData = [
+    {
+      title: 'Auxiliaire de vie – Temps plein',
+      location: 'Bordeaux (33)',
+      description:
+        "Accompagnement des personnes âgées à domicile (toilette, repas, déplacements). Horaires variables, véhicule apprécié.",
+      publishedAt: new Date('2025-08-20T09:00:00Z'),
+    },
+    {
+      title: 'Assistant administratif – Services à la personne',
+      location: 'Mérignac (33)',
+      description:
+        "Accueil téléphonique, gestion des plannings, rédaction de devis/factures. Maîtrise bureautique exigée.",
+      publishedAt: new Date('2025-08-12T08:30:00Z'),
+    },
+    {
+      title: 'Auxiliaire de vie – Temps partiel (soirées)',
+      location: 'Pessac (33)',
+      description:
+        "Interventions en soirée (18h–22h). Aide au repas, préparation au coucher, échanges et présence rassurante.",
+      publishedAt: new Date('2025-08-05T18:00:00Z'),
+    },
+    {
+      title: 'Responsable de secteur',
+      location: 'Libourne (33)',
+      description:
+        "Pilotage des plannings, coordination équipe/bénéficiaires, suivi qualité. Expérience en médico-social requise.",
+      publishedAt: new Date('2025-07-28T10:15:00Z'),
+    },
+    {
+      title: 'Auxiliaire de vie – Week-ends',
+      location: 'Angoulême (16)',
+      description:
+        "Missions les samedis et dimanches en roulement. Permis B + véhicule souhaités. Indemnités kilométriques.",
+      publishedAt: new Date('2025-07-20T07:45:00Z'),
+    },
+    {
+      title: 'Stagiaire communication',
+      location: 'Bordeaux (33)',
+      description:
+        "Soutien aux actions de communication (réseaux sociaux, articles, visuels). Stage 2–4 mois, convention requise.",
+      publishedAt: new Date('2025-07-10T09:00:00Z'),
+    },
+  ];
+
+  await prisma.jobOffer.createMany({ data: jobOffersData });
 }
 
 if (require.main === module) {
