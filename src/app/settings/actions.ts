@@ -1,4 +1,4 @@
-// src/app/(settings)/actions.ts
+// src/app/settings/actions.ts
 
 'use server';
 

@@ -1,4 +1,4 @@
-// src/app/(settings)/settings/layout.tsx
+// src/app/settings/layout.tsx
 
 import { requireAuth } from '@/server/guards/requireAuth';
 

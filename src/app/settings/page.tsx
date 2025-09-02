@@ -1,4 +1,4 @@
-// src/app/(settings)/page.tsx
+// src/app/settings/page.tsx
 
 import { logoutAction } from '@/app/(auth)/actions';
 import { changePasswordAction } from './actions';
