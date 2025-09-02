@@ -1,4 +1,4 @@
-// src/app/(admin)/admin/offres/layout.tsx
+// src/app/admin/layout.tsx
 
 import { requireAdmin } from '@/server/guards/requireAdmin';
 

@@ -1,4 +1,4 @@
-// src/app/(admin)/admin/offres/actions.ts
+// src/app/admin/offers/actions.ts
 
 'use server';
 

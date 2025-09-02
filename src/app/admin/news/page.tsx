@@ -1,4 +1,4 @@
-// src/app/(admin)/admin/actualites/page.tsx
+// src/app/admin/news/page.tsx
 
 import { listNews } from '@/server/services/news.service';
 import { upsertNewsAction, deleteNewsAction } from './actions';
