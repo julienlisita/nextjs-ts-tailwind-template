@@ -1,16 +1,19 @@
-// src/app/temoignages/new/Form.tsx
+// src/app/temoignages/new/NewTestimonialForm.tsx
 
 'use client';
 
 import { useEffect } from 'react';
 import { useActionState } from 'react';
 import { useRouter } from 'next/navigation';
-import { submitTestimonialAction, type PublicTestimonialFormState } from './actions';
+import {
+  submitTestimonialAction,
+  type PublicTestimonialFormState,
+} from '@/app/testimonials/new/actions';
 import { SubmitButton } from '@/components/ui/SubmitButton';
 
 const initialState: PublicTestimonialFormState = {};
 
-export function PublicTestimonialForm() {
+export function NewTestimonialForm() {
   const router = useRouter();
 
   const [state, formAction] = useActionState(submitTestimonialAction, initialState);
