@@ -3,7 +3,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useActionState } from 'react';      
+import { useActionState } from 'react';
 import { useRouter } from 'next/navigation';
 import { submitTestimonialAction, type PublicTestimonialFormState } from './actions';
 import { SubmitButton } from '@/components/ui/SubmitButton';
@@ -27,13 +27,29 @@ export function PublicTestimonialForm() {
       <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
 
       <div>
-        <input name="name" defaultValue={state?.values?.name} required className="border rounded p-2 w-full" placeholder="Votre nom" />
+        <input
+          name="name"
+          defaultValue={state?.values?.name}
+          required
+          className="border rounded p-2 w-full"
+          placeholder="Votre nom"
+        />
         {err('name') && <p className="text-sm text-red-600 mt-1">{err('name')}</p>}
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <input name="role" defaultValue={state?.values?.role} className="border rounded p-2" placeholder="Rôle" />
-        <input name="company" defaultValue={state?.values?.company} className="border rounded p-2" placeholder="Entreprise" />
+        <input
+          name="role"
+          defaultValue={state?.values?.role}
+          className="border rounded p-2"
+          placeholder="Rôle"
+        />
+        <input
+          name="company"
+          defaultValue={state?.values?.company}
+          className="border rounded p-2"
+          placeholder="Entreprise"
+        />
       </div>
 
       <div>
@@ -50,12 +66,37 @@ export function PublicTestimonialForm() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <input name="rating" type="number" step="0.5" min={0} max={5} defaultValue={state?.values?.rating} className="border rounded p-2" placeholder="Note (0–5)" />
-        <input name="displayDate" defaultValue={state?.values?.displayDate} className="border rounded p-2" placeholder="Affichage date (ex: Août 2025)" />
-        <input name="variant" defaultValue={state?.values?.variant} className="border rounded p-2" placeholder="Variante (default/compact/horizontal)" />
+        <input
+          name="rating"
+          type="number"
+          step="0.5"
+          min={0}
+          max={5}
+          defaultValue={state?.values?.rating}
+          className="border rounded p-2"
+          placeholder="Note (0–5)"
+        />
+        <input
+          name="displayDate"
+          defaultValue={state?.values?.displayDate}
+          className="border rounded p-2"
+          placeholder="Affichage date (ex: Août 2025)"
+        />
+        <input
+          name="variant"
+          defaultValue={state?.values?.variant}
+          className="border rounded p-2"
+          placeholder="Variante (default/compact/horizontal)"
+        />
       </div>
 
-      <input name="avatarUrl" type="url" defaultValue={state?.values?.avatarUrl} className="border rounded p-2" placeholder="Avatar URL (optionnel)" />
+      <input
+        name="avatarUrl"
+        type="url"
+        defaultValue={state?.values?.avatarUrl}
+        className="border rounded p-2"
+        placeholder="Avatar URL (optionnel)"
+      />
 
       <label className="inline-flex items-center gap-2 text-sm">
         <input type="checkbox" name="consent" />

@@ -9,15 +9,38 @@ const schema = z.object({
   website: z.string().max(0).optional(),
   name: z.string().min(2, 'Nom trop court'),
   quote: z.string().min(10, 'Votre message est trop court'),
-  role: z.string().trim().optional().transform((v) => v || null),
-  company: z.string().trim().optional().transform((v) => v || null),
-  rating: z.union([z.coerce.number(), z.null(), z.undefined()])
-           .transform((v) => (typeof v === 'number' ? Math.max(0, Math.min(5, v)) : null)),
-  avatarUrl: z.string().url('URL invalide').optional().or(z.literal('')).transform((v) => v || null),
-  displayDate: z.string().trim().optional().transform((v) => v || null),
-  variant: z.string().trim().optional().transform((v) => v || null),
-  consent: z.union([z.literal('on'), z.undefined(), z.null()])
-            .refine((v) => v === 'on', { message: 'Consentement requis' }),
+  role: z
+    .string()
+    .trim()
+    .optional()
+    .transform((v) => v || null),
+  company: z
+    .string()
+    .trim()
+    .optional()
+    .transform((v) => v || null),
+  rating: z
+    .union([z.coerce.number(), z.null(), z.undefined()])
+    .transform((v) => (typeof v === 'number' ? Math.max(0, Math.min(5, v)) : null)),
+  avatarUrl: z
+    .string()
+    .url('URL invalide')
+    .optional()
+    .or(z.literal(''))
+    .transform((v) => v || null),
+  displayDate: z
+    .string()
+    .trim()
+    .optional()
+    .transform((v) => v || null),
+  variant: z
+    .string()
+    .trim()
+    .optional()
+    .transform((v) => v || null),
+  consent: z
+    .union([z.literal('on'), z.undefined(), z.null()])
+    .refine((v) => v === 'on', { message: 'Consentement requis' }),
 });
 
 export type PublicTestimonialFormState = {

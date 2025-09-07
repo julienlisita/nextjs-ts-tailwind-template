@@ -8,8 +8,8 @@ export default function MerciTemoignagePage() {
     <div className="max-w-xl mx-auto p-6 space-y-4">
       <h1 className="text-2xl font-bold">Merci !</h1>
       <p>
-        Votre témoignage a bien été envoyé et sera relu par notre équipe avant publication.
-        Encore merci pour votre confiance.
+        Votre témoignage a bien été envoyé et sera relu par notre équipe avant publication. Encore
+        merci pour votre confiance.
       </p>
     </div>
   );
