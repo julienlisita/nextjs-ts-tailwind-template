@@ -42,7 +42,7 @@ export default async function TestimonialsAdminPage() {
                     <input type="hidden" name="id" value={t.id} />
                     <input type="hidden" name="value" value={(!t.highlight).toString()} />
                     <SubmitButton className="w-full sm:w-auto">
-                      {t.highlight ? 'Retirer de l\'avant' : 'Mettre en avant'}
+                      {t.highlight ? "Retirer de l'avant" : 'Mettre en avant'}
                     </SubmitButton>
                   </form>
 

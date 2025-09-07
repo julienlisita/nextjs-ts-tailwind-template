@@ -4,8 +4,12 @@ import 'server-only';
 import { IS_DB } from '@/config/dataMode';
 import type { Testimonial } from '@/types/testimonial';
 import { testimonials } from '@/data/testimonials';
+import type { Prisma } from '@prisma/client';
 
-function toNumber(v: any, fallback?: number): number | undefined {
+function toNumber(
+  v: number | Prisma.Decimal | null | undefined,
+  fallback?: number
+): number | undefined {
   if (v == null) return fallback;
   return typeof v === 'number' ? v : typeof v?.toNumber === 'function' ? v.toNumber() : fallback;
 }
