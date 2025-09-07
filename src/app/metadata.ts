@@ -1,7 +1,6 @@
 // app/metadata.ts
 
 export const metadata = {
-  themeColor: '#000000',
   title: 'Site Vitrine – Titre de votre entreprise',
   description:
     'Site vitrine professionnel pour mettre en valeur votre activité. Modèle personnalisable pour indépendants, TPE ou entreprises.',
