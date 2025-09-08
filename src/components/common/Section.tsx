@@ -22,7 +22,7 @@ export default function Section({
 }: SectionProps) {
   return (
     <section
-      className={`pt-8 sm:pt-10 md:pt-12 lg:pt-16 ${className}`}
+      className={`py-8 sm:py-10 md:py-12 lg:py-16 ${className}`}
       style={{ backgroundColor: resolveColor(bgColor) }}
     >
       {children}
