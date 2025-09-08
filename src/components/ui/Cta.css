@@ -1,0 +1,41 @@
+/* Base section */
+.cta-section {
+  @apply py-12 sm:py-16 lg:py-20;
+  background-color: #3e8ce0; /* bleu principal */
+  color: white;
+}
+
+/* Title */
+.cta-title {
+  @apply text-2xl sm:text-3xl font-bold;
+}
+
+/* Description */
+.cta-description {
+  @apply max-w-2xl mx-auto text-lg;
+  opacity: 0.9;
+}
+
+/* Boutons CTA */
+.cta-btn-primary {
+  background-color: white;
+  color: #3e8ce0;
+  border: 2px solid white;
+  transition: all 0.3s;
+}
+.cta-btn-primary:hover {
+  background-color: #faf8f3;
+  color: #3e8ce0;
+  border-color: #3e8ce0;
+}
+
+.cta-btn-secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  transition: all 0.3s;
+}
+.cta-btn-secondary:hover {
+  background-color: white;
+  color: #3e8ce0;
+}
