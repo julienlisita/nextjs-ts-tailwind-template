@@ -3,7 +3,6 @@
 'use client';
 
 import PageTitle from '@/components/ui/PageTitle';
-import { JobOfferCard } from '../widgets/JobOfferCard';
 import Modal from '../ui/Modal';
 import JobApplicationForm from '../form/JobApplicationForm';
 import { useState } from 'react';
@@ -11,6 +10,7 @@ import Section from '../common/Section';
 import SectionTitle from '../ui/SectionTitle';
 import SectionWrapper from '../common/SectionWrapper';
 import type { JobOffer } from '@/types/job';
+import JobOffersSection from '../section/JobOffersSection';
 
 export default function RecruitmentClient({ offers }: { offers: ReadonlyArray<JobOffer> }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,23 +24,7 @@ export default function RecruitmentClient({ offers }: { offers: ReadonlyArray<Jo
   return (
     <div className="py-8 sm:py-10 md:py-14 lg:py-20">
       <PageTitle>Recrutement</PageTitle>
-      <Section>
-        <SectionWrapper>
-          <SectionTitle>Nos offres actuelles</SectionTitle>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-10 justify-center">
-            {offers.map((offer) => (
-              <JobOfferCard
-                key={offer.id}
-                title={offer.title}
-                location={offer.location}
-                description={offer.description}
-                onApply={() => handleApply(offer.title)}
-              />
-            ))}
-          </div>
-        </SectionWrapper>
-      </Section>
-
+      <JobOffersSection title="Nos offres actuelles" items={offers} onApply={handleApply} />
       <Section>
         <SectionWrapper>
           <SectionTitle>Pourquoi nous rejoindre ?</SectionTitle>
