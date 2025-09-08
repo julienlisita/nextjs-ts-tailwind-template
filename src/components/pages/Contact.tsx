@@ -5,9 +5,8 @@ import ContactForm from '@/components/form/ContactForm';
 
 export default function Contact() {
   return (
-    <div className="container mx-auto px-4 py-10">
+    <div className="pt-8 sm:pt-10 md:pt-14 lg:pt-20">
       <PageTitle>Contact</PageTitle>
-      <p className="text-gray-700 py-8">Contactez-nous via le formulaire ou les réseaux.</p>
       <div className="max-w-2xl w-full mx-auto py-4">
         <ContactForm />
       </div>

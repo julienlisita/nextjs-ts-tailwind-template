@@ -2,12 +2,12 @@
 
 import PageTitle from '@/components/ui/PageTitle';
 import ServiceCard from '@/components/widgets/ServiceCard';
+import Cta from '../ui/Cta';
 
 export default function Services() {
   return (
-    <div className="container mx-auto px-4 py-10">
+    <div className="pt-8 sm:pt-10 md:pt-14 lg:pt-20">
       <PageTitle>Nos services</PageTitle>
-      <p className="text-gray-700 py-8">Liste des services proposés.</p>
       <section className="flex flex-wrap justify-center gap-6 py-12 px-4">
         <ServiceCard
           title="Service 1"
@@ -25,6 +25,7 @@ export default function Services() {
           color={['#60A5FA', '#3B82F6']}
         />
       </section>
+      <Cta />
     </div>
   );
 }

@@ -11,6 +11,7 @@ import SectionTitle from '../ui/SectionTitle';
 import SectionWrapper from '../common/SectionWrapper';
 import type { JobOffer } from '@/types/job';
 import JobOffersSection from '../section/JobOffersSection';
+import Cta from '../ui/Cta';
 
 export default function RecruitmentClient({ offers }: { offers: ReadonlyArray<JobOffer> }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -22,7 +23,7 @@ export default function RecruitmentClient({ offers }: { offers: ReadonlyArray<Jo
   };
 
   return (
-    <div className="py-8 sm:py-10 md:py-14 lg:py-20">
+    <div className="pt-8 sm:pt-10 md:pt-14 lg:pt-20">
       <PageTitle>Recrutement</PageTitle>
       <JobOffersSection title="Nos offres actuelles" items={offers} onApply={handleApply} />
       <Section>
@@ -45,6 +46,7 @@ export default function RecruitmentClient({ offers }: { offers: ReadonlyArray<Jo
           </p>
         </SectionWrapper>
       </Section>
+      <Cta />
 
       {/* Modal de candidature */}
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
