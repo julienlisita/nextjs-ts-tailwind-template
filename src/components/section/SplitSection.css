@@ -1,0 +1,73 @@
+/* Layout & typo via @apply — Couleurs/bordures en CSS pur */
+
+/* Tonalité (fond/bordures) — adapte aux variables de ta charte si besoin */
+.split.split--default {
+  background-color: transparent;
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+}
+.split.split--muted {
+  background-color: #faf8f3; /* crème */
+  border-top: 2px solid var(--color-terre);
+  border-bottom: 2px solid var(--color-terre);
+}
+.split.split--brand {
+  background-color: #f0f6ff; /* léger bleu */
+  border-top: 2px solid #3e8ce0;
+  border-bottom: 2px solid #3e8ce0;
+}
+
+/* Grille responsive */
+.split__grid {
+  @apply grid gap-8 lg:grid-cols-2 lg:items-center;
+}
+.split__grid.is-reverse .split__media {
+  @apply lg:order-2;
+}
+.split__grid.is-reverse .split__body {
+  @apply lg:order-1;
+}
+
+/* Media */
+.split__media {
+  @apply flex justify-center;
+}
+.split__img {
+  @apply w-full max-h-80 object-cover rounded-xl;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Texte */
+.split__body {
+  @apply text-center lg:text-left;
+}
+
+.split__eyebrow {
+  @apply text-sm font-semibold uppercase tracking-wide;
+  color: var(--color-vert);
+}
+
+.split__title {
+  @apply text-2xl sm:text-3xl font-bold mt-2;
+  color: var(--color-terre);
+}
+
+.split__subtitle {
+  @apply text-lg font-medium mt-3;
+  color: var(--color-vert);
+}
+
+.split__text {
+  @apply mt-5 text-base leading-relaxed;
+  color: var(--color-terre);
+}
+
+/* Slot extra (liste, points forts, etc.) */
+.split__extra {
+  @apply mt-5 space-y-3;
+}
+
+/* Actions */
+.split__actions {
+  @apply mt-8 flex flex-wrap gap-3 justify-center lg:justify-start;
+}
