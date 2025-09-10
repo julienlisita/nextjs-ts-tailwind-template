@@ -15,6 +15,22 @@
   }
 }
 
+:root {
+  --header-height: 56px; /* h-14 */
+}
+
+@media (min-width: 640px) {
+  :root {
+    --header-height: 64px; /* sm:h-16 */
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --header-height: 80px; /* lg:h-20 */
+  }
+}
+
 /* Reset simple et base */
 * {
   box-sizing: border-box;
