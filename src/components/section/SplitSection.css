@@ -1,13 +1,15 @@
-/* Layout & typo via @apply — Couleurs/bordures en CSS pur */
+/* src/components/sections/SplitSection.css */
 
-/* Tonalité (fond/bordures) — adapte aux variables de ta charte si besoin */
+/* Layout & typo via @apply — Couleurs/bordures via variables CSS */
+
+/* Tonalités (fond/bordures) */
 .split.split--default {
   background-color: transparent;
   border-top: 2px solid transparent;
   border-bottom: 2px solid transparent;
 }
 .split.split--muted {
-  background-color: #faf8f3; /* crème */
+  background-color: #faf8f3; /* crème douce */
   border-top: 2px solid var(--color-terre);
   border-bottom: 2px solid var(--color-terre);
 }
@@ -48,16 +50,19 @@
 }
 
 .split__title {
+  /* aligné sur FeaturesGrid: title mt-2 */
   @apply text-2xl sm:text-3xl font-bold mt-2;
   color: var(--color-terre);
 }
 
 .split__subtitle {
+  /* aligné sur FeaturesGrid: subtitle mt-3 */
   @apply text-lg font-medium mt-3;
   color: var(--color-vert);
 }
 
 .split__text {
+  /* bloc de texte principal — respiration identique */
   @apply mt-5 text-base leading-relaxed;
   color: var(--color-terre);
 }
@@ -67,7 +72,8 @@
   @apply mt-5 space-y-3;
 }
 
-/* Actions */
+/* Actions (CTA) */
 .split__actions {
+  /* même rythme que FeaturesGrid: mt-8 */
   @apply mt-8 flex flex-wrap gap-3 justify-center lg:justify-start;
 }
