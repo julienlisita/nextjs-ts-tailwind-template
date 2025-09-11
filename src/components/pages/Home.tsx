@@ -2,8 +2,8 @@
 
 import Cta from '../ui/Cta';
 import Hero from '../section/Hero';
-import ServicesFeatures from '../section/ServicesFeatures';
 import SplitSection from '../section/SplitSection';
+import ServicesFeaturesIntro from '../section/ServicesFeaturesIntro';
 
 export default function Home() {
   return (
@@ -41,7 +41,7 @@ export default function Home() {
           <li>Professionnels formés et à l’écoute</li>
         </ul>
       </SplitSection>
-      <ServicesFeatures />
+      <ServicesFeaturesIntro />
       <Cta />
     </div>
   );
