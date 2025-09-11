@@ -1,0 +1,58 @@
+/* Base card */
+.feature-card {
+  @apply rounded-xl shadow-sm transition overflow-hidden;
+  background-color: #faf8f3; /* crème */
+  border: 1px solid #ddd;
+}
+
+/* Variantes */
+.feature-card--outlined {
+  background-color: #ffffff;
+  border: 2px solid #3e8ce0;
+}
+
+.feature-card--gradient {
+  color: #ffffff;
+  border: none;
+  /* gradient is applied inline from props */
+}
+
+/* Full-width header (when variant=with-header) */
+.feature-card__header {
+  @apply w-full flex flex-col items-center justify-center space-y-2 p-4 text-center;
+  color: #ffffff;
+}
+
+/* Body: centers content & handles padding for all variants */
+.feature-card__body {
+  @apply flex flex-col items-center text-center p-6 pt-8 gap-2;
+}
+
+/* Icon */
+.feature-card__icon-inner {
+  @apply w-10 h-10;
+  color: #3e8ce0;
+}
+/* if header is colored, inherit header text color */
+.feature-card__header .feature-card__icon-inner {
+  color: inherit;
+}
+
+/* Title */
+.feature-card__title {
+  @apply text-lg font-semibold;
+  color: var(--color-terre);
+}
+.feature-card--gradient .feature-card__title,
+.feature-card__header .feature-card__title {
+  color: #ffffff;
+}
+
+/* Description */
+.feature-card__desc {
+  @apply text-sm;
+  color: #4b5563; /* gray-600 */
+}
+.feature-card--gradient .feature-card__desc {
+  color: #ffffff;
+}
