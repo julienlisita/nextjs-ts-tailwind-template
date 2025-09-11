@@ -75,5 +75,5 @@
 /* Actions (CTA) */
 .split__actions {
   /* même rythme que FeaturesGrid: mt-8 */
-  @apply mt-8 flex flex-wrap gap-3 justify-center lg:justify-start;
+  @apply mt-8 flex flex-col sm:flex-row gap-4  items-center justify-center lg:justify-start;
 }
