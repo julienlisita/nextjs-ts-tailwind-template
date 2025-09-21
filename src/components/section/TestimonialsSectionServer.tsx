@@ -1,28 +1,27 @@
 // src/components/sections/TestimonialsSectionServer.tsx
-import TestimonialsSection from './TestimonialsSection';
-import { getPublicTestimonialsServer } from '@/server/services/testimonials.server';
 
-type Props = {
-  title?: string;
+import { getPublicTestimonialsServer } from '@/server/services/testimonials.server';
+import TestimonialsSection from './TestimonialsSection';
+import type { ComponentProps } from 'react';
+
+type ServerProps = {
+  /** Filtres/limites côté data */
+  onlyFeatured?: boolean;
   limit?: number;
-  onlyFeatured?: boolean; // filtre sur highlight
-  className?: string;
-  container?: boolean; // option pour ajouter/retirer le container
-};
+  /** Ajoute un container autour du contenu */
+  container?: boolean;
+} & Omit<ComponentProps<typeof TestimonialsSection>, 'items'>; // toutes les props UI sauf items
 
 export default async function TestimonialsSectionServer({
-  title,
-  limit,
   onlyFeatured = false,
-  className,
+  limit,
   container = true,
-}: Props) {
-  const testimonials = await getPublicTestimonialsServer();
-  const items = onlyFeatured ? testimonials.filter((t) => t.highlight) : testimonials;
+  ...uiProps
+}: ServerProps) {
+  const all = await getPublicTestimonialsServer();
+  const filtered = onlyFeatured ? all.filter((t) => t.highlight) : all;
+  const items = typeof limit === 'number' ? filtered.slice(0, Math.max(0, limit)) : filtered;
 
-  const content = (
-    <TestimonialsSection title={title} items={items} limit={limit} className={className} />
-  );
-
-  return container ? <div className="container mx-auto px-4">{content}</div> : content;
+  const content = <TestimonialsSection items={items} {...uiProps} />;
+  return content;
 }

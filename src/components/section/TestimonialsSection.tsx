@@ -1,65 +1,37 @@
 // src/components/sections/TestimonialsSection.tsx
 
-import Section from '@/components/common/Section';
-import SectionWrapper from '@/components/common/SectionWrapper';
-import SectionTitle from '@/components/ui/SectionTitle';
-import { TestimonialCard } from '@/components/widgets/TestimonialCard';
+'use client';
+
 import type { Testimonial } from '@/types/testimonial';
+import { TestimonialCard } from '@/components/widgets/TestimonialCard';
+import FeaturesGrid from './FeaturesGrid';
 
-type Props = {
-  title?: string;
-  items: ReadonlyArray<Testimonial>;
-  limit?: number; // ex: n’afficher que 3 cartes sur la home
-  showGrid?: boolean; // toggle grid si tu veux un layout différent
-  className?: string;
-};
-
-export default function TestimonialsSection({
-  title = 'Les avis de nos clients',
-  items,
-  limit,
-  showGrid = true,
-  className,
-}: Props) {
-  const list = typeof limit === 'number' ? items.slice(0, Math.max(0, limit)) : items;
-
-  if (!list.length) return null;
-
+export default function TestimonialsSection({ items }: { items: ReadonlyArray<Testimonial> }) {
   return (
-    <Section className={className}>
-      <SectionWrapper>
-        <SectionTitle>{title}</SectionTitle>
-
-        {showGrid ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-10 justify-center">
-            {list.map((t) => (
-              <TestimonialCard
-                key={t.id}
-                name={t.name}
-                role={t.role}
-                company={t.company}
-                quote={t.quote}
-                rating={t.rating}
-                displayDate={t.displayDate}
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="space-y-4">
-            {list.map((t) => (
-              <TestimonialCard
-                key={t.id}
-                name={t.name}
-                role={t.role}
-                company={t.company}
-                quote={t.quote}
-                rating={t.rating}
-                displayDate={t.displayDate}
-              />
-            ))}
-          </div>
-        )}
-      </SectionWrapper>
-    </Section>
+    <FeaturesGrid<Testimonial>
+      eyebrow="Ils nous font confiance"
+      title="Tous les témoignages"
+      subtitle="Consultez les retours authentiques de nos clients."
+      titleAlign="center"
+      items={items}
+      tabs={[
+        { label: 'Tous', value: 'all' },
+        { label: 'Mise en avant', value: 'featured' },
+      ]}
+      defaultTab="all"
+      filterByTab={(t, tab) => (tab === 'featured' ? Boolean(t.highlight) : true)}
+      pageSize={9}
+      renderItem={(t) => (
+        <TestimonialCard
+          name={t.name}
+          role={t.role}
+          company={t.company}
+          quote={t.quote}
+          rating={t.rating}
+          displayDate={t.displayDate}
+        />
+      )}
+      getKey={(t) => t.id}
+    />
   );
 }
