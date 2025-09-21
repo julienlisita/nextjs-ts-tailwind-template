@@ -4,6 +4,7 @@ import Cta from '../ui/Cta';
 import Hero from '../section/Hero';
 import SplitSection from '../section/SplitSection';
 import ServicesFeaturesIntro from '../section/ServicesFeaturesIntro';
+import TestimonialsSectionHomeServer from '../section/TestimonialsSectionHomeServer';
 
 export default function Home() {
   return (
@@ -42,6 +43,7 @@ export default function Home() {
         </ul>
       </SplitSection>
       <ServicesFeaturesIntro />
+      <TestimonialsSectionHomeServer limit={3} onlyFeatured={false} />
       <Cta />
     </div>
   );
