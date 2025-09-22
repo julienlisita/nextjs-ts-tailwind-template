@@ -1,6 +1,9 @@
+// src/components/section/SplitSection.tsx
+
 import Section from '@/components/common/Section';
 import SectionWrapper from '@/components/common/SectionWrapper';
 import Button from '@/components/ui/Button';
+import Image from 'next/image';
 import clsx from 'clsx';
 import './SplitSection.css';
 
@@ -54,7 +57,16 @@ export default function SplitSection({
         <div className={clsx('split__grid', reverse && 'is-reverse')}>
           {/* MEDIA */}
           <div className="split__media">
-            <img src={imageSrc} alt={imageAlt} className="split__img" />
+            <div className="split__img-wrap">
+              <Image
+                src={imageSrc}
+                alt={imageAlt}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="split__img"
+                priority
+              />
+            </div>
           </div>
 
           {/* TEXTE */}

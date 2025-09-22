@@ -1,5 +1,6 @@
 // src/components/sections/TestimonialsSectionHomeServer.tsx
 
+import SectionWrapper from '../common/SectionWrapper';
 import TestimonialsSectionHome from './TestimonialsSectionHome';
 import { getPublicTestimonialsServer } from '@/server/services/testimonials.server';
 
@@ -24,5 +25,5 @@ export default async function TestimonialsSectionHomeServer({
 
   const content = <TestimonialsSectionHome items={items} />;
 
-  return content;
+  return container ? <SectionWrapper>{content}</SectionWrapper> : content;
 }

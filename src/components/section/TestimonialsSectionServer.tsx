@@ -3,6 +3,7 @@
 import { getPublicTestimonialsServer } from '@/server/services/testimonials.server';
 import TestimonialsSection from './TestimonialsSection';
 import type { ComponentProps } from 'react';
+import SectionWrapper from '../common/SectionWrapper';
 
 type ServerProps = {
   /** Filtres/limites côté data */
@@ -23,5 +24,5 @@ export default async function TestimonialsSectionServer({
   const items = typeof limit === 'number' ? filtered.slice(0, Math.max(0, limit)) : filtered;
 
   const content = <TestimonialsSection items={items} {...uiProps} />;
-  return content;
+  return container ? <SectionWrapper>{content}</SectionWrapper> : content;
 }

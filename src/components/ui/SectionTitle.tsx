@@ -25,11 +25,11 @@ export default function SectionTitle({
     <h2
       id={id}
       className={clsx(
-        `text-xl sm:text-2xl lg:text-3xl font-heading  font-semibold',
+        'text-xl sm:text-2xl lg:text-3xl font-heading font-semibold',
         align === 'left' && 'text-left',
         align === 'center' && 'text-center',
-        align === 'right' && 'text-right', 
-        className,`
+        align === 'right' && 'text-right',
+        className
       )}
       style={{ color: resolveColor(color) }}
     >

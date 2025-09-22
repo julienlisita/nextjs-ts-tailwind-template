@@ -9,7 +9,7 @@ import {
   submitTestimonialAction,
   type PublicTestimonialFormState,
 } from '@/app/testimonials/new/actions';
-import { SubmitButton } from '@/components/ui/SubmitButton';
+import SubmitButton from '@/components/ui/SubmitButton';
 
 const initialState: PublicTestimonialFormState = {};
 
