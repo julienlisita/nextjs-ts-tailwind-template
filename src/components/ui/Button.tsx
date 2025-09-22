@@ -15,17 +15,25 @@ type BaseProps = {
   children: React.ReactNode;
 };
 
+/**
+ * Cas <a> (lien)
+ */
 type AnchorButtonProps = BaseProps & {
   href: string;
   download?: boolean;
-} & React.AnchorHTMLAttributes<HTMLAnchorElement>;
+  target?: string;
+  rel?: string;
+} & Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'className' | 'children'>;
 
+/**
+ * Cas <button> natif
+ */
 type NativeButtonProps = BaseProps &
-  React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'className' | 'children'> & {
     href?: undefined; // interdit href côté <button>
   };
 
-type ButtonProps = AnchorButtonProps | NativeButtonProps;
+export type ButtonProps = AnchorButtonProps | NativeButtonProps;
 
 function isAnchorProps(p: ButtonProps): p is AnchorButtonProps {
   return 'href' in p && typeof p.href === 'string' && p.href.length > 0;
@@ -44,7 +52,7 @@ export default function Button(props: ButtonProps) {
 
     const safeRel = target === '_blank' ? (rel ?? 'noopener noreferrer') : rel;
 
-    // 1) Cas natif <a> si externe, target ou download (pour compat total)
+    // 1) Cas natif <a> si externe, target ou download
     if (isExternal(href) || target || download) {
       return (
         <a
@@ -60,7 +68,7 @@ export default function Button(props: ButtonProps) {
       );
     }
 
-    // 2) Cas interne: utiliser <Link> + <a> enfant (legacyBehavior)
+    // 2) Cas interne : Next Link + <a> enfant
     return (
       <Link href={href} legacyBehavior>
         <a className={combinedClassName} {...anchorRest}>
@@ -70,8 +78,9 @@ export default function Button(props: ButtonProps) {
     );
   }
 
-  // Branche bouton natif
+  // Cas bouton natif
   const { disabled, ...buttonRest } = props as NativeButtonProps;
+
   return (
     <button className={combinedClassName} disabled={disabled} {...buttonRest}>
       {children}

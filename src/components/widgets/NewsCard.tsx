@@ -4,6 +4,7 @@
 
 import React from 'react';
 import './NewsCard.css';
+import Image from 'next/image';
 import Button from '../ui/Button';
 
 type NewsCardProps = {
@@ -29,7 +30,14 @@ export default function NewsCard({
     <article className="news-card" aria-labelledby="news-title">
       {imageUrl && (
         <div className="news-card-image">
-          <img src={imageUrl} alt={imageAlt} />
+          <Image
+            src={imageUrl}
+            alt={imageAlt}
+            width={320}
+            height={240}
+            sizes="(max-width: 640px) 100vw, 320px"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
         </div>
       )}
       <div className="news-card-content">
