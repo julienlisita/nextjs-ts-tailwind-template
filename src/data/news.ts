@@ -13,6 +13,8 @@ export const newsItems: ReadonlyArray<NewsItem> = [
     displayDate: '5 août 2025',
     publishedAt: '2025-08-05T08:00:00Z',
     isPublished: true,
+    imageUrl: '/images/news/lesly.png',
+    imageAlt: 'Illustration accompagnement aide à domicile',
   },
   {
     id: 2,

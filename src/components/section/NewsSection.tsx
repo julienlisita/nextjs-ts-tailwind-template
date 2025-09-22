@@ -35,6 +35,8 @@ export default function NewsSection({
               displayDate={item.displayDate}
               source={item.source}
               url={item.url}
+              imageUrl={item.imageUrl}
+              imageAlt={item.imageAlt ?? item.title}
             />
           ))}
         </div>

@@ -11,17 +11,36 @@ type NewsCardProps = {
   displayDate?: string;
   source?: string;
   url?: string;
+  imageUrl?: string;
+  imageAlt?: string;
 };
 
-export default function NewsCard({ title, description, displayDate, source, url }: NewsCardProps) {
+export default function NewsCard({
+  title,
+  description,
+  displayDate,
+  source,
+  url,
+  imageUrl,
+  imageAlt = title,
+}: NewsCardProps) {
   return (
     <a href={url} target="_blank" rel="noopener noreferrer" className="news-card">
-      <div className="news-card-header">
+      {imageUrl && (
+        <div className="news-card-image">
+          <img src={imageUrl} alt={imageAlt} />
+        </div>
+      )}
+      <div className="news-card-content">
         <h3 className="news-card-title">{title}</h3>
-        {source && <span className="news-card-source">{source}</span>}
+        <p className="news-card-description">{description}</p>
+        {(displayDate || source) && (
+          <div className="news-card-meta">
+            {source && <span className="news-card-source">{source}</span>}
+            {displayDate && <span className="news-card-date">{displayDate}</span>}
+          </div>
+        )}
       </div>
-      <p className="news-card-description">{description}</p>
-      <p className="news-card-date">{displayDate}</p>
     </a>
   );
 }

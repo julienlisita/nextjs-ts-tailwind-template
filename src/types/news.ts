@@ -7,8 +7,9 @@ export interface NewsItem {
   description: string;
   source?: string;
   url?: string;
-  displayDate?: string; // libellé (ex: "5 août 2025")
-  publishedAt?: string; // ISO
+  imageUrl?: string;
+  imageAlt?: string;
+  displayDate?: string;
+  publishedAt?: string; 
   isPublished?: boolean;
-  coverImage?: string;
 }
