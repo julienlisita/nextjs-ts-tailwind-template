@@ -13,7 +13,7 @@ type Props = {
 export default async function TestimonialsSectionHomeServer({
   limit = 3,
   onlyFeatured = true,
-  container = true,
+  container = false,
 }: Props) {
   const all = await getPublicTestimonialsServer();
 

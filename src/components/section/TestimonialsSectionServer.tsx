@@ -16,7 +16,7 @@ type ServerProps = {
 export default async function TestimonialsSectionServer({
   onlyFeatured = false,
   limit,
-  container = true,
+  container = false,
   ...uiProps
 }: ServerProps) {
   const all = await getPublicTestimonialsServer();
