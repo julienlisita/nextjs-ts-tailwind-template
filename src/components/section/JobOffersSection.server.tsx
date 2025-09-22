@@ -8,7 +8,6 @@ type Props = {
   limit?: number;
   className?: string;
   container?: boolean;
-  onApply?: (title: string) => void; // ignoré côté server, utile si tu le remonte côté client
 };
 
 export default async function JobOffersSectionServer({
@@ -16,7 +15,6 @@ export default async function JobOffersSectionServer({
   limit,
   className,
   container = true,
-  onApply, // note: ne sera pas passé si ce composant reste RSC
 }: Props) {
   const offers = await getPublicJobOffersServer();
 

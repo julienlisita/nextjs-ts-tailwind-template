@@ -8,7 +8,7 @@ import {
   updateTestimonialAction,
   deleteTestimonialAction,
 } from '@/app/admin/testimonials/actions';
-import { SubmitButton } from '@/components/ui/SubmitButton';
+import SubmitButton from '@/components/ui/SubmitButton';
 
 export const dynamic = 'force-dynamic';
 

@@ -2,7 +2,7 @@
 
 import { listNews } from '@/server/services/news.service';
 import { upsertNewsAction, deleteNewsAction } from '@/app/admin/news/actions';
-import { SubmitButton } from '@/components/ui/SubmitButton';
+import SubmitButton from '@/components/ui/SubmitButton';
 
 export const dynamic = 'force-dynamic';
 

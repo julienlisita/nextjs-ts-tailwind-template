@@ -1,6 +1,6 @@
 import { listJobOffers } from '@/server/services/job-offer.service';
 import { upsertJobOfferAction, deleteJobOfferAction } from '@/app/admin/offers/actions';
-import { SubmitButton } from '@/components/ui/SubmitButton';
+import SubmitButton from '@/components/ui/SubmitButton';
 
 export const dynamic = 'force-dynamic'; // éviter le cache côté admin
 
