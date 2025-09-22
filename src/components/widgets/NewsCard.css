@@ -43,3 +43,7 @@
   @apply text-sm;
   color: #6b7280;
 }
+
+.news-card-actions {
+  @apply mt-3;
+}

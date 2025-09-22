@@ -4,6 +4,7 @@
 
 import React from 'react';
 import './NewsCard.css';
+import Button from '../ui/Button';
 
 type NewsCardProps = {
   title: string;
@@ -25,7 +26,7 @@ export default function NewsCard({
   imageAlt = title,
 }: NewsCardProps) {
   return (
-    <a href={url} target="_blank" rel="noopener noreferrer" className="news-card">
+    <article className="news-card" aria-labelledby="news-title">
       {imageUrl && (
         <div className="news-card-image">
           <img src={imageUrl} alt={imageAlt} />
@@ -40,7 +41,20 @@ export default function NewsCard({
             {displayDate && <span className="news-card-date">{displayDate}</span>}
           </div>
         )}
+        {url && (
+          <div className="news-card-actions">
+            <Button
+              href={url}
+              variant="secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Lire l’article : ${title}`}
+            >
+              Lire l’article
+            </Button>
+          </div>
+        )}
       </div>
-    </a>
+    </article>
   );
 }

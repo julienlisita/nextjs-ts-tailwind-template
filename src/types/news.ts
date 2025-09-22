@@ -10,6 +10,6 @@ export interface NewsItem {
   imageUrl?: string;
   imageAlt?: string;
   displayDate?: string;
-  publishedAt?: string; 
+  publishedAt?: string;
   isPublished?: boolean;
 }
