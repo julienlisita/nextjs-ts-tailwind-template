@@ -70,10 +70,8 @@ export default function Button(props: ButtonProps) {
 
     // 2) Cas interne : Next Link + <a> enfant
     return (
-      <Link href={href} legacyBehavior>
-        <a className={combinedClassName} {...anchorRest}>
+      <Link href={href} className={combinedClassName} {...anchorRest}> 
           {children}
-        </a>
       </Link>
     );
   }
