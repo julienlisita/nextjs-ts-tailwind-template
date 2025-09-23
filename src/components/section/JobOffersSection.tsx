@@ -1,8 +1,8 @@
 // src/components/sections/JobOffersSection.tsx
 
-import Section from '@/components/common/Section';
-import SectionWrapper from '@/components/common/SectionWrapper';
-import SectionTitle from '@/components/ui/SectionTitle';
+'use client';
+
+import FeaturesGrid from './FeaturesGrid';
 import { JobOfferCard } from '@/components/widgets/JobOfferCard';
 import type { JobOffer } from '@/types/job';
 
@@ -25,21 +25,23 @@ export default function JobOffersSection({
   if (!list.length) return null;
 
   return (
-    <Section className={className}>
-      <SectionWrapper>
-        <SectionTitle>{title}</SectionTitle>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-10 justify-center">
-          {list.map((offer) => (
-            <JobOfferCard
-              key={offer.id}
-              title={offer.title}
-              location={offer.location}
-              description={offer.description}
-              onApply={onApply ? () => onApply(offer.title) : undefined}
-            />
-          ))}
-        </div>
-      </SectionWrapper>
-    </Section>
+    <FeaturesGrid<JobOffer>
+      title={title}
+      titleAlign="center"
+      items={list}
+      className={className}
+      gridClassName="grid grid-cols-1 gap-5 sm:gap-6 lg:gap-8"
+      pageSize={5}
+      renderItem={(offer) => (
+        <JobOfferCard
+          key={offer.id}
+          title={offer.title}
+          location={offer.location}
+          description={offer.description}
+          onApply={onApply ? () => onApply(offer.title) : undefined}
+        />
+      )}
+      getKey={(offer) => offer.id}
+    />
   );
 }
