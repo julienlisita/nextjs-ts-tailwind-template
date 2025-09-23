@@ -5,26 +5,26 @@ import type { JobOffer } from '@/types/job';
 export const jobOffers: ReadonlyArray<JobOffer> = [
   {
     id: 1,
-    title: 'Auxiliaire de vie – Temps plein',
+    title: 'Poste générique – Temps plein',
     location: 'Bordeaux (33)',
     description:
-      'Accompagnement des personnes âgées à domicile (toilette, repas, déplacements). Horaires variables, véhicule apprécié.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel lacus nec velit pretium interdum.',
     publishedAt: '2025-08-20T09:00:00Z',
   },
   {
     id: 2,
-    title: 'Assistant administratif – Services à la personne',
+    title: 'Poste administratif – Services internes',
     location: 'Mérignac (33)',
     description:
-      'Accueil téléphonique, gestion des plannings, rédaction de devis/factures. Maîtrise bureautique exigée.',
+      'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     publishedAt: '2025-08-12T08:30:00Z',
   },
   {
     id: 3,
-    title: 'Auxiliaire de vie – Temps partiel (soirées)',
+    title: 'Poste générique – Temps partiel',
     location: 'Pessac (33)',
     description:
-      'Interventions en soirée (18h–22h). Aide au repas, préparation au coucher, échanges et présence rassurante.',
+      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.',
     publishedAt: '2025-08-05T18:00:00Z',
   },
   {
@@ -32,23 +32,23 @@ export const jobOffers: ReadonlyArray<JobOffer> = [
     title: 'Responsable de secteur',
     location: 'Libourne (33)',
     description:
-      'Pilotage des plannings, coordination équipe/bénéficiaires, suivi qualité. Expérience en médico-social requise.',
+      'Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.',
     publishedAt: '2025-07-28T10:15:00Z',
   },
   {
     id: 5,
-    title: 'Auxiliaire de vie – Week-ends',
+    title: 'Poste week-end',
     location: 'Angoulême (16)',
     description:
-      'Missions les samedis et dimanches en roulement. Permis B + véhicule souhaités. Indemnités kilométriques.',
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.',
     publishedAt: '2025-07-20T07:45:00Z',
   },
   {
     id: 6,
-    title: 'Stagiaire communication',
+    title: 'Stage communication',
     location: 'Bordeaux (33)',
     description:
-      'Soutien aux actions de communication (réseaux sociaux, articles, visuels). Stage 2–4 mois, convention requise.',
+      'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.',
     publishedAt: '2025-07-10T09:00:00Z',
   },
 ] as const;
