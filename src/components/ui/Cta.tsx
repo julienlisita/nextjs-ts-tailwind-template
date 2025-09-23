@@ -27,10 +27,8 @@ export default function Cta({
         <p className="cta-description">{description}</p>
 
         <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-6">
-          <Button href={primaryHref} className="cta-btn-primary">
-            {primaryLabel}
-          </Button>
-          <Button href={secondaryHref} variant="secondary" className="cta-btn-secondary">
+          <Button href={primaryHref}>{primaryLabel}</Button>
+          <Button href={secondaryHref} variant="secondary">
             {secondaryLabel}
           </Button>
         </div>
