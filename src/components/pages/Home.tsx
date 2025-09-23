@@ -5,6 +5,7 @@ import Hero from '../section/Hero';
 import SplitSection from '../section/SplitSection';
 import ServicesFeaturesIntro from '../section/ServicesFeaturesIntro';
 import TestimonialsSectionHomeServer from '../section/TestimonialsSectionHomeServer';
+import NewsSectionHomeServer from '../section/NewsSectionHomeServer';
 
 export default function Home() {
   return (
@@ -44,6 +45,7 @@ export default function Home() {
       </SplitSection>
       <ServicesFeaturesIntro />
       <TestimonialsSectionHomeServer limit={3} onlyFeatured={false} />
+      <NewsSectionHomeServer limit={3} />
       <Cta />
     </div>
   );
