@@ -1,3 +1,5 @@
+/* src/components/ui/Cta.css */
+
 /* Base section */
 .cta-section {
   @apply py-12 sm:py-16 lg:py-20;
@@ -12,6 +14,6 @@
 
 /* Description */
 .cta-description {
-  @apply max-w-2xl mx-auto text-lg;
+  @apply max-w-2xl text-lg;
   opacity: 0.9;
 }

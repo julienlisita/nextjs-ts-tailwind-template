@@ -9,7 +9,13 @@ export default function NewsPageView() {
     <div className="pt-8 sm:pt-10 md:pt-14 lg:pt-20">
       <PageTitle>Actualités</PageTitle>
       <NewsSectionServer />
-      <Cta />
+      <Cta
+        title="Titre du CTA"
+        description="Description du CTA"
+        align="left"
+        primaryLabel="Nous contacter"
+        primaryHref="/contact"
+      />
     </div>
   );
 }

@@ -46,7 +46,13 @@ export default function RecruitmentClient({ offers }: { offers: ReadonlyArray<Jo
           </p>
         </SectionWrapper>
       </Section>
-      <Cta />
+      <Cta
+        title="Titre du CTA"
+        description="Description du CTA"
+        align="left"
+        primaryLabel="Nous contacter"
+        primaryHref="/contact"
+      />
 
       {/* Modal de candidature */}
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>

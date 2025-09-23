@@ -34,7 +34,13 @@ export default function Services() {
           gradient={['#60A5FA', '#3B82F6']}
         />
       </section>
-      <Cta />
+      <Cta
+        title="Titre du CTA"
+        description="Description du CTA"
+        align="left"
+        primaryLabel="Nous contacter"
+        primaryHref="/contact"
+      />
     </div>
   );
 }

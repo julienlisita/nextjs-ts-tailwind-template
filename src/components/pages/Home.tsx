@@ -46,7 +46,13 @@ export default function Home() {
       <ServicesFeaturesIntro />
       <TestimonialsSectionHomeServer limit={2} onlyFeatured={false} />
       <NewsSectionHomeServer limit={3} />
-      <Cta />
+      <Cta
+        title="Titre du CTA"
+        description="Description du CTA"
+        align="left"
+        primaryLabel="Nous contacter"
+        primaryHref="/contact"
+      />
     </div>
   );
 }
