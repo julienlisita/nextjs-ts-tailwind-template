@@ -12,7 +12,7 @@ export default function TestimonialsSection({ items }: { items: ReadonlyArray<Te
       eyebrow="Ils nous font confiance"
       title="Tous les témoignages"
       subtitle="Consultez les retours authentiques de nos clients."
-      titleAlign="center"
+      titleAlign="left"
       items={items}
       tabs={[
         { label: 'Tous', value: 'all' },
