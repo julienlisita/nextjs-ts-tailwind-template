@@ -49,7 +49,7 @@ type BaseProps = {
   gridClassName?: string;
 
   /** Alignement du header (propage au titre + eyebrow + sous-titre) */
-  titleAlign?: 'left' | 'center' | 'right';
+  align?: 'left' | 'center' | 'right';
 };
 
 export type FeaturesGridProps<TItem = FeatureItem> = BaseProps & {
@@ -78,7 +78,7 @@ export default function FeaturesGrid<TItem = FeatureItem>({
   pageSize,
   className,
   gridClassName,
-  titleAlign = 'center',
+  align = 'center',
   tabs,
   defaultTab,
   renderItem,
@@ -110,12 +110,15 @@ export default function FeaturesGrid<TItem = FeatureItem>({
 
   // Align header responsive
   const desktopAlign =
-    titleAlign === 'left'
-      ? 'lg:text-left'
-      : titleAlign === 'right'
-        ? 'lg:text-right'
-        : 'lg:text-center';
+    align === 'left' ? 'lg:text-left' : align === 'right' ? 'lg:text-right' : 'lg:text-center';
   const alignClass = clsx('text-center', desktopAlign);
+
+  const actionsAlignClass = clsx(
+    'items-center justify-center',
+    align === 'left' && 'lg:justify-start lg:items-start',
+    align === 'center' && 'lg:justify-center lg:items-center',
+    align === 'right' && 'lg:justify-end lg:items-end'
+  );
 
   // Rendu par défaut d’un item (FeatureCard)
   const defaultRenderItem = (it: unknown, i: number) => {
@@ -193,7 +196,7 @@ export default function FeaturesGrid<TItem = FeatureItem>({
 
         {/* CTA + Pagination */}
         {(ctaLabel && ctaHref) || (secondaryCtaLabel && secondaryCtaHref) || hasPagination ? (
-          <div className="features__actions">
+          <div className={clsx('features__actions', actionsAlignClass)}>
             <div className="features__cta-group">
               {ctaLabel && ctaHref && (
                 <Button href={ctaHref} variant="primary">

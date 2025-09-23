@@ -44,7 +44,7 @@ export default function Home() {
         </ul>
       </SplitSection>
       <ServicesFeaturesIntro />
-      <TestimonialsSectionHomeServer limit={3} onlyFeatured={false} />
+      <TestimonialsSectionHomeServer limit={2} onlyFeatured={false} />
       <NewsSectionHomeServer limit={3} />
       <Cta />
     </div>

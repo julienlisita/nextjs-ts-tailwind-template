@@ -13,7 +13,7 @@ export default function TestimonialsSectionHome({ items }: { items: ReadonlyArra
       eyebrow="Ils nous font confiance"
       title="Les avis de nos clients"
       subtitle="Avis vérifiés, triés et présentés pour vous aider à décider."
-      titleAlign="left"
+      align="left"
       items={items}
       ctaLabel="Voir tous les témoignages"
       ctaHref="/testimonials"

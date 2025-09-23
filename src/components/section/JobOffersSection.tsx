@@ -27,7 +27,7 @@ export default function JobOffersSection({
   return (
     <FeaturesGrid<JobOffer>
       title={title}
-      titleAlign="center"
+      align="left"
       items={list}
       className={className}
       gridClassName="grid grid-cols-1 gap-5 sm:gap-6 lg:gap-8"

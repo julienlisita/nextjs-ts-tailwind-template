@@ -51,9 +51,7 @@ export default function ServicesFeatures() {
       ctaHref="/services"
       secondaryCtaLabel="Nous contacter"
       secondaryCtaHref="/contact"
-      titleAlign="left"
-      pageSize={6} // enlève ce prop si tu ne veux pas de pagination
-      // gridClassName="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6" // exemple de personnalisation
+      align="left"
     />
   );
 }

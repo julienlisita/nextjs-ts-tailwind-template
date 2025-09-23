@@ -23,7 +23,7 @@
 
 /* Actions */
 .features__actions {
-  @apply mt-8 flex flex-col sm:flex-row items-center justify-center gap-6;
+  @apply mt-8 flex flex-col sm:flex-row gap-6;
 }
 
 .features__cta-group {
