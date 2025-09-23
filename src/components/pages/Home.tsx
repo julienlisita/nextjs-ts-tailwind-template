@@ -43,7 +43,7 @@ export default function Home() {
           <li>Professionnels formés et à l’écoute</li>
         </ul>
       </SplitSection>
-      <ServicesFeaturesIntro />
+      <ServicesFeaturesIntro limit={3} />
       <TestimonialsSectionHomeServer limit={2} onlyFeatured={false} />
       <NewsSectionHomeServer limit={3} />
       <Cta
