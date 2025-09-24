@@ -6,27 +6,14 @@ import FeaturesGrid from './FeaturesGrid';
 import NewsCard from '@/components/widgets/NewsCard';
 import type { NewsItem } from '@/types/news';
 
-type Props = {
-  eyebrow?: string;
-  title?: string;
-  subtitle?: string;
-  items: ReadonlyArray<NewsItem>;
-  limit?: number;
-  className?: string;
-};
+type Props = { items: ReadonlyArray<NewsItem> };
 
-export default function NewsSection({ eyebrow, title, subtitle, items, limit, className }: Props) {
-  const list = typeof limit === 'number' ? items.slice(0, Math.max(0, limit)) : items;
-  if (!list.length) return null;
-
+export default function NewsSection({ items }: Props) {
   return (
     <FeaturesGrid<NewsItem>
-      eyebrow={eyebrow ?? 'Articles récents'}
-      title={title}
-      subtitle={subtitle}
+      eyebrow={'Articles récents'}
       align="left"
-      items={list}
-      className={className}
+      items={items}
       gridClassName="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5 sm:gap-6 lg:gap-8"
       pageSize={6}
       renderItem={(item) => (
