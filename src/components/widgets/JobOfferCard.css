@@ -6,7 +6,7 @@
 }
 
 .job-card-header {
-  @apply flex flex-col gap-1;
+  @apply mb-2;
 }
 
 .job-card-title {
@@ -14,22 +14,15 @@
   color: black;
 }
 
-.job-card-location {
-  @apply text-sm;
-  color: #6b7280;
-}
-
 .job-card-description {
-  @apply text-sm flex-grow;
-  color: #6b7280;
+  @apply text-sm mb-3;
+  color: #4b5563; /* gris plus lisible */
 }
 
-.job-card-button {
-  @apply mt-3 px-6 py-2 rounded-md font-semibold transition mx-auto w-fit;
-  background-color: #d8973c;
-  color: white;
+.job-card-meta {
+  @apply flex flex-col sm:flex-row sm:flex-wrap gap-2 text-sm text-gray-600 mt-auto  mb-3;
 }
 
-.job-card-button:hover {
-  background-color: #b87b25;
+.meta-item {
+  @apply flex items-center gap-1;
 }

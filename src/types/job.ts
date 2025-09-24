@@ -5,5 +5,6 @@ export type JobOffer = {
   title: string;
   location: string;
   description: string;
-  publishedAt?: string; // ISO
+  contractType: string;
+  publishedAt: string; // ISO
 };

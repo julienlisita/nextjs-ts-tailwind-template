@@ -1,4 +1,5 @@
 // src/components/sections/JobOffersSection.tsx
+
 'use client';
 
 import FeaturesGrid from './FeaturesGrid';
@@ -21,6 +22,8 @@ export default function JobOffersSection({ items }: Props) {
           title={offer.title}
           location={offer.location}
           description={offer.description}
+          contractType={offer.contractType}
+          publishedAt={offer.publishedAt}
         />
       )}
       getKey={(offer) => offer.id}
