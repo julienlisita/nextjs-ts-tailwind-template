@@ -1,7 +1,7 @@
 // src/components/pages/News.tsx
 
 import PageTitle from '@/components/ui/PageTitle';
-import NewsSectionServer from '../section/NewsSection.server';
+import NewsSectionServer from '../section/NewsSectionServer';
 import Cta from '../ui/Cta';
 
 export default function NewsPageView() {
