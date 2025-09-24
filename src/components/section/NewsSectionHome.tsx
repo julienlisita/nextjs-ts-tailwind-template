@@ -1,3 +1,5 @@
+// src/components/section/NewsSectionHome.tsx
+
 'use client';
 
 import type { NewsItem } from '@/types/news';
@@ -7,9 +9,7 @@ import SectionWrapper from '@/components/common/SectionWrapper';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Button from '@/components/ui/Button';
 
-type Props = {
-  items: ReadonlyArray<NewsItem>;
-};
+type Props = { items: ReadonlyArray<NewsItem> };
 
 export default function NewsSectionHome({ items }: Props) {
   return (
