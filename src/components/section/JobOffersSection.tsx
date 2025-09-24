@@ -1,35 +1,18 @@
 // src/components/sections/JobOffersSection.tsx
-
 'use client';
 
 import FeaturesGrid from './FeaturesGrid';
 import { JobOfferCard } from '@/components/widgets/JobOfferCard';
 import type { JobOffer } from '@/types/job';
 
-type Props = {
-  title?: string;
-  items: ReadonlyArray<JobOffer>;
-  limit?: number;
-  className?: string;
-  onApply?: (title: string) => void; // pour réutiliser la modale si besoin
-};
+type Props = { items: ReadonlyArray<JobOffer> };
 
-export default function JobOffersSection({
-  title = 'Nos offres actuelles',
-  items,
-  limit,
-  className,
-  onApply,
-}: Props) {
-  const list = typeof limit === 'number' ? items.slice(0, Math.max(0, limit)) : items;
-  if (!list.length) return null;
-
+export default function JobOffersSection({ items }: Props) {
   return (
     <FeaturesGrid<JobOffer>
-      title={title}
+      eyebrow="NOS OFFRES D’EMPLOI"
       align="left"
-      items={list}
-      className={className}
+      items={items}
       gridClassName="grid grid-cols-1 gap-5 sm:gap-6 lg:gap-8"
       pageSize={5}
       renderItem={(offer) => (
@@ -38,7 +21,6 @@ export default function JobOffersSection({
           title={offer.title}
           location={offer.location}
           description={offer.description}
-          onApply={onApply ? () => onApply(offer.title) : undefined}
         />
       )}
       getKey={(offer) => offer.id}
