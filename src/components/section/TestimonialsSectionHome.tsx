@@ -3,11 +3,14 @@
 'use client';
 
 import type { Testimonial } from '@/types/testimonial';
-
 import { TestimonialCard } from '@/components/widgets/TestimonialCard';
 import FeaturesGrid from './FeaturesGrid';
 
-export default function TestimonialsSectionHome({ items }: { items: ReadonlyArray<Testimonial> }) {
+type Props = {
+  items: ReadonlyArray<Testimonial>;
+};
+
+export default function TestimonialsSectionHome({ items }: Props) {
   return (
     <FeaturesGrid<Testimonial>
       eyebrow="Ils nous font confiance"

@@ -44,7 +44,7 @@ export default function Home() {
         </ul>
       </SplitSection>
       <ServicesFeaturesIntro />
-      <TestimonialsSectionHomeServer limit={2} onlyFeatured={false} />
+      <TestimonialsSectionHomeServer />
       <NewsSectionHomeServer />
       <Cta
         title="Titre du CTA"
