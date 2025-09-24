@@ -2,12 +2,15 @@
 
 import RecruitmentClient from '@/components/pages/RecruitmentClient';
 import JobOffersSectionServer from '../section/JobOffersSectionServer';
+import { Suspense } from 'react';
 
 export default async function Recruitment() {
   return (
     <>
       <JobOffersSectionServer />
-      <RecruitmentClient />;
+      <Suspense fallback={<div>Chargement…</div>}>
+        <RecruitmentClient />;
+      </Suspense>
     </>
   );
 }

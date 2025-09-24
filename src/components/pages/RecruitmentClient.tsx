@@ -5,7 +5,7 @@
 import PageTitle from '@/components/ui/PageTitle';
 import Modal from '../ui/Modal';
 import JobApplicationForm from '../form/JobApplicationForm';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Section from '../common/Section';
 import SectionTitle from '../ui/SectionTitle';
 import SectionWrapper from '../common/SectionWrapper';
