@@ -13,7 +13,7 @@ const NAV_ITEMS = [
   { href: '/', label: 'Accueil' },
   { href: '/about', label: 'À propos' },
   { href: '/services', label: 'Services' },
-  { href: '/information', label: 'Informations' },
+  { href: '/testimonials', label: 'Témoignages' },
   { href: '/news', label: 'Actualités' },
   { href: '/recruitment', label: 'Recrutement' },
   { href: '/contact', label: 'Contact' },
