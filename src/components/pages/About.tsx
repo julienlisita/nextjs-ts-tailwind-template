@@ -1,12 +1,18 @@
 // src/components/pages/About.tsx
 
-import PageTitle from '@/components/ui/PageTitle';
 import Cta from '../ui/Cta';
+import HeroIntro from '../section/HeroIntro';
+import { Users } from 'lucide-react';
 
 export default function About() {
   return (
-    <div className="pt-8 sm:pt-10 md:pt-14 lg:pt-20">
-      <PageTitle>À propos</PageTitle>
+    <div>
+      <HeroIntro
+        icon={<Users size={40} />}
+        title="Qui sommes-nous ?"
+        subtitle="Découvrez notre équipe, nos valeurs et notre vision."
+        align="center"
+      />
       <Cta
         title="Titre du CTA"
         description="Description du CTA"

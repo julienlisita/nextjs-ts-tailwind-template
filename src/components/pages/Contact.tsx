@@ -1,12 +1,18 @@
 // src/components/pages/Contact.tsx
 
-import PageTitle from '@/components/ui/PageTitle';
 import ContactForm from '@/components/form/ContactForm';
+import HeroIntro from '../section/HeroIntro';
+import { Mail } from 'lucide-react';
 
 export default function Contact() {
   return (
-    <div className="pt-8 sm:pt-10 md:pt-14 lg:pt-20">
-      <PageTitle>Contact</PageTitle>
+    <div>
+      <HeroIntro
+        icon={<Mail size={40} />}
+        title="Contactez-nous"
+        subtitle="Besoin d’informations ou d’un devis ? Nous sommes à votre écoute."
+        align="center"
+      />
       <div className="max-w-2xl w-full mx-auto py-4">
         <ContactForm />
       </div>

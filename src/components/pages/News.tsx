@@ -1,13 +1,19 @@
 // src/components/pages/News.tsx
 
-import PageTitle from '@/components/ui/PageTitle';
+import { Newspaper } from 'lucide-react';
+import HeroIntro from '../section/HeroIntro';
 import NewsSectionServer from '../section/NewsSectionServer';
 import Cta from '../ui/Cta';
 
 export default function NewsPageView() {
   return (
-    <div className="pt-8 sm:pt-10 md:pt-14 lg:pt-20">
-      <PageTitle>Actualités</PageTitle>
+    <div>
+      <HeroIntro
+        icon={<Newspaper size={40} />}
+        title="Actualités"
+        subtitle="Retrouvez les dernières nouvelles, articles et mises à jour."
+        align="center"
+      />
       <NewsSectionServer />
       <Cta
         title="Titre du CTA"

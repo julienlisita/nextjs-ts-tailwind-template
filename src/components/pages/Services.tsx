@@ -2,14 +2,20 @@
 
 'use client';
 
-import PageTitle from '../ui/PageTitle';
 import Cta from '../ui/Cta';
 import ServicesSection from '../section/ServicesSection';
+import { Briefcase } from 'lucide-react';
+import HeroIntro from '../section/HeroIntro';
 
 export default function ServicesFeatures() {
   return (
-    <div className="pt-8 sm:pt-10 md:pt-14 lg:pt-20">
-      <PageTitle>Nos services</PageTitle>
+    <div>
+      <HeroIntro
+        icon={<Briefcase size={40} />}
+        title="Nos services"
+        subtitle="Un aperçu clair et détaillé de ce que nous proposons."
+        align="center"
+      />
       <ServicesSection />
       <Cta
         title="Titre du CTA"
