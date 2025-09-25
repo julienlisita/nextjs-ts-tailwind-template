@@ -3,8 +3,8 @@
 /* Base section */
 .cta-section {
   @apply py-12 sm:py-16 lg:py-20;
-  background-color: #3e8ce0; /* bleu principal */
-  color: white;
+  background-color: #e2e2e2; /* bleu principal */
+  color: black;
 }
 
 /* Title */

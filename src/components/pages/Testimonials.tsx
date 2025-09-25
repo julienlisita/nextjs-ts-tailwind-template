@@ -18,8 +18,8 @@ export default function TestimonialsPageView() {
       />
       <TestimonialsSectionServer />
       <Cta
-        title="Titre du CTA"
-        description="Description du CTA"
+        title="Faites partie de nos clients satisfaits"
+        description="Rejoignez ceux qui nous font déjà confiance. Contactez-nous pour commencer l’aventure."
         align="left"
         primaryLabel="Nous contacter"
         primaryHref="/contact"

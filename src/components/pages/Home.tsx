@@ -16,8 +16,8 @@ export default function Home() {
       <TestimonialsSectionHomeServer />
       <NewsSectionHomeServer />
       <Cta
-        title="Titre du CTA"
-        description="Description du CTA"
+        title="Prêt à en savoir plus ?"
+        description="Contactez-nous dès aujourd’hui pour découvrir comment nous pouvons vous accompagner."
         align="left"
         primaryLabel="Nous contacter"
         primaryHref="/contact"

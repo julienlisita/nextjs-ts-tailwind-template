@@ -14,8 +14,8 @@ export default function About() {
         align="center"
       />
       <Cta
-        title="Titre du CTA"
-        description="Description du CTA"
+        title="Envie d’échanger avec nous ?"
+        description="Notre équipe est disponible pour répondre à vos questions et discuter de vos besoins."
         align="left"
         primaryLabel="Nous contacter"
         primaryHref="/contact"

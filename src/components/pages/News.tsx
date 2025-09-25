@@ -16,8 +16,8 @@ export default function NewsPageView() {
       />
       <NewsSectionServer />
       <Cta
-        title="Titre du CTA"
-        description="Description du CTA"
+        title="Ne manquez pas nos prochaines actualités"
+        description="Pour rester informé ou poser vos questions, contactez notre équipe."
         align="left"
         primaryLabel="Nous contacter"
         primaryHref="/contact"

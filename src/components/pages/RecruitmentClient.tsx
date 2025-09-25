@@ -9,7 +9,6 @@ import { useEffect, useState } from 'react';
 import Section from '../common/Section';
 import SectionTitle from '../ui/SectionTitle';
 import SectionWrapper from '../common/SectionWrapper';
-import Cta from '../ui/Cta';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function RecruitmentClient() {
@@ -48,9 +47,6 @@ export default function RecruitmentClient() {
           </p>
         </SectionWrapper>
       </Section>
-
-      <Cta />
-
       <Modal isOpen={isOpen} onClose={close}>
         <JobApplicationForm jobTitle={applyTitle ?? ''} />
       </Modal>
