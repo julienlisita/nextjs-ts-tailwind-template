@@ -1,0 +1,54 @@
+/* src/components/section/HeroIntro.css */
+
+/* Thème (couleurs) */
+.hero-intro {
+  /* tokens personnalisables si tu veux (peuvent venir de :root) */
+  --hero-bg: var(--color-brand, #3e8ce0);
+  --hero-fg: #ffffff;
+
+  background-color: var(--hero-bg);
+  color: var(--hero-fg);
+}
+
+/* Layout & responsive via Tailwind (@apply) */
+.hero-intro__inner {
+  @apply container mx-auto px-4;
+  @apply flex flex-col space-y-4;
+  @apply py-12 sm:py-16 lg:py-20;
+  @apply items-center; /* mobile: centré */
+}
+
+/* Alignements desktop selon le modificateur */
+.hero-intro.is-left .hero-intro__inner {
+  @apply lg:items-start;
+}
+.hero-intro.is-right .hero-intro__inner {
+  @apply lg:items-end;
+}
+
+.hero-intro__icon {
+  @apply mb-4;
+  color: currentColor;
+}
+
+/* Mobile centré par défaut, desktop selon modificateur */
+.hero-intro__title {
+  @apply text-center;
+}
+.hero-intro.is-left .hero-intro__title {
+  @apply lg:text-left;
+}
+.hero-intro.is-right .hero-intro__title {
+  @apply lg:text-right;
+}
+
+.hero-intro__subtitle {
+  @apply text-lg opacity-90 max-w-2xl text-center;
+  color: rgba(255, 255, 255, 0.85);
+}
+.hero-intro.is-left .hero-intro__subtitle {
+  @apply lg:text-left;
+}
+.hero-intro.is-right .hero-intro__subtitle {
+  @apply lg:text-right;
+}
