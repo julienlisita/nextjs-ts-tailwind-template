@@ -50,6 +50,8 @@ type BaseProps = {
 
   /** Alignement du header (propage au titre + eyebrow + sous-titre) */
   align?: 'left' | 'center' | 'right';
+
+  cardGradient?: [string, string] | false;
 };
 
 export type FeaturesGridProps<TItem = FeatureItem> = BaseProps & {
@@ -84,6 +86,7 @@ export default function FeaturesGrid<TItem = FeatureItem>({
   renderItem,
   getKey,
   filterByTab,
+  cardGradient
 }: FeaturesGridProps<TItem>) {
   const [page, setPage] = useState(1);
   const [activeTab, setActiveTab] = useState<string | undefined>(defaultTab);
@@ -130,7 +133,7 @@ export default function FeaturesGrid<TItem = FeatureItem>({
         title={f.title}
         description={f.description}
         variant="with-header"
-        gradient={['#3e8ce0', '#7aa9f5']}
+        gradient = {cardGradient || undefined}
       />
     );
   };

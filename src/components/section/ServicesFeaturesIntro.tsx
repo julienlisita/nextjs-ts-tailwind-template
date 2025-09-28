@@ -21,6 +21,7 @@ export default function ServicesFeatures({ className }: Props) {
       secondaryCtaLabel="Nous contacter"
       secondaryCtaHref="/contact"
       align="left"
+      cardGradient={['#e5e7eb', '#9ca3af']}
       className={className}
     />
   );
