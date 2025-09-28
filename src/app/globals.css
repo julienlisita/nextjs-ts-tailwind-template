@@ -11,7 +11,7 @@
 
   /* Functional tokens */
   --color-primary: var(--neutral-600);
-  --color-secondary: #9ca3af;           /* optionnel, texte secondaire */
+  --color-secondary: #9ca3af; /* optionnel, texte secondaire */
   --color-bg: var(--neutral-100);
   --color-surface: #ffffff;
   --color-border: var(--neutral-300);

@@ -60,6 +60,7 @@ DATABASE_URL="postgresql://user:password@localhost:5432/ma_base"
 ```
 
 Exécutez la première migration :
+
 ```bash
 pnpm prisma migrate dev --name init
 ```
