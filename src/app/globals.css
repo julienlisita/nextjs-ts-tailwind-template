@@ -2,21 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Thème global light / dark avec variables CSS */
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
-} */
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #ededed;
-    --foreground: #0a0a0a;
-  }
-}
-
 :root {
-  --header-height: 56px; /* h-14 */
+  /* Neutral scale (minimal) */
+  --neutral-100: #f5f5f5; /* bg */
+  --neutral-300: #e0e0e0; /* borders / subtle surfaces */
+  --neutral-600: #6b7280; /* primary / accents */
+  --neutral-900: #111827; /* main text */
+
+  /* Functional tokens */
+  --color-primary: var(--neutral-600);
+  --color-secondary: #9ca3af;           /* optionnel, texte secondaire */
+  --color-bg: var(--neutral-100);
+  --color-surface: #ffffff;
+  --color-border: var(--neutral-300);
+  --color-text: var(--neutral-900);
+  --color-muted: var(--color-secondary);
+
+  /* Layout */
+  --header-height: 56px;
 }
 
 @media (min-width: 640px) {
