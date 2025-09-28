@@ -1,14 +1,14 @@
 /* Base card */
 .feature-card {
   @apply rounded-xl shadow-sm transition overflow-hidden;
-  background-color: #faf8f3; /* crème */
-  border: 1px solid #ddd;
+  background-color: var(--color-bg); /* crème */
+  border: 1px solid var(--color--bg);
 }
 
 /* Variantes */
 .feature-card--outlined {
   background-color: #ffffff;
-  border: 2px solid #3e8ce0;
+  border: 2px solid var(--color-primary);
 }
 
 .feature-card--gradient {
@@ -31,7 +31,7 @@
 /* Icon */
 .feature-card__icon-inner {
   @apply w-10 h-10;
-  color: #3e8ce0;
+  color: transparent;
 }
 /* if header is colored, inherit header text color */
 .feature-card__header .feature-card__icon-inner {

@@ -6,7 +6,7 @@
 
 .btn.primary {
   border: 2px solid transparent;
-  background-color: #3e8ce0;
+  background-color: var(--color-primary);
   color: white;
   transition:
     background-color 0.3s,
@@ -14,20 +14,20 @@
     border-color 0.3s;
 }
 .btn.primary:hover {
-  background-color: #faf8f3;
-  color: #3c87d8;
-  border-color: #3e8ce0;
+  background-color: white;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 .btn.secondary {
   background-color: white;
-  color: #3c87d8;
-  border: 2px solid #3c87d8;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
 }
 .btn.secondary:hover {
-  background-color: #3c87d8;
+  background-color: var(--color-primary);
   color: white;
-  border: 2px solid #3c87d8;
+  border: 2px solid var(--color-primary);
 }
 
 .btn:disabled {

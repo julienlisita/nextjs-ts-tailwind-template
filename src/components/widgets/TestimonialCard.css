@@ -59,14 +59,14 @@
 }
 .t-star {
   @apply w-5 h-5;
-  color: #d1d5db; /* base empty */
+  color: var(--color-border); /* base empty */
 }
 .t-star--full {
-  color: #d8973c; /* ocre */
+  color: var(--color-primary); /* ocre */
 }
 /* demi-étoile: on colore, puis on masque moitié droite */
 .t-star--half {
-  color: #d8973c;
+  color: var(--color-border);
   position: relative;
   overflow: hidden;
 }
@@ -101,9 +101,9 @@
 
 /* variante highlight */
 .t-card--highlight {
-  background-color: #faf8f3; /* crème */
-  box-shadow: 0 6px 24px rgba(216, 151, 60, 0.15);
-  border: 1px solid rgba(216, 151, 60, 0.25);
+  background-color: var(--color-bg); /* crème */
+  box-shadow: 0 6px 24px var(--color-secondary);
+  border: 1px solid var(--color-secondary);
 }
 
 /* focus & a11y */

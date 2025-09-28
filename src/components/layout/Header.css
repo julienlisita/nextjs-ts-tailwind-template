@@ -61,7 +61,7 @@
 }
 
 .nav-link:hover {
-  color: #2563eb; /* hover:text-blue-600 */
+  color: var(--color-secondary); /* hover:text-blue-600 */
 }
 
 .nav-link[aria-current='page'] {
@@ -71,7 +71,7 @@
 }
 
 .nav-link:focus-visible {
-  outline: 2px solid #2563eb; /* blue-600 */
+  outline: 2px solid var(--color-border); /* blue-600 */
   outline-offset: 2px;
   border-radius: 0.25rem;
 }

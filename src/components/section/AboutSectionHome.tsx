@@ -21,7 +21,7 @@ export default function AboutSectionHome({ className }: Props) {
         </>
       }
       // image
-      imageSrc="/images/image.png"
+      imageSrc="/images/image-placeholder.png"
       imageAlt="Accompagnement à domicile chaleureux"
       // layout
       reverse

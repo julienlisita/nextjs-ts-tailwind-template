@@ -18,6 +18,7 @@ export default function ServicesSection({ className }: Props) {
       items={services}
       align={'left'}
       gridClassName={'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8'}
+      cardGradient={['#e5e7eb', '#9ca3af']}
       className={className}
     />
   );

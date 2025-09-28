@@ -3,7 +3,7 @@
 /* Thème (couleurs) */
 .hero-intro {
   /* tokens personnalisables si tu veux (peuvent venir de :root) */
-  --hero-bg: var(--color-brand, #3e8ce0);
+  --hero-bg: var(--color-brand, var(--color-secondary));
   --hero-fg: #ffffff;
 
   background-color: var(--hero-bg);

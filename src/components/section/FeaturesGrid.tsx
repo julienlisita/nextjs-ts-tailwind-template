@@ -86,7 +86,7 @@ export default function FeaturesGrid<TItem = FeatureItem>({
   renderItem,
   getKey,
   filterByTab,
-  cardGradient
+  cardGradient,
 }: FeaturesGridProps<TItem>) {
   const [page, setPage] = useState(1);
   const [activeTab, setActiveTab] = useState<string | undefined>(defaultTab);
@@ -133,7 +133,7 @@ export default function FeaturesGrid<TItem = FeatureItem>({
         title={f.title}
         description={f.description}
         variant="with-header"
-        gradient = {cardGradient || undefined}
+        gradient={cardGradient || undefined}
       />
     );
   };

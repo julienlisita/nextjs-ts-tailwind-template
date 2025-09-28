@@ -7,7 +7,7 @@
   @apply h-4 w-4 border rounded-full;
   background-color: white;
   border-color: #ccc;
-  accent-color: #3c8dd8; /* couleur personnalisée de sélection */
+  accent-color: black; /* couleur personnalisée de sélection */
 }
 
 .radio-input:focus {
