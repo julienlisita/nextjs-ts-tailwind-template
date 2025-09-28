@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js + TypeScript + Tailwind + Prisma Template
 
-## Getting Started
+🚀 Base de projet moderne pour créer rapidement des applications web fullstack avec **Next.js (App Router)**, **TypeScript**, **TailwindCSS**, et **Prisma** (PostgreSQL).
 
-First, run the development server:
+## Stack technique
+
+- [Next.js](https://nextjs.org/) 15 — App Router, SSR/SSG/ISR
+- [TypeScript](https://www.typescriptlang.org/) — Typage strict
+- [TailwindCSS](https://tailwindcss.com/) — Utility-first CSS
+- [Prisma](https://www.prisma.io/) — ORM pour PostgreSQL
+- [ESLint](https://eslint.org/) + [Prettier](https://prettier.io/) — Qualité de code
+- [Zod](https://zod.dev/) — Validation des schémas
+
+## Démarrage
+
+Clonez ce repo, installez les dépendances, puis lancez le serveur de dev :
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ou avec npm :
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Accédez à [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+## Scripts disponibles
 
-To learn more about Next.js, take a look at the following resources:
+- `dev` — lance le serveur de dev Next.js
+- `build` — build en production
+- `start` — démarre l’app en mode production
+- `lint` — exécute ESLint
+- `typecheck` — vérifie le typage TypeScript
+- `prisma migrate dev` — applique les migrations Prisma en dev
+- `prisma studio` — ouvre Prisma Studio pour explorer la BDD
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Structure du projet
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+app/               # Pages et layouts (App Router)
+src/
+  components/      # Composants UI réutilisables
+  lib/             # Fonctions utilitaires (auth, db, etc.)
+  styles/          # Styles globaux
+  prisma/          # Schéma et migrations
+```
 
-## Deploy on Vercel
+## Base de données
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Le projet utilise **PostgreSQL**.  
+Configurez l’URL de connexion dans `.env` :
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+DATABASE_URL="postgresql://user:password@localhost:5432/ma_base"
+```
+
+Exécutez la première migration :
+```bash
+pnpm prisma migrate dev --name init
+```
+
+## Notes sur les warnings d’hydratation
+
+Parfois, Next.js affiche un warning :
+
+```
+A tree hydrated but some attributes of the server rendered HTML didn't match the client properties...
+```
+
+➡️ Ce warning apparaît souvent à cause d’**extensions navigateur** (par ex. `cz-shortcut-listen`, `data-gramm`).  
+Dans ce cas, ce n’est pas un bug du code. Testez en **navigation privée** pour confirmer.
+
+## Déploiement
+
+Le plus simple est de déployer sur [Vercel](https://vercel.com/), l’équipe derrière Next.js.
+
+## Licence
+
+MIT — libre d’utilisation et de modification.
