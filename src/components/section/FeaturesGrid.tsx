@@ -6,6 +6,8 @@ import React, { useMemo, useState } from 'react';
 import Section from '@/components/common/Section';
 import SectionWrapper from '@/components/common/SectionWrapper';
 import SectionTitle from '@/components/ui/SectionTitle';
+import Eyebrow from '@/components/ui/Eyebrow';
+import Subtitle from '@/components/ui/Subtitle';
 import Button from '@/components/ui/Button';
 import FeatureCard from '@/components/widgets/FeaturedCard';
 import clsx from 'clsx';
@@ -143,13 +145,9 @@ export default function FeaturesGrid<TItem = FeatureItem>({
       <SectionWrapper>
         {(eyebrow || title || subtitle) && (
           <header className={clsx('features__header', alignClass)}>
-            {eyebrow && <span className={clsx('features__eyebrow', alignClass)}>{eyebrow}</span>}
-            {title && (
-              <SectionTitle align="center" className={desktopAlign}>
-                {title}
-              </SectionTitle>
-            )}
-            {subtitle && <p className={clsx('features__subtitle', alignClass)}>{subtitle}</p>}
+            {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
+            {title && <SectionTitle>{title}</SectionTitle>}
+            {subtitle && <Subtitle>{subtitle}</Subtitle>}
           </header>
         )}
 

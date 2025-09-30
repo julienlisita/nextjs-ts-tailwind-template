@@ -1,21 +1,5 @@
 /* src/components/sections/FeaturesGrid.css */
 
-/* Header */
-.features__eyebrow {
-  @apply block text-sm font-semibold uppercase tracking-wide;
-  color: black;
-}
-
-.features__header h2 {
-  @apply text-2xl sm:text-3xl font-bold mt-2;
-  color: black;
-}
-
-.features__subtitle {
-  @apply text-lg font-medium mt-3;
-  color: black;
-}
-
 /* Grid */
 .features__grid {
   @apply mt-6 sm:mt-8 lg:mt-10;
