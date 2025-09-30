@@ -1,7 +1,5 @@
 /* src/components/sections/SplitSection.css */
 
-/* Layout & typo via @apply — Couleurs/bordures via variables CSS */
-
 /* Tonalités (fond/bordures) */
 .split.split--default {
   background-color: transparent;
@@ -9,14 +7,14 @@
   border-bottom: 2px solid transparent;
 }
 .split.split--muted {
-  background-color: #faf8f3; /* crème douce */
-  border-top: 2px solid var(--color-terre);
-  border-bottom: 2px solid var(--color-terre);
+  background-color: var(--color-border);
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
 }
 .split.split--brand {
-  background-color: #f0f6ff; /* léger bleu */
-  border-top: 2px solid #3e8ce0;
-  border-bottom: 2px solid #3e8ce0;
+  background-color: var(--color-bg);
+  border-top: 2px solid var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
 }
 
 /* Grille responsive */
@@ -62,27 +60,10 @@
   @apply text-center lg:text-left;
 }
 
-.split__eyebrow {
-  @apply text-sm font-semibold uppercase tracking-wide;
-  color: var(--color-vert);
-}
-
-.split__title {
-  /* aligné sur FeaturesGrid: title mt-2 */
-  @apply text-2xl sm:text-3xl font-bold mt-2;
-  color: var(--color-terre);
-}
-
-.split__subtitle {
-  /* aligné sur FeaturesGrid: subtitle mt-3 */
-  @apply text-lg font-medium mt-3;
-  color: var(--color-vert);
-}
-
 .split__text {
   /* bloc de texte principal — respiration identique */
   @apply mt-5 text-base leading-relaxed;
-  color: var(--color-terre);
+  color: black;
 }
 
 /* Slot extra (liste, points forts, etc.) */

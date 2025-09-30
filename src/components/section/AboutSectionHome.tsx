@@ -25,7 +25,6 @@ export default function AboutSectionHome({ className }: Props) {
       imageAlt="Accompagnement à domicile chaleureux"
       // layout
       reverse
-      tone="muted"
       className={className ?? 'mt-8'}
       // CTAs
       ctaLabel="En savoir plus"

@@ -6,6 +6,9 @@ import Button from '@/components/ui/Button';
 import Image from 'next/image';
 import clsx from 'clsx';
 import './SplitSection.css';
+import Eyebrow from '../ui/Eyebrow';
+import SectionTitle from '../ui/SectionTitle';
+import Subtitle from '../ui/Subtitle';
 
 type SplitSectionProps = {
   /** Eyebrow (petit label au-dessus du titre) */
@@ -71,9 +74,9 @@ export default function SplitSection({
 
           {/* TEXTE */}
           <div className="split__body">
-            {eyebrow && <p className="split__eyebrow">{eyebrow}</p>}
-            <h2 className="split__title">{title}</h2>
-            {subtitle && <p className="split__subtitle">{subtitle}</p>}
+            {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
+            {title && <SectionTitle>{title}</SectionTitle>}
+            {subtitle && <Subtitle>{subtitle}</Subtitle>}
             {content && <div className="split__text">{content}</div>}
             {children && <div className="split__extra">{children}</div>}
 
