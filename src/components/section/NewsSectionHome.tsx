@@ -8,6 +8,7 @@ import Section from '@/components/common/Section';
 import SectionWrapper from '@/components/common/SectionWrapper';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Button from '@/components/ui/Button';
+import Subtitle from '../ui/Subtitle';
 
 type Props = { items: ReadonlyArray<NewsItem> };
 
@@ -22,7 +23,7 @@ export default function NewsSectionHome({ items }: Props) {
               À la une
             </span>
             <SectionTitle align="left">Actualités récentes</SectionTitle>
-            <p className="text-base text-gray-700">Les dernières infos utiles pour vous.</p>
+            <Subtitle>Les dernières infos utiles pour vous.</Subtitle>
             <div className="mt-6">
               <Button href="/news" variant="primary">
                 Voir toutes les actualités
