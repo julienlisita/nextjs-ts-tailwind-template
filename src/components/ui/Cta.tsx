@@ -43,7 +43,7 @@ export default function Cta({
 
   // Boutons: mobile centré, desktop selon `align`
   const actionsAlign = clsx(
-    'flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6',
+    'flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 items-center',
     align === 'left' && 'justify-center lg:justify-start',
     align === 'center' && 'justify-center',
     align === 'right' && 'justify-center lg:justify-end'
