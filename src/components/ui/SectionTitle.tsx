@@ -2,37 +2,33 @@
 
 'use client';
 
-import React from 'react';
-import { resolveColor } from '@/lib/resolveColor';
 import clsx from 'clsx';
+import './SectionTitle.css';
 
 type SectionTitleProps = {
   id?: string;
   children: React.ReactNode;
   className?: string;
-  color?: string;
-  align?: 'left' | 'center' | 'right';
+  align?: 'inherit' | 'left' | 'center' | 'right';
 };
 
 export default function SectionTitle({
   id,
   children,
   className = '',
-  color = 'inherit',
-  align = 'center',
+  align = 'inherit',
 }: SectionTitleProps) {
+  const alignClass =
+    align === 'inherit'
+      ? null
+      : align === 'left'
+        ? 'text-left'
+        : align === 'right'
+          ? 'text-right'
+          : 'text-center';
+
   return (
-    <h2
-      id={id}
-      className={clsx(
-        'text-xl sm:text-2xl lg:text-3xl font-heading font-semibold',
-        align === 'left' && 'text-left',
-        align === 'center' && 'text-center',
-        align === 'right' && 'text-right',
-        className
-      )}
-      style={{ color: resolveColor(color) }}
-    >
+    <h2 id={id} className={clsx('title', alignClass, className)}>
       {children}
     </h2>
   );
