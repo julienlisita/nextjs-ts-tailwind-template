@@ -26,7 +26,7 @@ export const testimonials: ReadonlyArray<Testimonial> = [
     rating: 4.5,
     avatarUrl: '/images/testimonials/avatar.jpg',
     displayDate: 'Juillet 2025',
-    city: 'Bordeaux',
+    city: 'Lyon',
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ export const testimonials: ReadonlyArray<Testimonial> = [
     rating: 5,
     avatarUrl: '/images/testimonials/avatar.jpg',
     displayDate: 'Juin 2025',
-    city: 'Bordeaux',
+    city: 'Paris',
   },
   {
     id: 4,
@@ -50,7 +50,7 @@ export const testimonials: ReadonlyArray<Testimonial> = [
     rating: 4,
     avatarUrl: '/images/testimonials/avatar.jpg',
     displayDate: 'Mai 2025',
-    city: 'Bordeaux',
+    city: 'Marseille',
   },
   {
     id: 5,
@@ -62,7 +62,7 @@ export const testimonials: ReadonlyArray<Testimonial> = [
     rating: 5,
     avatarUrl: '/images/testimonials/avatar.jpg',
     displayDate: 'Mars 2025',
-    city: 'Bordeaux',
+    city: 'Lille',
   },
   {
     id: 6,
@@ -75,6 +75,6 @@ export const testimonials: ReadonlyArray<Testimonial> = [
     avatarUrl: '/images/testimonials/avatar.jpg',
     displayDate: 'Février 2025',
     highlight: false,
-    city: 'Bordeaux',
+    city: 'Strasbourg',
   },
 ] as const;
