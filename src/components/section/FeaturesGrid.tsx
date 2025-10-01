@@ -9,7 +9,7 @@ import SectionTitle from '@/components/ui/SectionTitle';
 import Eyebrow from '@/components/ui/Eyebrow';
 import Subtitle from '@/components/ui/Subtitle';
 import Button from '@/components/ui/Button';
-import FeatureCard from '@/components/widgets/FeaturedCard';
+import FeatureCard from '@/components/widgets/FeatureCard';
 import clsx from 'clsx';
 import './FeaturesGrid.css';
 
