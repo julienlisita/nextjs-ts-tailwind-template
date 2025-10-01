@@ -136,6 +136,7 @@ export default function FeaturesGrid<TItem = FeatureItem>({
         description={f.description}
         variant="with-header"
         gradient={cardGradient || undefined}
+        align="left"
       />
     );
   };
