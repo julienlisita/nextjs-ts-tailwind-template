@@ -14,4 +14,5 @@ export interface Testimonial {
   className?: string;
   publishedAt?: string; // ISO string si tu veux trier par date de publication
   isPublished?: boolean;
+  city?: string;
 }

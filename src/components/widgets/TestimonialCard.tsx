@@ -14,6 +14,7 @@ export type TestimonialCardProps = {
   rating?: number; // 1..5 (peut être décimal: 4.5 -> arrondi à .5 visuel)
   avatarUrl?: string; // optionnel: /images/clients/lesly.jpg
   displayDate?: string; // ex: “Août 2025”
+  city?: string;
   highlight?: boolean; // met la carte en avant
   variant?: 'default' | 'compact' | 'horizontal';
   className?: string;
@@ -27,6 +28,7 @@ export function TestimonialCard({
   rating = 5,
   avatarUrl,
   displayDate,
+  city,
   highlight = false,
   variant = 'default',
   className = '',
@@ -46,31 +48,6 @@ export function TestimonialCard({
         className,
       ].join(' ')}
     >
-      {/* header: avatar + identité */}
-      <div className="t-card-head">
-        {avatarUrl ? (
-          <span className="t-avatar">
-            <Image
-              src={avatarUrl}
-              alt={`Photo de ${name}`}
-              fill
-              sizes="48px"
-              style={{ objectFit: 'cover' }}
-            />
-          </span>
-        ) : (
-          <span aria-hidden="true" className="t-avatar t-avatar--placeholder" />
-        )}
-
-        <figcaption className="t-id">
-          <span className="t-name">{name}</span>
-          {(role || company) && (
-            <span className="t-meta">{[role, company].filter(Boolean).join(' · ')}</span>
-          )}
-          {displayDate && <span className="t-date">{displayDate}</span>}
-        </figcaption>
-      </div>
-
       {/* rating */}
       <div className="t-rating" aria-label={`Note ${ariaRating} sur 5`}>
         <span className="sr-only">Note {ariaRating} sur 5</span>
@@ -93,6 +70,32 @@ export function TestimonialCard({
         </span>
         <p>{quote}</p>
       </blockquote>
+      {/* header: avatar + identité */}
+      <div className="t-card-head">
+        {avatarUrl ? (
+          <span className="t-avatar">
+            <Image
+              src={avatarUrl}
+              alt={`Photo de ${name}`}
+              fill
+              sizes="48px"
+              style={{ objectFit: 'cover' }}
+            />
+          </span>
+        ) : (
+          <span aria-hidden="true" className="t-avatar t-avatar--placeholder" />
+        )}
+
+        <figcaption className="t-id">
+          <span className="t-name">{name}</span>
+          {(role || company) && (
+            <span className="t-meta">{[role, company].filter(Boolean).join(' · ')}</span>
+          )}
+          {(displayDate || city) && (
+            <span className="t-date">{[city, displayDate].filter(Boolean).join(' · ')}</span>
+          )}
+        </figcaption>
+      </div>
     </figure>
   );
 }
