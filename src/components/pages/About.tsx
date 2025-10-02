@@ -3,6 +3,7 @@
 import Cta from '../ui/Cta';
 import HeroIntro from '../section/HeroIntro';
 import { Users } from 'lucide-react';
+import ValuesSection from '../section/ValueSection';
 
 export default function About() {
   return (
@@ -13,6 +14,7 @@ export default function About() {
         subtitle="Découvrez notre équipe, nos valeurs et notre vision."
         align="center"
       />
+      <ValuesSection />
       <Cta
         title="Envie d’échanger avec nous ?"
         description="Notre équipe est disponible pour répondre à vos questions et discuter de vos besoins."
