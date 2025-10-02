@@ -7,7 +7,20 @@ import FloatingInput from '../form/FloatingInput';
 import FloatingTextarea from '../form/FloatingTextarea';
 import './ContactForm.css';
 
-export default function ContactForm() {
+type ContactFormProps = {
+  /** Alignement du bouton CTA (appliqué à partir de lg) */
+  ctaAlign?: 'left' | 'center' | 'right';
+};
+
+export default function ContactForm({ ctaAlign = 'left' }: ContactFormProps) {
+  // mapping responsive : mobile = center, desktop selon prop
+  const alignClass =
+    ctaAlign === 'center'
+      ? 'text-center lg:text-center'
+      : ctaAlign === 'right'
+        ? 'text-center lg:text-right'
+        : 'text-center lg:text-left';
+
   return (
     <form
       name="contact"
@@ -30,7 +43,8 @@ export default function ContactForm() {
       <FloatingInput label="Email" name="email" type="email" required />
       <FloatingTextarea label="Message" name="message" required />
 
-      <div className="text-center">
+      {/* CTA : centré mobile, prop appliquée desktop */}
+      <div className={alignClass}>
         <Button type="submit" variant="primary">
           Envoyer
         </Button>
