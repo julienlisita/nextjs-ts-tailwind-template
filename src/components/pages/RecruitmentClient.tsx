@@ -28,25 +28,6 @@ export default function RecruitmentClient() {
 
   return (
     <div className="pt-8 sm:pt-10 md:pt-14 lg:pt-20">
-      <PageTitle>Recrutement</PageTitle>
-
-      <Section>
-        <SectionWrapper>
-          <SectionTitle>Pourquoi nous rejoindre ?</SectionTitle>
-          <p className="text-gray-700 max-w-2xl mx-auto">
-            Chez Company Care Service, nous valorisons l’humain avant tout…
-          </p>
-        </SectionWrapper>
-      </Section>
-
-      <Section>
-        <SectionWrapper>
-          <SectionTitle>Questions fréquentes</SectionTitle>
-          <p className="text-gray-700 max-w-2xl mx-auto">
-            Retrouvez ici les réponses aux questions les plus posées…
-          </p>
-        </SectionWrapper>
-      </Section>
       <Modal isOpen={isOpen} onClose={close}>
         <JobApplicationForm jobTitle={applyTitle ?? ''} />
       </Modal>
