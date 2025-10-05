@@ -5,6 +5,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import './FeatureCard.css';
+import Button from '../ui/Button';
 
 type Align = 'inherit' | 'left' | 'center' | 'right';
 
@@ -15,6 +16,10 @@ type FeatureCardProps = {
   title: string;
   /** Description */
   description: string | React.ReactNode;
+  /** url du lien du bouton */
+  href?: string;
+  /** label du bouton */
+  linkLabel?: string;
   /** Dégradé (utilisé avec variant="gradient" ou headerColor) */
   gradient?: [string, string];
   /** Couleur de l’entête (variant="with-header") */
@@ -35,6 +40,8 @@ export default function FeatureCard({
   icon,
   title,
   description,
+  href,
+  linkLabel,
   gradient,
   headerColor,
   variant = 'default',
@@ -120,6 +127,22 @@ export default function FeatureCard({
           </>
         )}
         <div className="feature-card__desc">{description}</div>
+        {href && (
+          <div className="feature-card__actions mt-4">
+            <Button
+              href={href}
+              variant="secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${linkLabel ?? 'En savoir plus'} : ${title}`}
+            >
+              {linkLabel ?? 'En savoir plus'}
+              <span className="ml-2" aria-hidden="true">
+                &rsaquo;
+              </span>
+            </Button>
+          </div>
+        )}
       </div>
     </article>
   );
