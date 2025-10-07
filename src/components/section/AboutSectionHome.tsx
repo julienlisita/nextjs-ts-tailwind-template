@@ -21,10 +21,11 @@ export default function AboutSectionHome({ className }: Props) {
         </>
       }
       // image
-      imageSrc="/images/image-placeholder.png"
+      imageSrc="/images/square-placeholder.png"
       imageAlt="Accompagnement à domicile chaleureux"
       // layout
       reverse
+      aspect="square"
       className={className ?? 'mt-8'}
       // CTAs
       ctaLabel="En savoir plus"

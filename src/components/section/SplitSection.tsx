@@ -1,40 +1,36 @@
 // src/components/section/SplitSection.tsx
 
-import Section from '@/components/common/Section';
-import SectionWrapper from '@/components/common/SectionWrapper';
-import Button from '@/components/ui/Button';
+'use client';
+
+import React from 'react';
 import Image from 'next/image';
 import clsx from 'clsx';
-import './SplitSection.css';
-import Eyebrow from '../ui/Eyebrow';
-import SectionTitle from '../ui/SectionTitle';
-import Subtitle from '../ui/Subtitle';
+import Eyebrow from '@/components/ui/Eyebrow';
+import Button from '@/components/ui/Button';
+import '@/components/section/SplitSection.css';
+import Section from '@/components/common/Section';
+import SectionWrapper from '@/components/common/SectionWrapper';
+import SectionTitle from '@/components/ui/SectionTitle';
+import Subtitle from '@/components/ui/Subtitle';
 
 type SplitSectionProps = {
-  /** Eyebrow (petit label au-dessus du titre) */
   eyebrow?: string;
-  /** Titre principal */
   title: string;
-  /** Sous-titre (optionnel) */
   subtitle?: string;
-  /** Texte / contenu principal (string ou ReactNode) */
   content?: React.ReactNode;
-  /** Image */
   imageSrc: string;
   imageAlt: string;
-  /** Inverser image/texte sur desktop */
   reverse?: boolean;
-  /** CTA principal (optionnel) */
+  /** Ratio de l'image : square (1/1), landscape (4/3), portrait (3/4) */
+  aspect?: 'square' | 'landscape' | 'portrait';
+  /** Ajustement du contenu de l'image : contain ou cover */
+  imageFit?: 'contain' | 'cover';
   ctaLabel?: string;
   ctaHref?: string;
-  /** CTA secondaire (optionnel) */
   secondaryCtaLabel?: string;
   secondaryCtaHref?: string;
-  /** Tonalité visuelle (déclinable en CSS) */
   tone?: 'default' | 'muted' | 'brand';
-  /** Classe additionnelle */
   className?: string;
-  /** Slot libre (ex: liste à puces) */
   children?: React.ReactNode;
 };
 
@@ -46,6 +42,8 @@ export default function SplitSection({
   imageSrc,
   imageAlt,
   reverse = false,
+  aspect = 'square',
+  imageFit = 'contain',
   ctaLabel,
   ctaHref,
   secondaryCtaLabel,
@@ -58,15 +56,18 @@ export default function SplitSection({
     <Section className={clsx('split', `split--${tone}`, className)}>
       <SectionWrapper>
         <div className={clsx('split__grid', reverse && 'is-reverse')}>
-          {/* MEDIA */}
+          {/* IMAGE */}
           <div className="split__media">
-            <div className="split__img-wrap">
+            <div className={clsx('split__img-wrap', `aspect-${aspect}`)}>
               <Image
                 src={imageSrc}
                 alt={imageAlt}
                 fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="split__img"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className={clsx(
+                  'split__img',
+                  imageFit === 'cover' ? 'object-cover' : 'object-contain'
+                )}
                 priority
               />
             </div>
@@ -75,7 +76,7 @@ export default function SplitSection({
           {/* TEXTE */}
           <div className="split__body">
             {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-            {title && <SectionTitle>{title}</SectionTitle>}
+            {title && <SectionTitle align="left">{title}</SectionTitle>}
             {subtitle && <Subtitle>{subtitle}</Subtitle>}
             {content && <div className="split__text">{content}</div>}
             {children && <div className="split__extra">{children}</div>}
