@@ -15,16 +15,10 @@ const resolveColor = (color: string): string => {
   return `var(--color-${color})`;
 };
 
-export default function Section({
-  children,
-  className = '',
-  bgColor = 'transparent',
-}: SectionProps) {
+export default function Section({ children, className = '', bgColor }: SectionProps) {
+  const style = bgColor ? { backgroundColor: resolveColor(bgColor) } : undefined;
   return (
-    <section
-      className={`py-8 sm:py-10 md:py-12 lg:py-16 ${className}`}
-      style={{ backgroundColor: resolveColor(bgColor) }}
-    >
+    <section className={`py-8 sm:py-10 md:py-12 lg:py-16 ${className}`} style={style}>
       {children}
     </section>
   );
