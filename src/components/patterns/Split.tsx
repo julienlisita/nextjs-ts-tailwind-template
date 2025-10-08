@@ -123,7 +123,11 @@ export default function Split({
 
         {/* TEXTE */}
         <div className="split__body">
-          {icon && <div className="mb-3">{renderIcon()}</div>}
+          {icon && (
+            <div className="mb-3 flex justify-center md:justify-start text-secondary">
+              {renderIcon()}
+            </div>
+          )}
           {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
 
           <TitleTag className="text-xl sm:text-2xl lg:text-3xl font-semibold leading-snug text-[var(--color-dark)]">
