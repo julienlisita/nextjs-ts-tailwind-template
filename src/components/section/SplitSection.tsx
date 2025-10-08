@@ -76,7 +76,7 @@ export default function SplitSection({
           {/* TEXTE */}
           <div className="split__body">
             {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-            {title && <SectionTitle align="left">{title}</SectionTitle>}
+            {title && <SectionTitle className="text-center md:text-left">{title}</SectionTitle>}
             {subtitle && <Subtitle>{subtitle}</Subtitle>}
             {content && <div className="split__text">{content}</div>}
             {children && <div className="split__extra">{children}</div>}
