@@ -26,7 +26,7 @@ export async function sendContact(formData: FormData): Promise<void> {
   // Vérification du honeypot
   if (formData.get('company')) {
     console.warn('Spam détecté via le champ honeypot');
-    redirect('/contact?sent=1');
+    redirect('/thank-you');
   }
 
   // Validation avec Zod
@@ -55,5 +55,5 @@ export async function sendContact(formData: FormData): Promise<void> {
     html,
   });
 
-  redirect('/contact?sent=1');
+  redirect('/thank-you');
 }
