@@ -36,7 +36,6 @@ export async function sendContact(formData: FormData): Promise<void> {
     nom: formData.get('nom')?.toString(),
     email: formData.get('email')?.toString(),
     message: formData.get('message')?.toString(),
-    company: formData.get('company')?.toString(),
   });
 
   const html = `
