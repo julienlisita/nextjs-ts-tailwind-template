@@ -31,7 +31,7 @@ export async function sendApplication(jobTitle: string, formData: FormData): Pro
   //  Vérification du honeypot AVANT validation
   if (formData.get('company')) {
     console.warn('Spam détecté sur le formulaire de recrutement');
-    redirect('/recrutement?sent=1'); // redirection neutre pour le bot
+    redirect('/thank-you-application'); // redirection neutre pour le bot
   }
 
   const data = schema.parse({
@@ -65,5 +65,5 @@ export async function sendApplication(jobTitle: string, formData: FormData): Pro
     attachments,
   });
 
-  redirect('/contact?sent=1');
+  redirect('/thank-you-application');
 }
