@@ -1,12 +1,15 @@
+// src/components/form/JobApplicationForm.tsx
+
 'use client';
 
-import { useState, useTransition } from 'react';
+import { useTransition } from 'react';
 import FloatingInput from './FloatingInput';
 import FloatingTextarea from './FloatingTextarea';
 import Button from '../ui/Button';
 import { sendApplication } from '@/app/recruitment/actions';
 import './JobApplicationForm.css';
 import Radio from './Radio';
+import FileUpload from './FileUpload';
 
 type JobApplicationFormProps = {
   jobTitle: string;
@@ -20,7 +23,6 @@ export default function JobApplicationForm({
   ctaAlign = 'left',
   className,
 }: JobApplicationFormProps) {
-  const [fileName, setFileName] = useState('');
   const [isPending, startTransition] = useTransition();
 
   const alignClass =
@@ -29,14 +31,6 @@ export default function JobApplicationForm({
       : ctaAlign === 'right'
         ? 'text-center lg:text-right'
         : 'text-center lg:text-left';
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setFileName(e.target.files[0].name);
-    } else {
-      setFileName('');
-    }
-  };
 
   const onAction = (formData: FormData) => {
     startTransition(async () => {
@@ -73,20 +67,13 @@ export default function JobApplicationForm({
       <FloatingTextarea label="Message" name="message" required />
 
       {/* Upload CV */}
-      <div className="file-upload mt-4">
-        <label htmlFor="cv" className="file-label">
-          Joindre un CV (PDF, DOC, DOCX)
-        </label>
-        <input
-          type="file"
-          id="cv"
-          name="cv"
-          accept=".pdf,.doc,.docx"
-          onChange={handleFileChange}
-          className="file-input"
-        />
-        {fileName && <p className="file-name">Fichier sélectionné : {fileName}</p>}
-      </div>
+      <FileUpload
+        label="Joindre un CV"
+        name="cv"
+        accept=".pdf,.doc,.docx"
+        helperText="Formats acceptés : PDF, DOC, DOCX (max 5 Mo)"
+        droppable
+      />
 
       {/* CTA */}
       <div className={`${alignClass} mt-6`}>
