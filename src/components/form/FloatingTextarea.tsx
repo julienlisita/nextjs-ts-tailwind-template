@@ -11,6 +11,10 @@ type FloatingTextareaProps = {
   rows?: number;
   required?: boolean;
   className?: string;
+  /** message d’erreur (force l’état invalid) */
+  error?: string;
+  /** petit texte d’aide sous le champ */
+  helperText?: string;
 } & React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 export default function FloatingTextarea({
@@ -19,22 +23,35 @@ export default function FloatingTextarea({
   rows = 5,
   required = false,
   className = '',
+  error,
+  helperText,
   ...props
 }: FloatingTextareaProps) {
+  const helpId = helperText || error ? `${name}-help` : undefined;
+
   return (
-    <div className="relative z-0 w-full group">
+    <div className={`floating-textarea-wrapper ${className}`}>
       <textarea
         id={name}
         name={name}
         rows={rows}
         required={required}
-        placeholder=" "
-        className={`floating-textarea ${className}`}
+        placeholder=" " /* nécessaire pour le label flottant */
+        aria-invalid={!!error}
+        aria-describedby={helpId}
+        className={`floating-textarea ${error ? 'is-invalid' : ''}`}
         {...props}
       />
       <label htmlFor={name} className="floating-textarea-label">
         {label}
+        {required ? ' *' : ''}
       </label>
+
+      {(helperText || error) && (
+        <p id={helpId} className={`floating-textarea-help ${error ? 'is-error' : ''}`}>
+          {error ?? helperText}
+        </p>
+      )}
     </div>
   );
 }
