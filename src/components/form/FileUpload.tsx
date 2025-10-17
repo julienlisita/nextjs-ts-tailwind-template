@@ -1,3 +1,5 @@
+// src/components/ui/FileUpload.tsx
+
 'use client';
 
 import React, { useRef, useState } from 'react';
