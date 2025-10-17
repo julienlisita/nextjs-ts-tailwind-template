@@ -3,6 +3,7 @@
 'use client';
 
 import React from 'react';
+import clsx from 'clsx';
 import './Radio.css';
 
 type RadioProps = {
@@ -24,7 +25,7 @@ export default function Radio({
   ...props
 }: RadioProps) {
   return (
-    <label className={`radio-label ${className}`}>
+    <label className={clsx('radio-label', className)}>
       <input
         type="radio"
         name={name}
@@ -34,7 +35,7 @@ export default function Radio({
         className="radio-input"
         {...props}
       />
-      <span>{label}</span>
+      <span className="radio-text">{label}</span>
     </label>
   );
 }

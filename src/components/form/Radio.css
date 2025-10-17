@@ -1,16 +1,59 @@
+/* src/components/ui/Radio.css */
+
+/* Base label container */
 .radio-label {
-  @apply flex items-center space-x-2 cursor-pointer text-sm;
-  color: #3b2f2f;
+  @apply inline-flex items-center gap-2 cursor-pointer text-sm select-none;
+  color: var(--color-text);
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
+.radio-label:hover {
+  color: color-mix(in oklab, var(--color-text), var(--color-primary) 30%);
+}
+
+/* Input invisible stylé via accent-color */
 .radio-input {
-  @apply h-4 w-4 border rounded-full;
-  background-color: white;
-  border-color: #ccc;
-  accent-color: black; /* couleur personnalisée de sélection */
+  @apply h-4 w-4 rounded-full border transition-colors;
+  appearance: none; /* on remplace le rendu natif */
+  border: 1.5px solid var(--color-border);
+  background-color: var(--color-surface);
+  position: relative;
+  cursor: pointer;
 }
 
-.radio-input:focus {
+/* Cercle intérieur “checked” */
+.radio-input:checked {
+  border-color: var(--color-primary);
+}
+
+.radio-input:checked::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  transform: scale(1);
+  transition: transform 0.2s ease;
+}
+
+/* Focus visible et accessible */
+.radio-input:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(60, 141, 216, 0.5);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-primary), white 80%);
+}
+
+/* Disabled */
+.radio-input:disabled + .radio-text {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Texte du label */
+.radio-text {
+  line-height: 1;
+  color: inherit;
 }
