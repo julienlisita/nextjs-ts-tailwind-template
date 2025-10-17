@@ -3,6 +3,7 @@
 'use client';
 
 import React from 'react';
+import clsx from 'clsx';
 import './Checkbox.css';
 
 type CheckboxProps = {
@@ -20,7 +21,7 @@ export default function Checkbox({
   ...props
 }: CheckboxProps) {
   return (
-    <label className={`checkbox-label ${className}`}>
+    <label className={clsx('checkbox-label', className)}>
       <input
         type="checkbox"
         name={name}
@@ -29,7 +30,7 @@ export default function Checkbox({
         className="checkbox-input"
         {...props}
       />
-      <span>{label}</span>
+      <span className="checkbox-text">{label}</span>
     </label>
   );
 }
