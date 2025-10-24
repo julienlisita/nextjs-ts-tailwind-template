@@ -1,57 +1,83 @@
 /* src/components/layout/Footer.css */
 
+/* === Layout global === */
 .footer {
-  @apply flex flex-col space-y-3 
-         sm:flex-row sm:space-y-0 
-         justify-between items-center 
-         px-4 py-3;
+  @apply bg-[var(--color-footer-bg)] text-[var(--color-footer-text)]
+         flex flex-col w-full px-4 sm:px-8 py-6 sm:py-8 space-y-6;
+}
 
-  background-color: var(--color-footer-bg);
-  border-top: 1px solid var(--color-footer-border);
-  color: var(--color-footer-text);
+/* --- Bloc supérieur : logo / menu / réseaux --- */
+.footer-top {
+  @apply flex flex-col sm:flex-row justify-between items-center gap-6 sm:gap-0;
 }
 
 .footer-logo {
-  @apply relative h-10 w-10 sm:h-12 sm:w-12;
+  @apply relative h-12 w-12 sm:h-14 sm:w-14 flex-shrink-0 rounded-lg overflow-hidden;
 }
 
-/* Liens de navigation */
-.footer-links {
-  @apply font-bold text-sm 
-         flex flex-col sm:flex-row items-center 
-         space-y-1 sm:space-y-0 sm:space-x-4 
-         text-center mb-2;
+.footer-nav {
+  @apply flex flex-col sm:flex-row items-center justify-center 
+         space-y-2 sm:space-y-0 sm:space-x-6 text-center font-medium text-sm;
 }
 
-.footer-links a {
-  color: var(--color-footer-text);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.footer-links a:hover {
-  color: var(--color-footer-link-hover);
-  text-decoration: underline;
-}
-
-/* Mention de copyright */
-.footer-copy {
-  @apply font-bold text-xs sm:text-sm text-center;
-  color: var(--color-footer-text);
-  opacity: 0.8;
-}
-
-/* Icônes sociales */
+/* --- Réseaux sociaux --- */
 .footer-socials {
-  @apply flex items-center space-x-3;
+  @apply flex items-center space-x-4;
 }
 
 .footer-icon {
-  @apply w-8 h-8 sm:w-10 sm:h-10 transition;
+  @apply w-8 h-8 sm:w-9 sm:h-9 transition;
   color: var(--color-footer-icon);
-  cursor: pointer;
 }
 
 .footer-icon:hover {
   color: var(--color-footer-icon-hover);
+}
+
+/* --- Séparateur --- */
+.footer-separator {
+  @apply w-full h-px;
+  background-color: var(--color-footer-border);
+  opacity: 0.3;
+}
+
+/* --- Bloc inférieur : copyright / liens légaux --- */
+.footer-bottom {
+  @apply flex flex-col sm:flex-row justify-between items-center gap-3 text-sm;
+  color: var(--color-footer-text);
+}
+
+.footer-copy {
+  @apply text-xs sm:text-sm font-normal opacity-80 text-center sm:text-left;
+}
+
+.footer-legal {
+  @apply flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-4;
+}
+
+.footer-legal a {
+  color: var(--color-footer-text);
+  text-decoration: none;
+  transition:
+    color 0.3s ease,
+    text-decoration 0.3s ease;
+}
+
+.footer-legal a:hover {
+  color: var(--color-footer-link-hover);
+  text-decoration: underline;
+}
+
+/* --- Menu principal --- */
+.footer-nav a {
+  color: var(--color-footer-text);
+  text-decoration: none;
+  transition:
+    color 0.3s ease,
+    text-decoration 0.3s ease;
+}
+
+.footer-nav a:hover {
+  color: var(--color-footer-link-hover);
+  text-decoration: underline;
 }
