@@ -2,18 +2,17 @@
 
 .contact-form-section {
   /* Fond doux optionnel */
-  background-color: var(--color-bg);
+  background-color: White;
 }
 
 /* Zone “aside” (facultative) : texte, infos RGPD, horaires, coordonnées compactes… */
 .contact-form-aside {
   @apply bg-white rounded-xl shadow p-6 sm:p-8;
-  color: var(--color-dark);
+  color: black;
 }
 
 .contact-form-aside h3 {
   @apply text-lg font-semibold mb-2;
-  color: var(--color-terre);
 }
 
 .contact-form-aside p {

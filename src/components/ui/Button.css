@@ -6,28 +6,48 @@
 
 .btn.primary {
   border: 2px solid transparent;
-  background-color: var(--color-primary);
-  color: white;
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
   transition:
     background-color 0.3s,
     color 0.3s,
     border-color 0.3s;
 }
 .btn.primary:hover {
-  background-color: white;
-  color: var(--color-primary);
-  border-color: var(--color-primary);
+  background-color: var(--btn-primary-hover-bg);
+  color: var(--btn-primary-hover-text);
+  border-color: var(--btn-primary-hover-border);
 }
 
 .btn.secondary {
-  background-color: white;
-  color: var(--color-primary);
-  border: 2px solid var(--color-primary);
+  background-color: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
+  border: 2px solid var(--btn-secondary-border);
 }
 .btn.secondary:hover {
-  background-color: var(--color-primary);
-  color: white;
-  border: 2px solid var(--color-primary);
+  background-color: var(--btn-secondary-hover-bg);
+  color: var(--btn-secondary-hover-text);
+  border: 2px solid var(--btn-secondary-hover-border);
+}
+
+.btn.glasslight {
+  background-color: var(--btn-glasslight-bg);
+  color: var(--btn-glasslight-text);
+  border: 1px solid var(--btn-glasslight-border);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: all 0.25s ease;
+}
+
+.btn.glasslight:hover {
+  background-color: var(--btn-glasslight-hover-bg);
+  color: var(--btn-glasslight-hover-text);
+  border-color: var(--btn-glasslight-hover-border);
+}
+
+.btn.glasslight:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--btn-glasslight-focus-ring);
 }
 
 .btn:disabled {

@@ -2,5 +2,5 @@
 
 .title {
   @apply text-2xl sm:text-3xl font-bold mt-2;
-  color: black;
+  color: var(--color-section-title);
 }

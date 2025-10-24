@@ -3,11 +3,13 @@
 /* Layout & structure via @apply */
 .site-header {
   @apply fixed top-0 z-50 w-full h-14 sm:h-16 lg:h-20 px-4 sm:px-6 lg:px-8 flex items-center justify-between shadow-md;
-  background-color: white;
+  background-color: var(--color-header-bg);
+  backdrop-filter: var(--color-header-bg-blur);
+  border-bottom: 1px solid var(--color-header-border);
 }
 
 .logo-wrapper {
-  @apply relative h-10 w-10 sm:h-12 sm:w-12;
+  @apply relative h-8 sm:h-10 lg:h-12 flex-shrink-0 aspect-[2.85/1];
 }
 
 .main-nav {
@@ -20,6 +22,7 @@
 
 .nav-link {
   @apply transition outline-none;
+  color: var(--color-header-text);
 }
 
 .menu-toggle {
@@ -37,7 +40,7 @@
   opacity: 0;
   padding-top: 0;
   padding-bottom: 0;
-  background-color: white;
+  background-color: var(--color-header-bg);
 }
 
 .mobile-menu.open {
@@ -57,44 +60,46 @@
 
 /* ----- Couleurs / États (CSS pur) ----- */
 .main-nav {
-  color: #1f2937; /* text-gray-800 */
+  color: var(--color-header-text);
 }
 
 .nav-link:hover {
-  color: var(--color-secondary); /* hover:text-blue-600 */
+  color: var(--color-header-hover);
 }
 
 .nav-link[aria-current='page'] {
   font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 4px;
+  color: var(--color-header-active);
 }
 
 .nav-link:focus-visible {
-  outline: 2px solid var(--color-border); /* blue-600 */
+  outline: 2px solid var(--color-border);
   outline-offset: 2px;
   border-radius: 0.25rem;
 }
 
 .icon {
-  color: #1f2937; /* text-gray-800 */
+  color: var(--color-header-icon);
 }
 
 .menu-toggle:focus-visible {
-  outline: 2px solid #2563eb;
+  outline: 2px solid var(--color-header-active);
   outline-offset: 2px;
 }
 
 .mobile-link:hover {
-  background-color: #f3f4f6; /* hover:bg-gray-100 */
+  background-color: var(--color-header-mobile-hover);
 }
 
 .mobile-link[aria-current='page'] {
-  background-color: #f9fafb; /* gray-50 */
+  background-color: #f9fafb;
   font-weight: 600;
+  color: var(--color-header-text);
 }
 
 .mobile-link:focus-visible {
-  outline: 2px solid #2563eb;
+  outline: 2px solid var(--color-header-active);
   outline-offset: 2px;
 }

@@ -1,15 +1,21 @@
+/* src/components/layout/Footer.css */
+
 .footer {
-  @apply bg-white border-t border-gray-300 
-         flex flex-col space-y-3 
+  @apply flex flex-col space-y-3 
          sm:flex-row sm:space-y-0 
          justify-between items-center 
          px-4 py-3;
+
+  background-color: var(--color-footer-bg);
+  border-top: 1px solid var(--color-footer-border);
+  color: var(--color-footer-text);
 }
 
 .footer-logo {
   @apply relative h-10 w-10 sm:h-12 sm:w-12;
 }
 
+/* Liens de navigation */
 .footer-links {
   @apply font-bold text-sm 
          flex flex-col sm:flex-row items-center 
@@ -18,28 +24,34 @@
 }
 
 .footer-links a {
-  color: black;
+  color: var(--color-footer-text);
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .footer-links a:hover {
+  color: var(--color-footer-link-hover);
   text-decoration: underline;
 }
 
+/* Mention de copyright */
 .footer-copy {
   @apply font-bold text-xs sm:text-sm text-center;
-  color: black;
+  color: var(--color-footer-text);
+  opacity: 0.8;
 }
 
+/* Icônes sociales */
 .footer-socials {
   @apply flex items-center space-x-3;
 }
 
 .footer-icon {
   @apply w-8 h-8 sm:w-10 sm:h-10 transition;
-  color: black;
+  color: var(--color-footer-icon);
+  cursor: pointer;
 }
 
 .footer-icon:hover {
-  color: #6b7280; /* gray-500 */
+  color: var(--color-footer-icon-hover);
 }

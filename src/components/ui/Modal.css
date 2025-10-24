@@ -1,27 +1,42 @@
 /* src/components/ui/Modal.css */
 
+/* Overlay semi-transparent (fond assombri) */
 .modal-backdrop {
   @apply fixed inset-0 flex items-center justify-center z-50;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(17, 24, 39, 0.5); /* fallback */
+  background-color: color-mix(
+    in oklab,
+    var(--neutral-900) 60%,
+    transparent
+  ); /* basé sur ton scale neutre */
+  backdrop-filter: blur(2px);
 }
 
+/* Container principal de la modale */
 .modal-container {
   @apply rounded-lg shadow-lg p-6 max-w-lg w-full relative;
-  background-color: white;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--card-shadow-hover);
 }
 
+/* Bouton de fermeture */
 .modal-close {
   @apply absolute top-2 right-3 text-xl;
   background: none;
   border: none;
-  color: #4b5563;
+  color: var(--color-muted);
   cursor: pointer;
+  transition: color 0.2s ease;
 }
 
 .modal-close:hover {
-  color: #000000;
+  color: var(--color-text);
 }
 
+/* Contenu interne */
 .modal-content {
   @apply mt-2;
+  color: var(--color-text);
 }
