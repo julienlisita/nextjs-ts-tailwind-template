@@ -3,23 +3,125 @@
 @tailwind utilities;
 
 :root {
-  /* Neutral scale (minimal) */
-  --neutral-100: #f5f5f5; /* bg */
-  --neutral-300: #e0e0e0; /* borders / subtle surfaces */
-  --neutral-600: #6b7280; /* primary / accents */
-  --neutral-900: #111827; /* main text */
+  /* Échelle neutre */
+  --neutral-950: #0b0f14;
+  --neutral-900: #111827; /* texte principal / titres forts */
+  --neutral-800: #1f2937;
+  --neutral-700: #374151;
+  --neutral-600: #6b7280; /* accent / primary de wireframe */
+  --neutral-500: #9aa0aa;
+  --neutral-400: #9ca3af; /* muted / texte secondaire */
+  --neutral-300: #d1d5db; /* bordures subtiles */
+  --neutral-200: #e5e7eb; /* surfaces pâles */
+  --neutral-150: #eff1f3;
+  --neutral-100: #f5f5f5; /* fond global */
+  --neutral-050: #fafafa;
+  --white: #ffffff;
 
-  /* Functional tokens */
-  --color-primary: var(--neutral-600);
-  --color-secondary: #9ca3af; /* optionnel, texte secondaire */
-  --color-bg: var(--neutral-100);
-  --color-surface: #ffffff;
-  --color-border: var(--neutral-300);
-  --color-text: var(--neutral-900);
-  --color-muted: var(--color-secondary);
+  /* ---------- Tokens fonctionnels (toute l’UI) ---------- */
+
+  --color-primary: var(--neutral-900); /* accent fort (CTAs, éléments clés) */
+  --color-secondary: var(--neutral-700); /* accent doux (liens, icônes, badges) */
+
+  /* Texte & surfaces */
+  --color-bg: var(--neutral-100); /* fond global */
+  --color-surface: var(--white); /* surface cartes/form */
+  --color-surface-soft: var(--neutral-150);
+  --color-border: var(--neutral-300); /* bordures discrètes */
+  --color-text: var(--color-primary); /* texte courant */
+  --color-heading: var(--color-primary); /* titres/ancres visuelles */
+  --color-muted: var(--neutral-400); /* textes secondaires */
+
+  /* Liens & états */
+  --color-link: var(--color-secondary);
+  --color-link-hover: var(--color-primary);
+  --focus-ring: color-mix(in oklab, var(--neutral-600) 40%, white);
+
+  /* Header (sticky) */
+  --color-header-bg: rgba(255, 255, 255, 0.85); /* transparent clair */
+  --color-header-bg-blur: blur(6px);
+  --color-header-text: var(--neutral-800);
+  --color-header-hover: var(--neutral-600);
+  --color-header-active: var(--color-primary);
+  --color-header-border: color-mix(in oklab, var(--color-primary) 8%, transparent);
+  --color-header-icon: var(--neutral-800);
+  --color-header-mobile-hover: var(--neutral-200);
+
+  /* Footer */
+  --color-footer-bg: var(--neutral-800);
+  --color-footer-text: var(--neutral-100);
+  --color-footer-link-hover: var(--neutral-300);
+  --color-footer-border: rgba(255, 255, 255, 0.1);
+  --color-footer-icon: var(--neutral-100);
+  --color-footer-icon-hover: var(--neutral-050);
+
+  /* CTA section */
+  --color-cta-bg: var(--neutral-600); /* fond moyen */
+  --color-cta-fg: var(--white); /* texte CTA */
+
+  /* Boutons (wireframe) */
+  /* Primary = plein foncé */
+  --btn-primary-bg: var(--color-primary);
+  --btn-primary-text: var(--white);
+  --btn-primary-border: var(--color-primary);
+  --btn-primary-hover-bg: color-mix(in oklab, var(--color-primary) 92%, white);
+  --btn-primary-hover-text: var(--white);
+  --btn-primary-hover-border: color-mix(in oklab, var(--color-primary) 88%, white);
+  --btn-primary-focus-ring: var(--focus-ring);
+
+  /* Secondary = plein moyen (ou bascule en outline si besoin) */
+  --btn-secondary-bg: var(--color-secondary);
+  --btn-secondary-text: var(--white);
+  --btn-secondary-border: var(--color-secondary);
+  --btn-secondary-hover-bg: color-mix(in oklab, var(--color-secondary) 90%, white);
+  --btn-secondary-hover-text: var(--white);
+  --btn-secondary-hover-border: color-mix(in oklab, var(--color-secondary) 85%, white);
+  --btn-secondary-focus-ring: var(--focus-ring);
+
+  /* GlassLight (pour fonds sombres / images) */
+  --btn-glasslight-bg: rgba(255, 255, 255, 0.1);
+  --btn-glasslight-text: var(--white);
+  --btn-glasslight-border: rgba(255, 255, 255, 0.3);
+  --btn-glasslight-hover-bg: rgba(255, 255, 255, 0.2);
+  --btn-glasslight-hover-text: var(--white);
+  --btn-glasslight-hover-border: rgba(255, 255, 255, 0.4);
+  --btn-glasslight-focus-ring: rgba(255, 255, 255, 0.5);
+
+  /* Titres / sous-titres / “eyebrow” */
+  --color-section-title: var(--color-heading);
+  --color-subtitle: var(--color-heading);
+  --color-eyebrow: var(--color-heading);
 
   /* Layout */
   --header-height: 56px;
+
+  /* Cards */
+  --card-radius: 0.75rem;
+  --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --card-shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.08);
+
+  --card-bg: var(--color-surface);
+  --card-border: var(--neutral-200);
+  --card-text: var(--color-text);
+  --card-title: var(--color-section-title);
+  --card-muted-opacity: 0.75;
+
+  /* En-tête de carte (si variante “with-header”) */
+  --card-header-bg: var(--color-secondary);
+  --card-header-fg: var(--white);
+
+  /* Card outlined */
+  --card-outlined-bg: var(--white);
+  --card-outlined-border: var(--color-primary);
+
+  /* Card gradient (gris → gris) */
+  --card-gradient-fg: var(--white);
+  --card-gradient-start: var(--color-secondary);
+  --card-gradient-end: var(--color-primary);
+
+  /* Icônes */
+  --card-icon-size: 2.5rem;
+  --card-icon-fg: var(--color-secondary);
 }
 
 @media (min-width: 640px) {
