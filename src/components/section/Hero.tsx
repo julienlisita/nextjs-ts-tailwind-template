@@ -4,21 +4,28 @@
 
 import Button from '@/components/ui/Button';
 import PageTitle from '@/components/ui/PageTitle';
+import './Hero.css';
+import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <section
-      className="w-full  flex flex-col justify-center  text-[#3B2F2F] px-4 text-center"
-      style={{ minHeight: 'calc(100vh - var(--header-height))' }}
-    >
-      <div className="max-w-4xl mx-auto space-y-6">
-        <PageTitle> Mettez en valeur votre activité avec un site professionnel</PageTitle>
-        <p className="text-lg sm:text-xl text-[#3B2F2F]/80">
-          Un design clair, responsive et rapide à mettre en place.
-        </p>
-        <Button variant="primary" href="/contact">
-          Demander un devis
-        </Button>
+    <section className="hero-section">
+      <div className="flex justify-center">
+        <Image src="/images/logo.png" alt="Company Care & Services logo" width={200} height={200} />
+      </div>
+      <div className="hero-container">
+        <PageTitle>Mettre en valeur votre activité avec un site professionnel</PageTitle>
+
+        <p className="hero-subtitle">Un design clair, responsive et rapide à mettre en place.</p>
+
+        <div className="hero-actions">
+          <Button variant="primary" href="/contact">
+            Demander un devis
+          </Button>
+          <Button variant="secondary" href="/portfolio">
+            Voir des exemples
+          </Button>
+        </div>
       </div>
     </section>
   );
