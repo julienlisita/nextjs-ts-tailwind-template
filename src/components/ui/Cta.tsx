@@ -51,7 +51,7 @@ export default function Cta({
 
   return (
     <section className="cta-section">
-      <div className={clsx('container mx-auto px-4 space-y-6', alignText)}>
+      <div className={clsx('space-y-6', alignText)}>
         <h2 className="cta-title">{title}</h2>
         <p className={descriptionAlign}>{description}</p>
 
