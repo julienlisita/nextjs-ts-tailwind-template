@@ -8,6 +8,13 @@ import './FeatureCard.css';
 import Button from '../ui/Button';
 
 type Align = 'inherit' | 'left' | 'center' | 'right';
+type Variant = 'default' | 'gradient' | 'outlined' | 'with-header';
+type Tone = 'neutral' | 'brand' | 'success' | 'warning';
+
+type StyleVars = React.CSSProperties & {
+  // autoriser les custom properties CSS (design tokens)
+  [key: `--${string}`]: string | number;
+};
 
 type FeatureCardProps = {
   /** Icône (SVG ou élément React) */
@@ -20,12 +27,10 @@ type FeatureCardProps = {
   href?: string;
   /** label du bouton */
   linkLabel?: string;
-  /** Dégradé (utilisé avec variant="gradient" ou headerColor) */
-  gradient?: [string, string];
-  /** Couleur de l’entête (variant="with-header") */
-  headerColor?: string;
-  /** Style visuel */
-  variant?: 'default' | 'gradient' | 'outlined' | 'with-header';
+  /** Style visuel (structure) */
+  variant?: Variant;
+  /** Teinte sémantique (applique un set de variables) */
+  tone?: Tone;
   /** Largeur via classes Tailwind (ex: w-72, w-full) */
   width?: string;
   /** Hauteur via classes Tailwind (ex: h-80, min-h-64) */
@@ -34,6 +39,8 @@ type FeatureCardProps = {
   align?: Align;
   /** Classes additionnelles */
   className?: string;
+  /** Override ponctuel par variables CSS (ex: --card-gradient-start) */
+  styleVars?: StyleVars;
 };
 
 export default function FeatureCard({
@@ -42,21 +49,20 @@ export default function FeatureCard({
   description,
   href,
   linkLabel,
-  gradient,
-  headerColor,
   variant = 'default',
+  tone = 'neutral',
   width,
   height,
   align = 'inherit',
   className,
+  styleVars,
 }: FeatureCardProps) {
   const isWithHeader = variant === 'with-header';
-  const isGradient = variant === 'gradient' && gradient;
 
   // map align -> classes responsives (mobile = center, desktop = override)
   const toAlignClasses = (a: Align) => {
     if (a === 'inherit') {
-      return { text: null, items: null, self: null };
+      return { text: undefined, items: undefined, self: undefined };
     }
     if (a === 'left') {
       return {
@@ -89,29 +95,27 @@ export default function FeatureCard({
           ? icon
           : React.createElement(icon as React.ComponentType<React.SVGProps<SVGSVGElement>>, {
               className: 'feature-card__icon-inner',
+              focusable: false,
+              'aria-hidden': true,
             })}
       </div>
     ) : null;
 
   return (
     <article
-      className={clsx('feature-card', `feature-card--${variant}`, width, height, className)}
-      style={
-        isGradient
-          ? { backgroundImage: `linear-gradient(135deg, ${gradient[0]}, ${gradient[1]})` }
-          : undefined
-      }
+      className={clsx(
+        'feature-card',
+        `feature-card--${variant}`,
+        `feature-card--${tone}`,
+        width,
+        height,
+        className
+      )}
+      style={styleVars}
     >
       {isWithHeader && (
         <div
           className={clsx('feature-card__header', 'w-full', alignClasses.text, alignClasses.items)}
-          style={
-            gradient
-              ? { backgroundImage: `linear-gradient(135deg, ${gradient[0]}, ${gradient[1]})` }
-              : headerColor
-                ? { backgroundColor: headerColor }
-                : undefined
-          }
         >
           {renderIcon()}
           <h3 className="feature-card__title">{title}</h3>
@@ -127,6 +131,7 @@ export default function FeatureCard({
           </>
         )}
         <div className="feature-card__desc">{description}</div>
+
         {href && (
           <div className="feature-card__actions mt-4">
             <Button
