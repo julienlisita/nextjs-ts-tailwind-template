@@ -1,0 +1,21 @@
+/* src/components/contact/ContactFormSection.css */
+
+.contact-form-section {
+  /* Fond doux optionnel */
+  background-color: White;
+}
+
+/* Zone “aside” (facultative) : texte, infos RGPD, horaires, coordonnées compactes… */
+.contact-form-aside {
+  @apply bg-white rounded-xl shadow p-6 sm:p-8;
+  color: black;
+}
+
+.contact-form-aside h3 {
+  @apply text-lg font-semibold mb-2;
+}
+
+.contact-form-aside p {
+  @apply text-sm leading-relaxed;
+  color: #4b5563;
+}

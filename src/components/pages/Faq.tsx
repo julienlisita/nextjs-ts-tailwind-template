@@ -1,7 +1,7 @@
 // src/components/pages/Faq.tsx
 
 import PageTitle from '@/components/ui/PageTitle';
-import Cta from '../ui/Cta';
+import Cta from '../patterns/Cta';
 
 export default function Faq() {
   return (

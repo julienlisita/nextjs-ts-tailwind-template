@@ -1,6 +1,6 @@
 // src/data/services.ts
 
-import type { FeatureItem } from '@/components/section/FeaturesGrid';
+import type { FeatureItem } from '@/components/patterns/FeaturesGrid';
 import { Home, Users, Sparkles, FileText, Moon, Handshake } from 'lucide-react';
 
 export const services: ReadonlyArray<FeatureItem> = [

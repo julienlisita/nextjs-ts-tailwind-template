@@ -1,0 +1,35 @@
+/* src/components/home/Hero.css */
+
+/* Layout (Tailwind via @apply) */
+.hero-section {
+  @apply w-full flex flex-col justify-center text-center px-4;
+  min-height: calc(100vh - var(--header-height));
+  background-image: url('/images/home/hero.avif'); /* place ton image dans /public/images */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-container {
+  @apply max-w-4xl mx-auto space-y-6;
+}
+
+.hero-actions {
+  @apply flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4;
+}
+
+/* Couleurs / typographies (CSS pur avec variables du design system) */
+.hero-section {
+  color: var(--color-text);
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 0.95rem + 0.5vw, 1.25rem); /* ~ text-lg → text-xl */
+  line-height: 1.6;
+  color: color-mix(in oklab, var(--color-text) 80%, transparent); /* texte adouci */
+}
+
+/* Optionnel : espace un peu plus large sous le titre selon tes besoins */
+.hero-container .page-title + .hero-subtitle {
+  margin-top: 0.25rem;
+}

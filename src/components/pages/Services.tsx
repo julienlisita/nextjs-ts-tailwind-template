@@ -2,15 +2,15 @@
 
 'use client';
 
-import Cta from '../ui/Cta';
-import ServicesSection from '../section/ServicesSection';
 import { Briefcase } from 'lucide-react';
-import HeroIntro from '../section/HeroIntro';
+import PageHero from '../patterns/PageHero';
+import ServicesSection from '../services/ServicesSection';
+import Cta from '../patterns/Cta';
 
 export default function ServicesFeatures() {
   return (
     <div>
-      <HeroIntro
+      <PageHero
         icon={<Briefcase size={40} />}
         title="Nos services"
         subtitle="Un aperçu clair et détaillé de ce que nous proposons."

@@ -1,6 +1,6 @@
 // src/data/contact.tsx
 
-import type { FeatureItem } from '@/components/section/FeaturesGrid';
+import type { FeatureItem } from '@/components/patterns/FeaturesGrid';
 import { Phone, Mail, MapPin } from 'lucide-react';
 
 export const contactInfos: ReadonlyArray<FeatureItem> = [

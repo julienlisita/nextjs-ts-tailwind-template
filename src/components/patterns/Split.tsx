@@ -7,7 +7,7 @@ import Image from 'next/image';
 import clsx from 'clsx';
 import Eyebrow from '@/components/ui/Eyebrow';
 import Button from '@/components/ui/Button';
-import '@/components/section/SplitSection.css';
+import './SplitSection.css';
 
 type IconType = React.ComponentType<React.SVGProps<SVGSVGElement>> | React.ReactElement;
 

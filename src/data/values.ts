@@ -1,6 +1,6 @@
 // src/data/values.ts
 
-import type { FeatureItem } from '@/components/section/FeaturesGrid';
+import type { FeatureItem } from '@/components/patterns/FeaturesGrid';
 import { HeartHandshake, Users, ShieldCheck, Sparkles, Leaf, Clock } from 'lucide-react';
 
 export const values: ReadonlyArray<FeatureItem> = [

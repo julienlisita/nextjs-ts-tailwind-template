@@ -1,16 +1,16 @@
 // src/components/pages/Testimonials.tsx
 
 import { MessageSquare } from 'lucide-react';
-import HeroIntro from '../section/HeroIntro';
-import TestimonialsSectionServer from '../section/TestimonialsSectionServer';
-import Cta from '../ui/Cta';
+import PageHero from '../patterns/PageHero';
+import TestimonialsSectionServer from '../testimonials/TestimonialsSectionServer';
+import Cta from '../patterns/Cta';
 
 export const runtime = 'nodejs'; // si tu utilises tes constantes: export { runtime, dynamic, revalidate } from ...
 
 export default function TestimonialsPageView() {
   return (
     <div>
-      <HeroIntro
+      <PageHero
         icon={<MessageSquare size={40} />}
         title="Témoignages"
         subtitle="Ils partagent leur expérience et leur avis sur nos services."

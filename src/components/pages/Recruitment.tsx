@@ -1,16 +1,16 @@
 // src/components/pages/Recruitment.tsx
 
 import RecruitmentClient from '@/components/pages/RecruitmentClient';
-import JobOffersSectionServer from '../section/JobOffersSectionServer';
 import { Suspense } from 'react';
-import HeroIntro from '../section/HeroIntro';
+import PageHero from '../patterns/PageHero';
+import JobOffersSectionServer from '../recruitment/JobOffersSectionServer';
+import Cta from '../patterns/Cta';
 import { FileText } from 'lucide-react';
-import Cta from '../ui/Cta';
 
 export default async function Recruitment() {
   return (
     <>
-      <HeroIntro
+      <PageHero
         icon={<FileText size={40} />}
         title="Recrutement"
         subtitle="Découvrez nos opportunités et rejoignez notre équipe."

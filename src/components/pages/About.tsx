@@ -1,14 +1,14 @@
 // src/components/pages/About.tsx
 
-import Cta from '../ui/Cta';
-import HeroIntro from '../section/HeroIntro';
 import { Users } from 'lucide-react';
-import ValuesSection from '../section/ValueSection';
+import PageHero from '../patterns/PageHero';
+import ValuesSection from '../about/ValuesSection';
+import Cta from '../patterns/Cta';
 
 export default function About() {
   return (
     <div>
-      <HeroIntro
+      <PageHero
         icon={<Users size={40} />}
         title="Qui sommes-nous ?"
         subtitle="Découvrez notre équipe, nos valeurs et notre vision."

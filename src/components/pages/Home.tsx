@@ -1,20 +1,20 @@
 // src/components/pages/Home.tsx
 
-import Cta from '../ui/Cta';
-import Hero from '../section/Hero';
-import ServicesFeaturesIntro from '../section/ServicesFeaturesIntro';
-import TestimonialsSectionHomeServer from '../section/TestimonialsSectionHomeServer';
-import NewsSectionHomeServer from '../section/NewsSectionHomeServer';
-import AboutSectionHome from '../section/AboutSectionHome';
+import AboutTeaser from '../home/AboutTeaser';
+import Hero from '../home/Hero';
+import NewsTeaserServer from '../home/NewsTeaserServer';
+import ServicesTeaser from '../home/ServicesTeaser';
+import TestimonialsTeaserServer from '../home/TestimonialsTeaserServer';
+import Cta from '../patterns/Cta';
 
 export default function Home() {
   return (
     <div>
       <Hero />
-      <AboutSectionHome />
-      <ServicesFeaturesIntro />
-      <TestimonialsSectionHomeServer />
-      <NewsSectionHomeServer />
+      <AboutTeaser />
+      <ServicesTeaser />
+      <TestimonialsTeaserServer />
+      <NewsTeaserServer />
       <Cta
         title="Prêt à en savoir plus ?"
         description="Contactez-nous dès aujourd’hui pour découvrir comment nous pouvons vous accompagner."

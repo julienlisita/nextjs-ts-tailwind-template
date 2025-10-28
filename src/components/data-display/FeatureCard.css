@@ -1,0 +1,157 @@
+/* src/components/data-display/FeatureCard.ccs */
+
+/* =========================================
+   Tones (monochrome – noir / gris / neutre)
+   S'appuient UNIQUEMENT sur tes tokens template
+   ========================================= */
+
+/* Neutral = rendu par défaut, lisible et sobre */
+.feature-card--neutral {
+  --card-bg: var(--color-surface);
+  --card-text: var(--color-text);
+  --card-title: var(--color-section-title);
+  --card-border: var(--color-border);
+  --card-icon-fg: var(--color-secondary);
+
+  /* Header (with-header) */
+  --card-header-bg: var(--color-secondary);
+  --card-header-fg: var(--white);
+
+  /* Gradient (gris → gris foncé) */
+  --card-gradient-start: var(--color-secondary); /* neutral-700 */
+  --card-gradient-end: var(--color-primary); /* neutral-900 */
+  --card-gradient-fg: var(--white);
+}
+
+/* Brand (mono accentué) = contraste fort pour mise en avant */
+.feature-card--brand {
+  /* surface très claire pour du contraste avec le contenu sombre */
+  --card-bg: var(--white);
+  --card-text: var(--neutral-300);
+  --card-title: var(--neutral-900);
+  --card-border: var(--neutral-200);
+  --card-icon-fg: var(--color-primary);
+
+  /* Header (with-header) : bandeau primaire plein */
+  --card-header-bg: var(--color-primary); /* neutral-900 */
+  --card-header-fg: var(--white);
+
+  /* Gradient pleine carte : primaire → secondaire (900 → 700) */
+  --card-gradient-start: var(--color-primary);
+  --card-gradient-end: var(--color-secondary);
+  --card-gradient-fg: var(--white);
+}
+
+/* Success (calme/soft) = surfaces adoucies, texte sombre lisible */
+.feature-card--success {
+  --card-bg: var(--color-surface-soft); /* neutral-150 */
+  --card-text: var(--neutral-800);
+  --card-title: var(--neutral-900);
+  --card-border: var(--neutral-300);
+  --card-icon-fg: var(--neutral-700);
+
+  /* Header doux (with-header) : 600 → 700 */
+  --card-header-bg: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--neutral-600) 90%, white),
+    var(--neutral-700)
+  );
+  --card-header-fg: var(--white);
+
+  /* Gradient douce carte entière */
+  --card-gradient-start: color-mix(in oklab, var(--neutral-600) 85%, white);
+  --card-gradient-end: var(--neutral-800);
+  --card-gradient-fg: var(--white);
+}
+
+/* Warning/Highlight (mise en avant) = contrasté mais monochrome */
+.feature-card--warning {
+  --card-bg: var(--white);
+  --card-text: var(--neutral-800);
+  --card-title: var(--neutral-900);
+  --card-border: color-mix(in oklab, var(--neutral-900) 25%, var(--neutral-300));
+  --card-icon-fg: var(--neutral-900);
+
+  /* Header (with-header) : bloc sombre franc */
+  --card-header-bg: var(--color-primary); /* neutral-900 */
+  --card-header-fg: var(--white);
+
+  /* Gradient carte entière : 900 → 700 (effet “spotlight” sobre) */
+  --card-gradient-start: var(--color-primary);
+  --card-gradient-end: var(--color-secondary);
+  --card-gradient-fg: var(--white);
+}
+
+/* Base card */
+.feature-card {
+  @apply transition overflow-hidden;
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--card-text);
+}
+.feature-card:hover {
+  box-shadow: var(--card-shadow-hover);
+}
+
+/* Variantes */
+.feature-card--outlined {
+  background-color: var(--card-outlined-bg);
+  border: 2px solid var(--card-outlined-border);
+}
+
+.feature-card--gradient {
+  color: var(--card-gradient-fg);
+  border: none;
+  background-image: linear-gradient(135deg, var(--card-gradient-start), var(--card-gradient-end));
+}
+
+.feature-card--with-header .feature-card__header {
+  background: var(--card-header-bg);
+  color: var(--card-header-fg);
+}
+
+/* Header / Body */
+.feature-card__header {
+  @apply flex flex-col space-y-2 p-4;
+}
+.feature-card__body {
+  @apply flex flex-col p-6 pt-8 gap-2;
+}
+
+/* Icône */
+.feature-card__icon {
+  @apply inline-flex items-center;
+}
+.feature-card__icon-inner {
+  width: var(--card-icon-size);
+  height: var(--card-icon-size);
+  color: var(--card-icon-fg);
+}
+.feature-card--gradient .feature-card__icon-inner,
+.feature-card__header .feature-card__icon-inner {
+  color: currentColor;
+}
+
+/* Titre */
+.feature-card__title {
+  @apply text-base sm:text-lg font-semibold;
+  color: var(--card-title);
+}
+.feature-card--gradient .feature-card__title,
+.feature-card__header .feature-card__title {
+  color: var(--card-header-fg);
+}
+
+/* Description */
+.feature-card__desc {
+  @apply text-sm leading-relaxed;
+  color: var(--card-text);
+  opacity: var(--card-muted-opacity);
+}
+
+/* Actions */
+.feature-card__actions {
+  @apply mt-2;
+}
