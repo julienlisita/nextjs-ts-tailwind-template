@@ -1,0 +1,16 @@
+/* src/components/ui/Prose.css */
+/* VISUEL UNIQUEMENT (ul/li, h3, liens...) */
+.prose-content {
+  color: var(--color-ocean-night);
+}
+.prose-content h3 {
+  font-size: 1.125rem;
+  margin: 1rem 0 0.5rem;
+}
+.prose-content ul {
+  list-style: disc inside;
+  margin: 0.5rem 0 1rem;
+}
+.prose-content a {
+  text-decoration: underline;
+}

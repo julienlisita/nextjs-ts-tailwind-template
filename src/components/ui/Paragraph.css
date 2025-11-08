@@ -1,0 +1,12 @@
+/* src/components/ui/Paragraph.css */
+
+/* VISUEL UNIQUEMENT */
+.para {
+  color: var(--color-ocean-night);
+  line-height: 1.75;
+}
+.lead {
+  color: var(--color-ocean-night);
+  line-height: 1.8;
+  font-size: 1.125rem;
+}
