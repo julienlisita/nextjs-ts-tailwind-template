@@ -8,7 +8,6 @@ import FeaturesGrid from '../patterns/FeaturesGrid';
 import Section from '../layout/Section';
 import SectionWrapper from '../layout/SectionWrapper';
 import HeaderBlock from '../patterns/HeaderBlock';
-import ActionsStack from '../patterns/ActionsStack';
 
 export default function TestimonialsSection({ items }: { items: ReadonlyArray<Testimonial> }) {
   return (
@@ -45,14 +44,6 @@ export default function TestimonialsSection({ items }: { items: ReadonlyArray<Te
               variant="default"
             />
           )}
-        />
-        <ActionsStack
-          align="center"
-          className="mt-8"
-          items={[
-            { label: 'Tous les services', href: '/services', variant: 'primary' },
-            { label: 'Nous contacter', href: '/contact', variant: 'secondary' },
-          ]}
         />
       </SectionWrapper>
     </Section>
