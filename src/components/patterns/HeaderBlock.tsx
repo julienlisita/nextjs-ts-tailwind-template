@@ -1,7 +1,5 @@
 // src/components/patterns/HeaderBlock.tsx
 
-'use client';
-
 import clsx from 'clsx';
 import Eyebrow from '@/components/ui/Eyebrow';
 import SectionTitle from '@/components/ui/SectionTitle';
@@ -14,6 +12,8 @@ type Props = {
   subtitle?: React.ReactNode;
   align?: 'left' | 'center' | 'right';
   className?: string;
+  titleId?: string;
+  subtitleId?: string;
 };
 
 export default function HeaderBlock({
@@ -22,12 +22,14 @@ export default function HeaderBlock({
   subtitle,
   align = 'center',
   className,
+  titleId,
+  subtitleId,
 }: Props) {
   return (
     <header className={clsx('mb-8', headerAlignResponsive(align), className)}>
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-      {title && <SectionTitle>{title}</SectionTitle>}
-      {subtitle && <Subtitle>{subtitle}</Subtitle>}
+      {title && <SectionTitle id={titleId}>{title}</SectionTitle>}
+      {subtitle && <Subtitle id={subtitleId}>{subtitle}</Subtitle>}
     </header>
   );
 }
