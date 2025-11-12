@@ -15,22 +15,7 @@ export default function Contact() {
         subtitle="Besoin d’informations ou d’un devis ? Nous sommes à votre écoute."
         align="center"
       />
-      <ContactFormSection
-        eyebrow="Contact"
-        title="Parlez-nous de votre besoin"
-        subtitle="Remplissez le formulaire, nous revenons vers vous rapidement."
-        align="left"
-        aside={
-          <div>
-            <h3>Informations</h3>
-            <p>
-              Nous traitons vos données conformément à notre politique de confidentialité. Vous
-              pouvez aussi nous contacter au <strong>+33 6 12 34 56 78</strong>.
-            </p>
-          </div>
-        }
-        asidePosition="right"
-      />
+      <ContactFormSection />
       <ContactInfoSection />
       <LocationSection align="left" />
     </div>
