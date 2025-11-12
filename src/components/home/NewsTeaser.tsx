@@ -22,7 +22,7 @@ export default function NewsTeaser({ items }: Props) {
             <span className="block text-sm font-semibold uppercase tracking-wide text-gray-600">
               À la une
             </span>
-            <SectionTitle align="left">Actualités récentes</SectionTitle>
+            <SectionTitle>Actualités récentes</SectionTitle>
             <Subtitle>Les dernières infos utiles pour vous.</Subtitle>
             <div className="mt-6">
               <Button href="/news" variant="primary">
