@@ -1,7 +1,6 @@
 // src/components/about/ValuesSection.tsx
 
-'use client';
-
+import React from 'react';
 import { values } from '@/data/values';
 import FeaturesGrid from '../patterns/FeaturesGrid';
 import FeatureCard from '../data-display/FeatureCard';
@@ -9,13 +8,11 @@ import Section from '../layout/Section';
 import SectionWrapper from '../layout/SectionWrapper';
 import HeaderBlock from '../patterns/HeaderBlock';
 
-type Props = {
-  className?: string;
-};
-
-export default function ValuesSection({ className }: Props) {
+export default function ValuesSection() {
+  const titleId = React.useId();
+  const subtitleId = React.useId();
   return (
-    <Section bgColor="#A8D5BA15">
+    <Section bgColor="#A8D5BA15" labelledBy={titleId} describedBy={subtitleId}>
       <SectionWrapper>
         <HeaderBlock
           eyebrow="Nos valeurs"
