@@ -2,10 +2,15 @@
 
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { ComponentProps, useMemo, useState } from 'react';
 import FeatureCard from '@/components/data-display/FeatureCard';
 import clsx from 'clsx';
 import './FeaturesGrid.css';
+
+type FeatureCardProps = ComponentProps<typeof FeatureCard>;
+type CardVariant = FeatureCardProps['variant'];
+type CardTone = FeatureCardProps['tone'];
+type CardAlign = FeatureCardProps['align'];
 
 /** Type par défaut pour un "feature" */
 export type FeatureItem = {
@@ -24,7 +29,11 @@ export type FeaturesGridProps<TItem = FeatureItem> = {
   renderItem?: (item: TItem, index: number) => React.ReactNode;
 
   /** Clé personnalisée pour chaque item (sinon index) */
+  // ❌ À éviter si parent serveur : renderItem?: (item: TItem, index: number) => React.ReactNode;
   getKey?: (item: TItem, index: number) => React.Key;
+  cardVariant?: CardVariant;
+  cardTone?: CardTone;
+  cardAlign?: CardAlign;
 
   /** Pagination optionnelle */
   pageSize?: number;
@@ -48,6 +57,9 @@ export default function FeaturesGrid<TItem = FeatureItem>({
   items,
   renderItem,
   getKey,
+  cardVariant = 'default',
+  cardTone = 'neutral',
+  cardAlign = 'center',
   pageSize,
   tabs,
   defaultTab,
@@ -87,9 +99,9 @@ export default function FeaturesGrid<TItem = FeatureItem>({
         icon={f.icon}
         title={f.title}
         description={f.description}
-        variant="default"
-        tone="neutral"
-        align="center"
+        variant={cardVariant}
+        tone={cardTone}
+        align={cardAlign}
       />
     );
   };
