@@ -5,7 +5,6 @@
 import React from 'react';
 import clsx from 'clsx';
 import './FeatureCard.css';
-import Button from '../ui/Button';
 
 type Align = 'inherit' | 'left' | 'center' | 'right';
 type Variant = 'default' | 'gradient' | 'outlined' | 'with-header';
@@ -21,11 +20,11 @@ type FeatureCardProps = {
   icon?: React.ComponentType<React.SVGProps<SVGSVGElement>> | React.ReactElement;
   /** Titre */
   title: string;
-  /** Description */
+  /** Description (cliquable si href est défini) */
   description: string | React.ReactNode;
-  /** url du lien du bouton */
+  /** URL du lien (rend la description cliquable) */
   href?: string;
-  /** label du bouton */
+  /** label du bouton (non utilisé désormais, conservé si usages ailleurs) */
   linkLabel?: string;
   /** Style visuel (structure) */
   variant?: Variant;
@@ -48,7 +47,7 @@ export default function FeatureCard({
   title,
   description,
   href,
-  linkLabel,
+  linkLabel, // conservé mais non utilisé
   variant = 'default',
   tone = 'neutral',
   width,
@@ -101,6 +100,8 @@ export default function FeatureCard({
       </div>
     ) : null;
 
+  const isExternal = href ? /^https?:\/\//i.test(href) : false;
+
   return (
     <article
       className={clsx(
@@ -130,24 +131,22 @@ export default function FeatureCard({
             <h3 className="feature-card__title">{title}</h3>
           </>
         )}
-        <div className="feature-card__desc">{description}</div>
 
-        {href && (
-          <div className="feature-card__actions mt-4">
-            <Button
+        {/* Description : rendue cliquable si href est défini */}
+        <div className="feature-card__desc">
+          {href ? (
+            <a
               href={href}
-              variant="secondary"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${linkLabel ?? 'En savoir plus'} : ${title}`}
+              className="underline hover:no-underline relative z-10 inline-block"
+              target={isExternal ? '_blank' : undefined}
+              rel={isExternal ? 'noopener noreferrer' : undefined}
             >
-              {linkLabel ?? 'En savoir plus'}
-              <span className="ml-2" aria-hidden="true">
-                &rsaquo;
-              </span>
-            </Button>
-          </div>
-        )}
+              {description}
+            </a>
+          ) : (
+            description
+          )}
+        </div>
       </div>
     </article>
   );

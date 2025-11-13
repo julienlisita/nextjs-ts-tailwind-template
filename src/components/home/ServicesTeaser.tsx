@@ -1,7 +1,5 @@
 // src/components/home/ServicesTeaser.tsx
 
-'use client';
-
 import { services } from '@/data/services';
 import FeatureCard from '../data-display/FeatureCard';
 import FeaturesGrid from '../patterns/FeaturesGrid';
@@ -24,20 +22,12 @@ export default function ServicesTeaser({ className }: Props) {
           subtitle="Un accompagnement complet et bienveillant au quotidien."
           align="center"
         />
-
         <FeaturesGrid
           items={services.slice(0, 3)}
-          gridClassName="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5 sm:gap-6 lg:gap-8"
-          renderItem={(item) => (
-            <FeatureCard
-              icon={item.icon}
-              title={item.title}
-              description={item.description}
-              variant="gradient"
-              tone="brand"
-              align="center"
-            />
-          )}
+          gridClassName="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8"
+          cardVariant="gradient"
+          cardTone="brand"
+          cardAlign="center"
         />
         <ActionsStack
           align="center"

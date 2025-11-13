@@ -7,6 +7,8 @@ import FeatureCard from '@/components/data-display/FeatureCard';
 import clsx from 'clsx';
 import './FeaturesGrid.css';
 
+import { ICONS, type IconKey } from '@/utils/icons';
+
 type FeatureCardProps = ComponentProps<typeof FeatureCard>;
 type CardVariant = FeatureCardProps['variant'];
 type CardTone = FeatureCardProps['tone'];
@@ -15,10 +17,12 @@ type CardAlign = FeatureCardProps['align'];
 /** Type par défaut pour un "feature" */
 export type FeatureItem = {
   icon:
+    | IconKey
     | React.ComponentType<React.SVGProps<SVGSVGElement>>
     | React.ReactElement<React.SVGProps<SVGSVGElement>>;
   title: string;
   description: string | React.ReactNode;
+  href?: string;
 };
 
 export type FeaturesGridProps<TItem = FeatureItem> = {
@@ -48,11 +52,6 @@ export type FeaturesGridProps<TItem = FeatureItem> = {
   gridClassName?: string;
 };
 
-/**
- * Version allégée de FeaturesGrid :
- * – pas de Section ni de Wrapper (à utiliser dans une section parent)
- * – garde la grille, la pagination et les tabs optionnels
- */
 export default function FeaturesGrid<TItem = FeatureItem>({
   items,
   renderItem,
@@ -93,12 +92,25 @@ export default function FeaturesGrid<TItem = FeatureItem>({
   // Rendu par défaut
   const defaultRenderItem = (it: unknown, i: number) => {
     const f = it as FeatureItem;
+    let iconEl: React.ReactElement | undefined = undefined;
+
+    if (typeof f.icon === 'string') {
+      const IconComp = ICONS[f.icon as IconKey];
+      iconEl = IconComp ? <IconComp /> : undefined;
+    } else if (React.isValidElement(f.icon)) {
+      iconEl = f.icon as React.ReactElement;
+    } else if (typeof f.icon === 'function') {
+      const IconComp = f.icon as React.ComponentType<React.SVGProps<SVGSVGElement>>;
+      iconEl = <IconComp />;
+    }
+
     return (
       <FeatureCard
         key={i}
-        icon={f.icon}
+        icon={iconEl}
         title={f.title}
         description={f.description}
+        href={f.href}
         variant={cardVariant}
         tone={cardTone}
         align={cardAlign}
