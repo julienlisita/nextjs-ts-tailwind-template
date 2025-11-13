@@ -15,6 +15,7 @@ type Props = {
   className?: string;
   titleId?: string;
   subtitleId?: string;
+  titleFocusable?: boolean;
 };
 
 export default function HeaderBlock({
@@ -26,11 +27,16 @@ export default function HeaderBlock({
   className,
   titleId,
   subtitleId,
+  titleFocusable = false,
 }: Props) {
   return (
     <header className={clsx('mb-8', headerAlignResponsive(align), className)}>
       {eyebrow && <Eyebrow decorative={eyebrowDecorative}>{eyebrow}</Eyebrow>}
-      {title && <SectionTitle id={titleId}>{title}</SectionTitle>}
+      {title && (
+        <SectionTitle id={titleId} focusable={titleFocusable}>
+          {title}
+        </SectionTitle>
+      )}
       {subtitle && <Subtitle id={subtitleId}>{subtitle}</Subtitle>}
     </header>
   );
