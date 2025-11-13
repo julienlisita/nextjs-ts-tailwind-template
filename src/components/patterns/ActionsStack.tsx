@@ -1,7 +1,5 @@
 // src/components/patterns/ActionsStack.tsx
 
-'use client';
-
 import clsx from 'clsx';
 import Button from '@/components/ui/Button';
 import { flexAlignResponsive } from '@/utils/align';

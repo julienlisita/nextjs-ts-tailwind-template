@@ -1,7 +1,5 @@
 // src/components/home/Hero.tsx
 
-'use client';
-
 import Button from '@/components/ui/Button';
 import PageTitle from '@/components/ui/PageTitle';
 import './Hero.css';

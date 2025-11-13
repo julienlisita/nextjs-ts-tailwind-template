@@ -1,7 +1,5 @@
 // src/components/patterns/PageHero.tsx
 
-'use client';
-
 import PageTitle from '@/components/ui/PageTitle';
 import clsx from 'clsx';
 import type { ReactNode } from 'react';

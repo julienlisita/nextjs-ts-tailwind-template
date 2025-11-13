@@ -1,6 +1,5 @@
 // src/components/ui/Prose.tsx
 
-'use client';
 import clsx from 'clsx';
 import './Prose.css';
 

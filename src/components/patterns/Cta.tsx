@@ -1,7 +1,5 @@
 // src/components/patterns/Cta.tsx
 
-'use client';
-
 import Button from '@/components/ui/Button';
 import clsx from 'clsx';
 import './Cta.css';

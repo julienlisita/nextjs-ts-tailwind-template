@@ -1,6 +1,5 @@
 // src/components/ui/Paragraph.tsx
 
-'use client';
 import clsx from 'clsx';
 import './Paragraph.css';
 

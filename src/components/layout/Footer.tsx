@@ -1,7 +1,5 @@
 // src/components/layout/Footer.tsx
 
-'use client';
-
 import Link from 'next/link';
 import Image from 'next/image';
 import { FiFacebook, FiInstagram } from 'react-icons/fi';

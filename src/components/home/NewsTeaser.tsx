@@ -1,7 +1,5 @@
 // src/components/home/NewsTeaser.tsx
 
-'use client';
-
 import type { NewsItem } from '@/types/news';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Button from '@/components/ui/Button';

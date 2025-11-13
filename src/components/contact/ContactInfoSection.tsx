@@ -6,11 +6,7 @@ import Section from '../layout/Section';
 import SectionWrapper from '../layout/SectionWrapper';
 import HeaderBlock from '../patterns/HeaderBlock';
 
-type Props = {
-  className?: string;
-};
-
-export default function ContactInfoSection({ className }: Props) {
+export default function ContactInfoSection() {
   return (
     <Section>
       <SectionWrapper>

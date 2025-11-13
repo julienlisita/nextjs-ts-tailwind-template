@@ -1,7 +1,5 @@
 // src/components/pages/Services.tsx
 
-'use client';
-
 import { Briefcase } from 'lucide-react';
 import PageHero from '../patterns/PageHero';
 import ServicesSection from '../services/ServicesSection';

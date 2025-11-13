@@ -1,18 +1,13 @@
 // src/components/home/ServicesTeaser.tsx
 
 import { services } from '@/data/services';
-import FeatureCard from '../data-display/FeatureCard';
 import FeaturesGrid from '../patterns/FeaturesGrid';
 import Section from '../layout/Section';
 import SectionWrapper from '../layout/SectionWrapper';
 import HeaderBlock from '../patterns/HeaderBlock';
 import ActionsStack from '../patterns/ActionsStack';
 
-type Props = {
-  className?: string;
-};
-
-export default function ServicesTeaser({ className }: Props) {
+export default function ServicesTeaser() {
   return (
     <Section bgColor="#A8D5BA15">
       <SectionWrapper>
