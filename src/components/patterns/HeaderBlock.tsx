@@ -8,6 +8,7 @@ import { headerAlignResponsive } from '@/utils/align';
 
 type Props = {
   eyebrow?: string;
+  eyebrowDecorative?: boolean;
   title?: React.ReactNode;
   subtitle?: React.ReactNode;
   align?: 'left' | 'center' | 'right';
@@ -18,6 +19,7 @@ type Props = {
 
 export default function HeaderBlock({
   eyebrow,
+  eyebrowDecorative = true,
   title,
   subtitle,
   align = 'center',
@@ -27,7 +29,7 @@ export default function HeaderBlock({
 }: Props) {
   return (
     <header className={clsx('mb-8', headerAlignResponsive(align), className)}>
-      {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
+      {eyebrow && <Eyebrow decorative={eyebrowDecorative}>{eyebrow}</Eyebrow>}
       {title && <SectionTitle id={titleId}>{title}</SectionTitle>}
       {subtitle && <Subtitle id={subtitleId}>{subtitle}</Subtitle>}
     </header>
