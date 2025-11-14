@@ -68,12 +68,23 @@ export default function Header() {
 
   // Bloquer le scroll du body quand le menu mobile est ouvert
   useEffect(() => {
-    if (!isOpen) return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = prev;
-    };
+    const html = document.documentElement; // plus sûr que body seul
+    const body = document.body;
+
+    if (isOpen) {
+      const scrollY = window.scrollY;
+      html.style.overflow = 'hidden';
+      body.style.position = 'fixed';
+      body.style.top = `-${scrollY}px`;
+      body.style.width = '100%';
+      return () => {
+        html.style.overflow = '';
+        body.style.position = '';
+        body.style.top = '';
+        body.style.width = '';
+        window.scrollTo(0, scrollY); // restaure la position précédente
+      };
+    }
   }, [isOpen]);
 
   const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
