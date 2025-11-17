@@ -4,14 +4,14 @@
 .hero-section {
   @apply w-full flex flex-col justify-center text-center px-4;
   min-height: calc(100vh - var(--header-height));
-  background-image: url('/images/home/hero.avif'); /* place ton image dans /public/images */
+  /* background-image: url('/images/home/hero.avif');
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
 }
 
 .hero-container {
-  @apply max-w-4xl mx-auto space-y-6;
+  @apply max-w-4xl mx-auto space-y-6 z-10;
 }
 
 .hero-actions {
