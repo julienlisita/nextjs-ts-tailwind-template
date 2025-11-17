@@ -15,7 +15,7 @@ export default function NewsSection({ items }: Props) {
   return (
     <Section bgColor="#A8D5BA15">
       <SectionWrapper>
-        <HeaderBlock eyebrow="Articles récents" align="center" />
+        <HeaderBlock title="Articles récents" align="center" />
 
         <FeaturesGrid
           items={items}
