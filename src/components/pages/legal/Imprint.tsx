@@ -1,4 +1,4 @@
-// VERSION ULTRA COMPACTE — une seule <Section>, aucune <section> interne
+// src/components/pages/legal/Imprint.tsx
 
 import Section from '@/components/layout/Section';
 import SectionWrapper from '@/components/layout/SectionWrapper';
