@@ -33,6 +33,7 @@ model JobOffer {
   title       String
   location    String
   description String
+  contractType String? 
   publishedAt DateTime @default(now())
   updatedAt   DateTime @updatedAt 
 }
@@ -42,6 +43,7 @@ model Testimonial {
   name         String
   role         String?   // ex: "Cliente", "CEO @ Acme"
   company      String?
+  city         String? 
   quote        String
   rating       Decimal?  // 1..5, supporte 4.5
   avatarUrl    String?
@@ -67,7 +69,8 @@ model NewsItem {
   publishedAt  DateTime? @default(now())
   isPublished  Boolean   @default(true)
   coverImage   String?
-
+  imageUrl     String?
+  imageAlt     String?
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @updatedAt
 }
