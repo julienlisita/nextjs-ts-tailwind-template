@@ -1,0 +1,7 @@
+/* src/components/form/ReservationForm.css */
+
+.reservation-form {
+  @apply space-y-6;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
