@@ -29,6 +29,7 @@ export default function Footer() {
           <Link href="/testimonials">Témoignages</Link>
           <Link href="/news">Actualités</Link>
           <Link href="/recruitment">Recrutement</Link>
+          <Link href="/reservations">Réservations</Link>
           <Link href="/contact">Contact</Link>
         </nav>
 
@@ -64,6 +65,7 @@ export default function Footer() {
         <nav className="footer-legal">
           <Link href="/legal/imprint">Mentions légales</Link>
           <Link href="/legal/privacy">Politique de confidentialité</Link>
+          <Link href="/legal/term">Conditions d'utilisation</Link>
         </nav>
       </div>
     </footer>

@@ -1,5 +1,7 @@
 // src/app/reservations/page.tsx
 
+export const dynamic = 'force-dynamic';
+
 import Reservations from '@/components/pages/Reservations';
 
 export const metadata = {

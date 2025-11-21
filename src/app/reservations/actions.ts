@@ -4,7 +4,7 @@
 
 import { z } from 'zod';
 import { redirect } from 'next/navigation';
-import { createReservationFromPublic } from '@/server/services/reservations.service';
+import { createReservationFromPublicSafe } from '@/server/services/reservations.service';
 
 const schema = z.object({
   // honeypot
@@ -40,9 +40,8 @@ export async function sendReservation(formData: FormData) {
   });
 
   if (!parsed.success) {
-    // pour rester simple : log + redirection
     console.error('[sendReservation] validation error', parsed.error.flatten());
-    redirect('/reservations/erreur'); // ou reste sur la même page si tu veux gérer plus finement
+    redirect('/reservations/erreur');
   }
 
   const v = parsed.data;
@@ -54,13 +53,25 @@ export async function sendReservation(formData: FormData) {
 
   const fullName = v.civilite ? `${v.civilite} ${v.prenom} ${v.nom}` : `${v.prenom} ${v.nom}`;
 
-  await createReservationFromPublic({
+  // appel "safe" du service
+  const result = await createReservationFromPublicSafe({
     slotId: v.slotId,
     clientName: fullName,
     clientEmail: v.email,
     clientPhone: v.telephone,
     message: v.message,
   });
+
+  if (!result.ok) {
+    if (result.reason === 'slot-unavailable') {
+      console.warn('[sendReservation] slot not available anymore', v.slotId);
+      // tu peux affiner plus tard (query param, message UI, etc.)
+      redirect('/reservations?error=slot-unavailable');
+    }
+
+    console.error('[sendReservation] unknown error while creating reservation');
+    redirect('/reservations/erreur');
+  }
 
   redirect('/reservations/merci');
 }

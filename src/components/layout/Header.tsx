@@ -16,6 +16,7 @@ const NAV_ITEMS = [
   { href: '/testimonials', label: 'Témoignages' },
   { href: '/news', label: 'Actualités' },
   { href: '/recruitment', label: 'Recrutement' },
+  { href: '/reservations', label: 'Réservations' },
   { href: '/contact', label: 'Contact' },
 ];
 

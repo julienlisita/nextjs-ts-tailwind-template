@@ -26,7 +26,7 @@ export default function Select({
   name,
   required,
   options,
-  defaultValue = '',
+  defaultValue = -1, // valeur neutre fiable pour SSR
   className = '',
   ...props
 }: SelectProps) {
@@ -42,7 +42,7 @@ export default function Select({
         {...props}
       >
         {options.map((opt) => (
-          <option key={opt.value} value={opt.value} disabled={opt.disabled}>
+          <option key={String(opt.value)} value={opt.value} disabled={opt.disabled}>
             {opt.label}
           </option>
         ))}

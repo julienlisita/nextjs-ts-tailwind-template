@@ -73,8 +73,9 @@ export default function ReservationForm({
           label="Créneau souhaité"
           name="slotId"
           required
+          defaultValue={-1}
           options={[
-            { value: '', label: 'Sélectionnez un créneau', disabled: true },
+            { value: -1, label: 'Sélectionnez un créneau', disabled: true },
             ...slots.map((slot) => ({
               value: slot.id,
               label: formatSlot(slot),

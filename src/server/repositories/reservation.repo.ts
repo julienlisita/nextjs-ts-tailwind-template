@@ -12,14 +12,24 @@ export const reservationRepo = {
     message?: string;
   }): Promise<Reservation> {
     return prisma.$transaction(async (tx) => {
+      const now = new Date();
+
       const slot = await tx.reservationSlot.findUnique({
         where: { id: input.slotId },
       });
 
-      if (!slot || slot.status !== 'AVAILABLE') {
+      // Vérification simple mais complète
+      if (!slot || slot.status !== 'AVAILABLE' || slot.startAt < now) {
+        console.warn('[reservationRepo.createFromPublic] slot invalid', {
+          slotExists: !!slot,
+          status: slot?.status,
+          startAt: slot?.startAt,
+          now,
+        });
         throw new Error('Ce créneau n’est plus disponible.');
       }
 
+      // Création de la réservation
       const reservation = await tx.reservation.create({
         data: {
           slotId: slot.id,
@@ -30,6 +40,7 @@ export const reservationRepo = {
         },
       });
 
+      // Mise à jour du slot
       await tx.reservationSlot.update({
         where: { id: slot.id },
         data: { status: 'BOOKED' },
