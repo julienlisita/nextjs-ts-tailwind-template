@@ -75,6 +75,29 @@ export async function main() {
       toDate(stripId(offer))
     ) as Prisma.JobOfferCreateManyInput[],
   });
+
+  // Reservation slots (exemple)
+  await prisma.reservation.deleteMany();
+  await prisma.reservationSlot.deleteMany();
+
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  tomorrow.setHours(9, 0, 0, 0);
+
+  const slotsData = Array.from({ length: 5 }).map((_, i) => {
+    const start = new Date(tomorrow);
+    start.setHours(9 + i, 0, 0, 0);
+    const end = new Date(start);
+    end.setMinutes(end.getMinutes() + 60);
+
+    return {
+      startAt: start,
+      endAt: end,
+      status: 'AVAILABLE' as const,
+    };
+  });
+
+  await prisma.reservationSlot.createMany({ data: slotsData });
 }
 
 if (require.main === module) {
