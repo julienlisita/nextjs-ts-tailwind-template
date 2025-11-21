@@ -1,0 +1,35 @@
+/* Wrapper */
+.select-wrapper {
+  @apply flex flex-col gap-1 w-full;
+  color: var(--color-text);
+}
+
+/* Label */
+.select-label {
+  @apply text-sm font-medium;
+}
+
+/* Select stylé */
+.select-input {
+  @apply w-full rounded-lg border px-3 py-2 text-sm bg-white transition-colors;
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+/* Hover */
+.select-input:hover {
+  border-color: color-mix(in oklab, var(--color-border), var(--color-primary) 40%);
+}
+
+/* Focus */
+.select-input:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-primary), white 75%);
+  border-color: var(--color-primary);
+}
+
+/* Disabled */
+.select-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
