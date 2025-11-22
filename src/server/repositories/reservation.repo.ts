@@ -49,4 +49,57 @@ export const reservationRepo = {
       return reservation;
     });
   },
+  // 🔹 Liste complète des réservations pour l’admin
+  listAll(): Promise<(Reservation & { slot: { startAt: Date; endAt: Date | null } })[]> {
+    return prisma.reservation.findMany({
+      include: {
+        slot: {
+          select: { startAt: true, endAt: true, status: true, id: true },
+        },
+      },
+      orderBy: { createdAt: 'desc' },
+    });
+  },
+
+  // 🔹 Optionnel : seulement les futures réservations
+  listUpcoming(): Promise<(Reservation & { slot: { startAt: Date; endAt: Date | null } })[]> {
+    const now = new Date();
+    return prisma.reservation.findMany({
+      where: {
+        slot: { startAt: { gte: now } },
+      },
+      include: {
+        slot: {
+          select: { startAt: true, endAt: true, status: true, id: true },
+        },
+      },
+      orderBy: { slot: { startAt: 'asc' } },
+    });
+  },
+
+  // 🔹 Annulation : on supprime la réservation + on remet le slot à AVAILABLE
+  async cancel(id: number): Promise<Reservation> {
+    return prisma.$transaction(async (tx) => {
+      const reservation = await tx.reservation.findUnique({
+        where: { id },
+      });
+
+      if (!reservation) {
+        throw new Error('RESERVATION_NOT_FOUND');
+      }
+
+      // On libère le créneau
+      await tx.reservationSlot.update({
+        where: { id: reservation.slotId },
+        data: { status: 'AVAILABLE' },
+      });
+
+      // On supprime la réservation (tu pourrais aussi ajouter un champ "cancelledAt" plutôt que delete)
+      const deleted = await tx.reservation.delete({
+        where: { id },
+      });
+
+      return deleted;
+    });
+  },
 };

@@ -2,16 +2,35 @@
 
 import { reservationSlotRepo } from '../repositories/reservationSlot.repo';
 import { reservationRepo } from '../repositories/reservation.repo';
+import type { SlotStatus } from '@prisma/client';
 
+/* -----------------------------------------------------------------------------
+ * PUBLIC
+ * ---------------------------------------------------------------------------*/
+
+/**
+ * Liste des créneaux disponibles côté public.
+ * - status = AVAILABLE
+ * - startAt >= maintenant
+ * - aucun Reservation liée (géré dans reservationSlotRepo.listAvailable)
+ */
 export const listAvailableSlots = () => reservationSlotRepo.listAvailable();
 
 /**
- * Version "safe" : on ne laisse pas l'erreur remonter,
- * on renvoie un objet de résultat pour que la server action gère proprement.
+ * Création de réservation (version "brute", utilisée par la version safe).
  */
-export async function createReservationFromPublicSafe(
+export const createReservationFromPublic = (
   input: Parameters<typeof reservationRepo.createFromPublic>[0]
-): Promise<{ ok: boolean; reason?: 'slot-unavailable' | 'unknown-error' }> {
+) => reservationRepo.createFromPublic(input);
+
+/**
+ * Version "safe" pour la server action publique :
+ * - ne laisse pas remonter une exception non gérée vers Next
+ * - renvoie un objet { ok, reason? } interprétable par l'action
+ */
+export const createReservationFromPublicSafe = async (
+  input: Parameters<typeof reservationRepo.createFromPublic>[0]
+): Promise<{ ok: boolean; reason?: 'slot-unavailable' | 'unknown-error' }> => {
   try {
     await reservationRepo.createFromPublic(input);
     return { ok: true };
@@ -26,4 +45,77 @@ export async function createReservationFromPublicSafe(
     console.error('[reservations] unexpected error in createReservationFromPublicSafe', err);
     return { ok: false, reason: 'unknown-error' };
   }
-}
+};
+
+/* -----------------------------------------------------------------------------
+ * ADMIN - SLOTS
+ * ---------------------------------------------------------------------------*/
+
+/**
+ * Liste complète des créneaux pour l'admin.
+ */
+export const listAllSlotsAdmin = () => reservationSlotRepo.listAll();
+
+/**
+ * Création d'un créneau par l'admin.
+ */
+export const createSlotAdmin = (data: { startAt: Date; endAt: Date }) =>
+  reservationSlotRepo.create({
+    startAt: data.startAt,
+    endAt: data.endAt,
+  });
+
+/**
+ * Mise à jour du statut d'un créneau.
+ *
+ * Règle métier :
+ * - Si le slot est BOOKED, on interdit tout changement de statut ici.
+ *   → Il faut passer par l'annulation de la réservation (cancelReservationAdmin),
+ *     qui remettra le slot en AVAILABLE proprement.
+ */
+export const setSlotStatusAdmin = async (id: number, status: SlotStatus) => {
+  const slot = await reservationSlotRepo.findById(id);
+
+  if (!slot) {
+    console.warn('[setSlotStatusAdmin] slot not found', id);
+    throw new Error('SLOT_NOT_FOUND');
+  }
+
+  if (slot.status === 'BOOKED' && status !== 'BOOKED') {
+    console.warn('[setSlotStatusAdmin] attempt to change status on a booked slot - refused', {
+      id,
+      currentStatus: slot.status,
+      requested: status,
+    });
+    throw new Error('SLOT_BOOKED_HAS_RESERVATION');
+  }
+
+  return reservationSlotRepo.updateStatus(id, status);
+};
+
+/**
+ * Suppression d'un créneau s'il n'a pas de réservation.
+ * Renvoie true si supprimé, false si non (réservation existante).
+ */
+export const deleteSlotAdmin = (id: number) => reservationSlotRepo.deleteIfNoReservation(id);
+
+/* -----------------------------------------------------------------------------
+ * ADMIN - RESERVATIONS
+ * ---------------------------------------------------------------------------*/
+
+/**
+ * Liste toutes les réservations (admin).
+ */
+export const listAllReservationsAdmin = () => reservationRepo.listAll();
+
+/**
+ * Liste seulement les réservations à venir (admin).
+ */
+export const listUpcomingReservationsAdmin = () => reservationRepo.listUpcoming();
+
+/**
+ * Annule une réservation :
+ * - supprime la réservation
+ * - repasse le créneau associé à AVAILABLE
+ */
+export const cancelReservationAdmin = (id: number) => reservationRepo.cancel(id);
