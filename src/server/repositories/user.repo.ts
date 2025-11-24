@@ -16,4 +16,16 @@ export const userRepo = {
   updatePassword(id: number, password: string) {
     return prisma.user.update({ where: { id }, data: { password } });
   },
+  updateProfile(
+    id: number,
+    data: {
+      email?: string;
+      name?: string | null;
+    }
+  ) {
+    return prisma.user.update({
+      where: { id },
+      data,
+    });
+  },
 };
