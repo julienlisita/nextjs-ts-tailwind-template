@@ -30,9 +30,9 @@ export default async function AdminLayout({ children }: Props) {
           <div className="flex items-center gap-4">
             <div className="text-right">
               <p className="text-sm font-medium">
-                {user?.userId && <span>Admin #{user.userId}</span>}
+                {user.name ? user.name : `Admin #${user.userId}`}
               </p>
-              {/* si tu veux rajouter l'email, il faudrait enrichir requireAdmin avec l'email, pour l'instant on ne l’a pas */}
+              <p className="text-xs text-neutral-500">{user.email}</p>
             </div>
             <form action={logoutAction}>
               <button
