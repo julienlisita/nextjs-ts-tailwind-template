@@ -6,6 +6,7 @@ import { z } from 'zod';
 import { cookies } from 'next/headers';
 import { authCookieName, authCookieOptions } from '@/lib/auth-cookies';
 import { login } from '@/server/services/auth.service';
+import { redirect } from 'next/navigation';
 
 const schema = z.object({
   email: z.string().email(),
@@ -22,4 +23,6 @@ export async function loginAction(formData: FormData) {
 
   const cookieStore = await cookies();
   cookieStore.set(authCookieName, token, authCookieOptions);
+
+  redirect('/admin');
 }
