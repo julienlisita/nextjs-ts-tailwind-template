@@ -66,6 +66,9 @@ export default function Footer() {
           <Link href="/legal/imprint">Mentions légales</Link>
           <Link href="/legal/privacy">Politique de confidentialité</Link>
           <Link href="/legal/term">Conditions d'utilisation</Link>
+          <Link href="/admin" className="footer-admin-link">
+            Espace admin
+          </Link>
         </nav>
       </div>
     </footer>
