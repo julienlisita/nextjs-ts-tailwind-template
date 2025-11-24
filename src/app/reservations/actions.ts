@@ -11,7 +11,9 @@ const schema = z.object({
   website: z.string().max(0).optional(),
 
   slotId: z.coerce.number().int().positive('Créneau invalide'),
-  civilite: z.string().optional(),
+  civilite: z
+    .union([z.string(), z.null(), z.undefined()])
+    .transform((v) => (typeof v === 'string' && v.trim() !== '' ? v : undefined)),
   prenom: z.string().min(2, 'Prénom trop court'),
   nom: z.string().min(2, 'Nom trop court'),
   email: z.string().email('Email invalide'),
@@ -41,7 +43,7 @@ export async function sendReservation(formData: FormData) {
 
   if (!parsed.success) {
     console.error('[sendReservation] validation error', parsed.error.flatten());
-    redirect('/reservations/erreur');
+    return;
   }
 
   const v = parsed.data;
