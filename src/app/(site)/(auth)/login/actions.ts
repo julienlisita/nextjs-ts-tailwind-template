@@ -4,9 +4,9 @@
 
 import { z } from 'zod';
 import { cookies } from 'next/headers';
-import { authCookieName, authCookieOptions } from '@/lib/auth-cookies';
-import { login } from '@/server/services/auth.service';
 import { redirect } from 'next/navigation';
+import { login } from '@/server/services/auth.service';
+import { authCookieName, authCookieOptions } from '@/lib/auth-cookies';
 
 const schema = z.object({
   email: z.string().email(),
@@ -19,10 +19,20 @@ export async function loginAction(formData: FormData) {
     password: formData.get('password'),
   });
 
-  const { token } = await login(data);
+  try {
+    const { token } = await login(data);
 
-  const cookieStore = await cookies();
-  cookieStore.set(authCookieName, token, authCookieOptions);
+    const cookieStore = await cookies();
+    cookieStore.set(authCookieName, token, authCookieOptions);
+  } catch (err) {
+    if (err instanceof Error && err.message === 'INVALID_CREDENTIALS') {
+      console.warn('[loginAction] invalid credentials for', data.email);
+      redirect('/login?error=invalid-credentials');
+    }
+
+    console.error('[loginAction] unexpected error', err);
+    redirect('/login?error=unknown');
+  }
 
   redirect('/admin');
 }

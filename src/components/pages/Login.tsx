@@ -6,7 +6,18 @@ import FloatingInput from '@/components/form/FloatingInput';
 import Button from '@/components/ui/Button';
 import { loginAction } from '@/app/(site)/(auth)/login/actions';
 
-export default function Login() {
+type LoginProps = {
+  errorKey?: string;
+};
+
+export default function Login({ errorKey }: LoginProps) {
+  let errorMessage: string | null = null;
+
+  if (errorKey === 'invalid-credentials') {
+    errorMessage = 'Email ou mot de passe incorrect.';
+  } else if (errorKey === 'unknown') {
+    errorMessage = "Une erreur s'est produite. Veuillez réessayer.";
+  }
   return (
     <div>
       <PageHero
@@ -22,6 +33,12 @@ export default function Login() {
           <p className="text-sm text-neutral-600 mb-6 text-center">
             Cet espace est réservé aux administrateurs du site.
           </p>
+
+          {errorMessage && (
+            <div className="mb-4 rounded border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
+              {errorMessage}
+            </div>
+          )}
 
           <form action={loginAction} className="space-y-4">
             <FloatingInput label="Email" name="email" type="email" autoComplete="email" required />

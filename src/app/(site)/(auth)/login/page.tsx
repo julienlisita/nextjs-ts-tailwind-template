@@ -7,6 +7,19 @@ export const metadata = {
   description: "Accédez à l'espace administrateur pour gérer le site.",
 };
 
-export default function LoginPage() {
-  return <Login />;
+type LoginPageProps = {
+  // Next (dans ta version) attend searchParams: Promise<any> | undefined
+  searchParams?: Promise<Record<string, string | string[]>>;
+};
+
+export default async function LoginPage({ searchParams }: LoginPageProps) {
+  // On résout le Promise fourni par Next
+  const resolved = (await searchParams) ?? {};
+
+  const rawError = resolved.error;
+
+  const error =
+    typeof rawError === 'string' ? rawError : Array.isArray(rawError) ? rawError[0] : undefined;
+
+  return <Login errorKey={error} />;
 }
