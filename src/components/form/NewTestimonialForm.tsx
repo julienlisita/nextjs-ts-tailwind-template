@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 import {
   submitTestimonialAction,
   type PublicTestimonialFormState,
-} from '@/app/testimonials/new/actions';
+} from '@/app/(site)/testimonials/new/actions';
 import SubmitButton from '@/components/ui/SubmitButton';
 
 const initialState: PublicTestimonialFormState = {};

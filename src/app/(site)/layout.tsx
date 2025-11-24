@@ -1,0 +1,14 @@
+// src/app/(site)/layout.tsx
+
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+
+export default function SiteLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <Header />
+      <main className="flex-1 pt-14 sm:pt-16 lg:pt-20">{children}</main>
+      <Footer />
+    </>
+  );
+}

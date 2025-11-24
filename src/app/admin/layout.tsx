@@ -4,7 +4,7 @@ export const dynamic = 'force-dynamic';
 
 import type { ReactNode } from 'react';
 
-import { logoutAction } from '@/app/(auth)/actions';
+import { logoutAction } from '@/app/(site)/(auth)/actions';
 import { requireAdmin } from '@/server/guards/requireAdmin';
 import AdminNav from '@/components/admin/AdminNav';
 

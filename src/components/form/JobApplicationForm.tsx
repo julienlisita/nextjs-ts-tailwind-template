@@ -6,7 +6,7 @@ import { useTransition } from 'react';
 import FloatingInput from './FloatingInput';
 import FloatingTextarea from './FloatingTextarea';
 import Button from '../ui/Button';
-import { sendApplication } from '@/app/recruitment/actions';
+import { sendApplication } from '@/app/(site)/recruitment/actions';
 import './JobApplicationForm.css';
 import Radio from './Radio';
 import FileUpload from './FileUpload';

@@ -1,6 +1,5 @@
 // src/app/admin/settings/page.tsx
 
-import { logoutAction } from '@/app/(auth)/actions';
 import { changePasswordAction } from './actions';
 
 export default function SettingsPage() {
@@ -29,20 +28,8 @@ export default function SettingsPage() {
           />
         </div>
 
-        <button
-          type="submit"
-          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-        >
+        <button type="submit" className="px-4 py-2 bg-black text-white rounded hover:bg-gray-700">
           Changer le mot de passe
-        </button>
-      </form>
-
-      <form action={logoutAction}>
-        <button
-          type="submit"
-          className="px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-800"
-        >
-          Se déconnecter
         </button>
       </form>
     </div>

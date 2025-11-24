@@ -6,7 +6,7 @@ import Button from '../ui/Button';
 import FloatingInput from '../form/FloatingInput';
 import FloatingTextarea from '../form/FloatingTextarea';
 import Radio from './Radio';
-import { sendContact } from '@/app/contact/actions';
+import { sendContact } from '@/app/(site)/contact/actions';
 import './ContactForm.css';
 
 type ContactFormProps = {

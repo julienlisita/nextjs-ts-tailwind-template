@@ -13,6 +13,7 @@ const links = [
   { href: '/admin/news', label: 'Actualités' },
   { href: '/admin/offers', label: 'Offres d’emploi' },
   { href: '/admin/settings', label: 'Paramètres' },
+  { href: '/', label: '← Retour au site', noActive: true },
 ];
 
 export default function AdminNav() {
@@ -26,7 +27,8 @@ export default function AdminNav() {
       <ul className="space-y-1">
         {links.map((link) => {
           const isActive =
-            pathname === link.href || (link.href !== '/admin' && pathname.startsWith(link.href));
+            !link.noActive &&
+            (pathname === link.href || (link.href !== '/admin' && pathname.startsWith(link.href)));
 
           return (
             <li key={link.href}>

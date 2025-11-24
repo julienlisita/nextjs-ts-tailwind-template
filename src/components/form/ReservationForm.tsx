@@ -5,7 +5,7 @@
 import Button from '../ui/Button';
 import FloatingInput from '../form/FloatingInput';
 import FloatingTextarea from '../form/FloatingTextarea';
-import { sendReservation } from '@/app/reservations/actions';
+import { sendReservation } from '@/app/(site)/reservations/actions';
 import type { ReservationSlot } from '@prisma/client';
 import './ReservationForm.css';
 import Radio from './Radio';
