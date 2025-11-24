@@ -26,23 +26,28 @@ const cards = [
     description: 'Gérer les offres proposées sur le site.',
   },
   {
+    href: '/admin/testimonials',
+    title: 'Témoignages',
+    description: 'Gérer les avis clients et les mettre en avant.',
+  },
+  {
     href: '/admin/settings',
     title: 'Paramètres',
-    description: 'Modifier votre mot de passe et gérer votre compte admin.',
+    description: 'Modifier votre profil et votre mot de passe admin.',
   },
 ];
 
 export default function AdminHomePage() {
   return (
-    <div className="space-y-4">
-      <header>
-        <h1 className="text-2xl font-bold mb-1">Tableau de bord</h1>
+    <div className="w-full space-y-6">
+      <header className="space-y-1">
+        <h1 className="text-2xl font-bold">Tableau de bord</h1>
         <p className="text-sm text-neutral-600">
           Accédez rapidement aux principales sections d’administration du site.
         </p>
       </header>
 
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {cards.map((card) => (
           <Link
             key={card.href}

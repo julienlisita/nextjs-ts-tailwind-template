@@ -16,18 +16,22 @@ export default async function TestimonialsAdmin() {
   const items = await listAllTestimonials();
 
   return (
-    <div className="mx-auto max-w-5xl p-4 sm:p-6 space-y-8">
-      <h1 className="text-2xl font-bold">Témoignages</h1>
+    <div className="w-full space-y-6">
+      <header>
+        <h1 className="text-2xl font-bold mb-1">Témoignages</h1>
+        <p className="text-sm text-neutral-600">
+          Gérez les témoignages affichés sur le site et mettez-en certains en avant.
+        </p>
+      </header>
 
       <section className="space-y-4">
         <h2 className="text-lg font-semibold">Liste</h2>
 
         <ul className="space-y-4">
           {items.map((t) => (
-            <li key={t.id} className="rounded-lg border p-4 sm:p-5">
-              {/* en mobile => pile; en ≥sm => contenu à gauche / actions à droite */}
+            <li key={t.id} className="rounded-lg border bg-white p-4 sm:p-5">
+              {/* Contenu + actions */}
               <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-start">
-                {/* Contenu */}
                 <div className="min-w-0">
                   <div className="font-semibold break-words">{t.name}</div>
                   <div className="text-xs text-gray-500 mt-1">
@@ -37,7 +41,6 @@ export default async function TestimonialsAdmin() {
                   <p className="mt-2 text-sm whitespace-pre-line break-words">{t.quote}</p>
                 </div>
 
-                {/* Actions : wrap en mobile, inline en desktop */}
                 <div className="sm:justify-self-end flex flex-wrap gap-2">
                   <form action={toggleHighlightAction} className="w-full sm:w-auto">
                     <input type="hidden" name="id" value={t.id} />
@@ -73,7 +76,6 @@ export default async function TestimonialsAdmin() {
                 <form action={updateTestimonialAction} className="mt-3 grid gap-3">
                   <input type="hidden" name="id" value={t.id} />
 
-                  {/* grille responsive des champs */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <input
                       name="name"
@@ -135,7 +137,6 @@ export default async function TestimonialsAdmin() {
                     placeholder="Témoignage"
                   />
 
-                  {/* bouton plein en mobile */}
                   <SubmitButton className="w-full sm:w-auto">Enregistrer</SubmitButton>
                 </form>
               </details>

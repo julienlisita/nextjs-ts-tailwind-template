@@ -10,11 +10,16 @@ export default async function NewsAdmin() {
   const items = await listNews();
 
   return (
-    <div className="max-w-4xl mx-auto p-6 space-y-8">
-      <h1 className="text-2xl font-bold">Actualités</h1>
+    <div className="w-full space-y-6">
+      <header>
+        <h1 className="text-2xl font-bold mb-1">Actualités</h1>
+        <p className="text-sm text-neutral-600">
+          Créez, modifiez et supprimez les actualités affichées sur le site.
+        </p>
+      </header>
 
       {/* Création */}
-      <section className="rounded-xl border p-4 space-y-4">
+      <section className="rounded-lg border bg-white p-4 sm:p-5 space-y-4">
         <h2 className="text-lg font-semibold">Créer une actualité</h2>
         <form action={upsertNewsAction} className="grid gap-3">
           <input name="slug" placeholder="slug-exemple" required className="border rounded p-2" />
@@ -51,18 +56,18 @@ export default async function NewsAdmin() {
         <h2 className="text-lg font-semibold">Liste des actualités</h2>
         <ul className="space-y-3">
           {items.map((n) => (
-            <li key={n.id} className="border rounded-lg p-4">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <div className="font-semibold">{n.title}</div>
+            <li key={n.id} className="rounded-lg border bg-white p-4 sm:p-5">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                <div className="min-w-0">
+                  <div className="font-semibold break-words">{n.title}</div>
                   <div className="text-xs text-gray-500">
                     {n.slug} · {n.displayDate ?? '—'} · {n.isPublished ? 'Publié' : 'Brouillon'}
                   </div>
-                  <p className="mt-2 text-sm whitespace-pre-line">{n.description}</p>
+                  <p className="mt-2 text-sm whitespace-pre-line break-words">{n.description}</p>
                 </div>
 
                 {/* Suppression */}
-                <form action={deleteNewsAction}>
+                <form action={deleteNewsAction} className="self-start">
                   <input type="hidden" name="id" value={n.id} />
                   <SubmitButton>Supprimer</SubmitButton>
                 </form>

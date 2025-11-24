@@ -9,16 +9,20 @@ export default async function SettingsPage() {
   const user = await userRepo.findById(session.userId);
 
   if (!user) {
-    // cas très rare : l'user du token n'existe plus
     throw new Error('USER_NOT_FOUND');
   }
 
   return (
-    <div className="max-w-2xl mx-auto p-6 space-y-8">
-      <h1 className="text-xl font-bold">Paramètres du compte</h1>
+    <div className="w-full space-y-6">
+      <header>
+        <h1 className="text-2xl font-bold mb-1">Paramètres du compte</h1>
+        <p className="text-sm text-neutral-600">
+          Gérez les informations de votre compte administrateur et votre mot de passe.
+        </p>
+      </header>
 
-      {/* Bloc informations de profil */}
-      <section className="border rounded-lg bg-white p-4 sm:p-6 space-y-4">
+      {/* Profil */}
+      <section className="border rounded-lg bg-white p-4 sm:p-5 space-y-4 max-w-xl">
         <h2 className="text-lg font-semibold">Profil</h2>
         <p className="text-sm text-neutral-600">
           Modifiez votre nom et votre adresse email administrateur.
@@ -61,8 +65,8 @@ export default async function SettingsPage() {
         </form>
       </section>
 
-      {/* Bloc changement de mot de passe */}
-      <section className="border rounded-lg bg-white p-4 sm:p-6 space-y-4">
+      {/* Mot de passe */}
+      <section className="border rounded-lg bg-white p-4 sm:p-5 space-y-4 max-w-xl">
         <h2 className="text-lg font-semibold">Sécurité</h2>
         <p className="text-sm text-neutral-600">
           Changez votre mot de passe admin. Veuillez saisir votre mot de passe actuel pour

@@ -19,7 +19,7 @@ export default async function AdminLayout({ children }: Props) {
     <div className="min-h-screen bg-neutral-50">
       {/* Header admin */}
       <header className="border-b bg-white">
-        <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-3">
+        <div className="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 py-3">
           <div>
             <p className="text-xs uppercase tracking-wide text-neutral-500">
               Espace administrateur
@@ -27,12 +27,12 @@ export default async function AdminLayout({ children }: Props) {
             <h1 className="text-sm font-semibold">Back-office</h1>
           </div>
 
-          <div className="flex items-center gap-4">
-            <div className="text-right">
+          <div className="flex items-center gap-3 sm:gap-4">
+            <div className="hidden sm:block text-right">
               <p className="text-sm font-medium">
                 {user.name ? user.name : `Admin #${user.userId}`}
               </p>
-              <p className="text-xs text-neutral-500">{user.email}</p>
+              <p className="text-xs text-neutral-500 truncate max-w-[200px]">{user.email}</p>
             </div>
             <form action={logoutAction}>
               <button
@@ -47,11 +47,13 @@ export default async function AdminLayout({ children }: Props) {
       </header>
 
       {/* Contenu */}
-      <div className="max-w-6xl mx-auto px-6 py-6 flex gap-8">
-        <aside className="w-56 shrink-0">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:py-6 flex flex-col md:flex-row gap-4 md:gap-8">
+        {/* Nav : full-width en mobile, colonne fixe en desktop */}
+        <aside className="w-full md:w-56 md:shrink-0">
           <AdminNav />
         </aside>
 
+        {/* Contenu principal */}
         <main className="flex-1 min-w-0">{children}</main>
       </div>
     </div>
