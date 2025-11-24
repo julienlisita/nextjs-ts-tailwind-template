@@ -1,5 +1,7 @@
 // src/app/admin/reservations/page.tsx
 
+export const dynamic = 'force-dynamic';
+
 import ReservationsAdmin from '@/components/pages/admin/ReservationsAdmin';
 
 export const metadata = {

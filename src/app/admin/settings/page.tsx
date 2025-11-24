@@ -4,6 +4,8 @@ import { requireAdmin } from '@/server/guards/requireAdmin';
 import { userRepo } from '@/server/repositories/user.repo';
 import { changePasswordAction, updateProfileAction } from './actions';
 
+export const dynamic = 'force-dynamic';
+
 export default async function SettingsPage() {
   const session = await requireAdmin();
   const user = await userRepo.findById(session.userId);

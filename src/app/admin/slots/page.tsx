@@ -2,6 +2,8 @@
 
 import SlotsAdmin from '@/components/pages/admin/SlotsAdmin';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: 'Administration – Créneaux',
   description: 'Gérez les créneaux disponibles, les statuts et la planification des réservations.',
