@@ -4,7 +4,11 @@
 
 import { z } from 'zod';
 import { redirect } from 'next/navigation';
-import { createReservationFromPublicSafe } from '@/server/services/reservations.service';
+import {
+  createReservationFromPublicSafe,
+  getSlotById,
+} from '@/server/services/reservations.service';
+import { sendReservationConfirmationEmail } from '@/server/services/reservations.mail';
 
 const schema = z.object({
   // honeypot
@@ -73,6 +77,28 @@ export async function sendReservation(formData: FormData) {
 
     console.error('[sendReservation] unknown error while creating reservation');
     redirect('/reservations/erreur');
+  }
+
+  // Envoie du mail de confirmation
+  try {
+    const slot = await getSlotById(v.slotId);
+
+    if (!slot) {
+      console.warn(
+        '[sendReservation] reservation ok mais slot introuvable au moment de l’email',
+        v.slotId
+      );
+    } else {
+      await sendReservationConfirmationEmail({
+        clientEmail: v.email,
+        clientName: fullName,
+        slotStart: slot.startAt,
+        slotEnd: slot.endAt,
+      });
+    }
+  } catch (err) {
+    console.error('[sendReservation] erreur lors de l’envoi de l’email de confirmation', err);
+    // on n’échoue pas la réservation pour autant
   }
 
   redirect('/reservations/merci');

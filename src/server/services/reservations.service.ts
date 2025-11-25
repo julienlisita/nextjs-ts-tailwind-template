@@ -47,6 +47,8 @@ export const createReservationFromPublicSafe = async (
   }
 };
 
+export const getSlotById = (id: number) => reservationSlotRepo.findById(id);
+
 /* -----------------------------------------------------------------------------
  * ADMIN - SLOTS
  * ---------------------------------------------------------------------------*/
