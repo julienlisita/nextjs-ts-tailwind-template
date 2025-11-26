@@ -103,6 +103,8 @@ model Reservation {
   clientEmail  String
   clientPhone  String?
   message      String?
+  
+  clientIp     String? 
 
   createdAt    DateTime        @default(now())
 }
