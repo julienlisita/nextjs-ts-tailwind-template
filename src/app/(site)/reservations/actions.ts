@@ -8,7 +8,10 @@ import {
   createReservationFromPublicSafe,
   getSlotById,
 } from '@/server/services/reservations.service';
-import { sendReservationConfirmationEmail } from '@/server/services/reservations.mail';
+import {
+  sendReservationAdminEmail,
+  sendReservationConfirmationEmail,
+} from '@/server/services/reservations.mail';
 
 const schema = z.object({
   // honeypot
@@ -89,9 +92,20 @@ export async function sendReservation(formData: FormData) {
         v.slotId
       );
     } else {
+      // Mail client
       await sendReservationConfirmationEmail({
         clientEmail: v.email,
         clientName: fullName,
+        slotStart: slot.startAt,
+        slotEnd: slot.endAt,
+      });
+
+      // Mail admin interne
+      await sendReservationAdminEmail({
+        clientName: fullName,
+        clientEmail: v.email,
+        clientPhone: v.telephone,
+        message: v.message,
         slotStart: slot.startAt,
         slotEnd: slot.endAt,
       });

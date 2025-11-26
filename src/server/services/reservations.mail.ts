@@ -1,6 +1,7 @@
 // src/server/services/reservations.mail.ts
 
 const brevoApiKey = process.env.BREVO_API_KEY;
+const adminNotificationEmail = process.env.ADMIN_NOTIFICATION_EMAIL;
 
 type SendReservationConfirmationEmailInput = {
   clientEmail: string;
@@ -92,6 +93,126 @@ L'équipe du site
     return true;
   } catch (err) {
     console.error('[sendReservationConfirmationEmail] erreur réseau ou Brevo', err);
+    return false;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Email interne pour l'administrateur                                       */
+/* -------------------------------------------------------------------------- */
+
+type SendReservationAdminEmailInput = {
+  clientName: string;
+  clientEmail: string;
+  clientPhone?: string;
+  message?: string;
+  slotStart: Date;
+  slotEnd: Date;
+  adminEmailOverride?: string; // optionnel, pour forcer un email admin particulier
+};
+
+export async function sendReservationAdminEmail({
+  clientName,
+  clientEmail,
+  clientPhone,
+  message,
+  slotStart,
+  slotEnd,
+  adminEmailOverride,
+}: SendReservationAdminEmailInput): Promise<boolean> {
+  if (!brevoApiKey) {
+    console.warn('[sendReservationAdminEmail] BREVO_API_KEY manquante, email non envoyé');
+    return false;
+  }
+
+  const targetAdminEmail = adminEmailOverride ?? adminNotificationEmail;
+  if (!targetAdminEmail) {
+    console.warn(
+      '[sendReservationAdminEmail] ADMIN_NOTIFICATION_EMAIL manquante, email admin non envoyé'
+    );
+    return false;
+  }
+
+  const formatter = new Intl.DateTimeFormat('fr-FR', {
+    weekday: 'long',
+    day: '2-digit',
+    month: 'long',
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+
+  const slotLabel = formatter.formatRange(slotStart, slotEnd);
+
+  const htmlContent = `
+    <h2>Nouvelle réservation reçue</h2>
+    <p><strong>Créneau réservé :</strong><br />${slotLabel}</p>
+
+    <p><strong>Client :</strong> ${clientName}</p>
+    <p><strong>Email :</strong> ${clientEmail}</p>
+    ${clientPhone ? `<p><strong>Téléphone :</strong> ${clientPhone}</p>` : ''}
+
+    ${message ? `<p><strong>Message :</strong><br />${message.replace(/\n/g, '<br />')}</p>` : ''}
+
+    <hr />
+    <p>Cet email vous a été envoyé automatiquement suite à une réservation sur le site.</p>
+  `;
+
+  const textLines: string[] = [];
+  textLines.push('Nouvelle réservation reçue');
+  textLines.push('');
+  textLines.push(`Créneau réservé :`);
+  textLines.push(slotLabel);
+  textLines.push('');
+  textLines.push(`Client : ${clientName}`);
+  textLines.push(`Email : ${clientEmail}`);
+  if (clientPhone) textLines.push(`Téléphone : ${clientPhone}`);
+  if (message) {
+    textLines.push('');
+    textLines.push('Message :');
+    textLines.push(message);
+  }
+  textLines.push('');
+  textLines.push(
+    'Cet email vous a été envoyé automatiquement suite à une réservation sur le site.'
+  );
+
+  const textContent = textLines.join('\n');
+
+  try {
+    const response = await fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: {
+        'api-key': brevoApiKey,
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        sender: {
+          name: 'Réservations',
+          email: 'no-reply@julienlisita.com', // même expéditeur que le mail client
+        },
+        to: [
+          {
+            email: targetAdminEmail,
+          },
+        ],
+        subject: 'Nouvelle réservation reçue',
+        htmlContent,
+        textContent,
+      }),
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text().catch(() => '');
+      console.error('[sendReservationAdminEmail] Brevo HTTP error', response.status, errorText);
+      return false;
+    }
+
+    const json = await response.json().catch(() => null);
+    console.log('[sendReservationAdminEmail] email admin envoyé via Brevo', json);
+    return true;
+  } catch (err) {
+    console.error('[sendReservationAdminEmail] erreur réseau ou Brevo', err);
     return false;
   }
 }
