@@ -10,6 +10,14 @@ type SendReservationConfirmationEmailInput = {
   slotEnd: Date;
 };
 
+function formatGoogleCalendarDate(date: Date): string {
+  // Format attendu par Google Calendar : YYYYMMDDTHHMMSSZ
+  // On part de l’ISO, on enlève les séparateurs, et on garde le Z
+  const iso = date.toISOString(); // ex: 2025-11-25T18:00:00.000Z
+  const base = iso.split('.')[0]; // 2025-11-25T18:00:00
+  return base.replace(/[-:]/g, '') + 'Z'; // 20251125T180000Z
+}
+
 export async function sendReservationConfirmationEmail({
   clientEmail,
   clientName,
@@ -31,10 +39,27 @@ export async function sendReservationConfirmationEmail({
 
   const slotLabel = formatter.formatRange(slotStart, slotEnd);
 
+  // Lien Google Calendar "Ajouter à mon agenda"
+  const startGCal = formatGoogleCalendarDate(slotStart);
+  const endGCal = formatGoogleCalendarDate(slotEnd);
+
+  const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
+    'Séance de réservation'
+  )}&dates=${startGCal}%2F${endGCal}&details=${encodeURIComponent(
+    'Rendez-vous réservé via le site.'
+  )}`;
+
   const htmlContent = `
     <p>Bonjour ${clientName},</p>
     <p>Votre réservation a bien été enregistrée.</p>
     <p><strong>Créneau réservé :</strong><br />${slotLabel}</p>
+    <p>Vous pouvez ajouter ce rendez-vous à votre agenda en cliquant sur le lien ci-dessous :</p>
+    <p>
+      <a href="${googleCalendarUrl}" target="_blank" rel="noopener noreferrer"
+         style="display:inline-block;padding:8px 14px;border-radius:6px;background-color:#2563eb;color:#ffffff;text-decoration:none;font-size:14px;">
+        Ajouter à mon agenda
+      </a>
+    </p>
     <p>Si vous devez modifier ou annuler ce créneau, répondez simplement à cet email.</p>
     <p>À bientôt,</p>
     <p>L'équipe du site</p>
@@ -46,6 +71,9 @@ Votre réservation a bien été enregistrée.
 
 Créneau réservé :
 ${slotLabel}
+
+Vous pouvez ajouter ce rendez-vous à votre agenda :
+${googleCalendarUrl}
 
 Si vous devez modifier ou annuler ce créneau, répondez simplement à cet email.
 
