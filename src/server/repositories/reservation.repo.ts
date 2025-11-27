@@ -10,6 +10,7 @@ export const reservationRepo = {
     clientEmail: string;
     clientPhone?: string;
     message?: string;
+    clientIp?: string;
   }): Promise<Reservation> {
     return prisma.$transaction(async (tx) => {
       const now = new Date();
@@ -37,6 +38,7 @@ export const reservationRepo = {
           clientEmail: input.clientEmail,
           clientPhone: input.clientPhone,
           message: input.message,
+          clientIp: input.clientIp ?? null,
         },
       });
 
@@ -49,7 +51,7 @@ export const reservationRepo = {
       return reservation;
     });
   },
-  // 🔹 Liste complète des réservations pour l’admin
+  // Liste complète des réservations pour l’admin
   listAll(): Promise<(Reservation & { slot: { startAt: Date; endAt: Date | null } })[]> {
     return prisma.reservation.findMany({
       include: {
@@ -61,7 +63,7 @@ export const reservationRepo = {
     });
   },
 
-  // 🔹 Optionnel : seulement les futures réservations
+  // Futures réservations
   listUpcoming(): Promise<(Reservation & { slot: { startAt: Date; endAt: Date | null } })[]> {
     const now = new Date();
     return prisma.reservation.findMany({
@@ -77,7 +79,7 @@ export const reservationRepo = {
     });
   },
 
-  // 🔹 Annulation : on supprime la réservation + on remet le slot à AVAILABLE
+  // Annulation : on supprime la réservation + on remet le slot à AVAILABLE
   async cancel(id: number): Promise<Reservation> {
     return prisma.$transaction(async (tx) => {
       const reservation = await tx.reservation.findUnique({
@@ -100,6 +102,17 @@ export const reservationRepo = {
       });
 
       return deleted;
+    });
+  },
+  // Compter les réservations récentes pour une IP
+  countRecentByIp(ip: string, since: Date): Promise<number> {
+    return prisma.reservation.count({
+      where: {
+        clientIp: ip,
+        createdAt: {
+          gte: since,
+        },
+      },
     });
   },
 };

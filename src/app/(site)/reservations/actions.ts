@@ -7,11 +7,13 @@ import { redirect } from 'next/navigation';
 import {
   createReservationFromPublicSafe,
   getSlotById,
+  isReservationRateLimited,
 } from '@/server/services/reservations.service';
 import {
   sendReservationAdminEmail,
   sendReservationConfirmationEmail,
 } from '@/server/services/reservations.mail';
+import { headers } from 'next/headers';
 
 const schema = z.object({
   // honeypot
@@ -60,6 +62,18 @@ export async function sendReservation(formData: FormData) {
     return;
   }
 
+  // Récupération IP (derrière Vercel/Proxy)
+  const hdrs = await headers();
+  const rawIp = hdrs.get('x-forwarded-for')?.split(',')[0].trim() ?? hdrs.get('x-real-ip') ?? null;
+
+  console.log('[sendReservation] IP détectée =', rawIp ?? 'unknown');
+
+  // Rate-limit : 1 réservation / IP / 2 minutes
+  if (await isReservationRateLimited(rawIp)) {
+    console.warn('[sendReservation] rate limit exceeded for IP', rawIp);
+    redirect('/reservations?error=too-many-requests');
+  }
+
   const fullName = v.civilite ? `${v.civilite} ${v.prenom} ${v.nom}` : `${v.prenom} ${v.nom}`;
 
   // appel "safe" du service
@@ -69,6 +83,7 @@ export async function sendReservation(formData: FormData) {
     clientEmail: v.email,
     clientPhone: v.telephone,
     message: v.message,
+    clientIp: rawIp ?? undefined,
   });
 
   if (!result.ok) {

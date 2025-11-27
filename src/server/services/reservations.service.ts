@@ -121,3 +121,18 @@ export const listUpcomingReservationsAdmin = () => reservationRepo.listUpcoming(
  * - repasse le créneau associé à AVAILABLE
  */
 export const cancelReservationAdmin = (id: number) => reservationRepo.cancel(id);
+
+const RESERVATION_RATE_LIMIT_WINDOW_MS = 2 * 60 * 1000; // 2 minutes
+
+export async function isReservationRateLimited(ip: string | undefined | null): Promise<boolean> {
+  if (!ip) {
+    // Pas d'IP fiable → on ne bloque pas, mais on log
+    console.warn('[isReservationRateLimited] IP manquante, rate-limit non appliquée');
+    return false;
+  }
+
+  const since = new Date(Date.now() - RESERVATION_RATE_LIMIT_WINDOW_MS);
+  const count = await reservationRepo.countRecentByIp(ip, since);
+
+  return count >= 1; // 1 réservation max / fenêtre
+}
