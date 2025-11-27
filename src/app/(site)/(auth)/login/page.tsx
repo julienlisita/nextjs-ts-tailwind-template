@@ -8,12 +8,10 @@ export const metadata = {
 };
 
 type LoginPageProps = {
-  // Next (dans ta version) attend searchParams: Promise<any> | undefined
   searchParams?: Promise<Record<string, string | string[]>>;
 };
 
 export default async function LoginPage({ searchParams }: LoginPageProps) {
-  // On résout le Promise fourni par Next
   const resolved = (await searchParams) ?? {};
 
   const rawError = resolved.error;
