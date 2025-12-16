@@ -1,4 +1,4 @@
-// src/components/ui/Checkbox.tsx
+// src/components/form/Checkbox.tsx
 
 'use client';
 

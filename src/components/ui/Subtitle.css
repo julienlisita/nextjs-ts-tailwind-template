@@ -2,5 +2,5 @@
 
 .subtitle {
   @apply text-lg font-medium mt-3;
-  color: black;
+  color: var(--color-subtitle);
 }

@@ -1,4 +1,4 @@
-// src/components/ui/FileUpload.tsx
+// src/components/form/FileUpload.tsx
 
 'use client';
 

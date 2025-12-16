@@ -1,4 +1,4 @@
-/* src/components/ui/FloatingInput.css */
+/* src/components/form/FloatingInput.css */
 
 .floating-input-wrapper {
   position: relative;
@@ -9,9 +9,9 @@
 /* Champ */
 .floating-input {
   @apply block w-full text-sm rounded-md transition px-3 pb-2.5 pt-4;
-  background-color: var(--color-surface);
-  color: var(--color-text);
-  border: 1px solid var(--color-border);
+  background-color: var(--color-input-bg);
+  color: var(--color-input-text);
+  border: 1px solid var(--color-input-border);
 }
 
 /* Masquer la vraie couleur placeholder (truc pour le floating) */
@@ -21,29 +21,29 @@
 
 /* Hover / Focus */
 .floating-input:hover {
-  border-color: color-mix(in oklab, var(--color-border), var(--color-text) 20%);
+  border-color: var(--color-input-border-hover);
 }
 
 .floating-input:focus,
 .floating-input:focus-visible {
   outline: none;
-  border-color: var(--color-primary);
+  border-color: var(--color-input-border-focus);
   /* petit halo accessible, subtil */
-  box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-primary), white 85%);
+  box-shadow: 0 0 0 3px var(--color-input-focus-ring);
 }
 
 /* Disabled / Readonly */
 .floating-input:disabled,
 .floating-input[readonly] {
-  background-color: color-mix(in oklab, var(--color-surface), var(--color-border) 20%);
-  color: color-mix(in oklab, var(--color-text), var(--color-muted) 30%);
+  background-color: var(--color-input-bg-disabled);
+  color: var(--color-input-text-disabled);
   cursor: not-allowed;
 }
 
 /* Invalid (depuis prop error) */
 .floating-input.is-invalid {
-  border-color: #dc2626; /* red-600 */
-  box-shadow: 0 0 0 3px color-mix(in oklab, #dc2626, white 85%);
+  border-color: var(--color-input-error);
+  box-shadow: 0 0 0 3px var(--color-input-error-ring);
 }
 
 /* Label flottant */
@@ -52,7 +52,7 @@
   top: 0.5rem;
   left: 0.75rem;
   font-size: 0.875rem; /* text-sm */
-  color: var(--color-muted);
+  color: var(--color-input-label);
   z-index: 10;
   transform-origin: 0 0;
   transform: translateY(1rem) scale(1);
@@ -65,8 +65,8 @@
 .floating-input:focus + .floating-input-label,
 .floating-input:not(:placeholder-shown) + .floating-input-label {
   transform: translateY(-0.6rem) scale(0.82);
-  color: var(--color-primary);
-  background: var(--color-surface);
+  color: var(--color-input-label-focus);
+  background: var(--color-input-bg);
   padding: 0 0.2rem; /* petit fond pour lisibilité sur bordures */
 }
 
@@ -74,15 +74,15 @@
 .floating-input-help {
   margin-top: 0.375rem;
   font-size: 0.8125rem; /* ~ text-sm minus */
-  color: var(--color-muted);
+  color: var(--color-input-help);
 }
 .floating-input-help.is-error {
-  color: #dc2626;
+  color: var(--color-input-error);
 }
 
 /* Autofill (Safari/Chrome) pour garder nos couleurs) */
 .floating-input:-webkit-autofill {
-  -webkit-text-fill-color: var(--color-text);
+  -webkit-text-fill-color: var(--color-input-text);
   transition:
     background-color 9999s ease-out,
     color 9999s ease-out;

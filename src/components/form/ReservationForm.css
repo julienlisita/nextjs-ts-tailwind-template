@@ -2,6 +2,6 @@
 
 .reservation-form {
   @apply space-y-6;
-  background-color: var(--color-bg);
-  color: var(--color-text);
+  background-color: var(--color-form-bg);
+  color: var(--color-form-text);
 }

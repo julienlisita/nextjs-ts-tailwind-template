@@ -1,4 +1,4 @@
-// src/components/ui/FloatingInput.tsx
+// src/components/form/FloatingInput.tsx
 
 'use client';
 

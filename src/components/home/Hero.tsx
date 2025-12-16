@@ -31,7 +31,7 @@ export default function Hero() {
         {/* Logo */}
         <div className="flex justify-center">
           <Image
-            src="/images/logo-dark.png"
+            src="/images/logo-white.png"
             alt="Company Care & Services logo"
             width={300}
             height={300}

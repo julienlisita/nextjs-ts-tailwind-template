@@ -1,25 +1,24 @@
-/* src/components/ui/Radio.css */
+/* src/components/form/Radio.css */
 
 /* Base label container */
 .radio-label {
   @apply inline-flex items-center gap-2 cursor-pointer text-sm select-none;
-  color: var(--color-text);
+  color: var(--color-input-text);
   font-weight: 500;
   transition: color 0.2s ease;
-}
-
-.radio-label:hover {
-  color: color-mix(in oklab, var(--color-text), var(--color-primary) 30%);
 }
 
 /* Input invisible stylé via accent-color */
 .radio-input {
   @apply h-4 w-4 rounded-full border transition-colors;
   appearance: none; /* on remplace le rendu natif */
-  border: 1.5px solid var(--color-border);
-  background-color: var(--color-surface);
+  border: 1.5px solid var(--color-input-border);
+  background-color: var(--color-input-bg);
   position: relative;
   cursor: pointer;
+}
+.radio-input:hover {
+  border-color: var(--color-input-border-hover);
 }
 
 /* Cercle intérieur “checked” */
@@ -43,7 +42,7 @@
 /* Focus visible et accessible */
 .radio-input:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-primary), white 80%);
+  box-shadow: 0 0 0 3px var(--color-input-focus-ring);
 }
 
 /* Disabled */

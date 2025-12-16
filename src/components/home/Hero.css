@@ -20,13 +20,14 @@
 
 /* Couleurs / typographies (CSS pur avec variables du design system) */
 .hero-section {
-  color: var(--color-text);
+  background-color: var(--color-home-hero-bg);
+  color: var(--color-home-hero-fg);
 }
 
 .hero-subtitle {
   font-size: clamp(1rem, 0.95rem + 0.5vw, 1.25rem); /* ~ text-lg → text-xl */
   line-height: 1.6;
-  color: color-mix(in oklab, var(--color-text) 80%, transparent); /* texte adouci */
+  color: var(--color-home-hero-subtitle);
 }
 
 /* Optionnel : espace un peu plus large sous le titre selon tes besoins */

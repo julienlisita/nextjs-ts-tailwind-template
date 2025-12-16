@@ -1,25 +1,25 @@
-/* src/components/ui/Checkbox.css */
+/* src/components/form/Checkbox.css */
 
 /* Wrapper global */
 .checkbox-label {
   @apply inline-flex items-center gap-2 cursor-pointer text-sm select-none;
-  color: var(--color-text);
+  color: var(--color-input-text);
   font-weight: 500;
   transition: color 0.2s ease;
-}
-
-.checkbox-label:hover {
-  color: color-mix(in oklab, var(--color-text), var(--color-primary) 30%);
 }
 
 /* Case personnalisée */
 .checkbox-input {
   @apply h-4 w-4 rounded-sm border transition-all;
   appearance: none; /* supprime le style natif */
-  border: 1.5px solid var(--color-border);
-  background-color: var(--color-surface);
+  border: 1.5px solid var(--color-input-border);
+  background-color: var(--color-input-bg);
   position: relative;
   cursor: pointer;
+}
+
+.checkbox-input:hover {
+  border-color: var(--color-input-border-hover);
 }
 
 /* État coché */
@@ -44,7 +44,7 @@
 /* Focus visible */
 .checkbox-input:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-primary), white 80%);
+  box-shadow: 0 0 0 3px var(--color-input-focus-ring);
 }
 
 /* Disabled */

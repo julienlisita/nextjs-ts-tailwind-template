@@ -1,7 +1,9 @@
+/* src/components/form/Select.css */
+
 /* Wrapper */
 .select-wrapper {
   @apply flex flex-col gap-1 w-full;
-  color: var(--color-text);
+  color: var(--color-input-text);
 }
 
 /* Label */
@@ -12,20 +14,20 @@
 /* Select stylé */
 .select-input {
   @apply w-full rounded-lg border px-3 py-2 text-sm bg-white transition-colors;
-  border-color: var(--color-border);
-  color: var(--color-text);
+  border-color: var(--color-input-border);
+  color: var(--color-input-text);
 }
 
 /* Hover */
 .select-input:hover {
-  border-color: color-mix(in oklab, var(--color-border), var(--color-primary) 40%);
+  border-color: var(--color-input-border-hover);
 }
 
 /* Focus */
 .select-input:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-primary), white 75%);
-  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-input-focus-ring);
+  border-color: var(--color-input-border-focus);
 }
 
 /* Disabled */

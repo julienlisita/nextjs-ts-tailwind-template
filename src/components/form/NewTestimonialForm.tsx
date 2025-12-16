@@ -1,4 +1,4 @@
-// src/app/temoignages/new/NewTestimonialForm.tsx
+// src/components/form/NewTestimonialForm.tsx
 
 'use client';
 

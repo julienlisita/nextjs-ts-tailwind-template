@@ -47,7 +47,7 @@ export default function JobApplicationForm({
 
       {/* Civilité */}
       <div className="mb-4">
-        <span className="block mb-2 font-medium text-[var(--color-dark)]">Civilité</span>
+        <span className="block mb-2 font-medium">Civilité</span>
         <div className="flex flex-wrap gap-6">
           <Radio name="civilite" value="Mme" label="Mme" />
           <Radio name="civilite" value="M." label="M." />

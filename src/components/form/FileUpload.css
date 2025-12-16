@@ -1,4 +1,4 @@
-/* src/components/ui/FileUploadF.css */
+/* src/components/form/FileUploadF.css */
 
 .file-upload {
   @apply w-full;
@@ -7,7 +7,7 @@
 /* Label */
 .file-upload__label {
   @apply block mb-2 font-medium text-sm;
-  color: var(--color-text);
+  color: var(--color-input-text);
 }
 .file-upload__required {
   color: var(--color-primary);
@@ -17,8 +17,8 @@
 /* Zone de drop / click */
 .file-upload__dropzone {
   @apply relative w-full rounded-md border transition-colors;
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
+  border: 1px solid var(--color-input-border);
+  background: var(--color-input-bg);
   cursor: pointer;
   min-height: 3rem; /* clique confortable même sans fichier */
   display: flex;
@@ -29,7 +29,7 @@
 }
 
 .file-upload__dropzone:hover:not(.is-disabled) {
-  border-color: color-mix(in oklab, var(--color-border), var(--color-primary) 40%);
+  border-color: var(--color-input-border-hover-strong);
 }
 
 .file-upload__dropzone.is-droppable {
@@ -39,8 +39,8 @@
 }
 
 .file-upload__dropzone.is-dragging {
-  box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-primary), white 80%);
-  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-input-focus-ring);
+  border-color: var(--color-input-border-focus);
 }
 
 .file-upload__dropzone.is-disabled {
@@ -60,17 +60,17 @@
 
 .file-upload__hint {
   @apply text-sm;
-  color: var(--color-muted);
+  color: var(--color-input-help);
 }
 
 .file-upload__accept {
   @apply text-xs;
-  color: color-mix(in oklab, var(--color-muted), black 20%);
+  color: var(--color-input-help-strong);
 }
 
 .file-upload__filename {
   @apply truncate text-sm;
-  color: var(--color-text);
+  color: var(--color-input-text);
   max-width: 70%;
 }
 
@@ -78,20 +78,20 @@
   @apply text-xs font-semibold rounded-md px-2 py-1;
   color: var(--color-primary);
   border: 1px solid var(--color-primary);
-  background: var(--color-surface);
+  background: var(--color-input-bg);
   transition: all 0.2s ease;
 }
 .file-upload__clear:hover {
   background: var(--color-primary);
-  color: white;
+  color: var(--ui-white);
 }
 
 /* Helper / Error */
 .file-upload__helper {
   @apply mt-2 text-xs;
-  color: var(--color-muted);
+  color: var(--color-input-help);
 }
 .file-upload__error {
   @apply mt-2 text-xs;
-  color: #b91c1c; /* rouge-700 */
+  color: var(--color-input-error-strong);
 }
