@@ -3,56 +3,54 @@
 'use server';
 
 import { z } from 'zod';
-import { Resend } from 'resend';
 import { redirect } from 'next/navigation';
+import { sendContactAdminEmail } from '@/server/services/contact.mail';
 
 const schema = z.object({
-  civilite: z.string().optional(),
-  prenom: z.string().min(1),
-  nom: z.string().min(1),
-  email: z.string().email(),
-  message: z.string().min(10),
+  civilite: z
+    .union([z.string(), z.null(), z.undefined()])
+    .transform((v) => (typeof v === 'string' && v.trim() !== '' ? v : undefined)),
+  prenom: z.string().min(1, 'Prénom requis'),
+  nom: z.string().min(1, 'Nom requis'),
+  email: z.string().email('Email invalide'),
+  message: z.string().min(10, 'Message trop court'),
   company: z.string().optional(), // honeypot
 });
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-const FROM = 'Site Template <no-reply@resend.dev>';
-const TO = 'julien.lisita@gmail.com';
-
 export async function sendContact(formData: FormData): Promise<void> {
-  'use server';
-
-  // Vérification du honeypot
+  // Honeypot
   if (formData.get('company')) {
-    console.warn('Spam détecté via le champ honeypot');
+    console.warn('[sendContact] spam détecté via honeypot');
     redirect('/thank-you');
   }
 
-  // Validation avec Zod
-  const data = schema.parse({
-    civilite: formData.get('civilite')?.toString(),
-    prenom: formData.get('prenom')?.toString(),
-    nom: formData.get('nom')?.toString(),
-    email: formData.get('email')?.toString(),
-    message: formData.get('message')?.toString(),
+  const parsed = schema.safeParse({
+    civilite: formData.get('civilite'),
+    prenom: formData.get('prenom'),
+    nom: formData.get('nom'),
+    email: formData.get('email'),
+    message: formData.get('message'),
+    company: formData.get('company'),
   });
 
-  const html = `
-    <h3>Nouvelle demande de contact</h3>
-    <p><strong>Civilité :</strong> ${data.civilite || '—'}</p>
-    <p><strong>Nom :</strong> ${data.prenom} ${data.nom}</p>
-    <p><strong>Email :</strong> ${data.email}</p>
-    <p><strong>Message :</strong><br/>${data.message.replace(/\n/g, '<br/>')}</p>
-  `;
+  if (!parsed.success) {
+    console.error('[sendContact] validation error', parsed.error.flatten());
+    redirect('/contact?error=validation');
+  }
 
-  await resend.emails.send({
-    from: FROM,
-    to: TO,
-    replyTo: data.email,
-    subject: 'Nouveau message – Formulaire de contact',
-    html,
-  });
+  const data = parsed.data;
+
+  try {
+    await sendContactAdminEmail({
+      civilite: data.civilite,
+      prenom: data.prenom,
+      nom: data.nom,
+      email: data.email,
+      message: data.message,
+    });
+  } catch (err) {
+    console.error('[sendContact] error while sending email', err);
+  }
 
   redirect('/thank-you');
 }
