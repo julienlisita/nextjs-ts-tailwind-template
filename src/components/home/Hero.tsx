@@ -4,28 +4,26 @@ import Button from '@/components/ui/Button';
 import PageTitle from '@/components/ui/PageTitle';
 import './Hero.css';
 import Image from 'next/image';
+import heroImage from '../../../public/images/home/hero.png';
 
-export default function Hero() {
-  const showBackground = false;
-
+export default function Hero({ showBackground = true }: { showBackground?: boolean }) {
   return (
     <section className="hero-section">
       {/* Image de fond */}
       {showBackground && (
-        <>
-          <div className="absolute inset-0 -z-10">
-            <Image
-              src="/images/home/hero.avif"
-              alt=""
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover object-center"
-            />
-          </div>
-          {/* Overlay noir avec opacité */}
-          <div className="absolute inset-0 bg-black/60" />
-        </>
+        <div className="hero-bg" aria-hidden="true">
+          <Image
+            src={heroImage}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="hero-bg__img"
+            placeholder="blur"
+            quality={80}
+          />
+          <div className="hero-bg__overlay" />
+        </div>
       )}
       <div className="hero-container">
         {/* Logo */}

@@ -6,6 +6,26 @@
   min-height: calc(100vh - var(--header-height));
 }
 
+/* Background layer */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg__img {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Overlay au-dessus de l'image mais sous le contenu */
+.hero-bg__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--color-overlay-bg);
+}
+
 .hero-container {
   @apply max-w-4xl mx-auto space-y-6 z-10;
 }
