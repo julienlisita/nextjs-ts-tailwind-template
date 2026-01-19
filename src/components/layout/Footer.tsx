@@ -14,10 +14,10 @@ export default function Footer() {
         <div className="footer-logo">
           <Image
             src="/images/logo-white.png"
-            alt="Logo"
-            fill
-            sizes="(max-width: 768px) 100px, (max-width: 1024px) 120px, 140px"
-            style={{ objectFit: 'contain' }}
+            alt="Logo du site"
+            width={226}
+            height={100}
+            className="h-full w-auto"
           />
         </div>
 

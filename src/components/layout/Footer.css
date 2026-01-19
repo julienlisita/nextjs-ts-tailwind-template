@@ -12,7 +12,7 @@
 }
 
 .footer-logo {
-  @apply relative h-12 w-12 sm:h-14 sm:w-14 flex-shrink-0 rounded-lg overflow-hidden;
+  @apply h-8 sm:h-9 w-auto flex-shrink-0;
 }
 
 .footer-nav {
