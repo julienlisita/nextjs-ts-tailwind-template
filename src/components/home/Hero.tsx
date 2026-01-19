@@ -32,10 +32,11 @@ export default function Hero() {
         <div className="flex justify-center">
           <Image
             src="/images/logo-white.png"
-            alt="Company Care & Services logo"
-            width={300}
-            height={300}
-            sizes="300px"
+            alt="Logo du site"
+            width={226}
+            height={100}
+            className="h-20 sm:h-24 w-auto"
+            priority
           />
         </div>
 
