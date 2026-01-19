@@ -4,10 +4,6 @@
 .hero-section {
   @apply w-full flex flex-col justify-center text-center px-4;
   min-height: calc(100vh - var(--header-height));
-  /* background-image: url('/images/home/hero.avif');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat; */
 }
 
 .hero-container {
