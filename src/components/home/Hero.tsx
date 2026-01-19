@@ -1,14 +1,13 @@
 // src/components/home/Hero.tsx
 
 import Button from '@/components/ui/Button';
-import PageTitle from '@/components/ui/PageTitle';
 import './Hero.css';
 import Image from 'next/image';
 import heroImage from '../../../public/images/home/hero.png';
 
 export default function Hero({ showBackground = true }: { showBackground?: boolean }) {
   return (
-    <section className="hero-section">
+    <section className="hero-section" aria-labelledby="home-hero-title">
       {/* Image de fond */}
       {showBackground && (
         <div className="hero-bg" aria-hidden="true">
@@ -39,9 +38,9 @@ export default function Hero({ showBackground = true }: { showBackground?: boole
         </div>
 
         {/* Titre */}
-        <PageTitle color="#00000">
+        <h1 id="home-hero-title" className="hero-title">
           Mettre en valeur votre activité avec un site professionnel
-        </PageTitle>
+        </h1>
 
         {/* Tagline*/}
         <p className="hero-subtitle">Un design clair, responsive et rapide à mettre en place.</p>
