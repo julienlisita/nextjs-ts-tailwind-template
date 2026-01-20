@@ -12,6 +12,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <main className="flex-1" style={{ paddingTop: 'var(--header-offset)' }}>
         {children}
       </main>
+      <div id="modal-root" />
       <Footer />
     </>
   );
