@@ -8,27 +8,26 @@ import {
   updateSlotStatusAction,
 } from '@/app/admin/slots/actions';
 
+const TZ = 'Europe/Paris';
+
 function formatSlot(start: Date, end?: Date | null) {
   const dStart = new Date(start);
   const dEnd = end ? new Date(end) : null;
 
-  if (!dEnd) {
-    return new Intl.DateTimeFormat('fr-FR', {
-      weekday: 'long',
-      day: '2-digit',
-      month: 'long',
-      hour: '2-digit',
-      minute: '2-digit',
-    }).format(dStart);
-  }
-
-  return new Intl.DateTimeFormat('fr-FR', {
+  const fmt = new Intl.DateTimeFormat('fr-FR', {
+    timeZone: TZ,
     weekday: 'long',
     day: '2-digit',
     month: 'long',
     hour: '2-digit',
     minute: '2-digit',
-  }).formatRange(dStart, dEnd);
+  });
+
+  if (!dEnd) {
+    return fmt.format(dStart);
+  }
+
+  return fmt.formatRange(dStart, dEnd);
 }
 
 export default async function SlotsAdmin() {

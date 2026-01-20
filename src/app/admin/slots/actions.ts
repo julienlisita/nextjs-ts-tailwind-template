@@ -4,12 +4,15 @@
 
 import { z } from 'zod';
 import { revalidatePath } from 'next/cache';
+import { fromZonedTime } from 'date-fns-tz';
 import {
   createSlotAdmin,
   deleteSlotAdmin,
   setSlotStatusAdmin,
 } from '@/server/services/reservations.service';
 import { requireAdmin } from '@/server/guards/requireAdmin';
+
+const TZ = 'Europe/Paris';
 
 const createSchema = z.object({
   startAt: z.string().min(1),
@@ -32,9 +35,11 @@ export async function createSlotAction(formData: FormData) {
   const { startAt, endAt } = parsed.data;
 
   try {
+    const startAtUtc = fromZonedTime(startAt, TZ);
+    const endAtUtc = fromZonedTime(endAt, TZ);
     await createSlotAdmin({
-      startAt: new Date(startAt),
-      endAt: new Date(endAt),
+      startAt: startAtUtc,
+      endAt: endAtUtc,
     });
   } catch (err) {
     console.error('[createSlotAction] error', err);
