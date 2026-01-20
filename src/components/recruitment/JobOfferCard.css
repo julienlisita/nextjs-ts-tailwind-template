@@ -1,4 +1,4 @@
-/* src/components/data-display/JobOfferCard.css */
+/* src/components/recruitment/JobOfferCard.css */
 
 .job-card {
   @apply w-full rounded-xl shadow-md p-6 flex flex-col transition hover:shadow-lg;

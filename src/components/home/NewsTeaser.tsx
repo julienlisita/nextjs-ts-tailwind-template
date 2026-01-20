@@ -6,7 +6,7 @@ import Button from '@/components/ui/Button';
 import Subtitle from '../ui/Subtitle';
 import Section from '../layout/Section';
 import SectionWrapper from '../layout/SectionWrapper';
-import NewsCard from '../data-display/NewsCard';
+import NewsCard from '../news/NewsCard';
 
 type Props = { items: ReadonlyArray<NewsItem> };
 

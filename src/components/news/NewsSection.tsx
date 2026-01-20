@@ -4,10 +4,10 @@
 
 import type { NewsItem } from '@/types/news';
 import FeaturesGrid from '../patterns/FeaturesGrid';
-import NewsCard from '../data-display/NewsCard';
 import Section from '../layout/Section';
 import SectionWrapper from '../layout/SectionWrapper';
 import HeaderBlock from '../patterns/HeaderBlock';
+import NewsCard from './NewsCard';
 
 type Props = { items: ReadonlyArray<NewsItem> };
 

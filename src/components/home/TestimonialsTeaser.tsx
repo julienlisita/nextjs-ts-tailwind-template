@@ -4,11 +4,11 @@
 
 import type { Testimonial } from '@/types/testimonial';
 import FeaturesGrid from '../patterns/FeaturesGrid';
-import { TestimonialCard } from '../data-display/TestimonialCard';
 import Section from '../layout/Section';
 import SectionWrapper from '../layout/SectionWrapper';
 import HeaderBlock from '../patterns/HeaderBlock';
 import ActionsStack from '../patterns/ActionsStack';
+import { TestimonialCard } from '../testimonials/TestimonialCard';
 
 type Props = {
   items: ReadonlyArray<Testimonial>;

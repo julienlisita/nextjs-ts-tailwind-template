@@ -3,11 +3,11 @@
 'use client';
 
 import type { Testimonial } from '@/types/testimonial';
-import { TestimonialCard } from '../data-display/TestimonialCard';
 import FeaturesGrid from '../patterns/FeaturesGrid';
 import Section from '../layout/Section';
 import SectionWrapper from '../layout/SectionWrapper';
 import HeaderBlock from '../patterns/HeaderBlock';
+import { TestimonialCard } from './TestimonialCard';
 
 export default function TestimonialsSection({ items }: { items: ReadonlyArray<Testimonial> }) {
   return (

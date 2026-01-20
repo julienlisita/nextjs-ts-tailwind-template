@@ -1,4 +1,4 @@
-/* src/components/data-display/NewsCard.css */
+/* src/components/news/NewsCard.css */
 
 .news-card {
   @apply flex flex-col sm:flex-row  w-full max-w-xl rounded-lg shadow transition hover:shadow-md overflow-hidden;

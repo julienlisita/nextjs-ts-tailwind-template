@@ -1,4 +1,4 @@
-// src/components/data-display/JobOfferCard.tsx
+// src/components/recruitment/JobOfferCard.tsx
 
 'use client';
 

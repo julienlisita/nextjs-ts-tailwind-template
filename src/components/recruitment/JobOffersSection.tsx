@@ -3,11 +3,11 @@
 'use client';
 
 import type { JobOffer } from '@/types/job';
-import { JobOfferCard } from '../data-display/JobOfferCard';
 import FeaturesGrid from '../patterns/FeaturesGrid';
 import Section from '../layout/Section';
 import SectionWrapper from '../layout/SectionWrapper';
 import HeaderBlock from '../patterns/HeaderBlock';
+import { JobOfferCard } from './JobOfferCard';
 
 type Props = { items: ReadonlyArray<JobOffer> };
 

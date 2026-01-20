@@ -1,4 +1,4 @@
-//  src/components/data-display/NewsCard.tsx
+//  src/components/news/NewsCard.tsx
 
 'use client';
 
