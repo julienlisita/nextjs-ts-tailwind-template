@@ -1,6 +1,6 @@
 // src/components/pages/NewTestimonials.tsx
 
-import { NewTestimonialForm } from '../form/NewTestimonialForm';
+import { NewTestimonialForm } from '../testimonials/NewTestimonialForm';
 
 export const metadata = { title: 'Laisser un témoignage' };
 
