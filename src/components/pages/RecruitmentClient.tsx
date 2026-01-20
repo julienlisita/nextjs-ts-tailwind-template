@@ -3,9 +3,9 @@
 'use client';
 
 import Modal from '../ui/Modal';
-import JobApplicationForm from '../form/JobApplicationForm';
 import { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import JobApplicationForm from '../recruitment/JobApplicationForm';
 
 export default function RecruitmentClient() {
   const router = useRouter();

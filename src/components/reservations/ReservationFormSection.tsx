@@ -4,9 +4,9 @@ import clsx from 'clsx';
 import Section from '../layout/Section';
 import SectionWrapper from '../layout/SectionWrapper';
 import HeaderBlock from '../patterns/HeaderBlock';
-import ReservationForm from '@/components/form/ReservationForm';
 import type { ReservationSlot } from '@prisma/client';
 import './ReservationFormSection.css';
+import ReservationForm from './ReservationForm';
 
 type ReservationFormSectionProps = {
   slots: ReadonlyArray<ReservationSlot>;

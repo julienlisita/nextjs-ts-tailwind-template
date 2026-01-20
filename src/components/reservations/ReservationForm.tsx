@@ -1,4 +1,4 @@
-// src/components/form/ReservationForm.tsx
+// src/components/reservations/ReservationForm.tsx
 
 'use client';
 
@@ -8,8 +8,8 @@ import FloatingTextarea from '../form/FloatingTextarea';
 import { sendReservation } from '@/app/(site)/reservations/actions';
 import type { ReservationSlot } from '@prisma/client';
 import './ReservationForm.css';
-import Radio from './Radio';
-import Select from './Select';
+import Radio from '../form/Radio';
+import Select from '../form/Select';
 
 type ReservationFormProps = {
   slots: ReadonlyArray<ReservationSlot>;

@@ -1,15 +1,15 @@
-// src/components/form/JobApplicationForm.tsx
+// src/components/recruitment/JobApplicationForm.tsx
 
 'use client';
 
 import { useTransition } from 'react';
-import FloatingInput from './FloatingInput';
-import FloatingTextarea from './FloatingTextarea';
 import Button from '../ui/Button';
 import { sendApplication } from '@/app/(site)/recruitment/actions';
 import './JobApplicationForm.css';
-import Radio from './Radio';
-import FileUpload from './FileUpload';
+import Radio from '../form/Radio';
+import FloatingInput from '../form/FloatingInput';
+import FloatingTextarea from '../form/FloatingTextarea';
+import FileUpload from '../form/FileUpload';
 
 type JobApplicationFormProps = {
   jobTitle: string;

@@ -1,11 +1,11 @@
 // src/components/contact/ContactFormSection.tsx
 
-import ContactForm from '@/components/form/ContactForm'; // adapte le chemin si besoin
 import clsx from 'clsx';
 import './ContactFormSection.css';
 import Section from '../layout/Section';
 import SectionWrapper from '../layout/SectionWrapper';
 import HeaderBlock from '../patterns/HeaderBlock';
+import ContactForm from './ContactForm';
 
 export default function ContactFormSection() {
   return (
@@ -18,7 +18,7 @@ export default function ContactFormSection() {
           align="left"
         />
         <div className="grid gap-8 grid-cols-1 lg:grid-cols-2 items-start">
-          <div className="max-w-2xl bg-white">
+          <div className="max-w-2xl">
             <ContactForm />
           </div>
 

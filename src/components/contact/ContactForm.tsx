@@ -1,13 +1,13 @@
-// src/components/form/contactForm.tsx
+// src/components/contact/contactForm.tsx
 
 'use client';
 
 import Button from '../ui/Button';
 import FloatingInput from '../form/FloatingInput';
 import FloatingTextarea from '../form/FloatingTextarea';
-import Radio from './Radio';
 import { sendContact } from '@/app/(site)/contact/actions';
 import './ContactForm.css';
+import Radio from '../form/Radio';
 
 type ContactFormProps = {
   /** Alignement du bouton CTA (appliqué à partir de lg) */
