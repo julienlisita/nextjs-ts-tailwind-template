@@ -187,6 +187,8 @@
   /* Aliases */
   --background: var(--color-bg);
   --foreground: var(--color-text);
+
+  --header-offset: var(--header-height);
 }
 
 /* ===== Dark mode ===== */

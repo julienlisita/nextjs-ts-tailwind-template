@@ -2,12 +2,16 @@
 
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import HeaderOffsetSync from '@/components/layout/HeaderOffsetSync';
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Header />
-      <main className="flex-1 pt-14 sm:pt-16 lg:pt-20">{children}</main>
+      <HeaderOffsetSync />
+      <main className="flex-1" style={{ paddingTop: 'var(--header-offset)' }}>
+        {children}
+      </main>
       <Footer />
     </>
   );
