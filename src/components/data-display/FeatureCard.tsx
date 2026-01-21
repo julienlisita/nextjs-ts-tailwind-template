@@ -7,11 +7,10 @@ import clsx from 'clsx';
 import './FeatureCard.css';
 
 type Align = 'inherit' | 'left' | 'center' | 'right';
-type Variant = 'default' | 'gradient' | 'outlined' | 'with-header';
-type Tone = 'neutral' | 'brand' | 'success' | 'warning';
+type Variant = 'default' | 'gradient' | 'outlined';
+type Accent = 'neutral' | 'primary';
 
 type StyleVars = React.CSSProperties & {
-  // autoriser les custom properties CSS (design tokens)
   [key: `--${string}`]: string | number;
 };
 
@@ -24,12 +23,14 @@ type FeatureCardProps = {
   description: string | React.ReactNode;
   /** URL du lien (rend la description cliquable) */
   href?: string;
-  /** label du bouton (non utilisé désormais, conservé si usages ailleurs) */
-  linkLabel?: string;
+
   /** Style visuel (structure) */
   variant?: Variant;
-  /** Teinte sémantique (applique un set de variables) */
-  tone?: Tone;
+  /** Accent léger (couleur/hiérarchie) */
+  accent?: Accent;
+  /** Affiche un header distinct (bandeau + titre) */
+  withHeader?: boolean;
+
   /** Largeur via classes Tailwind (ex: w-72, w-full) */
   width?: string;
   /** Hauteur via classes Tailwind (ex: h-80, min-h-64) */
@@ -38,7 +39,7 @@ type FeatureCardProps = {
   align?: Align;
   /** Classes additionnelles */
   className?: string;
-  /** Override ponctuel par variables CSS (ex: --card-gradient-start) */
+  /** Override ponctuel par variables CSS */
   styleVars?: StyleVars;
 };
 
@@ -47,22 +48,18 @@ export default function FeatureCard({
   title,
   description,
   href,
-  linkLabel, // conservé mais non utilisé
   variant = 'default',
-  tone = 'neutral',
+  accent = 'neutral',
+  withHeader = false,
   width,
   height,
   align = 'inherit',
   className,
   styleVars,
 }: FeatureCardProps) {
-  const isWithHeader = variant === 'with-header';
-
   // map align -> classes responsives (mobile = center, desktop = override)
   const toAlignClasses = (a: Align) => {
-    if (a === 'inherit') {
-      return { text: undefined, items: undefined, self: undefined };
-    }
+    if (a === 'inherit') return { text: undefined, items: undefined, self: undefined };
     if (a === 'left') {
       return {
         text: 'text-center lg:text-left',
@@ -77,16 +74,11 @@ export default function FeatureCard({
         self: 'self-center lg:self-end',
       };
     }
-    return {
-      text: 'text-center',
-      items: 'items-center',
-      self: 'self-center',
-    };
+    return { text: 'text-center', items: 'items-center', self: 'self-center' };
   };
 
   const alignClasses = toAlignClasses(align);
 
-  // Fabrique l’icône avec le bon align-self
   const renderIcon = () =>
     icon ? (
       <div className={clsx('feature-card__icon', alignClasses.self)}>
@@ -106,15 +98,16 @@ export default function FeatureCard({
     <article
       className={clsx(
         'feature-card',
-        `feature-card--${variant}`,
-        `feature-card--${tone}`,
+        variant !== 'default' && `feature-card--${variant}`,
+        accent === 'primary' && 'feature-card--primary',
+        withHeader && 'feature-card--with-header',
         width,
         height,
         className
       )}
       style={styleVars}
     >
-      {isWithHeader && (
+      {withHeader && (
         <div
           className={clsx('feature-card__header', 'w-full', alignClasses.text, alignClasses.items)}
         >
@@ -123,16 +116,14 @@ export default function FeatureCard({
         </div>
       )}
 
-      {/* Corps de la carte */}
       <div className={clsx('feature-card__body', 'w-full', alignClasses.text, alignClasses.items)}>
-        {!isWithHeader && (
+        {!withHeader && (
           <>
             {renderIcon()}
             <h3 className="feature-card__title">{title}</h3>
           </>
         )}
 
-        {/* Description : rendue cliquable si href est défini */}
         <div className="feature-card__desc">
           {href ? (
             <a

@@ -11,8 +11,9 @@ import { ICONS, type IconKey } from '@/utils/icons';
 
 type FeatureCardProps = ComponentProps<typeof FeatureCard>;
 type CardVariant = FeatureCardProps['variant'];
-type CardTone = FeatureCardProps['tone'];
+type CardAccent = FeatureCardProps['accent'];
 type CardAlign = FeatureCardProps['align'];
+type CardWithHeader = FeatureCardProps['withHeader'];
 
 /** Type par défaut pour un "feature" */
 export type FeatureItem = {
@@ -36,7 +37,8 @@ export type FeaturesGridProps<TItem = FeatureItem> = {
   // ❌ À éviter si parent serveur : renderItem?: (item: TItem, index: number) => React.ReactNode;
   getKey?: (item: TItem, index: number) => React.Key;
   cardVariant?: CardVariant;
-  cardTone?: CardTone;
+  cardAccent?: CardAccent;
+  cardWithHeader?: CardWithHeader;
   cardAlign?: CardAlign;
 
   /** Pagination optionnelle */
@@ -57,7 +59,8 @@ export default function FeaturesGrid<TItem = FeatureItem>({
   renderItem,
   getKey,
   cardVariant = 'default',
-  cardTone = 'neutral',
+  cardAccent = 'neutral',
+  cardWithHeader = false,
   cardAlign = 'center',
   pageSize,
   tabs,
@@ -112,7 +115,8 @@ export default function FeaturesGrid<TItem = FeatureItem>({
         description={f.description}
         href={f.href}
         variant={cardVariant}
-        tone={cardTone}
+        accent={cardAccent}
+        withHeader={cardWithHeader}
         align={cardAlign}
       />
     );
