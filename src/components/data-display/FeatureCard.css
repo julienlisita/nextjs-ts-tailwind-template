@@ -1,29 +1,30 @@
 /* src/components/data-display/FeatureCard.css */
 
 /* ---------------------------------------------------------
-   Defaults (accent=neutral)
+   Defaults (accent=neutral) — Component tokens (fc-*)
    --------------------------------------------------------- */
 .feature-card {
-  /* Design system */
-  --card-bg: var(--color-surface);
-  --card-text: var(--color-text);
-  --card-title: var(--color-section-title);
-  --card-border: var(--color-border);
-  --card-icon-fg: var(--color-secondary);
+  /* Component-local tokens */
+  --fc-bg: var(--color-surface);
+  --fc-text: var(--color-text);
+  --fc-title: var(--color-section-title);
+  --fc-border: var(--color-border);
+  --fc-icon: var(--color-secondary);
 
-  --card-header-bg: var(--color-secondary);
-  --card-header-fg: var(--white-100);
+  --fc-header-bg: var(--color-secondary);
+  --fc-header-fg: var(--white-100);
 
-  --card-gradient-start: var(--color-secondary);
-  --card-gradient-end: var(--color-primary);
-  --card-gradient-fg: var(--white-100);
+  --fc-gradient-start: var(--color-secondary);
+  --fc-gradient-end: var(--color-primary);
+  --fc-gradient-fg: var(--white-100);
 
+  /* Base */
   @apply transition overflow-hidden;
   border-radius: var(--card-radius);
   box-shadow: var(--card-shadow);
-  background-color: var(--card-bg);
-  border: 1px solid var(--card-border);
-  color: var(--card-text);
+  background-color: var(--fc-bg);
+  border: 1px solid var(--fc-border);
+  color: var(--fc-text);
 }
 
 .feature-card:hover {
@@ -32,18 +33,16 @@
 
 /* ---------------------------------------------------------
    Accent (accent=primary)
-   → “mise en avant” légère, sans multiplier les tons
    --------------------------------------------------------- */
 .feature-card--primary {
-  --card-icon-fg: var(--color-primary);
-  --card-border: color-mix(in oklab, var(--color-primary) 18%, var(--color-border));
-  --card-header-bg: var(--color-primary);
-  --card-header-fg: var(--white-100);
+  --fc-icon: var(--color-primary);
+  --fc-border: color-mix(in oklab, var(--color-primary) 18%, var(--color-border));
+  --fc-header-bg: var(--color-primary);
+  --fc-header-fg: var(--white-100);
 
-  /* gradient plus “brand” */
-  --card-gradient-start: var(--color-primary);
-  --card-gradient-end: var(--color-secondary);
-  --card-gradient-fg: var(--white-100);
+  --fc-gradient-start: var(--color-primary);
+  --fc-gradient-end: var(--color-secondary);
+  --fc-gradient-fg: var(--white-100);
 }
 
 /* ---------------------------------------------------------
@@ -51,21 +50,21 @@
    --------------------------------------------------------- */
 .feature-card--outlined {
   background-color: transparent;
-  border: 2px solid var(--card-border);
+  border: 2px solid var(--fc-border);
 }
 
 .feature-card--gradient {
-  color: var(--card-gradient-fg);
+  color: var(--fc-gradient-fg);
   border: none;
-  background-image: linear-gradient(135deg, var(--card-gradient-start), var(--card-gradient-end));
+  background-image: linear-gradient(135deg, var(--fc-gradient-start), var(--fc-gradient-end));
 }
 
 /* ---------------------------------------------------------
    withHeader (layout interne)
    --------------------------------------------------------- */
 .feature-card--with-header .feature-card__header {
-  background: var(--card-header-bg);
-  color: var(--card-header-fg);
+  background: var(--fc-header-bg);
+  color: var(--fc-header-fg);
 }
 
 /* ---------------------------------------------------------
@@ -87,7 +86,7 @@
 .feature-card__icon-inner {
   width: var(--card-icon-size);
   height: var(--card-icon-size);
-  color: var(--card-icon-fg);
+  color: var(--fc-icon);
 }
 
 /* For gradient / header we rely on currentColor */
@@ -99,7 +98,7 @@
 /* Title */
 .feature-card__title {
   @apply text-base sm:text-lg font-semibold;
-  color: var(--card-title);
+  color: var(--fc-title);
 }
 
 .feature-card--gradient .feature-card__title,
@@ -110,7 +109,7 @@
 /* Description */
 .feature-card__desc {
   @apply text-sm leading-relaxed;
-  color: var(--card-text);
+  color: currentColor;
   opacity: var(--card-muted-opacity);
 }
 
