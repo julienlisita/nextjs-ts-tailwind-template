@@ -20,7 +20,7 @@ export default function TestimonialsGrid({ items }: Props) {
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5 sm:gap-6 lg:gap-8">
       {items.map((t, i) => (
         <TestimonialCard
-          key={(t as any).id ?? `${t.name}-${i}`} // idéalement: t.id si tu en as un
+          key={t.id}
           name={t.name}
           role={t.role}
           company={t.company}
