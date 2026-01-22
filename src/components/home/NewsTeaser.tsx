@@ -6,7 +6,7 @@ import Button from '@/components/ui/Button';
 import Subtitle from '../ui/Subtitle';
 import Section from '../layout/Section';
 import SectionWrapper from '../layout/SectionWrapper';
-import NewsCard from '../news/NewsCard';
+import NewsGrid from './NewsGrid';
 
 type Props = { items: ReadonlyArray<NewsItem> };
 
@@ -30,20 +30,7 @@ export default function NewsTeaser({ items }: Props) {
           </div>
 
           {/* Colonne droite */}
-          <div className="flex flex-col gap-6">
-            {items.map((n) => (
-              <NewsCard
-                key={n.id ?? n.slug}
-                title={n.title}
-                description={n.description}
-                displayDate={n.displayDate}
-                source={n.source}
-                url={n.url}
-                imageUrl={n.imageUrl}
-                imageAlt={n.imageAlt ?? n.title}
-              />
-            ))}
-          </div>
+          <NewsGrid items={items} />
         </div>
       </SectionWrapper>
     </Section>
