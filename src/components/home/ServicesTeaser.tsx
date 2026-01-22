@@ -1,11 +1,11 @@
 // src/components/home/ServicesTeaser.tsx
 
 import { services } from '@/data/services';
-import FeaturesGrid from '../patterns/FeaturesGrid';
 import Section from '../layout/Section';
 import SectionWrapper from '../layout/SectionWrapper';
 import HeaderBlock from '../patterns/HeaderBlock';
 import ActionsStack from '../patterns/ActionsStack';
+import ServicesGrid from './ServicesGrid';
 
 export default function ServicesTeaser() {
   return (
@@ -17,13 +17,9 @@ export default function ServicesTeaser() {
           subtitle="Un accompagnement complet et bienveillant au quotidien."
           align="center"
         />
-        <FeaturesGrid
-          items={services.slice(0, 3)}
-          gridClassName="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8"
-          cardVariant="gradient"
-          cardAccent="primary"
-          cardAlign="center"
-        />
+
+        <ServicesGrid items={services.slice(0, 3)} />
+
         <ActionsStack
           align="center"
           className="mt-8"
