@@ -10,11 +10,13 @@ export default function About() {
     <div>
       <PageHero
         icon={<Users size={40} />}
-        title="Qui sommes-nous ?"
-        subtitle="Découvrez notre équipe, nos valeurs et notre vision."
+        title="Une équipe à votre écoute"
+        subtitle="Nous accompagnons particuliers et organisations avec sérieux et proximité.."
         align="center"
       />
+
       <ValuesSection />
+
       <Cta
         title="Envie d’échanger avec nous ?"
         description="Notre équipe est disponible pour répondre à vos questions et discuter de vos besoins."

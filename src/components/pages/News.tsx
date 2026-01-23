@@ -11,7 +11,7 @@ export default function NewsPageView() {
       <PageHero
         icon={<Newspaper size={40} />}
         title="Actualités"
-        subtitle="Retrouvez les dernières nouvelles, articles et mises à jour."
+        subtitle="Articles, informations et mises à jour : retrouvez ici nos dernières publications."
         align="center"
       />
       <NewsSectionServer />

@@ -13,7 +13,7 @@ export default async function Recruitment() {
       <PageHero
         icon={<FileText size={40} />}
         title="Recrutement"
-        subtitle="Découvrez nos opportunités et rejoignez notre équipe."
+        subtitle="Découvrez nos opportunités et rejoignez une équipe engagée à vos côtés."
         align="center"
       />
       <JobOffersSectionServer />

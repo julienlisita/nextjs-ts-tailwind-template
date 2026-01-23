@@ -13,7 +13,7 @@ export default function TestimonialsPageView() {
       <PageHero
         icon={<MessageSquare size={40} />}
         title="Témoignages"
-        subtitle="Ils partagent leur expérience et leur avis sur nos services."
+        subtitle="Découvrez les retours de personnes que nous avons accompagnées."
         align="center"
       />
       <TestimonialsSectionServer />

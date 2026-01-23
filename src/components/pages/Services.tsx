@@ -11,7 +11,7 @@ export default function ServicesFeatures() {
       <PageHero
         icon={<Briefcase size={40} />}
         title="Nos services"
-        subtitle="Un aperçu clair et détaillé de ce que nous proposons."
+        subtitle="Découvrez l’ensemble des services que nous proposons pour vous accompagner."
         align="center"
       />
       <ServicesSection />

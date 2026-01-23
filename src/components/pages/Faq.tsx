@@ -1,12 +1,20 @@
 // src/components/pages/Faq.tsx
 
-import PageTitle from '@/components/ui/PageTitle';
 import Cta from '../patterns/Cta';
+import PageHero from '../patterns/PageHero';
+import { HelpCircle } from 'lucide-react';
 
 export default function Faq() {
   return (
     <div className="pt-8 sm:pt-10 md:pt-14 lg:pt-20">
-      <PageTitle>Foire aux questions</PageTitle>
+      <PageHero
+        icon={<HelpCircle size={40} />}
+        title="Foire aux questions"
+        subtitle="Retrouvez ici les réponses aux questions les plus fréquentes."
+        align="center"
+      />
+
+      {/* Sections FAQ */}
       <Cta
         title="Titre du CTA"
         description="Description du CTA"

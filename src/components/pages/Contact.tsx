@@ -11,8 +11,8 @@ export default function Contact() {
     <div>
       <PageHero
         icon={<Mail size={40} />}
-        title="Contactez-nous"
-        subtitle="Besoin d’informations ou d’un devis ? Nous sommes à votre écoute."
+        title="Nous contacter"
+        subtitle="Une question, un besoin ou un message ? Écrivez-nous, nous vous répondrons rapidement."
         align="center"
       />
       <ContactFormSection />
