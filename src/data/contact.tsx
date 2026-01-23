@@ -1,6 +1,6 @@
 // src/data/contact.ts
 
-import type { FeatureItem } from '@/components/patterns/FeaturesGrid';
+import type { FeatureItem } from '@/types/feature';
 
 export const contactInfos: ReadonlyArray<FeatureItem> = [
   {

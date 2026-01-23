@@ -1,6 +1,6 @@
 // src/data/values.ts
 
-import type { FeatureItem } from '@/components/patterns/FeaturesGrid';
+import type { FeatureItem } from '@/types/feature';
 
 /**
  * Données 100 % sérialisables pour un rendu compatible avec les Server Components.

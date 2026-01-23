@@ -1,6 +1,6 @@
 // src/data/services.ts
 
-import type { FeatureItem } from '@/components/patterns/FeaturesGrid';
+import type { FeatureItem } from '@/types/feature';
 
 export const services: ReadonlyArray<FeatureItem> = [
   {
