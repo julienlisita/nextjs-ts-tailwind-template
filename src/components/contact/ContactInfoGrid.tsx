@@ -1,5 +1,7 @@
 // src/components/contact/ContactInfoGrid.tsx
 
+'use client';
+
 import type React from 'react';
 import type { FeatureItem } from '@/types/feature';
 import { ICONS, type IconKey } from '@/utils/icons';

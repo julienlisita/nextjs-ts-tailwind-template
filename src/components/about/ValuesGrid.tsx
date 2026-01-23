@@ -1,5 +1,7 @@
 // src/components/about/ValuesGrid.tsx
 
+'use client';
+
 import type { FeatureItem } from '@/types/feature';
 import FeatureCard from '../data-display/FeatureCard';
 import { ICONS, type IconKey } from '@/utils/icons';
