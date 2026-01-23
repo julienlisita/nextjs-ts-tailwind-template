@@ -1,10 +1,10 @@
 // src/components/contact/ContactInfoSection.tsx
 
 import { contactInfos } from '@/data/contact';
-import FeaturesGrid from '../patterns/FeaturesGrid';
 import Section from '../layout/Section';
 import SectionWrapper from '../layout/SectionWrapper';
 import HeaderBlock from '../patterns/HeaderBlock';
+import ContactInfoGrid from './ContactInfoGrid';
 
 export default function ContactInfoSection() {
   return (
@@ -17,13 +17,7 @@ export default function ContactInfoSection() {
           align="center"
         />
 
-        <FeaturesGrid
-          items={contactInfos}
-          gridClassName="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8"
-          cardVariant="outlined"
-          cardAccent="neutral"
-          cardAlign="center"
-        />
+        <ContactInfoGrid items={contactInfos} />
       </SectionWrapper>
     </Section>
   );
