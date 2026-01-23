@@ -14,10 +14,12 @@ export default function NewsPageView() {
         subtitle="Articles, informations et mises à jour : retrouvez ici nos dernières publications."
         align="center"
       />
+
       <NewsSectionServer />
+
       <Cta
-        title="Ne manquez pas nos prochaines actualités"
-        description="Pour rester informé ou poser vos questions, contactez notre équipe."
+        title="Une question suite à un article ?"
+        description="Contactez-nous : nous vous répondrons rapidement et avec clarté."
         align="left"
         primaryLabel="Nous contacter"
         primaryHref="/contact"

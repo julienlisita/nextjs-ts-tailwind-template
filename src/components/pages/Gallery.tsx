@@ -15,9 +15,10 @@ export default function Gallery() {
       />
 
       {/* Galerie */}
+
       <Cta
-        title="Titre du CTA"
-        description="Description du CTA"
+        title="Vous avez un projet en tête ?"
+        description="Contactez-nous pour en discuter et imaginer ensemble la suite."
         align="left"
         primaryLabel="Nous contacter"
         primaryHref="/contact"

@@ -17,8 +17,8 @@ export default function Events() {
       {/* Sections événements à venir / passés */}
 
       <Cta
-        title="Titre du CTA"
-        description="Description du CTA"
+        title="Une question sur nos événements ?"
+        description="Contactez-nous pour en savoir plus ou pour participer à l’un de nos prochains rendez-vous."
         align="left"
         primaryLabel="Nous contacter"
         primaryHref="/contact"

@@ -14,10 +14,12 @@ export default function ServicesFeatures() {
         subtitle="Découvrez l’ensemble des services que nous proposons pour vous accompagner."
         align="center"
       />
+
       <ServicesSection />
+
       <Cta
-        title="Bénéficiez de nos services"
-        description="Nos experts sont prêts à vous accompagner. Discutons ensemble de votre projet."
+        title="Parlons de vos besoins"
+        description="Contactez-nous pour échanger sur votre situation et vos attentes."
         align="left"
         primaryLabel="Nous contacter"
         primaryHref="/contact"

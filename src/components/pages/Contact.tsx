@@ -15,8 +15,11 @@ export default function Contact() {
         subtitle="Une question, un besoin ou un message ? Écrivez-nous, nous vous répondrons rapidement."
         align="center"
       />
+
       <ContactFormSection />
+
       <ContactInfoSection />
+
       <LocationSection align="left" />
     </div>
   );

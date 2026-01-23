@@ -35,10 +35,10 @@ export default function Reservations({ errorMessage }: ReservationsProps) {
         <ReservationSectionServer />
       </div>
 
-      {/* CTA générique */}
+      {/* CTA */}
       <Cta
-        title="Vous avez une question ?"
-        description="Contactez-nous pour toute demande particulière ou information complémentaire."
+        title="Besoin d’un renseignement ?"
+        description="Contactez-nous pour toute question ou demande particulière avant de réserver."
         align="left"
         primaryLabel="Nous contacter"
         primaryHref="/contact"

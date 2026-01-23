@@ -15,9 +15,10 @@ export default function Portfolio() {
       />
 
       {/* Sections portfolio / projets */}
+
       <Cta
-        title="Titre du CTA"
-        description="Description du CTA"
+        title="Vous avez un projet à réaliser ?"
+        description="Contactez-nous pour échanger sur vos besoins et vos objectifs."
         align="left"
         primaryLabel="Nous contacter"
         primaryHref="/contact"

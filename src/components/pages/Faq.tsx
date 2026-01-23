@@ -15,9 +15,10 @@ export default function Faq() {
       />
 
       {/* Sections FAQ */}
+
       <Cta
-        title="Titre du CTA"
-        description="Description du CTA"
+        title="Vous ne trouvez pas votre réponse ?"
+        description="Contactez-nous, nous vous répondrons directement."
         align="left"
         primaryLabel="Nous contacter"
         primaryHref="/contact"

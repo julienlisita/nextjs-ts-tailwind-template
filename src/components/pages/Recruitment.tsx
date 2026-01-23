@@ -16,13 +16,16 @@ export default async function Recruitment() {
         subtitle="Découvrez nos opportunités et rejoignez une équipe engagée à vos côtés."
         align="center"
       />
+
       <JobOffersSectionServer />
+
       <Suspense fallback={<div>Chargement…</div>}>
         <RecruitmentClient />;
       </Suspense>
+
       <Cta
-        title="Rejoignez notre équipe"
-        description="Vous partagez nos valeurs ? Découvrez nos opportunités et contactez-nous pour postuler."
+        title="Une question ou une candidature spontanée ?"
+        description="Contactez-nous pour en savoir plus ou nous transmettre votre candidature."
         align="left"
         primaryLabel="Nous contacter"
         primaryHref="/contact"
