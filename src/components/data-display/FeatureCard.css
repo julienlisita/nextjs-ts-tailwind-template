@@ -5,18 +5,18 @@
    --------------------------------------------------------- */
 .feature-card {
   /* Component-local tokens */
-  --fc-bg: var(--color-surface);
-  --fc-text: var(--color-text);
-  --fc-title: var(--color-section-title);
-  --fc-border: var(--color-border);
-  --fc-icon: var(--color-secondary);
+  --fc-bg: var(--card-bg);
+  --fc-text: var(--card-text);
+  --fc-title: var(--card-title);
+  --fc-border: var(--card-border);
+  --fc-icon: var(--card-icon-fg);
 
-  --fc-header-bg: var(--color-secondary);
-  --fc-header-fg: var(--white-100);
+  --fc-header-bg: var(--card-header-bg);
+  --fc-header-fg: var(--card-header-fg);
 
-  --fc-gradient-start: var(--color-secondary);
-  --fc-gradient-end: var(--color-primary);
-  --fc-gradient-fg: var(--white-100);
+  --fc-gradient-start: var(--card-gradient-start);
+  --fc-gradient-end: var(--card-gradient-end);
+  --fc-gradient-fg: var(--card-gradient-fg);
 
   /* Base */
   @apply transition overflow-hidden;
@@ -49,7 +49,9 @@
    Variants (structure)
    --------------------------------------------------------- */
 .feature-card--outlined {
-  background-color: transparent;
+  --fc-bg: var(--card-outlined-bg);
+  --fc-border: var(--card-outlined-border);
+  background-color: var(--fc-bg);
   border: 2px solid var(--fc-border);
 }
 
