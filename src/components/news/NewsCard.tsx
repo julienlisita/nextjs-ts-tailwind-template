@@ -41,7 +41,9 @@ export default function NewsCard({
         </div>
       )}
       <div className="news-card-content">
-        <h3 className="news-card-title">{title}</h3>
+        <h3 id="news-title" className="news-card-title">
+          {title}
+        </h3>
         <p className="news-card-description">{description}</p>
         {(displayDate || source) && (
           <div className="news-card-meta">
