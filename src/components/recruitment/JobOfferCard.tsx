@@ -8,6 +8,7 @@ import './JobOfferCard.css';
 
 type JobOfferCardProps = {
   title: string;
+  slug: string;
   location: string;
   description: string;
   contractType: string; // ex: "CDI - Temps partiel"
@@ -16,6 +17,7 @@ type JobOfferCardProps = {
 
 export function JobOfferCard({
   title,
+  slug,
   location,
   description,
   contractType,
@@ -50,10 +52,14 @@ export function JobOfferCard({
       </div>
       <div>
         <Button
-          href={`/recruitment?apply=${encodeURIComponent(title)}`}
-          aria-label={`Postuler à l'offre ${title}`}
+          href={`/recruitment/${slug}`}
+          variant="secondary"
+          aria-label={`Voir l’offre ${title}`}
         >
-          Postuler
+          Voir l’offre{' '}
+          <span className="ml-2" aria-hidden="true">
+            &rsaquo;
+          </span>
         </Button>
       </div>
     </div>

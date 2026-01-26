@@ -21,9 +21,10 @@ export default function JobOffersGrid({ items }: Props) {
       {items.map((offer) => (
         <JobOfferCard
           key={offer.id}
+          slug={offer.slug}
           title={offer.title}
           location={offer.location}
-          description={offer.description}
+          description={offer.description ?? ''}
           contractType={offer.contractType}
           publishedAt={offer.publishedAt}
         />
