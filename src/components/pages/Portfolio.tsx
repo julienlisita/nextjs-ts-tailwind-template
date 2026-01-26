@@ -1,26 +1,29 @@
-// src/components/pages/Portfolio.tsx
+// src/components/pages/Projects.tsx
 
-import Cta from '../patterns/Cta';
+import { FolderKanban } from 'lucide-react';
 import PageHero from '../patterns/PageHero';
-import { Briefcase } from 'lucide-react';
+import Cta from '../patterns/Cta';
+import ProjectsSectionServer from '../portfolio/ProjectsSectionServer';
 
-export default function Portfolio() {
+export const runtime = 'nodejs';
+
+export default function ProjectsPageView() {
   return (
-    <div className="pt-8 sm:pt-10 md:pt-14 lg:pt-20">
+    <div>
       <PageHero
-        icon={<Briefcase size={40} />}
-        title="Portfolio"
-        subtitle="Découvrez une sélection de projets et de réalisations menés pour nos clients."
+        icon={<FolderKanban size={40} />}
+        title="Projets"
+        subtitle="Une sélection de projets pour illustrer ma démarche produit, ma rigueur et mon sens du détail."
         align="center"
       />
 
-      {/* Sections portfolio / projets */}
+      <ProjectsSectionServer />
 
       <Cta
-        title="Vous avez un projet à réaliser ?"
-        description="Contactez-nous pour échanger sur vos besoins et vos objectifs."
+        title="Vous avez un projet en tête ?"
+        description="Je peux vous aider à le cadrer et le livrer proprement avec une base moderne."
         align="left"
-        primaryLabel="Nous contacter"
+        primaryLabel="Me contacter"
         primaryHref="/contact"
       />
     </div>
