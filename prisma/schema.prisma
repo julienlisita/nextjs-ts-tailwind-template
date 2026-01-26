@@ -29,13 +29,30 @@ model User {
 }
 
 model JobOffer {
-  id          Int      @id @default(autoincrement())
-  title       String
-  location    String
-  description String
-  contractType String? 
-  publishedAt DateTime @default(now())
-  updatedAt   DateTime @updatedAt 
+  id               Int      @id @default(autoincrement())
+  slug             String   @unique
+  title            String
+  location         String
+  contractType     String
+  publishedAt      DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  // teaser court (optionnel)
+  description      String?
+
+  // contenu riche (optionnels)
+  service          String?
+  reportingLine    String?
+  missionStatement String?
+  scheduleNote     String?
+  workMode         String?
+  remunerationNote String?
+
+  // structures
+  sections         Json?
+  equipments       Json?
+
+  @@index([publishedAt])
 }
 
 model Testimonial {
