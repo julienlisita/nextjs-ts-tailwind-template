@@ -10,13 +10,30 @@ export function getJobOffer(id: number) {
   return jobOfferRepo.findById(id);
 }
 
-export function createJobOffer(input: { title: string; location: string; description: string }) {
-  return jobOfferRepo.create({ ...input, publishedAt: new Date() });
+export function createJobOffer(input: {
+  slug: string;
+  title: string;
+  location: string;
+  contractType: string;
+  description: string;
+  publishedAt?: Date;
+}) {
+  return jobOfferRepo.create({
+    ...input,
+    publishedAt: input.publishedAt ?? new Date(),
+  });
 }
 
 export function updateJobOffer(
   id: number,
-  input: Partial<{ title: string; location: string; description: string }>
+  input: Partial<{
+    slug: string;
+    title: string;
+    location: string;
+    contractType: string;
+    description: string;
+    publishedAt: Date;
+  }>
 ) {
   return jobOfferRepo.update(id, input);
 }
