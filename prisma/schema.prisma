@@ -34,13 +34,11 @@ model JobOffer {
   title            String
   location         String
   contractType     String
+  description      String
   publishedAt      DateTime @default(now())
   updatedAt        DateTime @updatedAt
 
-  // teaser court (optionnel)
-  description      String?
-
-  // contenu riche (optionnels)
+  // contenu riche (optionnel)
   service          String?
   reportingLine    String?
   missionStatement String?
@@ -49,8 +47,8 @@ model JobOffer {
   remunerationNote String?
 
   // structures
-  sections         Json?
-  equipments       Json?
+  sections         Json?        // optionnel
+  equipments       String[]     // liste, jamais null
 
   @@index([publishedAt])
 }

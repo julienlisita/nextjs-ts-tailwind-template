@@ -7,7 +7,7 @@ export type JobOffer = {
   location: string;
   contractType: string;
   publishedAt: string; // ISO string
-  description?: string; // teaser court pour la carte
+  description: string; // teaser court pour la carte
   // --- nouveau : contenu riche ---
   service?: string;
   reportingLine?: string; // rattachement hiérarchique
@@ -25,5 +25,5 @@ export type JobOffer = {
   scheduleNote?: string; // ex: soirs, WE, JF selon planning
   workMode?: string; // téléphonique / sur site
   remunerationNote?: string; // indemnités / convention
-  equipments?: string[]; // matériel fourni
+  equipments: string[]; // matériel fourni
 };

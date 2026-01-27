@@ -90,10 +90,27 @@ export async function main() {
   // Job offers
 
   await prisma.jobOffer.deleteMany();
+
+  const jobOffersData = (jobOffers as JobOffer[]).map((offer) => {
+    const base = toDate(stripId(offer));
+
+    return {
+      ...base,
+      // obligatoires (sécurité)
+      slug: offer.slug,
+      title: offer.title,
+      location: offer.location,
+      contractType: offer.contractType,
+      description: offer.description ?? '',
+
+      // structures
+      equipments: offer.equipments ?? [], // si Prisma = String[]
+      sections: offer.sections ?? null, // si Prisma = Json?
+    };
+  });
+
   await prisma.jobOffer.createMany({
-    data: (jobOffers as JobOffer[]).map((offer) =>
-      toDate(stripId(offer))
-    ) as Prisma.JobOfferCreateManyInput[],
+    data: jobOffersData as Prisma.JobOfferCreateManyInput[],
   });
 
   // Reservation slots (exemple)
