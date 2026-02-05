@@ -1,7 +1,7 @@
-// src/components/pages/Events.tsx
+// src/pages/Events.tsx
 
-import Cta from '../patterns/Cta';
-import PageHero from '../patterns/PageHero';
+import Cta from '@/components/patterns/Cta';
+import PageHero from '@/components/patterns/PageHero';
 import { Calendar } from 'lucide-react';
 
 export default function Events() {

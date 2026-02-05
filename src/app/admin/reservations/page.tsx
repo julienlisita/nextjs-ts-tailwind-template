@@ -2,7 +2,7 @@
 
 export const dynamic = 'force-dynamic';
 
-import ReservationsAdmin from '@/components/pages/admin/ReservationsAdmin';
+import ReservationsAdmin from '@/pages/admin/ReservationsAdmin';
 
 export const metadata = {
   title: 'Administration – Réservations',

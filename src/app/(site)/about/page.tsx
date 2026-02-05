@@ -1,6 +1,6 @@
 // src/app/(site)/about/page.tsx
 
-import About from '@/components/pages/About';
+import About from '@/pages/About';
 
 export const metadata = {
   title: 'À propos – Votre Nom',

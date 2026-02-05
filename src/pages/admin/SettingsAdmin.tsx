@@ -1,4 +1,4 @@
-// src/components/pages/admin/SettingsAdmin.tsx
+// src/pages/admin/SettingsAdmin.tsx
 
 import { requireAdmin } from '@/server/guards/requireAdmin';
 import { userRepo } from '@/server/repositories/user.repo';

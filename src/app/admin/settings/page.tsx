@@ -1,6 +1,6 @@
 // src/app/admin/settings/page.tsx
 
-import SettingsAdmin from '@/components/pages/admin/SettingsAdmin';
+import SettingsAdmin from '@/pages/admin/SettingsAdmin';
 
 export const dynamic = 'force-dynamic';
 

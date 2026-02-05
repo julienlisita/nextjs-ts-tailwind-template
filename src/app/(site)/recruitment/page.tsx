@@ -1,6 +1,6 @@
 // src/app/(site)/recruitment/page.tsx
 
-import Recruitment from '@/components/pages/Recruitment';
+import Recruitment from '@/pages/Recruitment';
 
 export const metadata = {
   title: 'Recrutement',

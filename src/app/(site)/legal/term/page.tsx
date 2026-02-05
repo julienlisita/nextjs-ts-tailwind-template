@@ -1,6 +1,6 @@
 // src/app/(site)/legal/term/page.tsx
 
-import Terms from '@/components/pages/legal/Term';
+import Terms from '@/pages/legal/Term';
 
 export const metadata = {
   title: 'Conditions d’utilisation – Nom entreprise',

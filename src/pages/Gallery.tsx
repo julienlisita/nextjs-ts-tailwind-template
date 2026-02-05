@@ -1,7 +1,7 @@
-// src/components/pages/Gallery.tsx
+// src/pages/Gallery.tsx
 
-import Cta from '../patterns/Cta';
-import PageHero from '../patterns/PageHero';
+import Cta from '@/components/patterns/Cta';
+import PageHero from '@/components/patterns/PageHero';
 import { Image } from 'lucide-react';
 
 export default function Gallery() {

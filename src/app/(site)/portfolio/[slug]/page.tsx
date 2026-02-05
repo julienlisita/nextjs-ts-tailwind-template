@@ -1,6 +1,6 @@
 // src/app/(site)/portfolio/[slug]/page.tsx
 
-import Project from '@/components/pages/Project';
+import Project from '@/pages/Project';
 import { getPublicProjectBySlugServer } from '@/server/services/projects.server';
 
 type PageProps = {

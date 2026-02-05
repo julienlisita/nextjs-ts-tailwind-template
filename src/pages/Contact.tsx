@@ -1,10 +1,10 @@
-// src/components/pages/Contact.tsx
+// src/pages/Contact.tsx
 
+import ContactFormSection from '@/components/contact/ContactFormSection';
+import ContactInfoSection from '@/components/contact/ContactInfoSection';
+import LocationSection from '@/components/contact/LocationSection';
+import PageHero from '@/components/patterns/PageHero';
 import { Mail } from 'lucide-react';
-import PageHero from '../patterns/PageHero';
-import ContactFormSection from '../contact/ContactFormSection';
-import ContactInfoSection from '../contact/ContactInfoSection';
-import LocationSection from '../contact/LocationSection';
 
 export default function Contact() {
   return (

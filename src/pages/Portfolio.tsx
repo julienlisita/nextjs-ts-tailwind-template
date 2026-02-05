@@ -1,9 +1,9 @@
-// src/components/pages/Projects.tsx
+// src/pages/Projects.tsx
 
+import Cta from '@/components/patterns/Cta';
+import PageHero from '@/components/patterns/PageHero';
+import ProjectsSectionServer from '@/components/portfolio/ProjectsSectionServer';
 import { FolderKanban } from 'lucide-react';
-import PageHero from '../patterns/PageHero';
-import Cta from '../patterns/Cta';
-import ProjectsSectionServer from '../portfolio/ProjectsSectionServer';
 
 export const runtime = 'nodejs';
 

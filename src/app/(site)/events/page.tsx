@@ -1,6 +1,6 @@
 // src/app/(site)/events/page.tsx
 
-import Events from '@/components/pages/Events';
+import Events from '@/pages/Events';
 
 export const metadata = {
   title: 'Événements – Agenda et actualités',

@@ -1,6 +1,6 @@
 // src/app/(site)/legal/imprint/page.tsx
 
-import Imprint from '@/components/pages/legal/Imprint';
+import Imprint from '@/pages/legal/Imprint';
 
 export const metadata = {
   title: 'Mentions légales – Nom entreprise',

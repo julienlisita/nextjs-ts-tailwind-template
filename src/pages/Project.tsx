@@ -1,14 +1,11 @@
-// src/components/pages/Project.tsx
+// src/pages/Project.tsx
 
 import { notFound } from 'next/navigation';
 import { ExternalLink } from 'lucide-react';
-
 import { getPublicProjectBySlugServer } from '@/server/services/projects.server';
-
-import PageHero from '../patterns/PageHero';
-import Cta from '../patterns/Cta';
-
-import ProjectContent from '../portfolio/project/ProjectContent';
+import PageHero from '@/components/patterns/PageHero';
+import ProjectContent from '@/components/portfolio/project/ProjectContent';
+import Cta from '@/components/patterns/Cta';
 
 export const runtime = 'nodejs';
 

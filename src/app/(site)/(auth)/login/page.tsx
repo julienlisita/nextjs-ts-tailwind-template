@@ -1,6 +1,6 @@
 // src/app/(site)/(auth)/login/page.tsx
 
-import Login from '@/components/pages/Login';
+import Login from '@/pages/Login';
 
 export const metadata = {
   title: 'Connexion administrateur – Nom du site',

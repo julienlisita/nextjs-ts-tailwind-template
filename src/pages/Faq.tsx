@@ -1,7 +1,7 @@
-// src/components/pages/Faq.tsx
+// src/pages/Faq.tsx
 
-import Cta from '../patterns/Cta';
-import PageHero from '../patterns/PageHero';
+import Cta from '@/components/patterns/Cta';
+import PageHero from '@/components/patterns/PageHero';
 import { HelpCircle } from 'lucide-react';
 
 export default function Faq() {

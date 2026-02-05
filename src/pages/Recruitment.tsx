@@ -1,11 +1,11 @@
-// src/components/pages/Recruitment.tsx
+// src/pages/Recruitment.tsx
 
-import RecruitmentClient from '@/components/pages/RecruitmentClient';
-import { Suspense } from 'react';
-import PageHero from '../patterns/PageHero';
-import JobOffersSectionServer from '../recruitment/JobOffersSectionServer';
-import Cta from '../patterns/Cta';
+import PageHero from '@/components/patterns/PageHero';
+import JobOffersSectionServer from '@/components/recruitment/JobOffersSectionServer';
 import { FileText } from 'lucide-react';
+import { Suspense } from 'react';
+import RecruitmentClient from './RecruitmentClient';
+import Cta from '@/components/patterns/Cta';
 
 export default async function Recruitment() {
   return (

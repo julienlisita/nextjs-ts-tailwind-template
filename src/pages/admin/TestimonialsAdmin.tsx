@@ -1,4 +1,4 @@
-// src/components/pages/admin/TestimonialsAdmin.tsx
+// src/pages/admin/TestimonialsAdmin.tsx
 
 import { listAllTestimonials } from '@/server/services/testimonials.service';
 import {

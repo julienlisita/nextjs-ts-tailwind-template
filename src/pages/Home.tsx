@@ -1,11 +1,11 @@
-// src/components/pages/Home.tsx
+// src/pages/Home.tsx
 
-import AboutTeaser from '../home/AboutTeaser';
-import Hero from '../home/Hero';
-import NewsTeaserServer from '../home/NewsTeaserServer';
-import ServicesTeaser from '../home/ServicesTeaser';
-import TestimonialsTeaserServer from '../home/TestimonialsTeaserServer';
-import Cta from '../patterns/Cta';
+import AboutTeaser from '@/components/home/AboutTeaser';
+import Hero from '@/components/home/Hero';
+import NewsTeaserServer from '@/components/home/NewsTeaserServer';
+import ServicesTeaser from '@/components/home/ServicesTeaser';
+import TestimonialsTeaserServer from '@/components/home/TestimonialsTeaserServer';
+import Cta from '@/components/patterns/Cta';
 
 export default function Home() {
   return (

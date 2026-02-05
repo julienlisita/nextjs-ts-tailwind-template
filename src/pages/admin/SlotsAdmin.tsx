@@ -1,4 +1,4 @@
-// src/app/admin/slots/page.tsx
+// src/pages/admin/SlotsAdmin.tsx
 
 import { listAllSlotsAdmin } from '@/server/services/reservations.service';
 import { requireAdmin } from '@/server/guards/requireAdmin';

@@ -1,9 +1,9 @@
-// src/components/pages/News.tsx
+// src/pages/News.tsx
 
+import NewsSectionServer from '@/components/news/NewsSectionServer';
+import Cta from '@/components/patterns/Cta';
+import PageHero from '@/components/patterns/PageHero';
 import { Newspaper } from 'lucide-react';
-import PageHero from '../patterns/PageHero';
-import NewsSectionServer from '../news/NewsSectionServer';
-import Cta from '../patterns/Cta';
 
 export default function NewsPageView() {
   return (

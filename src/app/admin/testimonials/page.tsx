@@ -2,7 +2,7 @@
 
 export const dynamic = 'force-dynamic';
 
-import TestimonialsAdmin from '@/components/pages/admin/TestimonialsAdmin';
+import TestimonialsAdmin from '@/pages/admin/TestimonialsAdmin';
 
 export const metadata = { title: 'Administration – Témoignages' };
 

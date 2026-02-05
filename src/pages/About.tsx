@@ -1,9 +1,9 @@
-// src/components/pages/About.tsx
+// src/pages/About.tsx
 
+import ValuesSection from '@/components/about/ValuesSection';
+import Cta from '@/components/patterns/Cta';
+import PageHero from '@/components/patterns/PageHero';
 import { Users } from 'lucide-react';
-import PageHero from '../patterns/PageHero';
-import ValuesSection from '../about/ValuesSection';
-import Cta from '../patterns/Cta';
 
 export default function About() {
   return (

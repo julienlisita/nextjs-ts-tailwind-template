@@ -1,4 +1,4 @@
-// src/components/pages/legal/Imprint.tsx
+// src/pages/legal/Imprint.tsx
 
 import Section from '@/components/layout/Section';
 import SectionWrapper from '@/components/layout/SectionWrapper';

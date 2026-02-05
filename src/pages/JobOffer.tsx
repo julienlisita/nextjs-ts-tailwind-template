@@ -1,4 +1,4 @@
-// src/components/pages/JobOffer.tsx
+// src/pages/JobOffer.tsx
 
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
@@ -7,7 +7,7 @@ import { Briefcase } from 'lucide-react';
 import type { JobOffer as JobOfferType } from '@/types/job';
 
 import PageHero from '@/components/patterns/PageHero';
-import JobOfferContent from '../recruitment/job-offer/JobOfferContent';
+import JobOfferContent from '@/components/recruitment/job-offer/JobOfferContent';
 
 type Props = {
   offer: JobOfferType;

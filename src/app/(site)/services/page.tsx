@@ -1,6 +1,6 @@
 // src/app/(site)/services/page.tsx
 
-import Services from '@/components/pages/Services';
+import Services from '@/pages/Services';
 
 export const metadata = {
   title: 'Services – Nom entreprise',

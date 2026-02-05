@@ -1,6 +1,6 @@
 // src/app/(site)/news/page.tsx
 
-import News from '@/components/pages/News';
+import News from '@/pages/News';
 
 export const metadata = {
   title: 'Actualités',

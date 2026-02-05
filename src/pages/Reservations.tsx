@@ -1,9 +1,9 @@
-// src/components/pages/Reservations.tsx
+// src/pages/Reservations.tsx
 
+import Cta from '@/components/patterns/Cta';
+import PageHero from '@/components/patterns/PageHero';
+import ReservationSectionServer from '@/components/reservations/ReservationSectionServer';
 import { AlertTriangle, Calendar } from 'lucide-react';
-import PageHero from '../patterns/PageHero';
-import ReservationSectionServer from '../reservations/ReservationSectionServer';
-import Cta from '../patterns/Cta';
 
 type ReservationsProps = {
   errorMessage?: string | null;

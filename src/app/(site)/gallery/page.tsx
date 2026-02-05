@@ -1,6 +1,6 @@
 // src/app/(site)/gallery/page.tsx
 
-import Gallery from '@/components/pages/Gallery';
+import Gallery from '@/pages/Gallery';
 
 export const metadata = {
   title: 'Galerie – Photos et visuels',

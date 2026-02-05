@@ -1,6 +1,6 @@
 // src/app/(site)/page.tsx
 
-import Home from '@/components/pages/Home';
+import Home from '@/pages/Home';
 
 export const metadata = {
   title: 'Accueil – Nom entreprise',

@@ -1,11 +1,11 @@
-// src/components/pages/RecruitmentClient.tsx
+// src/pages/RecruitmentClient.tsx
 
 'use client';
 
-import Modal from '../ui/Modal';
 import { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import JobApplicationForm from '../recruitment/JobApplicationForm';
+import Modal from '@/components/ui/Modal';
+import JobApplicationForm from '@/components/recruitment/JobApplicationForm';
 
 export default function RecruitmentClient() {
   const router = useRouter();

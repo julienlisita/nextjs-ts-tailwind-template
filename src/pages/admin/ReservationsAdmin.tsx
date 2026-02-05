@@ -1,4 +1,4 @@
-// src/app/admin/reservations/page.tsx
+// src/pages/admin/ReservationsAdmin.tsx
 
 import { listUpcomingReservationsAdmin } from '@/server/services/reservations.service';
 import { requireAdmin } from '@/server/guards/requireAdmin';

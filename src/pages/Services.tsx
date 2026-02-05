@@ -1,9 +1,9 @@
-// src/components/pages/Services.tsx
+// src/pages/Services.tsx
 
+import Cta from '@/components/patterns/Cta';
+import PageHero from '@/components/patterns/PageHero';
+import ServicesSection from '@/components/services/ServicesSection';
 import { Briefcase } from 'lucide-react';
-import PageHero from '../patterns/PageHero';
-import ServicesSection from '../services/ServicesSection';
-import Cta from '../patterns/Cta';
 
 export default function ServicesFeatures() {
   return (

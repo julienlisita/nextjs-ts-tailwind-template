@@ -1,6 +1,6 @@
 // src/app/admin/news/page.tsx
 
-import NewsAdmin from '@/components/pages/admin/NewsAdmin';
+import NewsAdmin from '@/pages/admin/NewsAdmin';
 
 export const dynamic = 'force-dynamic';
 
