@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation';
 import { verifyToken } from '@/lib/jwt';
 import { authCookieName } from '@/lib/auth-cookies';
 
-export async function requireAuth() {
+export async function requireAuthApp() {
   const cookieStore = await cookies();
   const token = cookieStore.get(authCookieName)?.value;
   if (!token) redirect('/login');
