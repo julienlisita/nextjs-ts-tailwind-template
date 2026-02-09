@@ -1,6 +1,5 @@
 // src/services/jobOffers.server.ts
 
-import 'server-only';
 import { IS_DB } from '@/config/dataMode';
 import type { JobOffer } from '@/types/job';
 import { jobOffers } from '@/data/jobOffers';

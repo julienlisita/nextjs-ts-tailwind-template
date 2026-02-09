@@ -1,6 +1,6 @@
 // src/app/admin/offers/page.tsx
 
-import OffersAdmin from '@/components/pages/admin/OffersAdmin';
+import OffersAdmin from '@/pages/admin/OffersAdmin';
 
 export const dynamic = 'force-dynamic';
 
