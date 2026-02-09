@@ -2,47 +2,58 @@
 
 import type { GetServerSideProps } from 'next';
 import type { Testimonial } from '@/types/testimonial';
+import type { NewsItem } from '@/types/news';
 
 import AboutTeaser from '@/components/home/AboutTeaser';
 import Hero from '@/components/home/Hero';
-import NewsTeaserServer from '@/components/home/NewsTeaserServer';
 import ServicesTeaser from '@/components/home/ServicesTeaser';
 import TestimonialsTeaser from '@/components/home/TestimonialsTeaser';
+import NewsTeaser from '@/components/home/NewsTeaser';
 import Cta from '@/components/patterns/Cta';
 
 import { getPublicTestimonialsServer } from '@/server/services/testimonials.server';
+import { getPublicNewsServer } from '@/server/services/news.server';
 
 type HomePageProps = {
   testimonials: ReadonlyArray<Testimonial>;
+  news: ReadonlyArray<NewsItem>;
 };
 
 export const getServerSideProps: GetServerSideProps<HomePageProps> = async () => {
+  // Testimonials
+  let testimonials: ReadonlyArray<Testimonial> = [];
   try {
     const all = await getPublicTestimonialsServer();
-
     const LIMIT = 2;
     const onlyFeatured = false;
 
     let filtered = onlyFeatured ? all.filter((t) => t.highlight) : all;
     if (filtered.length === 0) filtered = all;
 
-    const items = filtered.slice(0, LIMIT);
-
-    return {
-      props: {
-        testimonials: items,
-      },
-    };
+    testimonials = filtered.slice(0, LIMIT);
   } catch {
-    return {
-      props: {
-        testimonials: [],
-      },
-    };
+    testimonials = [];
   }
+
+  // News
+  let news: ReadonlyArray<NewsItem> = [];
+  try {
+    const allNews = await getPublicNewsServer();
+    const LIMIT = 3; // au choix
+    news = allNews.slice(0, LIMIT);
+  } catch {
+    news = [];
+  }
+
+  return {
+    props: {
+      testimonials,
+      news,
+    },
+  };
 };
 
-export default function Home({ testimonials }: HomePageProps) {
+export default function Home({ testimonials, news }: HomePageProps) {
   return (
     <div>
       <Hero />
@@ -51,7 +62,8 @@ export default function Home({ testimonials }: HomePageProps) {
 
       <TestimonialsTeaser items={testimonials} />
 
-      <NewsTeaserServer />
+      {/* Teaser normal (pas Server) */}
+      <NewsTeaser items={news} />
 
       <Cta
         title="Prêt à en savoir plus ?"
