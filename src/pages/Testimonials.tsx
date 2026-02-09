@@ -1,13 +1,38 @@
 // src/pages/Testimonials.tsx
 
-import Cta from '@/components/patterns/Cta';
+import type { GetServerSideProps } from 'next';
+import type { Testimonial } from '@/types/testimonial';
+
 import PageHero from '@/components/patterns/PageHero';
-import TestimonialsSectionServer from '@/components/testimonials/TestimonialsSectionServer';
+import TestimonialsSection from '@/components/testimonials/TestimonialsSection';
+import Cta from '@/components/patterns/Cta';
 import { MessageSquare } from 'lucide-react';
 
-export const runtime = 'nodejs'; // si tu utilises tes constantes: export { runtime, dynamic, revalidate } from ...
+import { getPublicTestimonialsServer } from '@/server/services/testimonials.server';
 
-export default function TestimonialsPageView() {
+type TestimonialsPageProps = {
+  testimonials: ReadonlyArray<Testimonial>;
+};
+
+export const getServerSideProps: GetServerSideProps<TestimonialsPageProps> = async () => {
+  try {
+    const testimonials = await getPublicTestimonialsServer();
+
+    return {
+      props: {
+        testimonials,
+      },
+    };
+  } catch {
+    return {
+      props: {
+        testimonials: [],
+      },
+    };
+  }
+};
+
+export default function TestimonialsPageView({ testimonials }: TestimonialsPageProps) {
   return (
     <div>
       <PageHero
@@ -17,7 +42,7 @@ export default function TestimonialsPageView() {
         align="center"
       />
 
-      <TestimonialsSectionServer />
+      <TestimonialsSection items={testimonials} />
 
       <Cta
         title="Une question avant de vous lancer ?"
