@@ -1,6 +1,5 @@
 // src/server/services/reservations.server.ts
 
-import 'server-only';
 import { IS_DB } from '@/config/dataMode';
 import type { ReservationSlot } from '@prisma/client';
 
