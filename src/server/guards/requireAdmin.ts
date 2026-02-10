@@ -1,11 +1,11 @@
 // src/server/guards/requireAdmin.ts
 
 import { redirect } from 'next/navigation';
-import { requireAuth } from './requireAuth';
 import { userRepo } from '@/server/repositories/user.repo';
+import { requireAuthApp } from './requireAuth.app';
 
 export async function requireAdmin() {
-  const session = await requireAuth(); // { userId, role }
+  const session = await requireAuthApp(); // { userId, role }
 
   if (session.role !== 'ADMIN') redirect('/');
 

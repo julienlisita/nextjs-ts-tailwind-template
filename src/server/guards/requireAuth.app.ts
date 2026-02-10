@@ -1,4 +1,4 @@
-// src/server/guards/requireAuth.ts
+// src/server/guards/requireAuth.app.ts
 
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';

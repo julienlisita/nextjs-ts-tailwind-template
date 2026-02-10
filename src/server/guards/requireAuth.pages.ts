@@ -1,4 +1,5 @@
 // src/server/guards/requireAuth.pages.ts
+
 import { verifyToken } from '@/lib/jwt';
 import type { GetServerSidePropsContext } from 'next';
 
