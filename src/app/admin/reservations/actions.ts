@@ -5,14 +5,14 @@
 import { z } from 'zod';
 import { revalidatePath } from 'next/cache';
 import { cancelReservationAdmin } from '@/server/services/reservations.service';
-import { requireAdmin } from '@/server/guards/requireAdmin';
+import { requireAdminApp } from '@/server/guards/requireAdmin.app';
 
 const schema = z.object({
   reservationId: z.coerce.number().int().positive(),
 });
 
 export async function cancelReservationAction(formData: FormData) {
-  await requireAdmin();
+  await requireAdminApp();
 
   const parsed = schema.safeParse({
     reservationId: formData.get('reservationId'),

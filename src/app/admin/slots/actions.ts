@@ -10,7 +10,7 @@ import {
   deleteSlotAdmin,
   setSlotStatusAdmin,
 } from '@/server/services/reservations.service';
-import { requireAdmin } from '@/server/guards/requireAdmin';
+import { requireAdminApp } from '@/server/guards/requireAdmin.app';
 
 const TZ = 'Europe/Paris';
 
@@ -20,7 +20,7 @@ const createSchema = z.object({
 });
 
 export async function createSlotAction(formData: FormData) {
-  await requireAdmin();
+  await requireAdminApp();
 
   const parsed = createSchema.safeParse({
     startAt: formData.get('startAt'),
@@ -54,7 +54,7 @@ const statusSchema = z.object({
 });
 
 export async function updateSlotStatusAction(formData: FormData) {
-  await requireAdmin();
+  await requireAdminApp();
 
   const parsed = statusSchema.safeParse({
     slotId: formData.get('slotId'),
@@ -86,7 +86,7 @@ const deleteSchema = z.object({
 });
 
 export async function deleteSlotAction(formData: FormData) {
-  await requireAdmin();
+  await requireAdminApp();
 
   const parsed = deleteSchema.safeParse({
     slotId: formData.get('slotId'),
