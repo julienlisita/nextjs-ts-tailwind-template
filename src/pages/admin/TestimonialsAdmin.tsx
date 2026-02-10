@@ -10,8 +10,6 @@ import {
 } from '@/app/admin/testimonials/actions';
 import SubmitButton from '@/components/ui/SubmitButton';
 
-export const dynamic = 'force-dynamic';
-
 export default async function TestimonialsAdmin() {
   const items = await listAllTestimonials();
 

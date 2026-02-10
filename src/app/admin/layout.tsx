@@ -5,15 +5,15 @@ export const dynamic = 'force-dynamic';
 import type { ReactNode } from 'react';
 
 import { logoutAction } from '@/app/(site)/(auth)/actions';
-import { requireAdmin } from '@/server/guards/requireAdmin';
 import AdminNav from '@/components/admin/AdminNav';
+import { requireAdminApp } from '@/server/guards/requireAdmin';
 
 type Props = {
   children: ReactNode;
 };
 
 export default async function AdminLayout({ children }: Props) {
-  const user = await requireAdmin(); // protège tout le segment /admin
+  const user = await requireAdminApp(); // protège tout le segment /admin
 
   return (
     <div className="min-h-screen bg-neutral-50">

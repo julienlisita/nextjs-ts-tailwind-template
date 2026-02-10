@@ -1,7 +1,6 @@
 // src/pages/admin/ReservationsAdmin.tsx
 
 import { listUpcomingReservationsAdmin } from '@/server/services/reservations.service';
-import { requireAdmin } from '@/server/guards/requireAdmin';
 import { cancelReservationAction } from '@/app/admin/reservations/actions';
 
 function formatDateRange(start: Date, end?: Date | null) {
@@ -28,8 +27,6 @@ function formatDateRange(start: Date, end?: Date | null) {
 }
 
 export default async function ReservationsAdmin() {
-  await requireAdmin();
-
   const reservations = await listUpcomingReservationsAdmin();
 
   return (

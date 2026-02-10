@@ -1,7 +1,6 @@
 // src/pages/admin/SlotsAdmin.tsx
 
 import { listAllSlotsAdmin } from '@/server/services/reservations.service';
-import { requireAdmin } from '@/server/guards/requireAdmin';
 import {
   createSlotAction,
   deleteSlotAction,
@@ -31,8 +30,6 @@ function formatSlot(start: Date, end?: Date | null) {
 }
 
 export default async function SlotsAdmin() {
-  await requireAdmin();
-
   const slots = await listAllSlotsAdmin();
 
   return (
@@ -111,6 +108,7 @@ export default async function SlotsAdmin() {
                           Disponible
                         </button>
                       </form>
+
                       <form action={updateSlotStatusAction} className="inline">
                         <input type="hidden" name="slotId" value={slot.id} />
                         <input type="hidden" name="status" value="DISABLED" />
@@ -121,6 +119,7 @@ export default async function SlotsAdmin() {
                           Désactiver
                         </button>
                       </form>
+
                       <form action={deleteSlotAction} className="inline">
                         <input type="hidden" name="slotId" value={slot.id} />
                         <button

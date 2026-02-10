@@ -1,14 +1,24 @@
 // src/app/admin/settings/page.tsx
 
 import SettingsAdmin from '@/pages/admin/SettingsAdmin';
+import { requireAdminApp } from '@/server/guards/requireAdmin.app';
+import { userRepo } from '@/server/repositories/user.repo';
 
-export const dynamic = 'force-dynamic';
+export default async function AdminSettingsPage() {
+  const session = await requireAdminApp();
 
-export const metadata = {
-  title: 'Administration – Paramètres du compte',
-  description: 'Gérez votre profil administrateur et votre mot de passe.',
-};
+  const user = await userRepo.findById(session.userId);
+  if (!user) {
+    throw new Error('USER_NOT_FOUND');
+  }
 
-export default function SettingsAdminPage() {
-  return <SettingsAdmin />;
+  return (
+    <SettingsAdmin
+      user={{
+        id: user.id,
+        name: user.name ?? null,
+        email: user.email,
+      }}
+    />
+  );
 }

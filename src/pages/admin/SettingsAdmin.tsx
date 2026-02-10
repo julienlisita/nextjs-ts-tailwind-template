@@ -1,17 +1,16 @@
 // src/pages/admin/SettingsAdmin.tsx
 
-import { requireAdmin } from '@/server/guards/requireAdmin';
-import { userRepo } from '@/server/repositories/user.repo';
 import { changePasswordAction, updateProfileAction } from '@/app/admin/settings/actions';
 
-export default async function SettingsAdmin() {
-  const session = await requireAdmin();
-  const user = await userRepo.findById(session.userId);
+type SettingsAdminProps = {
+  user: {
+    id: number;
+    name: string | null;
+    email: string;
+  };
+};
 
-  if (!user) {
-    throw new Error('USER_NOT_FOUND');
-  }
-
+export default function SettingsAdmin({ user }: SettingsAdminProps) {
   return (
     <div className="w-full space-y-6">
       <header>

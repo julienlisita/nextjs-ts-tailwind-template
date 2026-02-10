@@ -4,8 +4,6 @@ import { listJobOffers } from '@/server/services/job-offer.service';
 import { upsertJobOfferAction, deleteJobOfferAction } from '@/app/admin/offers/actions';
 import SubmitButton from '@/components/ui/SubmitButton';
 
-export const dynamic = 'force-dynamic';
-
 export default async function OffersAdmin() {
   const offers = await listJobOffers();
 
