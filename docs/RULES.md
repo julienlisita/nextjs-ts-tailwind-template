@@ -45,10 +45,10 @@ These rules describe the conventions already used in this codebase. Follow them 
 
 - **Do not rename or move** the existing top-level folders: `src/app`, `src/components`, `src/pages`, `src/server`, `src/data`, `src/lib`, `src/config`, `src/types`, `src/utils`, `prisma`, `scripts`, `public`.
 - **App Router** routes live under `src/app/`; route segments use the existing pattern (e.g. `(site)`, `(auth)`, `admin`).
-- **Page components** (screen-level UI) live in `src/pages/` and are imported by App Router `page.tsx` files; do not move page components into `app/`.
-- `src/pages/` contains screen-level UI components only.
+- **Page components** (screen-level UI) live in `src/screens/` and are imported by App Router `page.tsx` files; do not move page components into `app/`.
+- `src/screens/` contains screen-level UI components only.
 - Routing is handled exclusively by App Router (`src/app/`).
-- Do not add routing logic or data fetching inside `src/pages/`.
+- Do not add routing logic or data fetching inside `src/screens/`.
 - **Server-side** code: guards in `src/server/guards/`, repositories in `src/server/repositories/`, services in `src/server/services/`. Keep the existing naming (`*.repo.ts`, `*.service.ts`, `*.server.ts`).
 
 ---

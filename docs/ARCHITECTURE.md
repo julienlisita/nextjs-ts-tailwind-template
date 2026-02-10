@@ -6,7 +6,7 @@ This document describes the existing architecture, folder roles, and main data/U
 
 ## Architecture summary
 
-- App Router handles routing; `src/pages/` contains screen components only.
+- App Router handles routing; `src/screens/` contains screen components only.
 - UI → server actions → services → repositories → Prisma.
 - Data can come from static files or DB depending on `IS_DB`.
 - Tailwind = layout/responsive; CSS files = visual styling.
@@ -48,12 +48,12 @@ nextjs-ts-tailwind-template/
   - **`(auth)/`**: login, signup (route groups; no layout segment in URL).
   - **Other segments**: about, contact, events, faq, gallery, legal/\*, news, portfolio, recruitment, reservations, services, testimonials, thank-you, thank-you-application.
 - **`admin/`**: Admin area; layout in `admin/layout.tsx` uses `requireAdmin()` to protect all `/admin/*` routes.
-- **Convention**: Each route segment that has a screen has a `page.tsx` that usually exports `metadata` and renders a component from `src/pages/`. Forms use co-located `actions.ts` (server actions).
+- **Convention**: Each route segment that has a screen has a `page.tsx` that usually exports `metadata` and renders a component from `src/screens/`. Forms use co-located `actions.ts` (server actions).
 
-### 2.2 `src/pages/`
+### 2.2 `src/screens/`
 
 - **Role**: Page-level (screen) components. They are **not** Next.js Pages Router routes; they are imported by `src/app/**/page.tsx`.
-- **Naming**: PascalCase, one component per file (e.g. `Home.tsx`, `Contact.tsx`, `News.tsx`). Admin screens under `pages/admin/` (e.g. `NewsAdmin.tsx`, `OffersAdmin.tsx`).
+- **Naming**: PascalCase, one component per file (e.g. `Home.tsx`, `Contact.tsx`, `News.tsx`). Admin screens under `screens/admin/` (e.g. `NewsAdmin.tsx`, `OffersAdmin.tsx`).
 - **Data**: Some page components export `getServerSideProps` for use in a Pages Router context; when used from App Router they are rendered without those props. Data for App Router can be fetched in the route (async Server Component) or via server actions / `*.server.ts` as used elsewhere.
   Some page components may still export getServerSideProps for compatibility with the Pages Router.
   When these components are rendered from the App Router, this function is ignored and the component
@@ -101,7 +101,7 @@ nextjs-ts-tailwind-template/
 
 ### 4.1 Server-side data (DB or static)
 
-1. **Entry point**: `getServerSideProps` (in some `src/pages/*`) or a Server Component in `app/` that calls a `*.server.ts` function.
+1. **Entry point**: `getServerSideProps` (in some `src/screens/*`) or a Server Component in `app/` that calls a `*.server.ts` function.
 2. **Adapter** (`*.server.ts`): Reads `IS_DB`; if `!IS_DB`, returns data from `src/data/*`; if `IS_DB`, dynamically imports the corresponding `*.service.ts` and calls it (e.g. `listPublicNews()`).
 3. **Service** (`*.service.ts`): Uses repositories only (e.g. `newsRepo.list()`).
 4. **Repository** (`*.repo.ts`): Uses `prisma` from `@/lib/prisma` for CRUD.
@@ -147,4 +147,4 @@ nextjs-ts-tailwind-template/
 - UI components do not access Prisma or repositories.
 - Repositories do not contain business logic.
 - Services do not perform routing, redirects, or auth guards.
-- `src/pages/` components do not define routes.
+- `src/screens/` components do not define routes.
