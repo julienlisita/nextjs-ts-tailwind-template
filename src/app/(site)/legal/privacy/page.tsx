@@ -1,6 +1,6 @@
 // src/app/(site)/legal/privacy/page.tsx
 
-import Privacy from '@/pages/legal/Policy';
+import Privacy from '@/screens/legal/Policy';
 
 export const metadata = {
   title: 'Politique de confidentialité – Nom entreprise',

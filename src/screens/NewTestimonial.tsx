@@ -1,4 +1,4 @@
-// src/pages/NewTestimonials.tsx
+// src/screens/NewTestimonials.tsx
 
 import { NewTestimonialForm } from '@/components/testimonials/NewTestimonialForm';
 

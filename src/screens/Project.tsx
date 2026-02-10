@@ -1,4 +1,4 @@
-// src/pages/Project.tsx
+// src/screens/Project.tsx
 
 import { notFound } from 'next/navigation';
 import { ExternalLink } from 'lucide-react';

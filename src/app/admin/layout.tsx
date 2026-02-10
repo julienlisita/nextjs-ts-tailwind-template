@@ -6,7 +6,7 @@ import type { ReactNode } from 'react';
 
 import { logoutAction } from '@/app/(site)/(auth)/actions';
 import AdminNav from '@/components/admin/AdminNav';
-import { requireAdminApp } from '@/server/guards/requireAdmin';
+import { requireAdminApp } from '@/server/guards/requireAdmin.app';
 
 type Props = {
   children: ReactNode;

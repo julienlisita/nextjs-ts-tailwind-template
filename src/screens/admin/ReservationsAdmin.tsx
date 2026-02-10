@@ -1,4 +1,4 @@
-// src/pages/admin/ReservationsAdmin.tsx
+// src/screens/admin/ReservationsAdmin.tsx
 
 import { listUpcomingReservationsAdmin } from '@/server/services/reservations.service';
 import { cancelReservationAction } from '@/app/admin/reservations/actions';

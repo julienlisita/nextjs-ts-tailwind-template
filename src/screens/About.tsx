@@ -1,4 +1,4 @@
-// src/pages/About.tsx
+// src/screens/About.tsx
 
 import ValuesSection from '@/components/about/ValuesSection';
 import Cta from '@/components/patterns/Cta';

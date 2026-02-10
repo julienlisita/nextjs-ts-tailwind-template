@@ -1,6 +1,6 @@
 // src/app/(site)/faq/page.tsx
 
-import Faq from '@/pages/Faq';
+import Faq from '@/screens/Faq';
 
 export const metadata = {
   title: 'FAQ – Nom entreprise',

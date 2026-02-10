@@ -1,6 +1,6 @@
 // src/app/(site)/testimonials/page.tsx
 
-import Testimonials from '@/pages/Testimonials';
+import Testimonials from '@/screens/Testimonials';
 
 export const metadata = {
   title: 'Témoignages – Avis de nos clients',

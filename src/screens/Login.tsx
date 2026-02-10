@@ -1,4 +1,4 @@
-// src/pages/Login.tsx
+// src/screens/Login.tsx
 
 import { Lock } from 'lucide-react';
 import PageHero from '@/components/patterns/PageHero';

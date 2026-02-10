@@ -1,4 +1,4 @@
-// src/pages/Testimonials.tsx
+// src/screens/Testimonials.tsx
 
 import type { GetServerSideProps } from 'next';
 import type { Testimonial } from '@/types/testimonial';

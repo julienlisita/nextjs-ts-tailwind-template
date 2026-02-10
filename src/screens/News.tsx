@@ -1,4 +1,4 @@
-// src/pages/News.tsx
+// src/screens/News.tsx
 
 import type { GetServerSideProps } from 'next';
 import type { NewsItem } from '@/types/news';

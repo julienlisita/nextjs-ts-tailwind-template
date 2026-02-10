@@ -1,4 +1,4 @@
-// src/pages/Events.tsx
+// src/screens/Events.tsx
 
 import Cta from '@/components/patterns/Cta';
 import PageHero from '@/components/patterns/PageHero';

@@ -1,4 +1,4 @@
-// src/pages/admin/OffersAdmin.tsx
+// src/screens/admin/OffersAdmin.tsx
 
 import { listJobOffers } from '@/server/services/job-offer.service';
 import { upsertJobOfferAction, deleteJobOfferAction } from '@/app/admin/offers/actions';

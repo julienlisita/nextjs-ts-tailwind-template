@@ -1,4 +1,4 @@
-// src/pages/Projects.tsx
+// src/screens/Projects.tsx
 
 import Cta from '@/components/patterns/Cta';
 import PageHero from '@/components/patterns/PageHero';

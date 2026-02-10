@@ -1,3 +1,5 @@
+// src/screens/Reservations.tsx
+
 import type { GetServerSideProps } from 'next';
 import Cta from '@/components/patterns/Cta';
 import PageHero from '@/components/patterns/PageHero';

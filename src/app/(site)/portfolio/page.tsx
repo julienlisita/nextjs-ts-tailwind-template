@@ -1,6 +1,6 @@
 // src/app/(site)/portfolio/page.tsx
 
-import Portfolio from '@/pages/Portfolio';
+import Portfolio from '@/screens/Portfolio';
 
 export const metadata = {
   title: 'Portfolio – Réalisations et projets',

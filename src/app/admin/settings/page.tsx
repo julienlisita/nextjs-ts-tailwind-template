@@ -1,6 +1,6 @@
 // src/app/admin/settings/page.tsx
 
-import SettingsAdmin from '@/pages/admin/SettingsAdmin';
+import SettingsAdmin from '@/screens/admin/SettingsAdmin';
 import { requireAdminApp } from '@/server/guards/requireAdmin.app';
 import { userRepo } from '@/server/repositories/user.repo';
 

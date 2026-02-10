@@ -6,7 +6,7 @@ import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import type { Metadata } from 'next';
 
-import JobOffer from '@/pages/JobOffer';
+import JobOffer from '@/screens/JobOffer';
 
 export async function generateMetadata({
   params,

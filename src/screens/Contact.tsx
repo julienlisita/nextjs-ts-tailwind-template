@@ -1,4 +1,4 @@
-// src/pages/Contact.tsx
+// src/screens/Contact.tsx
 
 import ContactFormSection from '@/components/contact/ContactFormSection';
 import ContactInfoSection from '@/components/contact/ContactInfoSection';

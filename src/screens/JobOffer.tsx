@@ -1,4 +1,4 @@
-// src/pages/JobOffer.tsx
+// src/screens/JobOffer.tsx
 
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';

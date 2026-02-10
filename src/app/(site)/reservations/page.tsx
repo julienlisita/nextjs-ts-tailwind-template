@@ -1,6 +1,6 @@
 // src/app/(site)/reservations/page.tsx
 
-import Reservations from '@/pages/Reservations';
+import Reservations from '@/screens/Reservations';
 
 export const metadata = {
   title: 'Réserver un créneau',

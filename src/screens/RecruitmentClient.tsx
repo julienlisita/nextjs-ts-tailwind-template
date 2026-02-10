@@ -1,4 +1,4 @@
-// src/pages/RecruitmentClient.tsx
+// src/screens/RecruitmentClient.tsx
 
 'use client';
 

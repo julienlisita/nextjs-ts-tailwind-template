@@ -1,4 +1,4 @@
-// src/pages/Faq.tsx
+// src/screens/Faq.tsx
 
 import Cta from '@/components/patterns/Cta';
 import PageHero from '@/components/patterns/PageHero';

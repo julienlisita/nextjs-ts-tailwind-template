@@ -1,4 +1,4 @@
-// src/pages/Recruitment.tsx
+// src/screens/Recruitment.tsx
 
 import type { GetServerSideProps } from 'next';
 import type { JobOffer } from '@/types/job';

@@ -1,4 +1,4 @@
-// src/pages/admin/SettingsAdmin.tsx
+// src/screens/admin/SettingsAdmin.tsx
 
 import { changePasswordAction, updateProfileAction } from '@/app/admin/settings/actions';
 
