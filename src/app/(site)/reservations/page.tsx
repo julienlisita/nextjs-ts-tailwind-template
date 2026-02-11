@@ -1,6 +1,6 @@
 // src/app/(site)/reservations/page.tsx
 
-import Reservations from '@/screens/Reservations';
+import ReservationsScreen from '@/screens/ReservationsScreen';
 
 export const metadata = {
   title: 'Réserver un créneau',
@@ -27,5 +27,5 @@ export default async function ReservationsPage({ searchParams }: ReservationsPag
       'Le créneau que vous avez sélectionné n’est plus disponible. Merci de choisir un autre horaire.';
   }
 
-  return <Reservations errorMessage={errorMessage} />;
+  return <ReservationsScreen errorMessage={errorMessage} />;
 }
