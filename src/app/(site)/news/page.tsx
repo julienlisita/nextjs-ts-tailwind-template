@@ -1,6 +1,6 @@
 // src/app/(site)/news/page.tsx
 
-import News from '@/screens/News';
+import NewsScreen from '@/screens/NewsScreen';
 
 export const metadata = {
   title: 'Actualités',
@@ -12,5 +12,5 @@ export const metadata = {
 };
 
 export default function NewsPage() {
-  return <News />;
+  return <NewsScreen />;
 }
