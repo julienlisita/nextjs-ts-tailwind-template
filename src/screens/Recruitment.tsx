@@ -1,39 +1,13 @@
-// src/screens/Recruitment.tsx
-
-import type { GetServerSideProps } from 'next';
-import type { JobOffer } from '@/types/job';
+// src/screens/RecruitmentScreen.tsx
 
 import PageHero from '@/components/patterns/PageHero';
-import JobOffersSection from '@/components/recruitment/JobOffersSection';
 import RecruitmentClient from './RecruitmentClient';
 import Cta from '@/components/patterns/Cta';
 import { FileText } from 'lucide-react';
+import { Suspense } from 'react';
+import JobOffersSectionServer from '@/components/recruitment/JobOffersSectionServer';
 
-import { getPublicJobOffersServer } from '@/server/services/jobOffers.server';
-
-type RecruitmentPageProps = {
-  offers: JobOffer[];
-};
-
-export const getServerSideProps: GetServerSideProps<RecruitmentPageProps> = async () => {
-  try {
-    const offers = await getPublicJobOffersServer();
-
-    return {
-      props: {
-        offers: JSON.parse(JSON.stringify(offers)), // Prisma-safe
-      },
-    };
-  } catch {
-    return {
-      props: {
-        offers: [],
-      },
-    };
-  }
-};
-
-export default function Recruitment({ offers }: RecruitmentPageProps) {
+export default function RecruitmentScreen() {
   return (
     <>
       <PageHero
@@ -43,9 +17,11 @@ export default function Recruitment({ offers }: RecruitmentPageProps) {
         align="center"
       />
 
-      <JobOffersSection items={offers} />
+      <JobOffersSectionServer />
 
-      <RecruitmentClient />
+      <Suspense fallback={<div>Chargement…</div>}>
+        <RecruitmentClient />;
+      </Suspense>
 
       <Cta
         title="Une question ou une candidature spontanée ?"
