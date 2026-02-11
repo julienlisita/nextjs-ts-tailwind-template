@@ -1,6 +1,6 @@
 // src/app/admin/slots/page.tsx
 
-import SlotsAdmin from '@/pages/admin/SlotsAdmin';
+import SlotsAdmin from '@/screens/admin/SlotsAdmin';
 
 export const dynamic = 'force-dynamic';
 

@@ -7,12 +7,12 @@ import type { NewsItem } from '@/types/news';
 import AboutTeaser from '@/components/home/AboutTeaser';
 import Hero from '@/components/home/Hero';
 import ServicesTeaser from '@/components/home/ServicesTeaser';
-import TestimonialsTeaser from '@/components/home/TestimonialsTeaser';
 import NewsTeaser from '@/components/home/NewsTeaser';
 import Cta from '@/components/patterns/Cta';
 
 import { getPublicTestimonialsServer } from '@/server/services/testimonials.server';
 import { getPublicNewsServer } from '@/server/services/news.server';
+import TestimonialsTeaserServer from '@/components/home/TestimonialsTeaserServer';
 
 type HomePageProps = {
   testimonials: ReadonlyArray<Testimonial>;
@@ -60,7 +60,7 @@ export default function Home({ testimonials, news }: HomePageProps) {
       <AboutTeaser />
       <ServicesTeaser />
 
-      <TestimonialsTeaser items={testimonials} />
+      <TestimonialsTeaserServer />
 
       {/* Teaser normal (pas Server) */}
       <NewsTeaser items={news} />
