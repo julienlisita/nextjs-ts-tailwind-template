@@ -96,11 +96,13 @@ The app can run in **static** mode (no DB) or **database** mode. Default is stat
 
 ## Project overview
 
-- **Routes**: App Router only under `src/app/`. Public site under `(site)/`, admin under `admin/` (protected by `requireAdmin`).
-- **Pages**: Screen components live in `src/pages/` and are imported by `app/**/page.tsx`. Metadata is set in the route `page.tsx`.
+- **Routes**: App Router only under `src/app/`. Public site under `(site)/`, admin under `admin/` (protected by `requireAdminApp`).
+- **Screens**: Page-level UI components live in `src/screens/` and are imported by `app/**/page.tsx`. Screens do not perform data fetching or routing.
+- **Server Sections**: Data fetching is handled exclusively by async Server Components (e.g. `*SectionServer.tsx`, `*TeaserServer.tsx`) or directly in `app/**/page.tsx`. Screens never fetch data.
 - **Components**: Reusable UI in `src/components/` (by feature/type). Styling rule: **Tailwind for layout and responsive**, **CSS files for visual styles** (colors, borders, states) using design tokens from `src/app/globals.css`.
 - **Server**: Guards in `src/server/guards/`, repositories in `src/server/repositories/`, services in `src/server/services/`. Server adapters (`*.server.ts`) switch between static data (`src/data/`) and DB via `config/dataMode.ts`.
 - **Forms**: Server actions in `actions.ts` next to the route; validation with Zod; actions call services (e.g. mail, reservations).
+- The Pages Router is not used in this template.
 
 For strict project rules and conventions, see **`docs/RULES.md`**. For architecture, folders, and data flows, see **`docs/ARCHITECTURE.md`**.
 
