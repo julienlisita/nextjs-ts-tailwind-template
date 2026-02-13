@@ -34,8 +34,8 @@ nextjs-ts-tailwind-template/
 │   ├── components/        # Reusable UI components (by feature/type)
 │   ├── config/            # App config (e.g. dataMode)
 │   ├── data/              # Static data when DB is disabled
-│   ├── lib/               # Shared utilities (prisma, jwt, auth-cookies)
-│   ├── pages/             # Page-level components (screens)
+│   ├── lib/               # Shared utilities (prisma, jwt auth-cookies)
+│   ├── screens/           # Screen-level UI components (no routing, no data fetching)
 │   ├── server/            # Guards, repositories, services
 │   ├── types/             # Shared TypeScript types
 │   └── utils/             # Pure helpers (align, icons)
@@ -52,12 +52,18 @@ nextjs-ts-tailwind-template/
 
 ### 2.2 `src/screens/`
 
-- **Role**: Page-level (screen) components. They are **not** Next.js Pages Router routes; they are imported by `src/app/**/page.tsx`.
-- **Naming**: PascalCase, one component per file (e.g. `Home.tsx`, `Contact.tsx`, `News.tsx`). Admin screens under `screens/admin/` (e.g. `NewsAdmin.tsx`, `OffersAdmin.tsx`).
-- **Data**: Some page components export `getServerSideProps` for use in a Pages Router context; when used from App Router they are rendered without those props. Data for App Router can be fetched in the route (async Server Component) or via server actions / `*.server.ts` as used elsewhere.
-  Some page components may still export getServerSideProps for compatibility with the Pages Router.
-  When these components are rendered from the App Router, this function is ignored and the component
-  is treated as a regular Server Component.
+- **Role**: Page-level (screen) UI composition.
+- They are imported by `src/app/**/page.tsx`.
+- Screens:
+  - Do not fetch data.
+  - Do not define routes.
+  - Do not use `getServerSideProps`.
+- They compose:
+  - UI components,
+  - and server components (e.g. `*SectionServer.tsx`).
+- **Naming**: Screen components use the `*Screen.tsx` suffix (e.g. `HomeScreen.tsx`, `ContactScreen.tsx`, `NewsScreen.tsx`).
+  Admin screens follow the same convention under `src/screens/admin/` (e.g. `OffersAdminScreen.tsx`, `ReservationsAdminScreen.tsx`, `SettingsAdminScreen.tsx`).
+- Screens compose UI components and server components (e.g. `NewsSectionServer.tsx`, `TestimonialsTeaserServer.tsx`) but do not fetch data directly.
 
 ### 2.3 `src/components/`
 
@@ -101,10 +107,10 @@ nextjs-ts-tailwind-template/
 
 ### 4.1 Server-side data (DB or static)
 
-1. **Entry point**: `getServerSideProps` (in some `src/screens/*`) or a Server Component in `app/` that calls a `*.server.ts` function.
-2. **Adapter** (`*.server.ts`): Reads `IS_DB`; if `!IS_DB`, returns data from `src/data/*`; if `IS_DB`, dynamically imports the corresponding `*.service.ts` and calls it (e.g. `listPublicNews()`).
-3. **Service** (`*.service.ts`): Uses repositories only (e.g. `newsRepo.list()`).
-4. **Repository** (`*.repo.ts`): Uses `prisma` from `@/lib/prisma` for CRUD.
+1. **Entry point**: a Server Component (e.g. `*SectionServer.tsx`) rendered from `app/**/page.tsx` or composed inside a Screen.
+2. **Adapter** (`*.server.ts`): Reads `IS_DB`; if `!IS_DB`, returns data from `src/data/*`; if `IS_DB`, dynamically imports the corresponding `*.service.ts` and calls it.
+3. **Service** (`*.service.ts`): Uses repositories only.
+4. **Repository** (`*.repo.ts`): Uses Prisma for CRUD.
 
 ### 4.2 Mutations (forms)
 
