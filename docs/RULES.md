@@ -43,12 +43,13 @@ These rules describe the conventions already used in this codebase. Follow them 
 
 ## 2. File and folder structure
 
-- **Do not rename or move** the existing top-level folders: `src/app`, `src/components`, `src/pages`, `src/server`, `src/data`, `src/lib`, `src/config`, `src/types`, `src/utils`, `prisma`, `scripts`, `public`.
-- **App Router** routes live under `src/app/`; route segments use the existing pattern (e.g. `(site)`, `(auth)`, `admin`).
-- **Page components** (screen-level UI) live in `src/screens/` and are imported by App Router `page.tsx` files; do not move page components into `app/`.
-- `src/screens/` contains screen-level UI components only.
-- Routing is handled exclusively by App Router (`src/app/`).
-- Do not add routing logic or data fetching inside `src/screens/`.
+- **Do not rename or move** the existing top-level folders: `src/app`, `src/components`, `src/screens`, `src/server`, `src/data`, `src/lib`, `src/config`, `src/types`, `src/utils`, `prisma`, `scripts`, `public`.
+- **App Router** protection: use `requireAuthApp` from `@/server/guards/requireAuth.app`; use `requireAdminApp` from `@/server/guards/requireAdmin.app` for admin-only routes (e.g. `src/app/admin/layout.tsx`).
+- **Screen components** live in `src/screens/` and are imported by App Router `page.tsx` files.
+- `src/screens/` contains UI composition only (no data fetching, no routing logic).
+- Data fetching must happen:
+  - either in `app/**/page.tsx` (async Server Component),
+  - or inside dedicated Server Components (e.g. `*SectionServer.tsx`).
 - **Server-side** code: guards in `src/server/guards/`, repositories in `src/server/repositories/`, services in `src/server/services/`. Keep the existing naming (`*.repo.ts`, `*.service.ts`, `*.server.ts`).
 
 ---
@@ -56,9 +57,11 @@ These rules describe the conventions already used in this codebase. Follow them 
 ## 3. Naming conventions
 
 - **Components**: PascalCase (e.g. `Button.tsx`, `ContactFormSection.tsx`). Co-located CSS: same base name (e.g. `Button.css`).
+- **Screens**: must use the `*Screen.tsx` suffix (e.g. `HomeScreen.tsx`, `TestimonialsScreen.tsx`, `RecruitmentScreen.tsx`). Screens live in `src/screens/`.
 - **Server modules**: kebab-case for multi-word names (e.g. `job-offer.repo.ts`, `requireAuth.app.ts`, `requireAuth.pages.ts`).
 - **Route segments**: lowercase, dynamic segments in brackets (e.g. `[slug]`, `[id]`).
 - **Server actions**: defined in `actions.ts` next to the route that uses them; actions are async functions (e.g. `sendContact`, `logoutAction`).
+- **Server Components for data fetching**: must follow the `*Server.tsx` naming convention (e.g. `TestimonialsSectionServer.tsx`, `JobOffersSectionServer.tsx`, `NewsTeaserServer.tsx`).
 
 ---
 
