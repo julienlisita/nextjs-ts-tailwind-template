@@ -1,4 +1,4 @@
-// src/server/guards/requireAdminApp.ts
+// src/server/guards/requireAdmin.app.ts
 
 import { redirect } from 'next/navigation';
 import { requireAuthApp } from './requireAuth.app';
