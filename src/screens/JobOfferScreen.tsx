@@ -1,4 +1,4 @@
-// src/screens/JobOffer.tsx
+// src/screens/JobOfferScreen.tsx
 
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
@@ -13,7 +13,7 @@ type Props = {
   offer: JobOfferType;
 };
 
-export default function JobOffer({ offer }: Props) {
+export default function JobOfferScreen({ offer }: Props) {
   const pubDate = format(new Date(offer.publishedAt), 'd MMMM yyyy', { locale: fr });
 
   return (

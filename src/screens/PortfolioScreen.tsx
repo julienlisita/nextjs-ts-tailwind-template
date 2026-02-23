@@ -1,4 +1,4 @@
-// src/screens/Projects.tsx
+// src/screens/PortfolioScreen.tsx
 
 import Cta from '@/components/patterns/Cta';
 import PageHero from '@/components/patterns/PageHero';
@@ -7,7 +7,7 @@ import { FolderKanban } from 'lucide-react';
 
 export const runtime = 'nodejs';
 
-export default function ProjectsPageView() {
+export default function PortfolioScreen() {
   return (
     <div>
       <PageHero

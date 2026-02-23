@@ -1,4 +1,4 @@
-// src/pages/legal/Terms.tsx
+// src/pages/legal/TermScreen.tsx
 
 import Section from '@/components/layout/Section';
 import SectionWrapper from '@/components/layout/SectionWrapper';
@@ -9,7 +9,7 @@ const SITE_NAME = 'Nom du site';
 const COMPANY_NAME = 'Nom de l’entreprise';
 const CONTACT_EMAIL = 'contact@exemple.com';
 
-export default function Terms() {
+export default function TermScreen() {
   const currentYear = new Date().getFullYear();
 
   return (

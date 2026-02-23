@@ -1,6 +1,6 @@
 // src/app/(site)/events/page.tsx
 
-import Events from '@/screens/Events';
+import EventsScreen from '@/screens/EventsScreen';
 
 export const metadata = {
   title: 'Événements – Agenda et actualités',
@@ -12,5 +12,5 @@ export const metadata = {
 };
 
 export default function EventsPage() {
-  return <Events />;
+  return <EventsScreen />;
 }

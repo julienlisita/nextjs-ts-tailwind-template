@@ -1,11 +1,11 @@
-// src/screens/About.tsx
+// src/screens/AboutScreen.tsx
 
 import ValuesSection from '@/components/about/ValuesSection';
 import Cta from '@/components/patterns/Cta';
 import PageHero from '@/components/patterns/PageHero';
 import { Users } from 'lucide-react';
 
-export default function About() {
+export default function AboutScreen() {
   return (
     <div>
       <PageHero

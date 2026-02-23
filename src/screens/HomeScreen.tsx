@@ -1,4 +1,4 @@
-// src/screens/Home.tsx
+// src/screens/HomeScreen.tsx
 
 import AboutTeaser from '@/components/home/AboutTeaser';
 import Hero from '@/components/home/Hero';
@@ -8,7 +8,7 @@ import Cta from '@/components/patterns/Cta';
 import TestimonialsTeaserServer from '@/components/home/TestimonialsTeaserServer';
 import NewsTeaserServer from '@/components/home/NewsTeaserServer';
 
-export default function Home() {
+export default function HomeScreen() {
   return (
     <div>
       <Hero />

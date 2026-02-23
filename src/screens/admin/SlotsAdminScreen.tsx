@@ -1,4 +1,4 @@
-// src/screens/admin/SlotsAdmin.tsx
+// src/screens/admin/SlotsAdminScreen.tsx
 
 import { listAllSlotsAdmin } from '@/server/services/reservations.service';
 import {
@@ -29,7 +29,7 @@ function formatSlot(start: Date, end?: Date | null) {
   return fmt.formatRange(dStart, dEnd);
 }
 
-export default async function SlotsAdmin() {
+export default async function SlotsAdminScreen() {
   const slots = await listAllSlotsAdmin();
 
   return (

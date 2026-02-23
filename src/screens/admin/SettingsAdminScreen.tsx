@@ -1,4 +1,4 @@
-// src/screens/admin/SettingsAdmin.tsx
+// src/screens/admin/SettingsAdminScreen.tsx
 
 import { changePasswordAction, updateProfileAction } from '@/app/admin/settings/actions';
 
@@ -10,7 +10,7 @@ type SettingsAdminProps = {
   };
 };
 
-export default function SettingsAdmin({ user }: SettingsAdminProps) {
+export default function SettingsAdminScreen({ user }: SettingsAdminProps) {
   return (
     <div className="w-full space-y-6">
       <header>

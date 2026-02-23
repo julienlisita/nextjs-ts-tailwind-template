@@ -1,10 +1,10 @@
-// src/screens/Gallery.tsx
+// src/screens/GallerScreen.tsx
 
 import Cta from '@/components/patterns/Cta';
 import PageHero from '@/components/patterns/PageHero';
 import { Image } from 'lucide-react';
 
-export default function Gallery() {
+export default function GalleryScreen() {
   return (
     <div className="pt-8 sm:pt-10 md:pt-14 lg:pt-20">
       <PageHero

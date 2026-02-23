@@ -1,10 +1,10 @@
-// src/screens/Events.tsx
+// src/screens/EventsScreen.tsx
 
 import Cta from '@/components/patterns/Cta';
 import PageHero from '@/components/patterns/PageHero';
 import { Calendar } from 'lucide-react';
 
-export default function Events() {
+export default function EventsScreen() {
   return (
     <div className="pt-8 sm:pt-10 md:pt-14 lg:pt-20">
       <PageHero

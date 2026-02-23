@@ -1,10 +1,10 @@
-// src/screens/admin/NewsAdmin.tsx
+// src/screens/admin/NewsAdminScreen.tsx
 
 import { listNews } from '@/server/services/news.service';
 import { upsertNewsAction, deleteNewsAction } from '@/app/admin/news/actions';
 import SubmitButton from '@/components/ui/SubmitButton';
 
-export default async function NewsAdmin() {
+export default async function NewsAdminScreen() {
   const items = await listNews();
 
   return (

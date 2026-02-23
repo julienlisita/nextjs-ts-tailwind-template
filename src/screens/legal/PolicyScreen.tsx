@@ -1,4 +1,4 @@
-// src/pages/legal/Policy.tsx
+// src/pages/legal/PolicyScreen.tsx
 
 import Section from '@/components/layout/Section';
 import SectionWrapper from '@/components/layout/SectionWrapper';
@@ -9,7 +9,7 @@ const SITE_NAME = 'Nom du site';
 const COMPANY_NAME = 'Nom de l’entreprise';
 const CONTACT_EMAIL = 'contact@exemple.com';
 
-export default function Privacy() {
+export default function PolicyScreen() {
   const currentYear = new Date().getFullYear();
 
   return (

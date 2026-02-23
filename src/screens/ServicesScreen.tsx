@@ -1,11 +1,11 @@
-// src/screens/Services.tsx
+// src/screens/ServicesScreen.tsx
 
 import Cta from '@/components/patterns/Cta';
 import PageHero from '@/components/patterns/PageHero';
 import ServicesSection from '@/components/services/ServicesSection';
 import { Briefcase } from 'lucide-react';
 
-export default function ServicesFeatures() {
+export default function ServicesScreen() {
   return (
     <div>
       <PageHero

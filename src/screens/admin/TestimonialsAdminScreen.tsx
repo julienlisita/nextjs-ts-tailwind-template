@@ -1,4 +1,4 @@
-// src/screens/admin/TestimonialsAdmin.tsx
+// src/screens/admin/TestimonialsAdminScreen.tsx
 
 import { listAllTestimonials } from '@/server/services/testimonials.service';
 import {
@@ -10,7 +10,7 @@ import {
 } from '@/app/admin/testimonials/actions';
 import SubmitButton from '@/components/ui/SubmitButton';
 
-export default async function TestimonialsAdmin() {
+export default async function TestimonialsAdminScreen() {
   const items = await listAllTestimonials();
 
   return (

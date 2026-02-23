@@ -1,10 +1,10 @@
-// src/screens/admin/OffersAdmin.tsx
+// src/screens/admin/OffersAdminScreen.tsx
 
 import { listJobOffers } from '@/server/services/job-offer.service';
 import { upsertJobOfferAction, deleteJobOfferAction } from '@/app/admin/offers/actions';
 import SubmitButton from '@/components/ui/SubmitButton';
 
-export default async function OffersAdmin() {
+export default async function OffersAdminScreen() {
   const offers = await listJobOffers();
 
   return (

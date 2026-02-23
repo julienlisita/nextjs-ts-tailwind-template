@@ -1,11 +1,11 @@
 // src/app/admin/news/page.tsx
 
-import NewsAdmin from '@/screens/admin/NewsAdmin';
+import NewsAdminScreen from '@/screens/admin/NewsAdminScreen';
 
 export const dynamic = 'force-dynamic';
 
 export const metadata = { title: 'Administration – Actualités' };
 
 export default function NewsAdminPage() {
-  return <NewsAdmin />;
+  return <NewsAdminScreen />;
 }

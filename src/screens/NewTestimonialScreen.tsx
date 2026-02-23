@@ -1,10 +1,10 @@
-// src/screens/NewTestimonials.tsx
+// src/screens/NewTestimonialScreen.tsx
 
 import { NewTestimonialForm } from '@/components/testimonials/NewTestimonialForm';
 
 export const metadata = { title: 'Laisser un témoignage' };
 
-export default function NewTestimonial() {
+export default function NewTestimonialScreen() {
   return (
     <div className="max-w-2xl mx-auto p-6 space-y-6">
       <h1 className="text-2xl font-bold">Laisser un témoignage</h1>

@@ -1,6 +1,6 @@
 // src/app/(site)/recruitment/page.tsx
 
-import RecruitmentScreen from '@/screens/Recruitment';
+import RecruitmentScreen from '@/screens/RecruitmentScreen';
 
 export const metadata = {
   title: 'Recrutement',

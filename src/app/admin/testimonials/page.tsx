@@ -2,10 +2,10 @@
 
 export const dynamic = 'force-dynamic';
 
-import TestimonialsAdmin from '@/screens/admin/TestimonialsAdmin';
+import TestimonialsAdminScreen from '@/screens/admin/TestimonialsAdminScreen';
 
 export const metadata = { title: 'Administration – Témoignages' };
 
 export default function TestimonialsAdminPage() {
-  return <TestimonialsAdmin />;
+  return <TestimonialsAdminScreen />;
 }

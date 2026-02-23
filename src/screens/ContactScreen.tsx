@@ -1,4 +1,4 @@
-// src/screens/Contact.tsx
+// src/screens/ContactScreen.tsx
 
 import ContactFormSection from '@/components/contact/ContactFormSection';
 import ContactInfoSection from '@/components/contact/ContactInfoSection';
@@ -6,7 +6,7 @@ import LocationSection from '@/components/contact/LocationSection';
 import PageHero from '@/components/patterns/PageHero';
 import { Mail } from 'lucide-react';
 
-export default function Contact() {
+export default function ContactScreen() {
   return (
     <div>
       <PageHero

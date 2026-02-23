@@ -1,6 +1,6 @@
 // src/app/(site)/gallery/page.tsx
 
-import Gallery from '@/screens/Gallery';
+import GalleryScreen from '@/screens/GalleryScreen';
 
 export const metadata = {
   title: 'Galerie – Photos et visuels',
@@ -12,5 +12,5 @@ export const metadata = {
 };
 
 export default function GalleryPage() {
-  return <Gallery />;
+  return <GalleryScreen />;
 }

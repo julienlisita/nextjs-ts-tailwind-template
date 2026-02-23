@@ -1,4 +1,4 @@
-// src/screens/admin/ReservationsAdmin.tsx
+// src/screens/admin/ReservationsAdminScreen.tsx
 
 import { listUpcomingReservationsAdmin } from '@/server/services/reservations.service';
 import { cancelReservationAction } from '@/app/admin/reservations/actions';
@@ -26,7 +26,7 @@ function formatDateRange(start: Date, end?: Date | null) {
   }).formatRange(dStart, dEnd);
 }
 
-export default async function ReservationsAdmin() {
+export default async function ReservationsAdminScreen() {
   const reservations = await listUpcomingReservationsAdmin();
 
   return (

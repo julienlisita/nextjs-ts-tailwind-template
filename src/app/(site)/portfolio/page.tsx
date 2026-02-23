@@ -1,6 +1,6 @@
 // src/app/(site)/portfolio/page.tsx
 
-import Portfolio from '@/screens/Portfolio';
+import PortfolioScreen from '@/screens/PortfolioScreen';
 
 export const metadata = {
   title: 'Portfolio – Réalisations et projets',
@@ -12,5 +12,5 @@ export const metadata = {
 };
 
 export default function PortfolioPage() {
-  return <Portfolio />;
+  return <PortfolioScreen />;
 }

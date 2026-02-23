@@ -5,8 +5,7 @@ import { jobOffers } from '@/data/jobOffers';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import type { Metadata } from 'next';
-
-import JobOffer from '@/screens/JobOffer';
+import JobOfferScreen from '@/screens/JobOfferScreen';
 
 export async function generateMetadata({
   params,
@@ -52,5 +51,5 @@ export default async function JobOfferPage({ params }: { params: Promise<{ slug:
 
   if (!offer) return notFound();
 
-  return <JobOffer offer={offer} />;
+  return <JobOfferScreen offer={offer} />;
 }

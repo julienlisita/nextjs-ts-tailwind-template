@@ -1,6 +1,6 @@
 // src/app/(site)/portfolio/[slug]/page.tsx
 
-import Project from '@/screens/Project';
+import ProjectScreen from '@/screens/ProjectScreen';
 import { getPublicProjectBySlugServer } from '@/server/services/projects.server';
 
 type PageProps = {
@@ -35,5 +35,5 @@ export async function generateMetadata({ params }: PageProps) {
 
 export default async function ProjectPage({ params }: PageProps) {
   const { slug } = await params;
-  return <Project slug={slug} />;
+  return <ProjectScreen slug={slug} />;
 }

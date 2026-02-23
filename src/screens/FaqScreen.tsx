@@ -1,10 +1,10 @@
-// src/screens/Faq.tsx
+// src/screens/FaqScreen.tsx
 
 import Cta from '@/components/patterns/Cta';
 import PageHero from '@/components/patterns/PageHero';
 import { HelpCircle } from 'lucide-react';
 
-export default function Faq() {
+export default function FaqScreen() {
   return (
     <div className="pt-8 sm:pt-10 md:pt-14 lg:pt-20">
       <PageHero

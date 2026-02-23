@@ -1,6 +1,6 @@
 // src/app/(site)/about/page.tsx
 
-import About from '@/screens/About';
+import AboutScreen from '@/screens/AboutScreen';
 
 export const metadata = {
   title: 'À propos – Votre Nom',
@@ -12,5 +12,5 @@ export const metadata = {
 };
 
 export default function AboutPage() {
-  return <About />;
+  return <AboutScreen />;
 }

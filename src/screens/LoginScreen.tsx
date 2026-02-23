@@ -1,4 +1,4 @@
-// src/screens/Login.tsx
+// src/screens/LoginScreen.tsx
 
 import { Lock } from 'lucide-react';
 import PageHero from '@/components/patterns/PageHero';
@@ -8,7 +8,7 @@ type LoginProps = {
   errorKey?: string;
 };
 
-export default function Login({ errorKey }: LoginProps) {
+export default function LoginScreen({ errorKey }: LoginProps) {
   let errorMessage: string | null = null;
 
   if (errorKey === 'invalid-credentials') {

@@ -1,4 +1,4 @@
-// src/screens/Project.tsx
+// src/screens/ProjectScreen.tsx
 
 import { notFound } from 'next/navigation';
 import { ExternalLink } from 'lucide-react';
@@ -9,7 +9,7 @@ import Cta from '@/components/patterns/Cta';
 
 export const runtime = 'nodejs';
 
-export default async function ProjectPageView({ slug }: { slug: string }) {
+export default async function ProjectScreen({ slug }: { slug: string }) {
   const project = await getPublicProjectBySlugServer(slug);
   if (!project) notFound();
 

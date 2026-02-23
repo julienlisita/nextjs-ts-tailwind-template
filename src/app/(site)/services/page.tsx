@@ -1,6 +1,6 @@
 // src/app/(site)/services/page.tsx
 
-import Services from '@/screens/Services';
+import ServicesScreen from '@/screens/ServicesScreen';
 
 export const metadata = {
   title: 'Services – Nom entreprise',
@@ -12,5 +12,5 @@ export const metadata = {
 };
 
 export default function ServicesPage() {
-  return <Services />;
+  return <ServicesScreen />;
 }

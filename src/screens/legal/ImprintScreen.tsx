@@ -1,4 +1,4 @@
-// src/pages/legal/Imprint.tsx
+// src/pages/legal/ImprintScreen.tsx
 
 import Section from '@/components/layout/Section';
 import SectionWrapper from '@/components/layout/SectionWrapper';
@@ -16,7 +16,7 @@ const COMPANY_LEGAL_FORM = 'Forme juridique';
 const COMPANY_SIRET = 'Numéro SIRET';
 const SITE_DOMAIN = 'www.exemple.com';
 
-export default function Imprint() {
+export default function ImprintScreen() {
   const currentYear = new Date().getFullYear();
 
   return (
