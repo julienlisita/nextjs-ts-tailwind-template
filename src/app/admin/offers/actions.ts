@@ -4,6 +4,7 @@
 
 import { z } from 'zod';
 import { revalidatePath } from 'next/cache';
+import { requireAdminApp } from '@/server/guards/requireAdmin.app';
 import {
   createJobOffer,
   updateJobOffer,
@@ -20,6 +21,8 @@ const upsertSchema = z.object({
 });
 
 export async function upsertJobOfferAction(formData: FormData) {
+  await requireAdminApp();
+
   const parsed = upsertSchema.parse({
     id: formData.get('id') ?? undefined,
     slug: String(formData.get('slug') ?? ''),
@@ -51,6 +54,8 @@ export async function upsertJobOfferAction(formData: FormData) {
 }
 
 export async function deleteJobOfferAction(formData: FormData) {
+  await requireAdminApp();
+
   const id = Number(formData.get('id'));
   if (!Number.isFinite(id)) throw new Error('INVALID_ID');
 

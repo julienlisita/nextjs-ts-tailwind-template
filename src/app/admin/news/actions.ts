@@ -4,6 +4,7 @@
 
 import { z } from 'zod';
 import { revalidatePath } from 'next/cache';
+import { requireAdminApp } from '@/server/guards/requireAdmin.app';
 import { createNews, updateNews, deleteNews } from '@/server/services/news.service';
 
 const upsertSchema = z.object({
@@ -36,6 +37,8 @@ const upsertSchema = z.object({
 });
 
 export async function upsertNewsAction(formData: FormData) {
+  await requireAdminApp();
+
   const parsed = upsertSchema.parse({
     id: formData.get('id') ?? undefined,
     slug: formData.get('slug'),
@@ -70,6 +73,8 @@ export async function upsertNewsAction(formData: FormData) {
 }
 
 export async function deleteNewsAction(formData: FormData) {
+  await requireAdminApp();
+
   const id = Number(formData.get('id'));
   if (!Number.isFinite(id)) throw new Error('INVALID_ID');
   await deleteNews(id);

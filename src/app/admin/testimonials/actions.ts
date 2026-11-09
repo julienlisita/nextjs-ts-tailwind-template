@@ -4,6 +4,7 @@
 
 import { z } from 'zod';
 import { revalidatePath } from 'next/cache';
+import { requireAdminApp } from '@/server/guards/requireAdmin.app';
 import {
   publishTestimonial,
   unpublishTestimonial,
@@ -51,6 +52,8 @@ const updateSchema = z.object({
 const R = () => revalidatePath('/admin/temoignages');
 
 export async function publishTestimonialAction(formData: FormData) {
+  await requireAdminApp();
+
   const id = Number(formData.get('id'));
   if (!Number.isFinite(id)) throw new Error('INVALID_ID');
   await publishTestimonial(id);
@@ -58,6 +61,8 @@ export async function publishTestimonialAction(formData: FormData) {
 }
 
 export async function unpublishTestimonialAction(formData: FormData) {
+  await requireAdminApp();
+
   const id = Number(formData.get('id'));
   if (!Number.isFinite(id)) throw new Error('INVALID_ID');
   await unpublishTestimonial(id);
@@ -65,6 +70,8 @@ export async function unpublishTestimonialAction(formData: FormData) {
 }
 
 export async function toggleHighlightAction(formData: FormData) {
+  await requireAdminApp();
+
   const id = Number(formData.get('id'));
   const value = formData.get('value') === 'true';
   if (!Number.isFinite(id)) throw new Error('INVALID_ID');
@@ -73,6 +80,8 @@ export async function toggleHighlightAction(formData: FormData) {
 }
 
 export async function updateTestimonialAction(formData: FormData) {
+  await requireAdminApp();
+
   const parsed = updateSchema.parse({
     id: formData.get('id'),
     name: formData.get('name'),
@@ -90,6 +99,8 @@ export async function updateTestimonialAction(formData: FormData) {
 }
 
 export async function deleteTestimonialAction(formData: FormData) {
+  await requireAdminApp();
+
   const id = Number(formData.get('id'));
   if (!Number.isFinite(id)) throw new Error('INVALID_ID');
   await deleteTestimonial(id);
