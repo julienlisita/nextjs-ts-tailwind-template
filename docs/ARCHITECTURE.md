@@ -81,12 +81,12 @@ nextjs-ts-tailwind-template/
 - **`repositories/`**: One file per entity (e.g. `news.repo.ts`, `job-offer.repo.ts`). Thin wrappers around Prisma (findMany, findUnique, create, update, delete). No business logic.
 - **`services/`**:
   - **`*.service.ts`**: Business logic; call repos, no direct Prisma.
-  - **`*.server.ts`**: Adapters for server-side data fetching. They check `IS_DB` from `@/config/dataMode`: if false, return static data from `src/data/`; if true, call the corresponding `*.service.ts` (with dynamic import where needed to avoid bundling Prisma in edge/static). Used by Server Components rendered from `app/**/page.tsx`.
+  - **`*.server.ts`**: Adapters for server-side data fetching. They check `IS_DB` from `@/config/dataMode`: if false, return static data from `src/data/`; if true, call the corresponding `*.service.ts` (with dynamic import where needed to avoid bundling Prisma in edge/static). Used by Server Components rendered from `app/**/page.tsx`. Static-only features (e.g. portfolio `projects.server.ts`) have no service or repository: the adapter reads `src/data/` directly and ignores `IS_DB`.
 
 ### 2.5 `src/config/`, `src/data/`, `src/lib/`, `src/types/`, `src/utils/`
 
 - **`config/dataMode.ts`**: `DATA_MODE` = `'static' | 'db'` from env (`NEXT_PUBLIC_DATA_MODE` or `DATA_MODE`). `IS_DB` drives whether server adapters use DB or static data.
-- **`data/`**: Static arrays/objects (e.g. `news.ts`, `testimonials.ts`, `jobOffers.ts`) used when `IS_DB` is false. Types in `src/types/` align with these and with Prisma-backed responses.
+- **`data/`**: Static arrays/objects (e.g. `news.ts`, `testimonials.ts`, `jobOffers.ts`) used when `IS_DB` is false. `projects.ts` (portfolio) is static-only and served in both modes. Types in `src/types/` align with these and with Prisma-backed responses.
 - **`lib/`**: `prisma.ts` (singleton client), `jwt.ts`, `auth-cookies.ts`, `resolveColor.ts`.
 - **`types/`**: Shared types (e.g. `news.ts`, `testimonial.ts`, `job.ts`, `project.ts`, `feature.ts`); `next.d.ts` for Next-specific types.
 - **`utils/`**: Pure helpers (e.g. `align.ts`, `icons.ts`).
@@ -108,6 +108,7 @@ nextjs-ts-tailwind-template/
 
 1. **Entry point**: a Server Component (e.g. `*SectionServer.tsx`) rendered from `app/**/page.tsx` or composed inside a Screen.
 2. **Adapter** (`*.server.ts`): Reads `IS_DB`; if `!IS_DB`, returns data from `src/data/*`; if `IS_DB`, dynamically imports the corresponding `*.service.ts` and calls it.
+   - **Static-only exception** (portfolio): `projects.server.ts` returns `src/data/projects` directly in both modes, without service or repository.
 3. **Service** (`*.service.ts`): Uses repositories only.
 4. **Repository** (`*.repo.ts`): Uses Prisma for CRUD.
 

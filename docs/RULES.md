@@ -135,7 +135,7 @@ Keep the existing naming conventions:
 
 - Located in `src/server/services/*.server.ts`.
 - Used by Server Components or async `page.tsx` files.
-- Must respect `IS_DB` from `src/config/dataMode.ts`:
+- Must respect `IS_DB` from `src/config/dataMode.ts` (except for static-only features, see below):
   - If `IS_DB` is false → return static data from `src/data/`.
   - If `IS_DB` is true → call the corresponding service.
 - Do not introduce new data-fetching patterns.
@@ -144,6 +144,12 @@ Keep the existing naming conventions:
 
 - Lives in `src/data/` (e.g. `news.ts`, `testimonials.ts`).
 - Types in `src/types/` must match the shape returned by server adapters.
+
+### Static-only features
+
+- Some features (e.g. portfolio projects in `src/data/projects.ts`) use exclusively static data, in both `DATA_MODE` values. They have no Prisma model, no repository and no service.
+- Their `*.server.ts` adapter (e.g. `projects.server.ts`) reads `src/data/` directly and does not check `IS_DB`.
+- Do not add a repository for static data: repositories encapsulate database access only.
 
 ### Server actions
 
