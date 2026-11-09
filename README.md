@@ -83,8 +83,9 @@ The template supports two modes:
 
 Switch with:
 
-``env
+```env
 DATA_MODE=db
+```
 
 ## Scripts
 
