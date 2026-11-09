@@ -10,7 +10,7 @@ These rules describe the conventions used in this codebase. Follow them strictly
 - Do not introduce new libraries, styling systems, or data access patterns.
 - App Router only — the Pages Router is not used.
 - Tailwind is for layout/responsive only; visual styles live in component CSS files.
-- Prisma access is restricted to repositories.
+- Prisma access is restricted to repositories. Repositories are consumed by services (exception: read-only access from auth guards, see §5).
 
 ---
 
@@ -123,6 +123,7 @@ Keep the existing naming conventions:
 - Located in `src/server/repositories/*.repo.ts`.
 - Single source of Prisma access for an entity.
 - Must not contain business logic.
+- Consumed only by `src/server/services/` and, as a framed exception, by `src/server/guards/` (see §5).
 
 ### Services
 
@@ -158,6 +159,15 @@ App Router only.
 
 - Use `requireAuthApp` from `@/server/guards/requireAuth.app` for authenticated routes.
 - Use `requireAdminApp` from `@/server/guards/requireAdmin.app` for admin-only routes (e.g. `src/app/admin/layout.tsx`).
+
+**Framed exception: repository access from guards.**
+Auth guards (`src/server/guards/*.app.ts`) may call a repository directly, provided the access is:
+
+- **read-only** (`find*`, never `create` / `update` / `delete`);
+- **technical**: checking that an account exists or its state, or fetching the user identity for authorization;
+- **free of business logic**: any rule, computation, or orchestration belongs in a service.
+
+Any other consumer (server actions, pages, components, screens) must go through a service.
 
 JWT handling is centralized in:
 

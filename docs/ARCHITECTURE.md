@@ -77,7 +77,7 @@ nextjs-ts-tailwind-template/
 
 - **`guards/`**:
   - `requireAuth.app.ts` — App Router: reads cookie, verifies JWT, redirects to `/login` if missing/invalid; returns user payload.
-  - `requireAdmin.app.ts` — App Router: ensures the authenticated user has role `ADMIN`; used in `app/admin/layout.tsx` to protect all `/admin/*` routes.
+  - `requireAdmin.app.ts` — App Router: ensures the authenticated user has role `ADMIN`; used in `app/admin/layout.tsx` to protect all `/admin/*` routes. Reads the user through `userRepo.findById` (read-only technical check: account exists, profile returned) — see RULES §5.
 - **`repositories/`**: One file per entity (e.g. `news.repo.ts`, `job-offer.repo.ts`). Thin wrappers around Prisma (findMany, findUnique, create, update, delete). No business logic.
 - **`services/`**:
   - **`*.service.ts`**: Business logic; call repos, no direct Prisma.
@@ -117,7 +117,7 @@ nextjs-ts-tailwind-template/
 2. Action parses `FormData`, validates with **Zod**, then calls a **service** (e.g. `sendContactAdminEmail`, reservation create, testimonial create).
 3. Service may use repos and/or external APIs (e.g. Resend for email). Action then `redirect()` to success or error URL.
 
-- **Rule**: Server actions never call Prisma or repositories directly; they always go through services.
+- **Rule**: Server actions never call Prisma or repositories directly; they always go through services. (Only auth guards may read a repository directly, read-only — see RULES §5.)
 
 ---
 
@@ -136,7 +136,8 @@ nextjs-ts-tailwind-template/
 - **Login**: Form in `(auth)/login` submits to a server action; action validates credentials, creates JWT, sets HTTP-only cookie (name from `auth-cookies.ts`), then redirects.
 - **Protected routes (App Router)**: Layout or page calls `requireAuthApp()` or `requireAdminApp()`.
   - `requireAuthApp` reads cookie, verifies JWT, redirects to `/login` on failure.
-  - `requireAdminApp` enforces role `ADMIN` and can load user info via repository if needed.
+  - `requireAdminApp` enforces role `ADMIN` and reads the user through `userRepo` (read-only, technical check).
+  - Guards are the only layer allowed to read a repository without going through a service; see RULES §5.
 - **Admin layout**: `app/admin/layout.tsx` runs `requireAdminApp()` once; all `/admin/*` routes are protected.
 
 ---
