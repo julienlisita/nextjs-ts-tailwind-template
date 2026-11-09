@@ -3,12 +3,11 @@
 'use server';
 
 import { z } from 'zod';
-import bcrypt from 'bcryptjs';
 import { revalidatePath } from 'next/cache';
 import { cookies } from 'next/headers';
 import { verifyToken } from '@/lib/jwt';
 import { authCookieName } from '@/lib/auth-cookies';
-import { userRepo } from '@/server/repositories/user.repo';
+import { changePassword, updateProfile } from '@/server/services/user.service';
 
 // Schéma pour changement de mot de passe
 const passwordSchema = z.object({
@@ -38,14 +37,7 @@ export async function changePasswordAction(formData: FormData) {
   });
 
   const userId = await getCurrentUserId();
-  const user = await userRepo.findById(userId);
-  if (!user) throw new Error('USER_NOT_FOUND');
-
-  const ok = await bcrypt.compare(data.currentPassword, user.password);
-  if (!ok) throw new Error('INVALID_CURRENT_PASSWORD');
-
-  const hash = await bcrypt.hash(data.newPassword, 12);
-  await userRepo.updatePassword(userId, hash);
+  await changePassword(userId, data);
 
   // on revalide bien la bonne page
   revalidatePath('/admin/settings');
@@ -58,21 +50,7 @@ export async function updateProfileAction(formData: FormData) {
   });
 
   const userId = await getCurrentUserId();
-  const user = await userRepo.findById(userId);
-  if (!user) throw new Error('USER_NOT_FOUND');
-
-  // Si l'email change, vérifier qu'il n'est pas déjà pris
-  if (data.email !== user.email) {
-    const existing = await userRepo.findByEmail(data.email);
-    if (existing && existing.id !== userId) {
-      throw new Error('EMAIL_TAKEN');
-    }
-  }
-
-  await userRepo.updateProfile(userId, {
-    email: data.email,
-    name: data.name && data.name.trim() ? data.name.trim() : null,
-  });
+  await updateProfile(userId, { email: data.email, name: data.name });
 
   revalidatePath('/admin/settings');
 }
