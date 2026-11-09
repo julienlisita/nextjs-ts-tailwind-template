@@ -1,18 +1,12 @@
 // src/screens/ProjectScreen.tsx
 
-import { notFound } from 'next/navigation';
 import { ExternalLink } from 'lucide-react';
-import { getPublicProjectBySlugServer } from '@/server/services/projects.server';
+import type { Project } from '@/types/project';
 import PageHero from '@/components/patterns/PageHero';
 import ProjectContent from '@/components/portfolio/project/ProjectContent';
 import Cta from '@/components/patterns/Cta';
 
-export const runtime = 'nodejs';
-
-export default async function ProjectScreen({ slug }: { slug: string }) {
-  const project = await getPublicProjectBySlugServer(slug);
-  if (!project) notFound();
-
+export default function ProjectScreen({ project }: { project: Project }) {
   return (
     <div>
       <PageHero

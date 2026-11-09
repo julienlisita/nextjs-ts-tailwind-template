@@ -1,6 +1,6 @@
 // src/screens/admin/SlotsAdminScreen.tsx
 
-import { listAllSlotsAdmin } from '@/server/services/reservations.service';
+import type { ReservationSlot } from '@prisma/client';
 import {
   createSlotAction,
   deleteSlotAction,
@@ -29,9 +29,7 @@ function formatSlot(start: Date, end?: Date | null) {
   return fmt.formatRange(dStart, dEnd);
 }
 
-export default async function SlotsAdminScreen() {
-  const slots = await listAllSlotsAdmin();
-
+export default function SlotsAdminScreen({ slots }: { slots: ReservationSlot[] }) {
   return (
     <div className="w-full space-y-6">
       <header className="space-y-1">

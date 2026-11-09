@@ -1,6 +1,6 @@
 // src/screens/admin/ReservationsAdminScreen.tsx
 
-import { listUpcomingReservationsAdmin } from '@/server/services/reservations.service';
+import type { Reservation } from '@prisma/client';
 import { cancelReservationAction } from '@/app/admin/reservations/actions';
 
 function formatDateRange(start: Date, end?: Date | null) {
@@ -26,9 +26,13 @@ function formatDateRange(start: Date, end?: Date | null) {
   }).formatRange(dStart, dEnd);
 }
 
-export default async function ReservationsAdminScreen() {
-  const reservations = await listUpcomingReservationsAdmin();
+type ReservationWithSlot = Reservation & { slot: { startAt: Date; endAt: Date | null } };
 
+export default function ReservationsAdminScreen({
+  reservations,
+}: {
+  reservations: ReservationWithSlot[];
+}) {
   return (
     <div className="w-full space-y-4">
       <header>

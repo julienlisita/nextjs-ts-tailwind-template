@@ -1,12 +1,10 @@
 // src/screens/admin/OffersAdminScreen.tsx
 
-import { listJobOffers } from '@/server/services/job-offer.service';
+import type { JobOffer } from '@prisma/client';
 import { upsertJobOfferAction, deleteJobOfferAction } from '@/app/admin/offers/actions';
 import SubmitButton from '@/components/ui/SubmitButton';
 
-export default async function OffersAdminScreen() {
-  const offers = await listJobOffers();
-
+export default function OffersAdminScreen({ offers }: { offers: JobOffer[] }) {
   return (
     <div className="w-full space-y-6">
       <header>

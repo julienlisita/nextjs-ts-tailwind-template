@@ -1,5 +1,6 @@
 // src/app/(site)/portfolio/[slug]/page.tsx
 
+import { notFound } from 'next/navigation';
 import ProjectScreen from '@/screens/ProjectScreen';
 import { getPublicProjectBySlugServer } from '@/server/services/projects.server';
 
@@ -35,5 +36,9 @@ export async function generateMetadata({ params }: PageProps) {
 
 export default async function ProjectPage({ params }: PageProps) {
   const { slug } = await params;
-  return <ProjectScreen slug={slug} />;
+
+  const project = await getPublicProjectBySlugServer(slug);
+  if (!project) notFound();
+
+  return <ProjectScreen project={project} />;
 }

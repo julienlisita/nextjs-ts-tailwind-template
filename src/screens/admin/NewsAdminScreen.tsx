@@ -1,12 +1,10 @@
 // src/screens/admin/NewsAdminScreen.tsx
 
-import { listNews } from '@/server/services/news.service';
+import type { NewsItem } from '@prisma/client';
 import { upsertNewsAction, deleteNewsAction } from '@/app/admin/news/actions';
 import SubmitButton from '@/components/ui/SubmitButton';
 
-export default async function NewsAdminScreen() {
-  const items = await listNews();
-
+export default function NewsAdminScreen({ items }: { items: NewsItem[] }) {
   return (
     <div className="w-full space-y-6">
       <header>

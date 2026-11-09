@@ -1,6 +1,6 @@
 // src/screens/admin/TestimonialsAdminScreen.tsx
 
-import { listAllTestimonials } from '@/server/services/testimonials.service';
+import type { Testimonial } from '@prisma/client';
 import {
   publishTestimonialAction,
   unpublishTestimonialAction,
@@ -10,9 +10,7 @@ import {
 } from '@/app/admin/testimonials/actions';
 import SubmitButton from '@/components/ui/SubmitButton';
 
-export default async function TestimonialsAdminScreen() {
-  const items = await listAllTestimonials();
-
+export default function TestimonialsAdminScreen({ items }: { items: Testimonial[] }) {
   return (
     <div className="w-full space-y-6">
       <header>
