@@ -1,6 +1,6 @@
-# Architecture (current state)
+# Architecture
 
-This document describes the existing architecture, folder roles, and main data/UI flows. No new architecture or renames are proposed.
+This document describes the architecture as implemented: folder roles and the main data/UI flows. It must be kept in sync with the code. The conventions to follow when changing the code are in `docs/RULES.md`.
 
 ---
 
@@ -8,7 +8,7 @@ This document describes the existing architecture, folder roles, and main data/U
 
 - App Router handles routing; `src/screens/` contains screen components only.
 - UI → server actions → services → repositories → Prisma.
-- Data can come from static files or DB depending on `IS_DB`.
+- Data can come from static files or DB depending on `IS_DB` (static-only features such as the portfolio always use static files).
 - Tailwind = layout/responsive; CSS files = visual styling.
 
 ## 1. High-level stack
@@ -58,6 +58,7 @@ nextjs-ts-tailwind-template/
   - Do not fetch data.
   - Do not define routes.
   - Do not use `getServerSideProps`.
+  - Receive their data through props from `page.tsx` (which fetches it, directly or via `*.server.ts` / services). They may import Prisma **types** (`import type`), never the Prisma client or repositories.
 - They compose:
   - UI components,
   - and server components (e.g. `*SectionServer.tsx`).
