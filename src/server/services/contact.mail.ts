@@ -1,6 +1,7 @@
 // src/server/services/contact.mail.ts
 
 const brevoApiKey = process.env.BREVO_API_KEY;
+const mailSenderEmail = process.env.MAIL_SENDER_EMAIL;
 const contactNotificationEmail =
   process.env.CONTACT_NOTIFICATION_EMAIL ?? process.env.ADMIN_NOTIFICATION_EMAIL;
 
@@ -23,6 +24,11 @@ export async function sendContactAdminEmail({
 }: SendContactAdminEmailInput): Promise<boolean> {
   if (!brevoApiKey) {
     console.warn('[sendContactAdminEmail] BREVO_API_KEY manquante, email non envoyé');
+    return false;
+  }
+
+  if (!mailSenderEmail) {
+    console.warn('[sendContactAdminEmail] MAIL_SENDER_EMAIL manquante, email non envoyé');
     return false;
   }
 
@@ -69,7 +75,7 @@ export async function sendContactAdminEmail({
       body: JSON.stringify({
         sender: {
           name: 'Contact',
-          email: 'no-reply@julienlisita.com',
+          email: mailSenderEmail,
         },
         to: [{ email: targetAdminEmail }],
         replyTo: { email, name: displayName },

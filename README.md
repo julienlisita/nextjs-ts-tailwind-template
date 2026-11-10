@@ -91,17 +91,18 @@ DATA_MODE=db
 
 Define them in a `.env` file (never commit it).
 
-| Variable                         | Required                        | Description                                                                           |
-| -------------------------------- | ------------------------------- | ------------------------------------------------------------------------------------- |
-| `DATABASE_URL`                   | Database mode, migrations, seed | PostgreSQL connection string                                                          |
-| `DATA_MODE`                      | No (default `static`)           | `static` or `db` (`NEXT_PUBLIC_DATA_MODE` is also read)                               |
-| `JWT_SECRET`                     | Authentication (login, admin)   | Secret used to sign JWTs; the app throws when the auth module is loaded without it    |
-| `ADMIN_SEED_PASSWORD`            | `npm run db:seed`               | Password of the seeded admin user; the seed fails without it                          |
-| `SEED_ON_BUILD`                  | No                              | `true` makes `npm run seed:if` run the seed                                           |
-| `BREVO_API_KEY`                  | Email sending                   | Brevo API key; without it, emails are skipped and a warning is logged                 |
-| `ADMIN_NOTIFICATION_EMAIL`       | Email sending                   | Recipient of admin notifications (reservations; fallback for contact and recruitment) |
-| `CONTACT_NOTIFICATION_EMAIL`     | No                              | Overrides the recipient of contact form notifications                                 |
-| `RECRUITMENT_NOTIFICATION_EMAIL` | No                              | Overrides the recipient of job application notifications                              |
+| Variable                         | Required                        | Description                                                                                                                                          |
+| -------------------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `DATABASE_URL`                   | Database mode, migrations, seed | PostgreSQL connection string                                                                                                                         |
+| `DATA_MODE`                      | No (default `static`)           | `static` or `db` (`NEXT_PUBLIC_DATA_MODE` is also read)                                                                                              |
+| `JWT_SECRET`                     | Authentication (login, admin)   | Secret used to sign JWTs; the app throws when the auth module is loaded without it                                                                   |
+| `ADMIN_SEED_PASSWORD`            | `npm run db:seed`               | Password of the seeded admin user; the seed fails without it                                                                                         |
+| `SEED_ON_BUILD`                  | No                              | `true` makes `npm run seed:if` run the seed                                                                                                          |
+| `BREVO_API_KEY`                  | Email sending                   | Brevo API key; without it, emails are skipped and a warning is logged                                                                                |
+| `MAIL_SENDER_EMAIL`              | Email sending                   | Sender address (must be a sender/domain validated in Brevo); without it, emails are skipped                                                          |
+| `ADMIN_NOTIFICATION_EMAIL`       | Email sending                   | Recipient of admin notifications (reservations; fallback for contact and recruitment); also displayed as the contact address on the reservation page |
+| `CONTACT_NOTIFICATION_EMAIL`     | No                              | Overrides the recipient of contact form notifications                                                                                                |
+| `RECRUITMENT_NOTIFICATION_EMAIL` | No                              | Overrides the recipient of job application notifications                                                                                             |
 
 ## Scripts
 

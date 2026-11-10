@@ -1,6 +1,7 @@
 // src/server/services/recruitment.mail.ts
 
 const brevoApiKey = process.env.BREVO_API_KEY;
+const mailSenderEmail = process.env.MAIL_SENDER_EMAIL;
 
 // Tu peux choisir une variable dédiée, sinon fallback admin
 const recruitmentNotificationEmail =
@@ -34,6 +35,11 @@ export async function sendApplicationAdminEmail({
 }: SendApplicationAdminEmailInput): Promise<boolean> {
   if (!brevoApiKey) {
     console.warn('[sendApplicationAdminEmail] BREVO_API_KEY manquante, email non envoyé');
+    return false;
+  }
+
+  if (!mailSenderEmail) {
+    console.warn('[sendApplicationAdminEmail] MAIL_SENDER_EMAIL manquante, email non envoyé');
     return false;
   }
 
@@ -85,7 +91,7 @@ export async function sendApplicationAdminEmail({
       body: JSON.stringify({
         sender: {
           name: 'Candidatures',
-          email: 'no-reply@julienlisita.com',
+          email: mailSenderEmail,
         },
         to: [{ email: targetAdminEmail }],
         replyTo: { email, name: displayName },

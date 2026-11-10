@@ -1,6 +1,7 @@
 // src/server/services/reservations.mail.ts
 
 const brevoApiKey = process.env.BREVO_API_KEY;
+const mailSenderEmail = process.env.MAIL_SENDER_EMAIL;
 const adminNotificationEmail = process.env.ADMIN_NOTIFICATION_EMAIL;
 
 type SendReservationConfirmationEmailInput = {
@@ -26,6 +27,13 @@ export async function sendReservationConfirmationEmail({
 }: SendReservationConfirmationEmailInput): Promise<boolean> {
   if (!brevoApiKey) {
     console.warn('[sendReservationConfirmationEmail] BREVO_API_KEY manquante, email non envoyé');
+    return false;
+  }
+
+  if (!mailSenderEmail) {
+    console.warn(
+      '[sendReservationConfirmationEmail] MAIL_SENDER_EMAIL manquante, email non envoyé'
+    );
     return false;
   }
 
@@ -92,7 +100,7 @@ L'équipe du site
       body: JSON.stringify({
         sender: {
           name: 'Réservations',
-          email: 'no-reply@julienlisita.com',
+          email: mailSenderEmail,
         },
         to: [
           {
@@ -150,6 +158,11 @@ export async function sendReservationAdminEmail({
 }: SendReservationAdminEmailInput): Promise<boolean> {
   if (!brevoApiKey) {
     console.warn('[sendReservationAdminEmail] BREVO_API_KEY manquante, email non envoyé');
+    return false;
+  }
+
+  if (!mailSenderEmail) {
+    console.warn('[sendReservationAdminEmail] MAIL_SENDER_EMAIL manquante, email non envoyé');
     return false;
   }
 
@@ -217,7 +230,7 @@ export async function sendReservationAdminEmail({
       body: JSON.stringify({
         sender: {
           name: 'Réservations',
-          email: 'no-reply@julienlisita.com', // même expéditeur que le mail client
+          email: mailSenderEmail, // même expéditeur que le mail client
         },
         to: [
           {

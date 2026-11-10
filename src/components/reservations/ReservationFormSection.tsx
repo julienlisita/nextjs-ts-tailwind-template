@@ -13,6 +13,9 @@ type ReservationFormSectionProps = {
 };
 
 export default function ReservationFormSection({ slots }: ReservationFormSectionProps) {
+  // Variable serveur : lue à la requête (Server Component), jamais exposée au bundle client.
+  const contactEmail = process.env.ADMIN_NOTIFICATION_EMAIL;
+
   return (
     <Section className={clsx('reservation-form-section')}>
       <SectionWrapper>
@@ -36,10 +39,12 @@ export default function ReservationFormSection({ slots }: ReservationFormSection
               réservation.
             </p>
 
-            <p className="text-sm text-neutral-700">
-              Pour toute question ou modification, vous pouvez écrire à&nbsp;
-              <strong>julien.lisita@gmail.com</strong>.
-            </p>
+            {contactEmail && (
+              <p className="text-sm text-neutral-700">
+                Pour toute question ou modification, vous pouvez écrire à&nbsp;
+                <strong>{contactEmail}</strong>.
+              </p>
+            )}
           </aside>
         </div>
       </SectionWrapper>

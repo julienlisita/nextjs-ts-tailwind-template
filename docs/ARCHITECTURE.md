@@ -149,7 +149,7 @@ nextjs-ts-tailwind-template/
 - **Single source of truth**: The Prisma schema is the single source of truth for all DB-backed types and shapes. TypeScript types must align with it and should not redefine DB entities independently.
 - **Migrations**: Stored in `prisma/migrations/`; applied with `db:deploy` or `prisma migrate dev`.
 - **Seed**: `prisma/seed.ts` (run via `db:seed`). Optional: `scripts/seed-if.js` runs seed when `SEED_ON_BUILD=true`.
-- **Env**: `DATABASE_URL` for Prisma. `NEXT_PUBLIC_DATA_MODE` or `DATA_MODE` for static vs DB. `BREVO_API_KEY` and `ADMIN_NOTIFICATION_EMAIL` for email sending (Brevo HTTP API, called with `fetch` from `src/server/services/*.mail.ts`), plus optional `CONTACT_NOTIFICATION_EMAIL` and `RECRUITMENT_NOTIFICATION_EMAIL` overrides.
+- **Env**: `DATABASE_URL` for Prisma. `NEXT_PUBLIC_DATA_MODE` or `DATA_MODE` for static vs DB. `BREVO_API_KEY`, `MAIL_SENDER_EMAIL` and `ADMIN_NOTIFICATION_EMAIL` for email sending (Brevo HTTP API, called with `fetch` from `src/server/services/*.mail.ts`), plus optional `CONTACT_NOTIFICATION_EMAIL` and `RECRUITMENT_NOTIFICATION_EMAIL` overrides.
 
 ## Non-responsibilities
 
