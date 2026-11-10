@@ -13,7 +13,7 @@ const compat = new FlatCompat({
 });
 
 export default [
-  { ignores: ['src/generated/**'] },
+  { ignores: ['.next/**', 'next-env.d.ts', 'src/generated/**'] },
 
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
   {

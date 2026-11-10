@@ -43,8 +43,9 @@ function parisDateKey(d: Date) {
 }
 
 function stripId<T extends { id?: unknown }>(item: T): Omit<T, 'id'> {
-  const { id, ...rest } = item as any;
-  return rest as Omit<T, 'id'>;
+  const copy: Partial<T> = { ...item };
+  delete copy.id;
+  return copy as Omit<T, 'id'>;
 }
 function toDate<T extends { publishedAt?: string }>(item: T) {
   return {
@@ -93,7 +94,7 @@ export async function main() {
       toDate({
         ...stripId(item),
         // éviter undefined pour les champs NULLables
-        coverImage: (item as any).coverImage ?? null,
+        coverImage: (item as NewsItem & { coverImage?: string | null }).coverImage ?? null,
       })
     ) as Prisma.NewsItemCreateManyInput[],
   });
