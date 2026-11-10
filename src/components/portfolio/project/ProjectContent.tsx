@@ -21,7 +21,7 @@ export default function ProjectContent({ project }: { project: Project }) {
   return (
     <>
       {/* En bref */}
-      <Section bgColor="var(--section-projects-bg)">
+      <Section>
         <SectionWrapper>
           <HeaderBlock
             eyebrow={project.kind ?? 'Projet'}
@@ -111,7 +111,7 @@ export default function ProjectContent({ project }: { project: Project }) {
 
       {/* Résultats */}
       {project.outcomes?.length && (
-        <Section bgColor="var(--section-projects-bg)">
+        <Section>
           <SectionWrapper>
             <HeaderBlock
               eyebrow="Impact"

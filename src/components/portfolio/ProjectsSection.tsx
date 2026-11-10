@@ -53,7 +53,7 @@ export default function ProjectsSection({ items }: { items: ReadonlyArray<Projec
   const onNext = () => setPage((p) => clamp(p + 1, 1, totalPages));
 
   return (
-    <Section bgColor="var(--section-projects-bg)">
+    <Section>
       <SectionWrapper>
         <HeaderBlock
           eyebrow="Portfolio"
