@@ -1,4 +1,4 @@
-// scripts/ sedd-if.ts
+// scripts/seed-if.mjs
 
 import { execSync } from 'node:child_process';
 import 'dotenv/config';

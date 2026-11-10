@@ -23,7 +23,7 @@ function requireEnv(name: string): string {
   const v = process.env[name];
   if (!v) {
     throw new Error(
-      `Missing ${name}. Create a .env.local file and set ${name} before running prisma db seed.`
+      `Missing ${name}. Set ${name} in your .env file (or in the environment) before running prisma db seed.`
     );
   }
   return v;

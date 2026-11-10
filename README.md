@@ -106,19 +106,19 @@ Define them in a `.env` file (never commit it).
 
 ## Scripts
 
-| Script         | Description                                                      |
-| -------------- | ---------------------------------------------------------------- |
-| `dev`          | Start dev server with Turbopack                                  |
-| `build`        | Run `prisma generate` then `next build`                          |
-| `start`        | Start production server                                          |
-| `lint`         | Run ESLint on `.ts` / `.tsx`                                     |
-| `lint:fix`     | ESLint with auto-fix                                             |
-| `format`       | Prettier: format all files                                       |
-| `check-format` | Prettier: check only (no write)                                  |
-| `check-types`  | TypeScript check (`tsc --noEmit`)                                |
-| `db:deploy`    | Apply Prisma migrations (`prisma migrate deploy`)                |
-| `db:seed`      | Run Prisma seed (`prisma db seed`)                               |
-| `seed:if`      | Run seed only if `SEED_ON_BUILD=true` (via `scripts/seed-if.js`) |
+| Script         | Description                                                       |
+| -------------- | ----------------------------------------------------------------- |
+| `dev`          | Start dev server with Turbopack                                   |
+| `build`        | Run `prisma generate` then `next build`                           |
+| `start`        | Start production server                                           |
+| `lint`         | Run ESLint on `.ts` / `.tsx`                                      |
+| `lint:fix`     | ESLint with auto-fix                                              |
+| `format`       | Prettier: format all files                                        |
+| `check-format` | Prettier: check only (no write)                                   |
+| `check-types`  | TypeScript check (`tsc --noEmit`)                                 |
+| `db:deploy`    | Apply Prisma migrations (`prisma migrate deploy`)                 |
+| `db:seed`      | Run Prisma seed (`prisma db seed`)                                |
+| `seed:if`      | Run seed only if `SEED_ON_BUILD=true` (via `scripts/seed-if.mjs`) |
 
 `postinstall` runs `prisma generate` so the client is available after install.
 
