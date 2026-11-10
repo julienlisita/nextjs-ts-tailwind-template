@@ -7,8 +7,3 @@ export const DATA_MODE: DataMode =
   'static';
 
 export const IS_DB = DATA_MODE === 'db';
-
-// Exports utiles aux pages
-export const PAGE_DYNAMIC = IS_DB ? 'force-dynamic' : ('error' as const);
-export const PAGE_RUNTIME = IS_DB ? 'nodejs' : ('edge' as const);
-export const PAGE_REVALIDATE = IS_DB ? 0 : (false as const);
