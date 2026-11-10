@@ -87,7 +87,7 @@ nextjs-ts-tailwind-template/
 
 - **`config/dataMode.ts`**: `DATA_MODE` = `'static' | 'db'` from env (`NEXT_PUBLIC_DATA_MODE` or `DATA_MODE`). `IS_DB` drives whether server adapters use DB or static data.
 - **`data/`**: Static arrays/objects (e.g. `news.ts`, `testimonials.ts`, `jobOffers.ts`) used when `IS_DB` is false. `projects.ts` (portfolio) is static-only and served in both modes. Types in `src/types/` align with these and with Prisma-backed responses.
-- **`lib/`**: `prisma.ts` (singleton client), `jwt.ts`, `auth-cookies.ts`, `resolveColor.ts`.
+- **`lib/`**: `prisma.ts` (singleton client), `jwt.ts`, `auth-cookies.ts`, `resolveColor.ts` (resolves a token name or CSS color for the `bgColor` / `color` props of `Section` and `PageTitle`).
 - **`types/`**: Shared types (e.g. `news.ts`, `testimonial.ts`, `job.ts`, `project.ts`, `feature.ts`); `next.d.ts` for Next-specific types.
 - **`utils/`**: Pure helpers (e.g. `align.ts`, `icons.ts`).
 

@@ -1,6 +1,7 @@
 // src/components/layout/Section.tsx
 
 import React from 'react';
+import { resolveColor } from '@/lib/resolveColor';
 
 type SectionProps = {
   children: React.ReactNode;
@@ -9,13 +10,6 @@ type SectionProps = {
   id?: string;
   labelledBy?: string; // id du titre principal (SectionTitle)
   describedBy?: string; // id du sous-titre (Subtitle)
-};
-
-const resolveColor = (color: string): string => {
-  if (color.startsWith('#') || color.startsWith('rgb') || color.startsWith('hsl')) {
-    return color;
-  }
-  return `var(--color-${color})`;
 };
 
 export default function Section({

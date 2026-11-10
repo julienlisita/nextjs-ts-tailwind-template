@@ -1,16 +1,11 @@
 // src/components/ui/PageTitle.tsx
 
+import { resolveColor } from '@/lib/resolveColor';
+
 type PageTitleProps = {
   className?: string;
   children: React.ReactNode;
   color?: string;
-};
-
-const resolveColor = (color: string) => {
-  if (color.startsWith('#') || color.startsWith('rgb') || color.startsWith('hsl')) {
-    return color;
-  }
-  return `var(--color-${color})`;
 };
 
 export default function PageTitle({ className = '', children, color = 'heading' }: PageTitleProps) {
