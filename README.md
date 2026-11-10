@@ -19,7 +19,7 @@ Modern fullstack template: **Next.js 15 (App Router)**, **TypeScript**, **Tailwi
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js 18.18+ (minimum required by Next.js, Prisma and ESLint; developed and tested with Node 20)
 - PostgreSQL (for database mode)
 
 ### Install and run
@@ -86,6 +86,22 @@ Switch with:
 ```env
 DATA_MODE=db
 ```
+
+## Environment variables
+
+Define them in a `.env` file (never commit it).
+
+| Variable                         | Required                        | Description                                                                           |
+| -------------------------------- | ------------------------------- | ------------------------------------------------------------------------------------- |
+| `DATABASE_URL`                   | Database mode, migrations, seed | PostgreSQL connection string                                                          |
+| `DATA_MODE`                      | No (default `static`)           | `static` or `db` (`NEXT_PUBLIC_DATA_MODE` is also read)                               |
+| `JWT_SECRET`                     | Authentication (login, admin)   | Secret used to sign JWTs; the app throws when the auth module is loaded without it    |
+| `ADMIN_SEED_PASSWORD`            | `npm run db:seed`               | Password of the seeded admin user; the seed fails without it                          |
+| `SEED_ON_BUILD`                  | No                              | `true` makes `npm run seed:if` run the seed                                           |
+| `BREVO_API_KEY`                  | Email sending                   | Brevo API key; without it, emails are skipped and a warning is logged                 |
+| `ADMIN_NOTIFICATION_EMAIL`       | Email sending                   | Recipient of admin notifications (reservations; fallback for contact and recruitment) |
+| `CONTACT_NOTIFICATION_EMAIL`     | No                              | Overrides the recipient of contact form notifications                                 |
+| `RECRUITMENT_NOTIFICATION_EMAIL` | No                              | Overrides the recipient of job application notifications                              |
 
 ## Scripts
 
