@@ -11,15 +11,15 @@
 }
 
 .split.split--muted {
-  background-color: #faf8f3;
-  border-top: 2px solid var(--color-terre);
-  border-bottom: 2px solid var(--color-terre);
+  background-color: var(--color-split-muted-bg);
+  border-top: 2px solid var(--color-border);
+  border-bottom: 2px solid var(--color-border);
 }
 
 .split.split--brand {
-  background-color: #f0f6ff;
-  border-top: 2px solid #3e8ce0;
-  border-bottom: 2px solid #3e8ce0;
+  background-color: var(--color-split-brand-bg);
+  border-top: 2px solid var(--color-split-brand-border);
+  border-bottom: 2px solid var(--color-split-brand-border);
 }
 
 /* ────────────────────────────────────────────── */

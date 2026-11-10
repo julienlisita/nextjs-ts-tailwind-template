@@ -39,7 +39,7 @@ export default function NewsSection({ items }: Props) {
   const onNext = () => setPage((p) => clamp(p + 1, 1, totalPages));
 
   return (
-    <Section bgColor="#A8D5BA15">
+    <Section bgColor="section-tint">
       <SectionWrapper>
         <HeaderBlock title="Articles récents" align="center" />
 

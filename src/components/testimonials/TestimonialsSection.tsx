@@ -50,7 +50,7 @@ export default function TestimonialsSection({ items }: { items: ReadonlyArray<Te
   const onNext = () => setPage((p) => clamp(p + 1, 1, totalPages));
 
   return (
-    <Section bgColor="#A8D5BA15">
+    <Section bgColor="section-tint">
       <SectionWrapper>
         <HeaderBlock
           eyebrow="Ils nous font confiance"

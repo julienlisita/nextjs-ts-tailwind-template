@@ -13,7 +13,7 @@ const resolveColor = (color: string) => {
   return `var(--color-${color})`;
 };
 
-export default function PageTitle({ className = '', children, color = 'terre' }: PageTitleProps) {
+export default function PageTitle({ className = '', children, color = 'heading' }: PageTitleProps) {
   return (
     <h1
       className={`${className}

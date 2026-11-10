@@ -12,7 +12,7 @@ export default function ValuesSection() {
   const subtitleId = React.useId();
 
   return (
-    <Section bgColor="#A8D5BA15" labelledBy={titleId} describedBy={subtitleId}>
+    <Section bgColor="section-tint" labelledBy={titleId} describedBy={subtitleId}>
       <SectionWrapper>
         <HeaderBlock
           eyebrow="Nos valeurs"

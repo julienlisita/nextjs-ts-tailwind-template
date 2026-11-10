@@ -16,7 +16,7 @@
 .slot-accordion__item {
   border: 1px solid color-mix(in srgb, var(--color-text) 15%, transparent);
   border-radius: 16px;
-  background: #fff;
+  background: var(--white-100);
   overflow: hidden;
 }
 
@@ -98,7 +98,7 @@
   border-radius: 14px;
   font-weight: 600;
   border: 1px solid color-mix(in srgb, var(--color-text) 15%, transparent);
-  background: #fff;
+  background: var(--white-100);
   transition: 0.15s ease;
 }
 
@@ -108,7 +108,7 @@
 
 .slot-accordion__time.is-active {
   border-color: var(--color-primary);
-  background: color-mix(in srgb, var(--color-primary) 12%, #fff);
+  background: color-mix(in srgb, var(--color-primary) 12%, var(--white-100));
 }
 
 .slot-accordion__more {
@@ -122,7 +122,7 @@
   border-radius: 14px;
   font-weight: 600;
   border: 1px solid color-mix(in srgb, var(--color-text) 15%, transparent);
-  background: #fff;
+  background: var(--white-100);
   transition: 0.15s ease;
 }
 

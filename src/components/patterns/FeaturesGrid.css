@@ -9,11 +9,11 @@
   @apply px-4 py-2 text-sm font-medium rounded-xl transition;
   border: 1px solid var(--color-primary);
   color: var(--color-primary);
-  background-color: #fff;
+  background-color: var(--white-100);
 }
 
 .features__tab.is-active {
-  color: #fff;
+  color: var(--white-100);
   background-color: var(--color-primary);
 }
 
@@ -31,7 +31,7 @@
   @apply px-4 py-2 text-sm font-semibold rounded-[12px] transition;
   border: 2px solid var(--color-primary);
   color: var(--color-primary);
-  background-color: #ffffff;
+  background-color: var(--white-100);
 }
 
 .features__page-btn:disabled {
@@ -41,7 +41,7 @@
 
 .features__page-btn:hover:not(:disabled) {
   background-color: var(--color-primary);
-  color: #ffffff;
+  color: var(--white-100);
 }
 
 .features__page-info {

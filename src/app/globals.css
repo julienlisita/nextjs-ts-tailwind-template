@@ -76,6 +76,7 @@
   --color-header-border: color-mix(in oklab, var(--color-primary) 8%, transparent);
   --color-header-icon: var(--neutral-800);
   --color-header-mobile-hover: var(--neutral-200);
+  --color-header-mobile-active: #f9fafb;
 
   /* Footer / CTA / Heroes */
   --color-footer-bg: var(--brand-strong);
@@ -95,6 +96,12 @@
   --color-home-hero-bg: var(--brand-strong);
   --color-home-hero-fg: var(--on-brand-strong);
   --color-home-hero-subtitle: rgba(242, 242, 242, 0.8);
+
+  /* Sections */
+  --color-section-tint: #a8d5ba15; /* Section bgColor="section-tint" */
+  --color-split-muted-bg: #faf8f3;
+  --color-split-brand-bg: #f0f6ff;
+  --color-split-brand-border: #3e8ce0;
 
   /* Typography */
   --color-section-title: var(--color-heading);

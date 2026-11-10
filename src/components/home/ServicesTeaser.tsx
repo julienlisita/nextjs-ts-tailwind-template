@@ -9,7 +9,7 @@ import ServicesGrid from './ServicesGrid';
 
 export default function ServicesTeaser() {
   return (
-    <Section bgColor="#A8D5BA15">
+    <Section bgColor="section-tint">
       <SectionWrapper>
         <HeaderBlock
           eyebrow="Nos Services"

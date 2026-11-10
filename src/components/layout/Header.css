@@ -94,7 +94,7 @@
 }
 
 .mobile-link[aria-current='page'] {
-  background-color: #f9fafb;
+  background-color: var(--color-header-mobile-active);
   font-weight: 600;
   color: var(--color-header-text);
 }

@@ -9,7 +9,7 @@ These rules describe the conventions used in this codebase. Follow them strictly
 - Do not change existing architecture or folder structure.
 - Do not introduce new libraries, styling systems, or data access patterns.
 - App Router only — the Pages Router is not used.
-- Tailwind is for layout/responsive only; visual styles live in component CSS files.
+- Tailwind is for layout/responsive only on the public site; visual styles live in component CSS files (admin exception: see §1.4).
 - Prisma access is restricted to repositories. Repositories are consumed by services (exception: read-only access from auth guards, see §5).
 
 ---
@@ -43,6 +43,7 @@ Rules:
 - Do not hardcode hex, rgb, or hsl values for brand/UI colors in components.
 - Always use existing tokens when possible.
 - If a new visual variable is required, add a token in `globals.css` following the existing structure.
+- Reuse an existing token only if its value and theme behavior (light/dark) match; otherwise add a dedicated token.
 - Each component that needs custom visuals must have a co-located `.css` file imported in the component (e.g. `import './Button.css'`).
 
 ### 1.3 Summary
@@ -53,6 +54,13 @@ Rules:
 | Responsive, breakpoints   | Tailwind               |
 | Colors, borders, shadows  | CSS + design tokens    |
 | Hover, focus, transitions | CSS files              |
+
+### 1.4 Scope of the rules
+
+- **Public site** (`src/app/(site)/`, public screens and components): Tailwind for layout and responsive only. Colors and visual identity use CSS files and design tokens.
+- **Administration** (`src/app/admin/`, `src/screens/admin/`, `src/components/admin/`): Tailwind color classes (e.g. `text-neutral-600`, `bg-white`) are allowed for simple internal interfaces. Hardcoded hex/rgb/hsl values remain forbidden.
+- **Shared components** (`src/components/ui/`, `layout/`, `patterns/`, etc.): prefer semantic tokens (e.g. `--color-surface`, `--color-primary`) for important colors, so that they follow the theme (light/dark).
+- Existing Tailwind color classes on the public site are legacy; they are not migrated automatically. Do not add new ones.
 
 ---
 
