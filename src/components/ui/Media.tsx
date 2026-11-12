@@ -18,6 +18,7 @@ export default function Media({
   shadow = false,
   className,
   imgClassName,
+  alt,
   ...img
 }: Props) {
   return (
@@ -35,7 +36,7 @@ export default function Media({
         className
       )}
     >
-      <Image {...img} className={clsx('w-full h-auto', imgClassName)} />
+      <Image {...img} alt={alt} className={clsx('w-full h-auto', imgClassName)} />
     </div>
   );
 }
