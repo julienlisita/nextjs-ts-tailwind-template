@@ -78,7 +78,7 @@ nextjs-ts-tailwind-template/
 
 - **`guards/`**:
   - `requireAuth.app.ts` — App Router: reads cookie, verifies JWT, redirects to `/login` if missing/invalid; returns user payload.
-  - `requireAdmin.app.ts` — App Router: ensures the authenticated user has role `ADMIN`; used in `app/admin/layout.tsx` to protect all `/admin/*` routes. Reads the user through `userRepo.findById` (read-only technical check: account exists, profile returned) — see RULES §5.
+  - `requireAdmin.app.ts` — App Router: ensures the authenticated user has role `ADMIN`; used in `app/admin/layout.tsx` to protect all `/admin/*` routes. Reads the user through `userRepo.findById` (read-only technical check: account exists and is still `ADMIN` in the database, profile returned) — see RULES §5.
 - **`repositories/`**: One file per entity (e.g. `news.repo.ts`, `job-offer.repo.ts`). Thin wrappers around Prisma (findMany, findUnique, create, update, delete). No business logic.
 - **`services/`**:
   - **`*.service.ts`**: Business logic; call repos, no direct Prisma.
@@ -138,7 +138,7 @@ nextjs-ts-tailwind-template/
 - **Login**: Form in `(auth)/login` submits to a server action; action validates credentials, creates JWT, sets HTTP-only cookie (name from `auth-cookies.ts`), then redirects.
 - **Protected routes (App Router)**: Layout or page calls `requireAuthApp()` or `requireAdminApp()`.
   - `requireAuthApp` reads cookie, verifies JWT, redirects to `/login` on failure.
-  - `requireAdminApp` enforces role `ADMIN` and reads the user through `userRepo` (read-only, technical check).
+  - `requireAdminApp` enforces role `ADMIN`: the JWT role is a fast pre-check, and the role stored in the database is authoritative (read through `userRepo`, read-only technical check). A deleted or demoted admin loses access without waiting for the token to expire.
   - Guards are the only layer allowed to read a repository without going through a service; see RULES §5.
 - **Admin layout**: `app/admin/layout.tsx` runs `requireAdminApp()` once; all `/admin/*` routes are protected.
 
