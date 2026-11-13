@@ -1,4 +1,4 @@
-// src/app/(site)/temoignages/new/page.tsx
+// src/app/(site)/testimonials/new/page.tsx
 
 import NewTestimonialScreen from '@/screens/NewTestimonialScreen';
 

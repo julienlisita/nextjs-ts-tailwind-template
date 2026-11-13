@@ -1,4 +1,4 @@
-// src/app/(site)/temoignages/merci/page.tsx
+// src/app/(site)/testimonials/merci/page.tsx
 
 export const metadata = {
   title: 'Merci pour votre témoignage',

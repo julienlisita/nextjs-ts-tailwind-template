@@ -1,4 +1,4 @@
-// src/services/news.server.ts
+// src/server/services/news.server.ts
 
 import { IS_DB } from '@/config/dataMode';
 import type { NewsItem } from '@/types/news';

@@ -1,4 +1,4 @@
-// src/services/testimonials.server.ts
+// src/server/services/testimonials.server.ts
 
 import { IS_DB } from '@/config/dataMode';
 import type { Testimonial } from '@/types/testimonial';

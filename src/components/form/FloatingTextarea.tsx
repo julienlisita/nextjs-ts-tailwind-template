@@ -1,4 +1,4 @@
-// src/components/form/FloatingTextArea.tsx
+// src/components/form/FloatingTextarea.tsx
 
 'use client';
 

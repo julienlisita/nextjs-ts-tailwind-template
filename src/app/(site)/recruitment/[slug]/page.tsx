@@ -1,4 +1,4 @@
-// app/recruitment/[slug]/page.tsx
+// src/app/(site)/recruitment/[slug]/page.tsx
 
 import { notFound } from 'next/navigation';
 import { jobOffers } from '@/data/jobOffers';

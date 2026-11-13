@@ -1,4 +1,4 @@
-// src/lib/auth.ts
+// src/lib/auth-cookies.ts
 
 export const authCookieName = 'token';
 

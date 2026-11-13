@@ -1,4 +1,4 @@
-// src/pages/legal/TermScreen.tsx
+// src/screens/legal/TermScreen.tsx
 
 import Section from '@/components/layout/Section';
 import SectionWrapper from '@/components/layout/SectionWrapper';

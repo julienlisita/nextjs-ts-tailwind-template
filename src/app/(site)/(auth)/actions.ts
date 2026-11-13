@@ -1,4 +1,4 @@
-// src/app/(auth)/actions.ts
+// src/app/(site)/(auth)/actions.ts
 
 'use server';
 

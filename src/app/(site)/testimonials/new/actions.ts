@@ -1,4 +1,4 @@
-// src/app/(site)/temoignages/nouveau/actions.ts
+// src/app/(site)/testimonials/new/actions.ts
 
 'use server';
 

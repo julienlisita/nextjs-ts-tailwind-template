@@ -1,4 +1,4 @@
-// app/metadata.ts
+// src/app/metadata.ts
 
 export const metadata = {
   title: 'Site Vitrine – Titre de votre entreprise',

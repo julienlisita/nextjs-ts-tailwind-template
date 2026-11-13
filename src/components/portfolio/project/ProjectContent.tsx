@@ -1,4 +1,4 @@
-// src/components/projects/ProjectContent.tsx
+// src/components/portfolio/project/ProjectContent.tsx
 
 import type { Project } from '@/types/project';
 

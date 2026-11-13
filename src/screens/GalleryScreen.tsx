@@ -1,4 +1,4 @@
-// src/screens/GallerScreen.tsx
+// src/screens/GalleryScreen.tsx
 
 import Cta from '@/components/patterns/Cta';
 import PageHero from '@/components/patterns/PageHero';

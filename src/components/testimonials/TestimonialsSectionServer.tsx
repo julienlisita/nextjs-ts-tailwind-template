@@ -1,4 +1,4 @@
-// src/components/testimonials/TestimonialsServer.tsx
+// src/components/testimonials/TestimonialsSectionServer.tsx
 
 import TestimonialsSection from '@/components/testimonials/TestimonialsSection';
 import { getPublicTestimonialsServer } from '@/server/services/testimonials.server';

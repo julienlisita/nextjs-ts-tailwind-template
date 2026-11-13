@@ -1,4 +1,4 @@
-// src/components/data-display/TestimonialCard.tsx
+// src/components/testimonials/TestimonialCard.tsx
 
 'use client';
 

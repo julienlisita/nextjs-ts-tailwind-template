@@ -1,4 +1,4 @@
-// src/data/contact.ts
+// src/data/contact.tsx
 
 import type { FeatureItem } from '@/types/feature';
 

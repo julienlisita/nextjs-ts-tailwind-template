@@ -1,4 +1,4 @@
-// src/pages/legal/PolicyScreen.tsx
+// src/screens/legal/PolicyScreen.tsx
 
 import Section from '@/components/layout/Section';
 import SectionWrapper from '@/components/layout/SectionWrapper';

@@ -1,4 +1,4 @@
-// src/services/jobOffers.server.ts
+// src/server/services/jobOffers.server.ts
 
 import { IS_DB } from '@/config/dataMode';
 import type { JobOffer } from '@/types/job';
