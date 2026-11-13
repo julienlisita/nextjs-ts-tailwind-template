@@ -1,7 +1,7 @@
 // src/app/(site)/not-found.tsx
 
+import Link from 'next/link';
 import PageTitle from '@/components/ui/PageTitle';
-import { Link } from 'lucide-react';
 import './not-found.css';
 
 export default function NotFound() {

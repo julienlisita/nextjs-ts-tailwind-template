@@ -68,9 +68,9 @@ nextjs-ts-tailwind-template/
 
 ### 2.3 `src/components/`
 
-- **Organization**: By feature or type: `about/`, `admin/`, `auth/`, `contact/`, `data-display/`, `form/`, `home/`, `layout/`, `navigation/`, `news/`, `patterns/`, `portfolio/`, `recruitment/`, `reservations/`, `services/`, `testimonials/`, `ui/`.
+- **Organization**: By feature or type: `about/`, `admin/`, `contact/`, `data-display/`, `form/`, `home/`, `layout/`, `navigation/`, `news/`, `patterns/`, `portfolio/`, `recruitment/`, `reservations/`, `services/`, `testimonials/`, `ui/`.
 - **Pattern**: Components that need custom styles have a co-located `.css` file (e.g. `Button.tsx` + `Button.css`). Layout/responsive via Tailwind (in JSX or `@apply` in CSS); colors, borders, states in CSS using `globals.css` tokens.
-- **`ui/`**: Low-level primitives (Button, Eyebrow, Lead, Media, Modal, PageTitle, Paragraph, Prose, SectionTitle, Subtitle, SubmitButton).
+- **`ui/`**: Low-level primitives (Button, Eyebrow, Lead, Modal, PageTitle, Paragraph, Prose, SectionTitle, Subtitle, SubmitButton).
 - **`layout/`**: Header, Footer, Section, SectionWrapper, Split, HeaderOffsetSync.
 - **`patterns/`**: Reusable sections (Cta, FeaturesGrid, HeaderBlock, PageHero, SplitSection, ActionsStack).
 
