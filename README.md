@@ -104,6 +104,14 @@ Define them in a `.env` file (never commit it).
 | `CONTACT_NOTIFICATION_EMAIL`     | No                              | Overrides the recipient of contact form notifications                                                                                                |
 | `RECRUITMENT_NOTIFICATION_EMAIL` | No                              | Overrides the recipient of job application notifications                                                                                             |
 
+## Customize the template
+
+Placeholders to replace before publishing a site (search for `exemple.com` in `src/` and `public/`):
+
+- **Domain** (`https://www.exemple.com`): `src/app/metadata.ts` (`metadataBase`, Open Graph, Twitter), the `canonical` of each `page.tsx`, `src/data/news.ts`, `public/sitemap.xml` and `public/robots.txt`.
+- **Contact details and legal text**: `contact@exemple.com` and `www.exemple.com` in `src/screens/legal/` (`ImprintScreen`, `PolicyScreen`, `TermScreen`).
+- **Titles**: the "Nom de la société" / "Nom entreprise" placeholders in each page's `metadata.title`.
+
 ## Scripts
 
 | Script         | Description                                                       |
