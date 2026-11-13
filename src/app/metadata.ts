@@ -1,21 +1,23 @@
 // src/app/metadata.ts
 
+import { SITE_URL } from '@/config/site';
+
 export const metadata = {
   title: 'Site Vitrine – Titre de votre entreprise',
   description:
     'Site vitrine professionnel pour mettre en valeur votre activité. Modèle personnalisable pour indépendants, TPE ou entreprises.',
-  metadataBase: new URL('https://www.exemple.com'),
+  metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: 'Titre de votre entreprise',
     description: 'Présentez votre entreprise avec un site moderne, clair et responsive.',
-    url: 'https://www.exemple.com',
+    url: '/',
     type: 'website',
     images: [
       {
-        url: 'https://www.exemple.com/og-image.jpg',
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Titre de votre entreprise',
@@ -26,7 +28,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Titre de votre entreprise',
     description: 'Site vitrine professionnel pour votre activité.',
-    images: ['https://www.exemple.com/og-image.jpg'],
+    images: ['/og-image.jpg'],
   },
   icons: {
     icon: [

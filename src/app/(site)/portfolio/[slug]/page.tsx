@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps) {
     title: `${project.title} — Projet`,
     description: project.summary,
     alternates: {
-      canonical: `https://www.exemple.com/projects/${project.slug}`,
+      canonical: `/portfolio/${project.slug}`,
     },
     openGraph: {
       title: project.title,

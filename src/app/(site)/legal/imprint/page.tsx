@@ -7,7 +7,7 @@ export const metadata = {
   description:
     'Informations légales concernant l’éditeur du site, l’hébergement et la propriété intellectuelle.',
   alternates: {
-    canonical: 'https://www.exemple.com/legal/imprint',
+    canonical: '/legal/imprint',
   },
 };
 

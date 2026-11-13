@@ -7,7 +7,7 @@ export const metadata = {
   description:
     'Découvrez nos services sur mesure pour professionnels et particuliers : développement web, accompagnement digital, et plus encore.',
   alternates: {
-    canonical: 'https://www.exemple.com/services',
+    canonical: '/services',
   },
 };
 

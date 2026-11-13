@@ -7,7 +7,7 @@ export const metadata = {
   description:
     'Actualités ou publications de l’entreprise. Cette page peut contenir des articles internes, des liens externes, ou évoluer vers un blog complet.',
   alternates: {
-    canonical: 'https://www.exemple.com/news',
+    canonical: '/news',
   },
 };
 

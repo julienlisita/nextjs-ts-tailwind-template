@@ -7,7 +7,7 @@ export const metadata = {
   description:
     'Découvrez comment nous collectons, utilisons et protégeons vos données personnelles.',
   alternates: {
-    canonical: 'https://www.exemple.com/legal/privacy',
+    canonical: '/legal/privacy',
   },
 };
 

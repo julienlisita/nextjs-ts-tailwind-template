@@ -97,6 +97,7 @@ Define them in a `.env` file (never commit it).
 | `DATA_MODE`                      | No (default `static`)           | `static` or `db` (`NEXT_PUBLIC_DATA_MODE` is also read)                                                                                              |
 | `JWT_SECRET`                     | Authentication (login, admin)   | Secret used to sign JWTs; the app throws when the auth module is loaded without it                                                                   |
 | `ADMIN_SEED_PASSWORD`            | `npm run db:seed`               | Password of the seeded admin user; the seed fails without it                                                                                         |
+| `NEXT_PUBLIC_SITE_URL`           | Production (SEO)                | Public site URL, without trailing slash (canonicals, Open Graph, sitemap, robots); defaults to a placeholder domain; must be set at build time       |
 | `SEED_ON_BUILD`                  | No                              | `true` makes `npm run seed:if` run the seed                                                                                                          |
 | `BREVO_API_KEY`                  | Email sending                   | Brevo API key; without it, emails are skipped and a warning is logged                                                                                |
 | `MAIL_SENDER_EMAIL`              | Email sending                   | Sender address (must be a sender/domain validated in Brevo); without it, emails are skipped                                                          |
@@ -108,7 +109,8 @@ Define them in a `.env` file (never commit it).
 
 Placeholders to replace before publishing a site (search for `exemple.com` in `src/` and `public/`):
 
-- **Domain** (`https://www.exemple.com`): `src/app/metadata.ts` (`metadataBase`, Open Graph, Twitter), the `canonical` of each `page.tsx`, `src/data/news.ts`, `public/sitemap.xml` and `public/robots.txt`.
+- **Domain**: set `NEXT_PUBLIC_SITE_URL` (e.g. `https://www.mysite.com`). It drives `metadataBase`, canonicals, Open Graph, `/sitemap.xml` and `/robots.txt`. Edit the page list in `src/app/sitemap.ts` if needed. The sample URLs in `src/data/news.ts` are demo data.
+- **Social image**: add `public/og-image.jpg` (1200×630), referenced by the Open Graph and Twitter metadata.
 - **Contact details and legal text**: `contact@exemple.com` and `www.exemple.com` in `src/screens/legal/` (`ImprintScreen`, `PolicyScreen`, `TermScreen`).
 - **Titles**: the "Nom de la société" / "Nom entreprise" placeholders in each page's `metadata.title`.
 

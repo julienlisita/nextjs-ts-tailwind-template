@@ -7,7 +7,7 @@ export const metadata = {
   description:
     'En savoir plus sur notre entreprise, nos valeurs, et notre engagement envers nos clients.',
   alternates: {
-    canonical: 'https://www.exemple.com/about',
+    canonical: '/about',
   },
 };
 

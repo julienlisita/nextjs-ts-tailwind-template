@@ -7,7 +7,7 @@ export const metadata = {
   description:
     'Bienvenue sur notre site vitrine. Découvrez nos services et notre expertise au service de votre activité.',
   alternates: {
-    canonical: 'https://www.exemple.com/',
+    canonical: '/',
   },
 };
 

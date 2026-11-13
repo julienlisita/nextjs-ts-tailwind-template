@@ -7,7 +7,7 @@ export const metadata = {
   description:
     'Retrouvez les événements à venir, nos participations et toutes les dates importantes à ne pas manquer.',
   alternates: {
-    canonical: 'https://www.exemple.com/events',
+    canonical: '/events',
   },
 };
 

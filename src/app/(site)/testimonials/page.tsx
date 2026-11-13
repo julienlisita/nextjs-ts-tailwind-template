@@ -7,7 +7,7 @@ export const metadata = {
   description:
     'Lisez les témoignages et retours d’expérience de nos clients satisfaits, preuve de notre engagement et de notre qualité de service.',
   alternates: {
-    canonical: 'https://www.exemple.com/testimonials',
+    canonical: '/testimonials',
   },
 };
 

@@ -7,7 +7,7 @@ export const metadata = {
   description:
     'Parcourez notre galerie photo pour découvrir nos travaux, nos ambiances et les moments forts de nos projets ou événements.',
   alternates: {
-    canonical: 'https://www.exemple.com/gallery',
+    canonical: '/gallery',
   },
 };
 

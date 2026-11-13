@@ -7,7 +7,7 @@ export const metadata = {
   description:
     'Trouvez des réponses aux questions fréquentes sur nos services, notre fonctionnement ou notre site.',
   alternates: {
-    canonical: 'https://www.exemple.com/faq',
+    canonical: '/faq',
   },
 };
 

@@ -87,6 +87,7 @@ nextjs-ts-tailwind-template/
 ### 2.5 `src/config/`, `src/data/`, `src/lib/`, `src/types/`, `src/utils/`
 
 - **`config/dataMode.ts`**: `DATA_MODE` = `'static' | 'db'` from env (`NEXT_PUBLIC_DATA_MODE` or `DATA_MODE`). `IS_DB` drives whether server adapters use DB or static data.
+- **`config/site.ts`**: `SITE_URL` from `NEXT_PUBLIC_SITE_URL` (trailing slash removed; falls back to a placeholder domain). Used by `app/metadata.ts` (`metadataBase`) and by `app/sitemap.ts` / `app/robots.ts`, which generate `/sitemap.xml` and `/robots.txt`. Page `canonical` values are relative paths resolved against `metadataBase`.
 - **`data/`**: Static arrays/objects (e.g. `news.ts`, `testimonials.ts`, `jobOffers.ts`) used when `IS_DB` is false. `projects.ts` (portfolio) is static-only and served in both modes. Types in `src/types/` align with these and with Prisma-backed responses.
 - **`lib/`**: `prisma.ts` (singleton client), `jwt.ts`, `auth-cookies.ts`, `resolveColor.ts` (resolves a token name or CSS color for the `bgColor` / `color` props of `Section` and `PageTitle`).
 - **`types/`**: Shared types (e.g. `news.ts`, `testimonial.ts`, `job.ts`, `project.ts`, `feature.ts`); `next.d.ts` for Next-specific types.
