@@ -10,6 +10,7 @@ import {
   type PublicTestimonialFormState,
 } from '@/app/(site)/testimonials/new/actions';
 import SubmitButton from '@/components/ui/SubmitButton';
+import './NewTestimonialForm.css';
 
 const initialState: PublicTestimonialFormState = {};
 
@@ -37,7 +38,7 @@ export function NewTestimonialForm() {
           className="border rounded p-2 w-full"
           placeholder="Votre nom"
         />
-        {err('name') && <p className="text-sm text-red-600 mt-1">{err('name')}</p>}
+        {err('name') && <p className="text-sm new-testimonial-form__error mt-1">{err('name')}</p>}
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -65,7 +66,7 @@ export function NewTestimonialForm() {
           className="border rounded p-2 w-full"
           placeholder="Votre témoignage"
         />
-        {err('quote') && <p className="text-sm text-red-600 mt-1">{err('quote')}</p>}
+        {err('quote') && <p className="text-sm new-testimonial-form__error mt-1">{err('quote')}</p>}
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -105,7 +106,9 @@ export function NewTestimonialForm() {
         <input type="checkbox" name="consent" />
         J’autorise la publication de ce témoignage sur le site.
       </label>
-      {err('consent') && <p className="text-sm text-red-600 mt-1">{err('consent')}</p>}
+      {err('consent') && (
+        <p className="text-sm new-testimonial-form__error mt-1">{err('consent')}</p>
+      )}
 
       <SubmitButton className="w-full sm:w-auto">Envoyer</SubmitButton>
     </form>

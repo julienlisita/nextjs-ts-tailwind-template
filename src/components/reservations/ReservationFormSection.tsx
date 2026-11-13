@@ -40,7 +40,7 @@ export default function ReservationFormSection({ slots }: ReservationFormSection
             </p>
 
             {contactEmail && (
-              <p className="text-sm text-neutral-700">
+              <p className="reservation-form-aside__contact text-sm">
                 Pour toute question ou modification, vous pouvez écrire à&nbsp;
                 <strong>{contactEmail}</strong>.
               </p>

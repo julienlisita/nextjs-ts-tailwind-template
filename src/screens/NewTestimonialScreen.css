@@ -1,0 +1,5 @@
+/* src/screens/NewTestimonialScreen.css */
+
+.new-testimonial-screen__note {
+  color: var(--color-secondary);
+}

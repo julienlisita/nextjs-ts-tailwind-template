@@ -1,0 +1,7 @@
+/* src/screens/ReservationsScreen.css */
+
+.reservation-alert {
+  border-color: var(--color-warning-border);
+  background-color: var(--color-warning-bg);
+  color: var(--color-warning-text);
+}

@@ -7,6 +7,7 @@ import Subtitle from '../ui/Subtitle';
 import Section from '../layout/Section';
 import SectionWrapper from '../layout/SectionWrapper';
 import NewsGrid from './NewsGrid';
+import './NewsTeaser.css';
 
 type Props = { items: ReadonlyArray<NewsItem> };
 
@@ -17,7 +18,7 @@ export default function NewsTeaser({ items }: Props) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           {/* Colonne gauche */}
           <div className="flex flex-col items-center justify-start text-center lg:text-left lg:items-start space-y-4">
-            <span className="block text-sm font-semibold uppercase tracking-wide text-gray-600">
+            <span className="news-teaser__eyebrow block text-sm font-semibold uppercase tracking-wide">
               À la une
             </span>
             <SectionTitle>Actualités récentes</SectionTitle>

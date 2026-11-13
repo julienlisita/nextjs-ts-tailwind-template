@@ -3,3 +3,12 @@
 .login-form-section {
   background-color: white;
 }
+
+.login-card {
+  background-color: var(--white-100);
+  border-color: var(--card-border);
+}
+
+.login-card__hint {
+  color: var(--neutral-600);
+}

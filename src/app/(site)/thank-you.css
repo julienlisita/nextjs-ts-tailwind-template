@@ -1,0 +1,13 @@
+/* src/app/(site)/thank-you.css — pages de remerciement (message, candidature, réservation) */
+
+.thank-you__title {
+  color: var(--color-text);
+}
+
+.thank-you__text {
+  color: color-mix(in srgb, var(--color-text) 80%, transparent);
+}
+
+.thank-you__hint {
+  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+}

@@ -7,3 +7,7 @@
 .reservation-form-aside {
   @apply text-sm leading-relaxed;
 }
+
+.reservation-form-aside__contact {
+  color: var(--color-secondary);
+}

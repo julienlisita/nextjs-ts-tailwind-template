@@ -128,7 +128,9 @@ export default function ReservationForm({
         <span className="block mb-2 font-medium">Créneau souhaité</span>
 
         {visibleDayKeys.length === 0 ? (
-          <p className="mt-2 text-sm text-neutral-600">Aucun créneau disponible pour le moment.</p>
+          <p className="reservation-form__hint mt-2 text-sm">
+            Aucun créneau disponible pour le moment.
+          </p>
         ) : (
           <div className="slot-accordion" role="list">
             {visibleDayKeys.map((dayKey) => {
@@ -218,7 +220,7 @@ export default function ReservationForm({
 
                       {/* Si jamais un jour a 0 slot (rare si data propre) */}
                       {daySlots.length === 0 && (
-                        <p className="mt-2 text-sm text-neutral-600">
+                        <p className="reservation-form__hint mt-2 text-sm">
                           Aucun créneau pour cette date.
                         </p>
                       )}

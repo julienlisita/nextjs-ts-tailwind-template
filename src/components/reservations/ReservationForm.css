@@ -6,6 +6,11 @@
   color: var(--color-text);
 }
 
+/* Message d'indisponibilité */
+.reservation-form__hint {
+  color: var(--neutral-600);
+}
+
 /* Accordion container */
 .slot-accordion {
   display: grid;

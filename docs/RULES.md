@@ -60,7 +60,7 @@ Rules:
 - **Public site** (`src/app/(site)/`, public screens and components): Tailwind for layout and responsive only. Colors and visual identity use CSS files and design tokens.
 - **Administration** (`src/app/admin/`, `src/screens/admin/`, `src/components/admin/`): Tailwind color classes (e.g. `text-neutral-600`, `bg-white`) are allowed for simple internal interfaces. Hardcoded hex/rgb/hsl values remain forbidden.
 - **Shared components** (`src/components/ui/`, `layout/`, `patterns/`, etc.): prefer semantic tokens (e.g. `--color-surface`, `--color-primary`) for important colors, so that they follow the theme (light/dark).
-- Existing Tailwind color classes on the public site are legacy; they are not migrated automatically. Do not add new ones.
+- Do not add Tailwind color classes on the public site: use a co-located CSS class with design tokens. In the administration, Tailwind color classes are allowed but not required: co-located CSS with design tokens remains valid there too.
 
 ---
 
