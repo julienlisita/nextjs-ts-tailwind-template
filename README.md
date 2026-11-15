@@ -70,7 +70,17 @@ The app can run in **static** mode (no DB) or **database** mode. Default mode is
    npm run db:seed
    ```
 
-   To run seed automatically when building (e.g. CI), set `SEED_ON_BUILD=true` and use `npm run seed:if` in your build pipeline.
+   This seed is **non-destructive and idempotent**: it never deletes or overwrites existing data and can be run safely several times, including in production. Records with a unique key (admin users, news, job offers) that already exist are skipped. Testimonials and demo reservation slots have no unique key, so they are only inserted when their table is empty. Reservations are never touched.
+
+   To run this seed automatically when building (e.g. CI), set `SEED_ON_BUILD=true` and use `npm run seed:if` in your build pipeline. `SEED_ON_BUILD` can never trigger the reset below.
+
+5. Reset a **test** database (optional, destructive):
+
+   ```bash
+   npm run db:seed:reset -- --confirm-reset
+   ```
+
+   This deletes **all** data (users, reservations, slots, testimonials, news, job offers) and re-inserts the demo data, including the three test admins (password from `ADMIN_SEED_PASSWORD`). It refuses to run when `NODE_ENV=production`, when the `--confirm-reset` flag is missing, or when `DATABASE_URL` does not point to `localhost`, `127.0.0.1` or `[::1]`. For a remote test database, set `SEED_RESET_ALLOWED_HOST` to its exact host name. Connection credentials are never printed.
 
 ---
 
@@ -98,7 +108,7 @@ Define them in a `.env` file (never commit it).
 | `JWT_SECRET`                     | Authentication (login, admin)   | Secret used to sign JWTs; the app throws when the auth module is loaded without it                                                                   |
 | `ADMIN_SEED_PASSWORD`            | `npm run db:seed`               | Password of the seeded admin user; the seed fails without it                                                                                         |
 | `NEXT_PUBLIC_SITE_URL`           | Production (SEO)                | Public site URL, without trailing slash (canonicals, Open Graph, sitemap, robots); defaults to a placeholder domain; must be set at build time       |
-| `SEED_ON_BUILD`                  | No                              | `true` makes `npm run seed:if` run the seed                                                                                                          |
+| `SEED_ON_BUILD`                  | No                              | `true` makes `npm run seed:if` run the non-destructive seed                                                                                          |
 | `BREVO_API_KEY`                  | Email sending                   | Brevo API key; without it, emails are skipped and a warning is logged                                                                                |
 | `MAIL_SENDER_EMAIL`              | Email sending                   | Sender address (must be a sender/domain validated in Brevo); without it, emails are skipped                                                          |
 | `ADMIN_NOTIFICATION_EMAIL`       | Email sending                   | Recipient of admin notifications (reservations; fallback for contact and recruitment); also displayed as the contact address on the reservation page |
@@ -116,19 +126,20 @@ Placeholders to replace before publishing a site (search for `exemple.com` in `s
 
 ## Scripts
 
-| Script         | Description                                                       |
-| -------------- | ----------------------------------------------------------------- |
-| `dev`          | Start dev server with Turbopack                                   |
-| `build`        | Run `prisma generate` then `next build`                           |
-| `start`        | Start production server                                           |
-| `lint`         | Run ESLint on `.ts` / `.tsx`                                      |
-| `lint:fix`     | ESLint with auto-fix                                              |
-| `format`       | Prettier: format all files                                        |
-| `check-format` | Prettier: check only (no write)                                   |
-| `check-types`  | TypeScript check (`tsc --noEmit`)                                 |
-| `db:deploy`    | Apply Prisma migrations (`prisma migrate deploy`)                 |
-| `db:seed`      | Run Prisma seed (`prisma db seed`)                                |
-| `seed:if`      | Run seed only if `SEED_ON_BUILD=true` (via `scripts/seed-if.mjs`) |
+| Script          | Description                                                              |
+| --------------- | ------------------------------------------------------------------------ |
+| `dev`           | Start dev server with Turbopack                                          |
+| `build`         | Run `prisma generate` then `next build`                                  |
+| `start`         | Start production server                                                  |
+| `lint`          | Run ESLint on `.ts` / `.tsx`                                             |
+| `lint:fix`      | ESLint with auto-fix                                                     |
+| `format`        | Prettier: format all files                                               |
+| `check-format`  | Prettier: check only (no write)                                          |
+| `check-types`   | TypeScript check (`tsc --noEmit`)                                        |
+| `db:deploy`     | Apply Prisma migrations (`prisma migrate deploy`)                        |
+| `db:seed`       | Non-destructive, idempotent seed (`prisma db seed`)                      |
+| `db:seed:reset` | **Destructive** reset of a local test database (needs `--confirm-reset`) |
+| `seed:if`       | Run seed only if `SEED_ON_BUILD=true` (via `scripts/seed-if.mjs`)        |
 
 `postinstall` runs `prisma generate` so the client is available after install.
 

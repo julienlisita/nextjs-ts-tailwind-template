@@ -9,6 +9,7 @@
     "build": "prisma generate && next build",
     "db:deploy": "prisma migrate deploy",
     "db:seed": "prisma db seed",
+    "db:seed:reset": "tsx prisma/seed-reset.ts",
     "seed:if": "node scripts/seed-if.mjs",
     "lint": "eslint . --ext .ts,.tsx",
     "lint:fix": "eslint . --ext .ts,.tsx --fix",

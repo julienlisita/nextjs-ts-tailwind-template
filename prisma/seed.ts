@@ -1,166 +1,73 @@
 // prisma/seed.ts
+// Initialisation NON destructive : n'efface ni ne modifie jamais une donnée existante.
+// Idempotent : plusieurs exécutions successives ne créent pas de doublons.
+// Pour réinitialiser une base de test, voir prisma/seed-reset.ts (npm run db:seed:reset).
 
-import { Prisma, PrismaClient, Role } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
-import { newsItems } from '../src/data/news';
-import { jobOffers } from '../src/data/jobOffers';
-import { testimonials } from '../src/data/testimonials';
-import { fromZonedTime } from 'date-fns-tz';
-
-import type { NewsItem } from '../src/types/news';
-import type { JobOffer } from '../src/types/job';
-import type { Testimonial } from '../src/types/testimonial';
+import {
+  buildAdmins,
+  buildDemoSlots,
+  buildJobOffers,
+  buildNews,
+  buildTestimonials,
+  logTable,
+  requireEnv,
+} from './seed-shared';
 
 const prisma = new PrismaClient();
-const TZ = 'Europe/Paris';
 
-// helpers
-function pad2(n: number) {
-  return String(n).padStart(2, '0');
-}
-
-function requireEnv(name: string): string {
-  const v = process.env[name];
-  if (!v) {
-    throw new Error(
-      `Missing ${name}. Set ${name} in your .env file (or in the environment) before running prisma db seed.`
-    );
-  }
-  return v;
-}
-
-// retourne "YYYY-MM-DD" basé sur le jour Paris (pas celui de la machine)
-function parisDateKey(d: Date) {
-  const parts = new Intl.DateTimeFormat('fr-FR', {
-    timeZone: TZ,
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  }).formatToParts(d);
-
-  const get = (type: string) => parts.find((p) => p.type === type)?.value;
-  return `${get('year')}-${get('month')}-${get('day')}`;
-}
-
-function stripId<T extends { id?: unknown }>(item: T): Omit<T, 'id'> {
-  const copy: Partial<T> = { ...item };
-  delete copy.id;
-  return copy as Omit<T, 'id'>;
-}
-function toDate<T extends { publishedAt?: string }>(item: T) {
-  return {
-    ...item,
-    publishedAt: item.publishedAt ? new Date(item.publishedAt) : new Date(),
-  };
+function logCreated(table: string, created: number, total: number) {
+  logTable(table, `${created} créé(s), ${total - created} déjà présent(s) (ignoré(s))`);
 }
 
 export async function main() {
-  // Admins
+  console.log('[seed] Initialisation NON destructive : aucune donnée existante ne sera supprimée.');
 
-  const seedPassword = requireEnv('ADMIN_SEED_PASSWORD');
+  const passwordHash = await bcrypt.hash(requireEnv('ADMIN_SEED_PASSWORD'), 10);
 
-  const admins = [
-    { email: 'admin1@example.com', name: 'Admin One' },
-    { email: 'admin2@example.com', name: 'Admin Two' },
-    { email: 'admin3@example.com', name: 'Admin Three' },
-  ];
+  // Tables avec une contrainte d'unicité : skipDuplicates ignore les lignes déjà présentes
+  // (User.email, NewsItem.slug / url, JobOffer.slug) sans jamais les modifier.
+  const admins = buildAdmins(passwordHash);
+  const users = await prisma.user.createMany({ data: admins, skipDuplicates: true });
+  logCreated('User', users.count, admins.length);
 
-  const passwordHash = await bcrypt.hash(seedPassword, 10);
-  for (const admin of admins) {
-    await prisma.user.upsert({
-      where: { email: admin.email },
-      update: {},
-      create: {
-        email: admin.email,
-        password: passwordHash,
-        name: admin.name,
-        role: Role.ADMIN,
-      },
-    });
+  const news = buildNews();
+  const newsResult = await prisma.newsItem.createMany({ data: news, skipDuplicates: true });
+  logCreated('NewsItem', newsResult.count, news.length);
+
+  const offers = buildJobOffers();
+  const offersResult = await prisma.jobOffer.createMany({ data: offers, skipDuplicates: true });
+  logCreated('JobOffer', offersResult.count, offers.length);
+
+  // Tables sans clé naturelle (Testimonial, ReservationSlot) : aucun moyen fiable de détecter un
+  // doublon, donc on n'insère les données de démonstration que si la table est vide.
+  const testimonials = buildTestimonials();
+  if ((await prisma.testimonial.count()) === 0) {
+    const result = await prisma.testimonial.createMany({ data: testimonials });
+    logCreated('Testimonial', result.count, testimonials.length);
+  } else {
+    logTable('Testimonial', `0 créé(s), table non vide : ${testimonials.length} ignoré(s)`);
   }
 
-  // Testimonials
-
-  await prisma.testimonial.deleteMany();
-  await prisma.testimonial.createMany({
-    data: testimonials.map((t: Testimonial) => stripId(t)),
-  });
-
-  // News
-
-  await prisma.newsItem.deleteMany();
-  await prisma.newsItem.createMany({
-    data: (newsItems as NewsItem[]).map((item) =>
-      toDate({
-        ...stripId(item),
-        // éviter undefined pour les champs NULLables
-        coverImage: (item as NewsItem & { coverImage?: string | null }).coverImage ?? null,
-      })
-    ) as Prisma.NewsItemCreateManyInput[],
-  });
-
-  // Job offers
-
-  await prisma.jobOffer.deleteMany();
-
-  const jobOffersData = (jobOffers as JobOffer[]).map((offer) => {
-    const base = toDate(stripId(offer));
-
-    return {
-      ...base,
-      // obligatoires (sécurité)
-      slug: offer.slug,
-      title: offer.title,
-      location: offer.location,
-      contractType: offer.contractType,
-      description: offer.description ?? '',
-
-      // structures
-      equipments: offer.equipments ?? [], // si Prisma = String[]
-      sections: offer.sections ?? null, // si Prisma = Json?
-    };
-  });
-
-  await prisma.jobOffer.createMany({
-    data: jobOffersData as Prisma.JobOfferCreateManyInput[],
-  });
-
-  // Reservation slots (exemple)
-  await prisma.reservation.deleteMany();
-  await prisma.reservationSlot.deleteMany();
-
-  const tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  tomorrow.setHours(9, 0, 0, 0);
-
-  const todayParisKey = parisDateKey(new Date());
-  const [y, m, d] = todayParisKey.split('-').map(Number);
-  const tomorrowParis = new Date(Date.UTC(y, m - 1, d + 1)); // base UTC, juste pour manipuler le jour
-
-  const tomorrowKey = parisDateKey(tomorrowParis); // YYYY-MM-DD stable en Paris
-
-  const slotsData = Array.from({ length: 5 }).map((_, i) => {
-    const startStr = `${tomorrowKey}T${pad2(9 + i)}:00`; // "YYYY-MM-DDTHH:mm" (Paris)
-    const endStr = `${tomorrowKey}T${pad2(10 + i)}:00`;
-
-    return {
-      startAt: fromZonedTime(startStr, TZ), // => Date UTC correcte
-      endAt: fromZonedTime(endStr, TZ),
-      status: 'AVAILABLE' as const,
-    };
-  });
-
-  await prisma.reservationSlot.createMany({ data: slotsData });
+  const slots = buildDemoSlots();
+  if ((await prisma.reservationSlot.count()) === 0) {
+    const result = await prisma.reservationSlot.createMany({ data: slots });
+    logCreated('ReservationSlot', result.count, slots.length);
+  } else {
+    logTable('ReservationSlot', `0 créé(s), table non vide : ${slots.length} ignoré(s)`);
+  }
+  // Reservation : jamais touchée par ce seed.
 }
 
 if (require.main === module) {
   main()
     .then(async () => {
-      console.log('Seed des admins terminé');
+      console.log('[seed] Initialisation terminée.');
       await prisma.$disconnect();
     })
     .catch(async (e) => {
-      console.error('Échec du seed', e);
+      console.error('[seed] Échec de l’initialisation', e);
       await prisma.$disconnect();
       process.exit(1);
     });

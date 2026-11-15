@@ -26,7 +26,7 @@ If the documentation conflicts with the actual implementation, report the incons
 - ESLint validation: `npm run lint`
 - Formatting validation: `npm run check-format`
 - Database migrations: `npm run db:deploy`
-- Database seeding: `npm run db:seed` (requires `ADMIN_SEED_PASSWORD`)
+- Database seeding: `npm run db:seed` (non-destructive, requires `ADMIN_SEED_PASSWORD`). `npm run db:seed:reset` is destructive: never run it without explicit approval.
 
 Before completing a task, run the relevant validation commands.
 

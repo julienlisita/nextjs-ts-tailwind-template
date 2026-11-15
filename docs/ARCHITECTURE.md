@@ -150,7 +150,7 @@ nextjs-ts-tailwind-template/
 - **Schema**: `prisma/schema.prisma` — PostgreSQL; models include User, JobOffer, Testimonial, NewsItem, ReservationSlot, Reservation. Enums: Role, SlotStatus.
 - **Single source of truth**: The Prisma schema is the single source of truth for all DB-backed types and shapes. TypeScript types must align with it and should not redefine DB entities independently.
 - **Migrations**: Stored in `prisma/migrations/`; applied with `db:deploy` or `prisma migrate dev`.
-- **Seed**: `prisma/seed.ts` (run via `db:seed`). Optional: `scripts/seed-if.mjs` runs seed when `SEED_ON_BUILD=true`.
+- **Seed**: `prisma/seed.ts` (run via `db:seed`) is non-destructive and idempotent: `createMany({ skipDuplicates })` on tables with a unique key (User.email, NewsItem.slug/url, JobOffer.slug), insert-only-if-empty for Testimonial and ReservationSlot, Reservation untouched. Optional: `scripts/seed-if.mjs` runs this seed when `SEED_ON_BUILD=true`. `prisma/seed-reset.ts` (`db:seed:reset -- --confirm-reset`) wipes and refills a local test database; it is never run by `prisma db seed` or `seed-if`, and refuses non-local hosts, `NODE_ENV=production`, or a missing flag. Data builders shared by both scripts live in `prisma/seed-shared.ts`.
 - **Env**: `DATABASE_URL` for Prisma. `NEXT_PUBLIC_DATA_MODE` or `DATA_MODE` for static vs DB. `BREVO_API_KEY`, `MAIL_SENDER_EMAIL` and `ADMIN_NOTIFICATION_EMAIL` for email sending (Brevo HTTP API, called with `fetch` from `src/server/services/*.mail.ts`), plus optional `CONTACT_NOTIFICATION_EMAIL` and `RECRUITMENT_NOTIFICATION_EMAIL` overrides.
 
 ## Non-responsibilities
