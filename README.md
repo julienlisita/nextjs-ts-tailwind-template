@@ -119,7 +119,7 @@ Define them in a `.env` file (never commit it).
 
 Placeholders to replace before publishing a site (search for `exemple.com` in `src/` and `public/`):
 
-- **Domain**: set `NEXT_PUBLIC_SITE_URL` (e.g. `https://www.mysite.com`). It drives `metadataBase`, canonicals, Open Graph, `/sitemap.xml` and `/robots.txt`. Edit the page list in `src/app/sitemap.ts` if needed. The sample URLs in `src/data/news.ts` are demo data.
+- **Domain**: set `NEXT_PUBLIC_SITE_URL` (e.g. `https://www.mysite.com`). It drives `metadataBase`, canonicals, Open Graph, `/sitemap.xml` and `/robots.txt`. Edit the page list in `src/app/sitemap.ts` if needed. The `url` of the sample news in `src/data/news.ts` is the link to the external source article (demo data, not a page of this site): replace it with real article URLs.
 - **Social image**: add `public/og-image.jpg` (1200×630), referenced by the Open Graph and Twitter metadata.
 - **Contact details and legal text**: `contact@exemple.com` and `www.exemple.com` in `src/screens/legal/` (`ImprintScreen`, `PolicyScreen`, `TermScreen`).
 - **Titles**: the "Nom de la société" / "Nom entreprise" placeholders in each page's `metadata.title`.
