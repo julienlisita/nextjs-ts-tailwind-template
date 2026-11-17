@@ -19,7 +19,7 @@ Modern fullstack template: **Next.js 15 (App Router)**, **TypeScript**, **Tailwi
 
 ### Prerequisites
 
-- Node.js 18.18+ (minimum required by Next.js, Prisma and ESLint; developed and tested with Node 20)
+- Node.js 24 LTS (declared in `engines.node`; Vercel also uses it to pick the runtime)
 - PostgreSQL (for database mode)
 
 ### Install and run
