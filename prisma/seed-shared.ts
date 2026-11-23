@@ -1,7 +1,9 @@
 // prisma/seed-shared.ts
 // Données et transformations communes à seed.ts (initialisation) et seed-reset.ts (réinitialisation).
 
-import { Prisma, Role } from '@prisma/client';
+import 'dotenv/config';
+import { PrismaPg } from '@prisma/adapter-pg';
+import { Prisma, PrismaClient, Role } from '../src/generated/prisma/client';
 import { fromZonedTime } from 'date-fns-tz';
 import { newsItems } from '../src/data/news';
 import { jobOffers } from '../src/data/jobOffers';
@@ -23,6 +25,12 @@ export function requireEnv(name: string): string {
     );
   }
   return v;
+}
+
+/** Client Prisma 7 (adaptateur PostgreSQL) pour les scripts de seed. */
+export function createPrismaClient() {
+  const adapter = new PrismaPg({ connectionString: requireEnv('DATABASE_URL') });
+  return new PrismaClient({ adapter });
 }
 
 function pad2(n: number) {

@@ -1,7 +1,7 @@
 // src/server/repositories/reservationSlot.repo.ts
 
 import { prisma } from '@/lib/prisma';
-import type { Prisma, ReservationSlot, SlotStatus } from '@prisma/client';
+import type { Prisma, ReservationSlot, SlotStatus } from '@/generated/prisma/client';
 
 export const reservationSlotRepo = {
   listAvailable(): Promise<ReservationSlot[]> {

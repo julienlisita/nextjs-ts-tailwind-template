@@ -3,7 +3,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import type { ReservationSlot } from '@prisma/client';
+import type { ReservationSlot } from '@/generated/prisma/client';
 
 import Button from '../ui/Button';
 import FloatingInput from '../form/FloatingInput';

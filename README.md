@@ -48,13 +48,14 @@ The app can run in **static** mode (no DB) or **database** mode. Default mode is
    DATABASE_URL="postgresql://user:password@localhost:5432/your_db"
    ```
 
-2. Generate the Prisma client and apply migrations:
+2. Generate the Prisma client (written to `src/generated/prisma/`, git-ignored) and apply migrations:
 
    ```bash
-   npm run build
-   # or
+   npx prisma generate
    npx prisma migrate deploy
    ```
+
+   Prisma 7 is configured in `prisma.config.ts` (schema, migrations, seed command) and does not load `.env` by itself: `prisma.config.ts` and the seed scripts import `dotenv/config`.
 
 3. To use the database for data (news, testimonials, etc.), set:
 
@@ -141,7 +142,7 @@ Placeholders to replace before publishing a site (search for `exemple.com` in `s
 | `db:seed:reset` | **Destructive** reset of a local test database (needs `--confirm-reset`) |
 | `seed:if`       | Run seed only if `SEED_ON_BUILD=true` (via `scripts/seed-if.mjs`)        |
 
-`postinstall` runs `prisma generate` so the client is available after install.
+`postinstall` runs `prisma generate` so the client is available after install. The client lives in `src/generated/prisma/`, so `npm run check-types` and `npm run dev` need it: if your npm blocks dependency install scripts, run `npx prisma generate` once after `npm install`.
 
 ---
 

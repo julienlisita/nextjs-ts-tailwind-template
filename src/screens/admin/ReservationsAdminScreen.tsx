@@ -1,6 +1,6 @@
 // src/screens/admin/ReservationsAdminScreen.tsx
 
-import type { Reservation } from '@prisma/client';
+import type { Reservation } from '@/generated/prisma/client';
 import { cancelReservationAction } from '@/app/admin/reservations/actions';
 
 function formatDateRange(start: Date, end?: Date | null) {

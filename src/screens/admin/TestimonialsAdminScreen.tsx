@@ -1,6 +1,6 @@
 // src/screens/admin/TestimonialsAdminScreen.tsx
 
-import type { Testimonial } from '@prisma/client';
+import type { Testimonial } from '@/generated/prisma/client';
 import {
   publishTestimonialAction,
   unpublishTestimonialAction,

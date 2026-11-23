@@ -1,7 +1,7 @@
 // src/server/services/news.service.ts
 
 import { newsRepo } from '../repositories/news.repo';
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '@/generated/prisma/client';
 
 export const listNews = () => newsRepo.list();
 export const getNews = (id: number) => newsRepo.findById(id);

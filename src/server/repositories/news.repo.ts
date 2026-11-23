@@ -1,7 +1,7 @@
 // src/server/repositories/news.repo.ts
 
 import { prisma } from '@/lib/prisma';
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '@/generated/prisma/client';
 
 export const newsRepo = {
   list() {

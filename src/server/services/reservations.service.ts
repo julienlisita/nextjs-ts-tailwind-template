@@ -2,7 +2,7 @@
 
 import { reservationSlotRepo } from '../repositories/reservationSlot.repo';
 import { reservationRepo } from '../repositories/reservation.repo';
-import type { SlotStatus } from '@prisma/client';
+import type { SlotStatus } from '@/generated/prisma/client';
 
 /* -----------------------------------------------------------------------------
  * PUBLIC

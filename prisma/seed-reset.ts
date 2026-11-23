@@ -4,8 +4,6 @@
 // Jamais lancé automatiquement (ni par `prisma db seed`, ni par SEED_ON_BUILD).
 // Usage : npm run db:seed:reset -- --confirm-reset
 
-import 'dotenv/config';
-import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
 import {
   buildAdmins,
@@ -13,6 +11,7 @@ import {
   buildJobOffers,
   buildNews,
   buildTestimonials,
+  createPrismaClient,
   logTable,
   requireEnv,
 } from './seed-shared';
@@ -56,7 +55,7 @@ async function main() {
   const target = assertSafeTarget();
   const passwordHash = await bcrypt.hash(requireEnv('ADMIN_SEED_PASSWORD'), 10);
 
-  const prisma = new PrismaClient();
+  const prisma = createPrismaClient();
   try {
     console.log(`[seed:reset] RÉINITIALISATION DESTRUCTIVE de la base de test ${target}`);
 

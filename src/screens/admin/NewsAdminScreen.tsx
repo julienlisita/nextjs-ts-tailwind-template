@@ -1,6 +1,6 @@
 // src/screens/admin/NewsAdminScreen.tsx
 
-import type { NewsItem } from '@prisma/client';
+import type { NewsItem } from '@/generated/prisma/client';
 import { upsertNewsAction, deleteNewsAction } from '@/app/admin/news/actions';
 import SubmitButton from '@/components/ui/SubmitButton';
 

@@ -1,7 +1,7 @@
 // src/server/repositories/user.repo.ts
 
 import { prisma } from '@/lib/prisma';
-import type { Role } from '@prisma/client';
+import type { Role } from '@/generated/prisma/client';
 
 export const userRepo = {
   findByEmail(email: string) {

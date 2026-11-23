@@ -3,7 +3,7 @@
 import { IS_DB } from '@/config/dataMode';
 import type { Testimonial } from '@/types/testimonial';
 import { testimonials } from '@/data/testimonials';
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '@/generated/prisma/client';
 
 function toNumber(
   v: number | Prisma.Decimal | null | undefined,

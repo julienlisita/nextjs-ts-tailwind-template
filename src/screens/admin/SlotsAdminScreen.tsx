@@ -1,6 +1,6 @@
 // src/screens/admin/SlotsAdminScreen.tsx
 
-import type { ReservationSlot } from '@prisma/client';
+import type { ReservationSlot } from '@/generated/prisma/client';
 import {
   createSlotAction,
   deleteSlotAction,

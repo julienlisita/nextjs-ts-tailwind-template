@@ -1,7 +1,7 @@
 // src/server/repositories/reservation.repo.ts
 
 import { prisma } from '@/lib/prisma';
-import type { Reservation } from '@prisma/client';
+import type { Reservation } from '@/generated/prisma/client';
 
 export const reservationRepo = {
   async createFromPublic(input: {

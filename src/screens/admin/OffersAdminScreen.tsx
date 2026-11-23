@@ -1,6 +1,6 @@
 // src/screens/admin/OffersAdminScreen.tsx
 
-import type { JobOffer } from '@prisma/client';
+import type { JobOffer } from '@/generated/prisma/client';
 import { upsertJobOfferAction, deleteJobOfferAction } from '@/app/admin/offers/actions';
 import SubmitButton from '@/components/ui/SubmitButton';
 

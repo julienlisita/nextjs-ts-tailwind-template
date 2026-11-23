@@ -1,7 +1,7 @@
 // src/lib/jwt.ts
 import jwt from 'jsonwebtoken';
 // Option 1: utiliser le type Prisma pour le rôle
-import type { Role } from '@prisma/client';
+import type { Role } from '@/generated/prisma/client';
 
 const JWT_SECRET = process.env.JWT_SECRET!;
 if (!JWT_SECRET) throw new Error('Missing JWT_SECRET');

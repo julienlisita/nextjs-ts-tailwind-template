@@ -3,7 +3,6 @@
 // Idempotent : plusieurs exécutions successives ne créent pas de doublons.
 // Pour réinitialiser une base de test, voir prisma/seed-reset.ts (npm run db:seed:reset).
 
-import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
 import {
   buildAdmins,
@@ -11,11 +10,12 @@ import {
   buildJobOffers,
   buildNews,
   buildTestimonials,
+  createPrismaClient,
   logTable,
   requireEnv,
 } from './seed-shared';
 
-const prisma = new PrismaClient();
+const prisma = createPrismaClient();
 
 function logCreated(table: string, created: number, total: number) {
   logTable(table, `${created} créé(s), ${total - created} déjà présent(s) (ignoré(s))`);

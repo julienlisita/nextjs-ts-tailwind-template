@@ -1,7 +1,7 @@
 // src/server/repositories/testimonial.repo.ts
 
 import { prisma } from '@/lib/prisma';
-import { Prisma, Testimonial } from '@prisma/client';
+import { Prisma, Testimonial } from '@/generated/prisma/client';
 
 const clamp = (v: number, min: number, max: number) => Math.max(min, Math.min(max, v));
 

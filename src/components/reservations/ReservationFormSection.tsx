@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import Section from '../layout/Section';
 import SectionWrapper from '../layout/SectionWrapper';
 import HeaderBlock from '../patterns/HeaderBlock';
-import type { ReservationSlot } from '@prisma/client';
+import type { ReservationSlot } from '@/generated/prisma/client';
 import './ReservationFormSection.css';
 import ReservationForm from './ReservationForm';
 
