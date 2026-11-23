@@ -13,7 +13,7 @@ This document describes the architecture as implemented: folder roles and the ma
 
 ## 1. High-level stack
 
-- **Next.js 15** — App Router only for routing (`src/app/`).
+- **Next.js 16** — App Router only for routing (`src/app/`). Turbopack bundler; ESLint flat config (`eslint.config.mjs`) imports `eslint-config-next/core-web-vitals` and `eslint-config-next/typescript` directly.
 - **TypeScript** — Strict; path alias `@/*` → `src/*`.
 - **Tailwind CSS** — Layout and responsive; visual styles in component CSS files using design tokens from `globals.css`.
 - **Prisma** — PostgreSQL ORM; schema and migrations in `prisma/`.

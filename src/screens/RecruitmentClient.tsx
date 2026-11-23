@@ -2,7 +2,7 @@
 
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Modal from '@/components/ui/Modal';
 import JobApplicationForm from '@/components/recruitment/JobApplicationForm';
@@ -11,11 +11,14 @@ export default function RecruitmentClient() {
   const router = useRouter();
   const search = useSearchParams();
   const applyTitle = search.get('apply');
-  const [isOpen, setOpen] = useState(false);
+  const [isOpen, setOpen] = useState(Boolean(applyTitle));
 
-  useEffect(() => {
+  // Resynchroniser l'ouverture quand le paramètre ?apply change
+  const [lastApplyTitle, setLastApplyTitle] = useState(applyTitle);
+  if (applyTitle !== lastApplyTitle) {
+    setLastApplyTitle(applyTitle);
     setOpen(Boolean(applyTitle));
-  }, [applyTitle]);
+  }
 
   const close = () => {
     setOpen(false);

@@ -63,9 +63,11 @@ export default function Header() {
   }, [isOpen]);
 
   // Fermer le menu quand la route change
-  useEffect(() => {
+  const [lastPathname, setLastPathname] = useState(pathname);
+  if (pathname !== lastPathname) {
+    setLastPathname(pathname);
     closeMenu();
-  }, [pathname]);
+  }
 
   // Bloquer le scroll du body quand le menu mobile est ouvert
   useEffect(() => {

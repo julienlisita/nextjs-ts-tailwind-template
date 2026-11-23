@@ -2,7 +2,7 @@
 
 'use client';
 
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useEffect, useSyncExternalStore } from 'react';
 import { createPortal } from 'react-dom';
 import './Modal.css';
 
@@ -12,12 +12,15 @@ type ModalProps = {
   children: ReactNode;
 };
 
-export default function Modal({ isOpen, onClose, children }: ModalProps) {
-  const [mounted, setMounted] = useState(false);
+const subscribeNoop = () => () => {};
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+export default function Modal({ isOpen, onClose, children }: ModalProps) {
+  // false côté serveur et à l'hydratation, true une fois monté côté client
+  const mounted = useSyncExternalStore(
+    subscribeNoop,
+    () => true,
+    () => false
+  );
 
   // Lock scroll derrière la modale (patch minimal)
   useEffect(() => {

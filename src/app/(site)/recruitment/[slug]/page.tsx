@@ -43,8 +43,6 @@ export async function generateStaticParams() {
   return jobOffers.map((o) => ({ slug: o.slug }));
 }
 
-export const revalidate = 0;
-
 export default async function JobOfferPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const offer = jobOffers.find((o) => o.slug === slug);

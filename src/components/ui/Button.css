@@ -34,8 +34,8 @@
   background-color: var(--btn-glasslight-bg);
   color: var(--btn-glasslight-text);
   border: 1px solid var(--btn-glasslight-border);
-  backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   transition: all 0.25s ease;
 }
 

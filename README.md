@@ -1,12 +1,12 @@
 # Next.js + TypeScript + Tailwind + Prisma Template
 
-Modern fullstack template: **Next.js 15 (App Router)**, **TypeScript**, **Tailwind CSS**, **Prisma** (PostgreSQL). Suited for brochure sites, admin back-offices, and forms with server actions.
+Modern fullstack template: **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS**, **Prisma** (PostgreSQL). Suited for brochure sites, admin back-offices, and forms with server actions.
 
 ---
 
 ## Stack
 
-- [Next.js](https://nextjs.org/) 15 — App Router, Turbopack in dev
+- [Next.js](https://nextjs.org/) 16 — App Router, Turbopack (dev and build)
 - [TypeScript](https://www.typescriptlang.org/) — Strict mode, path alias `@/*` → `src/*`
 - [Tailwind CSS](https://tailwindcss.com/) — Layout and responsive; visual styles in component CSS files with design tokens
 - [Prisma](https://www.prisma.io/) — PostgreSQL ORM
