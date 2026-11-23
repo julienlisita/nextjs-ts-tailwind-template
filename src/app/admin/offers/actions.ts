@@ -50,7 +50,7 @@ export async function upsertJobOfferAction(formData: FormData) {
     });
   }
 
-  revalidatePath('/admin/offres');
+  revalidatePath('/admin/offers');
 }
 
 export async function deleteJobOfferAction(formData: FormData) {
@@ -60,5 +60,5 @@ export async function deleteJobOfferAction(formData: FormData) {
   if (!Number.isFinite(id)) throw new Error('INVALID_ID');
 
   await deleteJobOffer(id);
-  revalidatePath('/admin/offres');
+  revalidatePath('/admin/offers');
 }

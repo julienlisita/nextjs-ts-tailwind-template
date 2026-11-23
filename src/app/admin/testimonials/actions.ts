@@ -49,7 +49,7 @@ const updateSchema = z.object({
   highlight: z.coerce.boolean().optional(),
 });
 
-const R = () => revalidatePath('/admin/temoignages');
+const R = () => revalidatePath('/admin/testimonials');
 
 export async function publishTestimonialAction(formData: FormData) {
   await requireAdminApp();

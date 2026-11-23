@@ -69,7 +69,7 @@ export async function upsertNewsAction(formData: FormData) {
     await createNews(payload);
   }
 
-  revalidatePath('/admin/actualites');
+  revalidatePath('/admin/news');
 }
 
 export async function deleteNewsAction(formData: FormData) {
@@ -78,5 +78,5 @@ export async function deleteNewsAction(formData: FormData) {
   const id = Number(formData.get('id'));
   if (!Number.isFinite(id)) throw new Error('INVALID_ID');
   await deleteNews(id);
-  revalidatePath('/admin/actualites');
+  revalidatePath('/admin/news');
 }
