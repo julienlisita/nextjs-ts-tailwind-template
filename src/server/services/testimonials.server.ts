@@ -23,20 +23,18 @@ export async function getPublicTestimonialsServer(): Promise<ReadonlyArray<Testi
   const rows = await listPublishedTestimonials();
 
   // mapping vers le type front
-  return rows.map(
-    (r): Testimonial => ({
-      id: r.id,
-      name: r.name,
-      role: r.role ?? undefined,
-      company: r.company ?? undefined,
-      quote: r.quote,
-      rating: toNumber(r.rating, 5),
-      avatarUrl: r.avatarUrl ?? undefined,
-      displayDate: r.displayDate ?? undefined,
-      highlight: r.highlight ?? false,
-      variant: isVariant(r.variant) ? r.variant : 'default',
-      isPublished: r.isPublished ?? true,
-      publishedAt: r.publishedAt ? new Date(r.publishedAt).toISOString() : undefined,
-    })
-  );
+  return rows.map((r): Testimonial => ({
+    id: r.id,
+    name: r.name,
+    role: r.role ?? undefined,
+    company: r.company ?? undefined,
+    quote: r.quote,
+    rating: toNumber(r.rating, 5),
+    avatarUrl: r.avatarUrl ?? undefined,
+    displayDate: r.displayDate ?? undefined,
+    highlight: r.highlight ?? false,
+    variant: isVariant(r.variant) ? r.variant : 'default',
+    isPublished: r.isPublished ?? true,
+    publishedAt: r.publishedAt ? new Date(r.publishedAt).toISOString() : undefined,
+  }));
 }
