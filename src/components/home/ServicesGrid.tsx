@@ -2,6 +2,7 @@
 
 import type React from 'react';
 import FeatureCard from '../data-display/FeatureCard';
+import { RevealGroup, RevealItem } from '../animations/RevealGroup';
 import { ICONS, type IconKey } from '@/utils/icons';
 import type { FeatureItem } from '@/types/feature';
 
@@ -36,19 +37,22 @@ export default function ServicesGrid({ items }: Props) {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
+    <RevealGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
       {items.map((s, i) => (
-        <FeatureCard
-          key={s.title ?? i}
-          icon={resolveIcon(s.icon)}
-          title={s.title}
-          description={s.description}
-          href={s.href}
-          variant="gradient"
-          accent="primary"
-          align="center"
-        />
+        // `flex` + `w-full` : la carte reste étirée à la hauteur de la rangée
+        <RevealItem key={s.title ?? i} className="flex">
+          <FeatureCard
+            icon={resolveIcon(s.icon)}
+            title={s.title}
+            description={s.description}
+            href={s.href}
+            variant="gradient"
+            accent="primary"
+            align="center"
+            width="w-full"
+          />
+        </RevealItem>
       ))}
-    </div>
+    </RevealGroup>
   );
 }

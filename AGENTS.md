@@ -49,6 +49,7 @@ Detailed rules are defined in `docs/RULES.md`.
 - Use co-located CSS files for colors, borders, typography, visual effects, and interactive states.
 - Use design tokens defined in `src/app/globals.css`. Avoid hardcoded hexadecimal colors.
 - Do not add Tailwind color classes on the public site. In the administration they are allowed but not required.
+- Scroll-reveal animations use the primitives in `src/components/animations/` (`Reveal`, `RevealGroup` / `RevealItem`, `useGatedInView`) with the constants from `src/lib/motion.ts`. Use one animation layer per element and never nest primitives on the same content.
 - Server Actions must be defined in `actions.ts` near their corresponding routes, validate inputs with Zod, call the appropriate services, and use `redirect()` when necessary.
 - Server Actions that mutate admin data must start with `await requireAdminApp();`.
 - Use the App Router exclusively. The Pages Router is not allowed.

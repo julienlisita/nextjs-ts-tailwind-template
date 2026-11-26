@@ -11,6 +11,7 @@ Modern fullstack template: **Next.js 16 (App Router)**, **TypeScript**, **Tailwi
 - [Tailwind CSS](https://tailwindcss.com/) — Layout and responsive; visual styles in component CSS files with design tokens
 - [Prisma](https://www.prisma.io/) — PostgreSQL ORM
 - [Zod](https://zod.dev/) — Schema validation (e.g. server actions)
+- [Motion](https://motion.dev/) — Scroll-reveal animations (`Reveal`, `RevealGroup` / `RevealItem`)
 - ESLint + Prettier — Lint and format
 
 ---
@@ -159,6 +160,37 @@ Placeholders to replace before publishing a site (search for `exemple.com` in `s
 - The Pages Router is not used in this template.
 
 For strict project rules and conventions, see **`docs/RULES.md`**. For architecture, folders, and data flows, see **`docs/ARCHITECTURE.md`**.
+
+---
+
+## Scroll animations
+
+Elements can fade in when they scroll into view, using [Motion](https://motion.dev/) (`motion/react`). The primitives live in `src/components/animations/` and their constants (easing, durations, distances, stagger) in `src/lib/motion.ts`. The home page shows two examples: the services grid (`RevealGroup` / `RevealItem`) and the final call to action (`Reveal`).
+
+- Content is visible in the server HTML and on the first render (no JavaScript needed, no impact on LCP). After hydration, only elements entirely below the viewport are hidden, then revealed when they enter it.
+- The "reduce motion" system preference is applied by `MotionProvider`, mounted in `src/app/(site)/layout.tsx`: no translation or scale, no delay, a fade of 0.2 s at most.
+- A hidden element that receives keyboard focus becomes visible immediately.
+- One animation layer per element: never nest `Reveal` / `RevealGroup` on the same content. For a group taller than the screen, use `amount="some"`.
+
+```tsx
+// One block
+<Reveal as="section" className="py-12">…</Reveal>
+
+// A staggered group (a grid, or <ul> / <li> for a list)
+<RevealGroup as="ul" className="grid gap-4 sm:grid-cols-2">
+  {items.map((item) => (
+    <RevealItem as="li" key={item.id}>…</RevealItem>
+  ))}
+</RevealGroup>
+
+// Custom animation: props to spread on a motion.* element
+const props = useGatedInView({
+  from: { opacity: 0, x: -24 },
+  to: { opacity: 1, x: 0 },
+  transition: { duration: DURATION.base, ease: EASE },
+});
+return <motion.div {...props}>…</motion.div>;
+```
 
 ---
 

@@ -68,11 +68,12 @@ nextjs-ts-tailwind-template/
 
 ### 2.3 `src/components/`
 
-- **Organization**: By feature or type: `about/`, `admin/`, `contact/`, `data-display/`, `form/`, `home/`, `layout/`, `navigation/`, `news/`, `patterns/`, `portfolio/`, `recruitment/`, `reservations/`, `services/`, `testimonials/`, `ui/`.
+- **Organization**: By feature or type: `about/`, `admin/`, `animations/`, `contact/`, `data-display/`, `form/`, `home/`, `layout/`, `navigation/`, `news/`, `patterns/`, `portfolio/`, `recruitment/`, `reservations/`, `services/`, `testimonials/`, `ui/`.
 - **Pattern**: Components that need custom styles have a co-located `.css` file (e.g. `Button.tsx` + `Button.css`). Layout/responsive via Tailwind (in JSX or `@apply` in CSS); colors, borders, states in CSS using `globals.css` tokens.
 - **`ui/`**: Low-level primitives (Button, Eyebrow, Lead, Modal, PageTitle, Paragraph, Prose, SectionTitle, Subtitle, SubmitButton).
 - **`layout/`**: Header, Footer, Section, SectionWrapper, Split, HeaderOffsetSync.
 - **`patterns/`**: Reusable sections (Cta, FeaturesGrid, HeaderBlock, PageHero, SplitSection, ActionsStack).
+- **`animations/`**: Scroll-reveal client components built on Motion (`motion/react`): `Reveal`, `RevealGroup` / `RevealItem`, the `useRevealGate` and `useGatedInView` hooks, and `MotionProvider` (`MotionConfig reducedMotion="user"`, mounted by `app/(site)/layout.tsx`). Each primitive renders a single element chosen with `as` (tags listed in `motionTags.ts`). Content is rendered visible on the server and on first client render; only elements entirely below the viewport are hidden after mount, then revealed on entry. Pass server-rendered content as `children`; never pass functions or icon registries across the client boundary. One animation layer per element: do not nest primitives on the same content.
 
 ### 2.4 `src/server/`
 
@@ -89,7 +90,7 @@ nextjs-ts-tailwind-template/
 - **`config/dataMode.ts`**: `DATA_MODE` = `'static' | 'db'` from env (`NEXT_PUBLIC_DATA_MODE` or `DATA_MODE`). `IS_DB` drives whether server adapters use DB or static data.
 - **`config/site.ts`**: `SITE_URL` from `NEXT_PUBLIC_SITE_URL` (trailing slash removed; falls back to a placeholder domain). Used by `app/metadata.ts` (`metadataBase`) and by `app/sitemap.ts` / `app/robots.ts`, which generate `/sitemap.xml` and `/robots.txt`. Page `canonical` values are relative paths resolved against `metadataBase`.
 - **`data/`**: Static arrays/objects (e.g. `news.ts`, `testimonials.ts`, `jobOffers.ts`) used when `IS_DB` is false. `projects.ts` (portfolio) is static-only and served in both modes. Types in `src/types/` align with these and with Prisma-backed responses.
-- **`lib/`**: `prisma.ts` (singleton client), `jwt.ts`, `auth-cookies.ts`, `resolveColor.ts` (resolves a token name or CSS color for the `bgColor` / `color` props of `Section` and `PageTitle`).
+- **`lib/`**: `prisma.ts` (singleton client), `jwt.ts`, `auth-cookies.ts`, `motion.ts` (animation constants: easing, durations, distances, viewport, stagger; no `"use client"`, importable from Server and Client Components), `resolveColor.ts` (resolves a token name or CSS color for the `bgColor` / `color` props of `Section` and `PageTitle`).
 - **`types/`**: Shared types (e.g. `news.ts`, `testimonial.ts`, `job.ts`, `project.ts`, `feature.ts`); `next.d.ts` for Next-specific types.
 - **`utils/`**: Pure helpers (e.g. `align.ts`, `icons.ts`).
 
