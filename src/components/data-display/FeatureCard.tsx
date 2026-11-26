@@ -43,6 +43,19 @@ type FeatureCardProps = {
   styleVars?: StyleVars;
 };
 
+type IconComponent = React.ComponentType<React.SVGProps<SVGSVGElement>>;
+
+/**
+ * Distingue un TYPE de composant (fonction, forwardRef, memo) d'un nœud déjà prêt à rendre.
+ * Une icône créée dans un Server Component (`<Icon />`) arrive ici sous forme d'élément React,
+ * ou d'objet `lazy` fabriqué par le flux RSC selon le découpage du flux : dans les deux cas
+ * elle se rend telle quelle comme enfant, et ne doit jamais passer par `createElement`.
+ */
+function isComponentType(value: unknown): value is IconComponent {
+  if (typeof value === 'function') return true;
+  return typeof value === 'object' && value !== null && ('render' in value || 'compare' in value);
+}
+
 export default function FeatureCard({
   icon,
   title,
@@ -82,13 +95,13 @@ export default function FeatureCard({
   const renderIcon = () =>
     icon ? (
       <div className={clsx('feature-card__icon', alignClasses.self)}>
-        {React.isValidElement(icon)
-          ? icon
-          : React.createElement(icon as React.ComponentType<React.SVGProps<SVGSVGElement>>, {
+        {isComponentType(icon)
+          ? React.createElement(icon, {
               className: 'feature-card__icon-inner',
               focusable: false,
               'aria-hidden': true,
-            })}
+            })
+          : icon}
       </div>
     ) : null;
 
